@@ -1,0 +1,750 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>J2EE-Hibernate的核心接口 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J2EE-Hibernate的核心接口">
+<meta property="og:url" content="https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+<meta property="og:updated_time" content="2017-01-25T09:21:36.221Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="J2EE-Hibernate的核心接口">
+<meta name="twitter:description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/01/25/J2EE-Hibernate的核心接口/" title="J2EE-Hibernate的核心接口" itemprop="url">J2EE-Hibernate的核心接口</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-01-25T09:02:35.871Z" itemprop="datePublished"> 发表于 2017-01-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuration接口"><span class="toc-number">2.</span> <span class="toc-text">Configuration接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SessionFactory接口"><span class="toc-number">3.</span> <span class="toc-text">SessionFactory接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Session接口"><span class="toc-number">4.</span> <span class="toc-text">Session接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transaction接口"><span class="toc-number">5.</span> <span class="toc-text">Transaction接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Query和Criteria接口（也叫条件查询接口）"><span class="toc-number">6.</span> <span class="toc-text">Query和Criteria接口（也叫条件查询接口）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">7.</span> <span class="toc-text">原文链接</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。</p>
+</blockquote>
+<p>所有的Hibernate应用都会访问它的5个核心接口，分别如下：</p>
+<ul>
+<li>Configuration接口：</li>
+<li>SessionFactory接口：</li>
+<li>Session接口：</li>
+<li>Transaction接口：</li>
+</ul>
+<h1 id="Configuration接口"><a href="#Configuration接口" class="headerlink" title="Configuration接口"></a>Configuration接口</h1><blockquote>
+<p><strong>Configuration用于配置并启动Hibernate。Hibernate应用通过Configuration的实例来指定对象-关系映射文件</strong> ,或通过Configuration动态配置Hibernate的属性，然后通过Configuration来创建相应的SessionFactory实例。Configuration实例是什么时候指定ORM文件的地址的呢？我们可以查看Configuration的源代码，它的configure()方法是这样实现的：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Configuration <span class="title">configure</span><span class="params">()</span> <span class="keyword">throws</span> HibernateException </span>&#123;</div><div class="line">       configure( <span class="string">"/hibernate.cfg.xml"</span> );<span class="comment">//此处指定了ORM文件的位置</span></div><div class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>原来它是在这里指定了ORM文件的位置，<strong>这就是为什么Hibernate总是默认到classpath下去寻找hibernate.cfg.xml 文件的原因了。</strong>  <font color="red">实际上我们还可以通过configure(String resource)来动态的指定配置文件</font>，只不过通常我们都是采用的默认设置罢了。这样的话我们的配置文件就都被读取了，同时配置文件中通 过<mapping>元素引入的映射文件也被读取了。</mapping></p>
+<h1 id="SessionFactory接口"><a href="#SessionFactory接口" class="headerlink" title="SessionFactory接口"></a>SessionFactory接口</h1><p>一个SessionFactory对应一个数据源，它是个重量级对象，不可随意生成多个实例。对于一般的单数据库应用来说，只需要一个 SessionFactory就足够了。当然如果有多个数据库的话，还是需要为每个数据库生成对应的SessionFactory？一般而言，<strong>一个SessionFactory对象就代表一个数据库存储源</strong>。它是线程安全的，同一 个实例可以被应用中的多个线程共享。由此我们看出SessionFactory具备如下两个特点：</p>
+<ol>
+<li>线程安全。整个应用共用一个SessionFactory实例。</li>
+<li>重量级。在SessionFactory中存放了Hibernate配置信息以及映射元素据信息，这些都需要很大的缓存。<br><strong>一般来说，SessionFactory的主要作用就是创建Session对象，所有的线程都是从SessionFactory中获取Session对象来处理客户请求的。</strong></li>
+</ol>
+<blockquote>
+<p>也许你会很好奇，SessionFactory为什么是重量级对象呢？我也同样好奇，通过查看Hibernate的源码，发现 SessionFactory存放了大量预定义的SQL语句以及映射元数据，所以自然需要很大的缓存了，同时需要一定的CPU时间来计算生成。想想 Hibernate的这个设计是很有意义的，因为有了Mapping文件，很多SQL语句就已经确定了，只需要动态生成一次就可以了，这个设计也是为了提 高持久化的效率。</p>
+</blockquote>
+<h1 id="Session接口"><a href="#Session接口" class="headerlink" title="Session接口"></a>Session接口</h1><p>从SessionFactory中可以获得Session实例。<br>Session接口是Hibernate应用中使用最广泛的接口了，<strong>它是持久化管理器，提供添加、更新、删除、加载、查询对象</strong>。Session的每个方法都值得我们去研究和探讨，不过最常用的还是save、saveOrUpdate、update、delete、createQuery等方法了，关于Session是如何作用的以及它的工作原理在以后的实践中再一步一步的进行学习和探讨！！<strong>Session不是线程安 全的，所以应避免多个线程共享同一个Session实例。</strong>Session是轻量级对象，它的创建和销毁不需要太多资源，这意味着在应用中可以经常创建和销 毁Session对象。<br>Session有一个缓存，称之为Hibernate的一级缓存，它存放当前工作单元加载的持久化对象，每个Session都有自己的缓存，缓存中的对象只能被当前工作单元访问。</p>
+<h1 id="Transaction接口"><a href="#Transaction接口" class="headerlink" title="Transaction接口"></a>Transaction接口</h1><p>Transaction是Hibernate的数据库事务接口，它对底层的事务接口进行了封装，底层事务接口包括:</p>
+<ul>
+<li>JDBC API</li>
+<li>JTA(Java Transaction API)</li>
+<li>CORBA(Common Object Requet Broker Architecture) API<br>Hibernate应用可以通过一致Transaction接口来声明事务边界，这有助于应用可以在不同的环境或容器中移植。具体的事务实现使用在Hibernate.properties中进行指定。</li>
+</ul>
+<h1 id="Query和Criteria接口（也叫条件查询接口）"><a href="#Query和Criteria接口（也叫条件查询接口）" class="headerlink" title="Query和Criteria接口（也叫条件查询接口）"></a>Query和Criteria接口（也叫条件查询接口）</h1><p><strong>这两个是Hibernate的查询接口，用于向数据库查询对象，以及控制执行查询的过程。</strong>Query实例包装了一个HQL(Hibernate Query Language)来查询。Criteria接口完全封装了基于字符串形式的查询语句，比Query更面向对象，Criteria更擅长执行动态查询。</p>
+<ul>
+<li>标准化对象查询(Criteria Query)：以对象的方式进行查询，将查询语句封装为对象操作。优点：可读性好，符合Java 程序员的编码习惯。缺点：不够成熟，不支持投影（projection）或统计函数（aggregation）</li>
+<li>Hibernate语言查询（Hibernate Query Language，HQL）：它是完全面向对象的查询语句，查询功能非常强大，具备继承、多态和关联等特性 。Hibernate官方推荐使用HQL进行查询。</li>
+</ul>
+<blockquote>
+<p>以上为5个核心接口，当然Hibernate不仅仅只有这5个接口了，还有回调接口、映射类型接口、可扩展的接口等等，但这些接口不同于以上的5个核心接口，因为这些接口在一般的Hibernate中不一定能用到，所以暂不提及，在以后的高级应用中再做详述吧。</p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p>请参考  <a href="http://blog.sina.com.cn/s/blog_7ffb8dd501014372.html" target="_blank" rel="external">Hibernate的核心接口</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/" data-title="J2EE-Hibernate的核心接口 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/01/25/J2EE-Hibernate-Session/" title="J2EE-Hibernate-Session的缓存及对象的状态">
+  <strong>上一篇：</strong><br/>
+  <span>
+  J2EE-Hibernate-Session的缓存及对象的状态</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/01/25/J2EE-Hibernate数据源配置/"  title="J2EE-Hibernate数据源配置">
+ <strong>下一篇：</strong><br/> 
+ <span>J2EE-Hibernate数据源配置
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/01/25/J2EE-Hibernate的核心接口/" data-title="J2EE-Hibernate的核心接口" data-url="https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#简介"><span class="toc-number">1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Configuration接口"><span class="toc-number">2.</span> <span class="toc-text">Configuration接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SessionFactory接口"><span class="toc-number">3.</span> <span class="toc-text">SessionFactory接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Session接口"><span class="toc-number">4.</span> <span class="toc-text">Session接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Transaction接口"><span class="toc-number">5.</span> <span class="toc-text">Transaction接口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Query和Criteria接口（也叫条件查询接口）"><span class="toc-number">6.</span> <span class="toc-text">Query和Criteria接口（也叫条件查询接口）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">7.</span> <span class="toc-text">原文链接</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

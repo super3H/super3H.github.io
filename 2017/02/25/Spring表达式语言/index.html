@@ -1,0 +1,759 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>Spring表达式语言 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="前言
+Spring EL与OGNL和JSF EL相似，计算评估或在bean创建时执行。此外，所有的Spring表达式都可以通过XML或注解。在本教程中，我们将学习如何使用Spring表达式语言(SpEL)，注入字符串，整数，Bean到属性，无论是在XML和注释。
+
+Spring Beans
+两个简单Bean，后来利用 SpEL 注入值到属性，在 XML 和 注释。
+
+123456789packag">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring表达式语言">
+<meta property="og:url" content="https://super3h.me/2017/02/25/Spring表达式语言/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="前言
+Spring EL与OGNL和JSF EL相似，计算评估或在bean创建时执行。此外，所有的Spring表达式都可以通过XML或注解。在本教程中，我们将学习如何使用Spring表达式语言(SpEL)，注入字符串，整数，Bean到属性，无论是在XML和注释。
+
+Spring Beans
+两个简单Bean，后来利用 SpEL 注入值到属性，在 XML 和 注释。
+
+123456789packag">
+<meta property="og:updated_time" content="2017-02-25T05:13:40.652Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring表达式语言">
+<meta name="twitter:description" content="前言
+Spring EL与OGNL和JSF EL相似，计算评估或在bean创建时执行。此外，所有的Spring表达式都可以通过XML或注解。在本教程中，我们将学习如何使用Spring表达式语言(SpEL)，注入字符串，整数，Bean到属性，无论是在XML和注释。
+
+Spring Beans
+两个简单Bean，后来利用 SpEL 注入值到属性，在 XML 和 注释。
+
+123456789packag">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/25/Spring表达式语言/" title="Spring表达式语言" itemprop="url">Spring表达式语言</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-25T03:07:16.141Z" itemprop="datePublished"> 发表于 2017-02-25</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Beans"><span class="toc-number">2.</span> <span class="toc-text">Spring Beans</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL以XML形式"><span class="toc-number">3.</span> <span class="toc-text">Spring EL以XML形式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL以注解形式"><span class="toc-number">4.</span> <span class="toc-text">Spring EL以注解形式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析"><span class="toc-number">4.1.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行输出"><span class="toc-number">4.2.</span> <span class="toc-text">执行输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细内容"><span class="toc-number">4.3.</span> <span class="toc-text">详细内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL方法调用实例"><span class="toc-number">5.</span> <span class="toc-text">Spring EL方法调用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析-1"><span class="toc-number">5.1.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细内容-1"><span class="toc-number">5.2.</span> <span class="toc-text">详细内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL运算符"><span class="toc-number">6.</span> <span class="toc-text">Spring EL运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">6.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析-2"><span class="toc-number">6.2.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详情链接"><span class="toc-number">6.3.</span> <span class="toc-text">详情链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多详情内容"><span class="toc-number">7.</span> <span class="toc-text">更多详情内容</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>Spring EL与OGNL和JSF EL相似，计算评估或在bean创建时执行。此外，<em>所有的Spring表达式都可以通过XML或注解。</em><br>在本教程中，我们将学习如何使用Spring表达式语言(SpEL)，注入字符串，整数，Bean到属性，无论是在XML和注释。</p>
+</blockquote>
+<h1 id="Spring-Beans"><a href="#Spring-Beans" class="headerlink" title="Spring Beans"></a>Spring Beans</h1><blockquote>
+<p>两个简单Bean，后来利用 SpEL 注入值到属性，在 XML 和 注释。</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> Item item;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> String itemName;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> qty;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h1 id="Spring-EL以XML形式"><a href="#Spring-EL以XML形式" class="headerlink" title="Spring EL以XML形式"></a>Spring EL以XML形式</h1><blockquote>
+<p>使用 SpEL关闭的#{ SpEL expression }括号，请参阅XML bean定义文件下面的例子。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">	xsi:schemaLocation="http://www.springframework.org/schema/beans</div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;bean id="itemBean" class="com.yiibai.core.Item"&gt;</div><div class="line">		&lt;property name="name" value="itemA" /&gt;</div><div class="line">		&lt;property name="qty" value="10" /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id="customerBean" class="com.yiibai.core.Customer"&gt;</div><div class="line">		&lt;property name="item" value="#&#123;itemBean&#125;" /&gt;</div><div class="line">		&lt;property name="itemName" value="#&#123;itemBean.name&#125;" /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<ul>
+<li><code>#{itemBean}</code>: 注入<code>“itemBean”</code>到<code>“customerBean”</code>Bean 的<code>“item”</code>属性。</li>
+<li><code>#{itemBean.name}</code>: 注入<code>“itemBean”</code>的<code>“name”</code>属性到 <code>“customerBean&quot;</code>bean的<code>&quot;itemname”</code>属性。</li>
+</ul>
+<h1 id="Spring-EL以注解形式"><a href="#Spring-EL以注解形式" class="headerlink" title="Spring EL以注解形式"></a>Spring EL以注解形式</h1><h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><blockquote>
+<p>要在注解使用使用SpEL，<strong>必须通过注解注册您的组件。如果注册bean在XML和Java类中定义@Value，该@Value将无法执行。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(<span class="string">"customerBean"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;itemBean&#125;"</span>)</div><div class="line">	<span class="keyword">private</span> Item item;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;itemBean.name&#125;"</span>)</div><div class="line">	<span class="keyword">private</span> String itemName;</div><div class="line"></div><div class="line">	<span class="comment">//...</span></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(<span class="string">"itemBean"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Item</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"itemA"</span>) <span class="comment">//inject String directly</span></div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"10"</span>) <span class="comment">//inject interger directly</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> qty;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>启用自动组件扫描。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> </div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context-3.0.xsd"&gt;</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"com.yiibai.core"</span> /&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>在注解模式下，可以使用<code>@Value</code>定义Spring EL。在这种情况下，一个String和Integer值直接注入到“itemBean”，之后又注入“itemBean”到“customerBean”属性。</p>
+</blockquote>
+<h2 id="执行输出"><a href="#执行输出" class="headerlink" title="执行输出"></a>执行输出</h2><blockquote>
+<p>运行它，无论是使用 SpEL在XML 还是注释都显示了同样的结果：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">	    ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line"></div><div class="line">	    Customer obj = (Customer) context.getBean(<span class="string">"customerBean"</span>);</div><div class="line">	    System.out.println(obj);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>输出结果<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Customer [item=Item [name=itemA, qty=<span class="number">10</span>], itemName=itemA]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="详细内容"><a href="#详细内容" class="headerlink" title="详细内容"></a>详细内容</h2><p><a href="http://www.yiibai.com/spring/spring-el-hello-world-example.html" target="_blank" rel="external">Spring EL hello world</a></p>
+<h1 id="Spring-EL方法调用实例"><a href="#Spring-EL方法调用实例" class="headerlink" title="Spring EL方法调用实例"></a>Spring EL方法调用实例</h1><h2 id="代码解析-1"><a href="#代码解析-1" class="headerlink" title="代码解析"></a>代码解析</h2><blockquote>
+<p>了解如何实现Spring EL方法调用与@Value注释<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(<span class="string">"customerBean"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;'yiibai'.toUpperCase()&#125;"</span>)</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;priceBean.getSpecialPrice()&#125;"</span>)</div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> amount;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getAmount</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> amount;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAmount</span><span class="params">(<span class="keyword">double</span> amount)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.amount = amount;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Customer [name="</span> + name + <span class="string">", amount="</span> + amount + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(<span class="string">"priceBean"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Price</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">double</span> <span class="title">getSpecialPrice</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> Double(<span class="number">199.09</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<ul>
+<li>输出<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Customer [name=YIIBAI, amount=<span class="number">199.09</span>]</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="详细内容-1"><a href="#详细内容-1" class="headerlink" title="详细内容"></a>详细内容</h2><p><a href="http://www.yiibai.com/spring/spring-el-method-invocation-example.html" target="_blank" rel="external">Spring EL方法调用实例</a></p>
+<h1 id="Spring-EL运算符"><a href="#Spring-EL运算符" class="headerlink" title="Spring EL运算符"></a>Spring EL运算符</h1><h2 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h2><ul>
+<li>Spring EL支持大多数标准的数学，逻辑和关系运算符。 例如，<ul>
+<li><code>关系运算符:</code> 等于 (==, eq), 不等于 (!=, ne), 小于 (&lt;, lt), 小于或等于 (&lt;= , le), 大于 (&gt;, gt), 和大于或等于 (&gt;=, ge).</li>
+<li><code>逻辑运算符:</code>且, 或, 非 (!).</li>
+<li><code>数学运算符:</code>加法(+), 减法 (-), 乘法 (*), 除法(/), 除模(%) 和指数幂 (^).</li>
+</ul>
+</li>
+</ul>
+<h2 id="代码解析-2"><a href="#代码解析-2" class="headerlink" title="代码解析"></a>代码解析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.core;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Value;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Component;</div><div class="line"></div><div class="line"><span class="meta">@Component</span>(<span class="string">"customerBean"</span>)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="comment">//Relational operators</span></div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 == 1&#125;"</span>) <span class="comment">//true</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testEqual;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 != 1&#125;"</span>) <span class="comment">//false</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testNotEqual;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 &lt; 1&#125;"</span>) <span class="comment">//false</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testLessThan;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 &lt;= 1&#125;"</span>) <span class="comment">//true</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testLessThanOrEqual;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 &gt; 1&#125;"</span>) <span class="comment">//false</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testGreaterThan;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 &gt;= 1&#125;"</span>) <span class="comment">//true</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testGreaterThanOrEqual;</div><div class="line"></div><div class="line">	<span class="comment">//Logical operators , numberBean.no == 999</span></div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;numberBean.no == 999 and numberBean.no &lt; 900&#125;"</span>) <span class="comment">//false</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testAnd;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;numberBean.no == 999 or numberBean.no &lt; 900&#125;"</span>) <span class="comment">//true</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testOr;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;!(numberBean.no == 999)&#125;"</span>) <span class="comment">//false</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">boolean</span> testNot;</div><div class="line"></div><div class="line">	<span class="comment">//Mathematical operators</span></div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 + 1&#125;"</span>) <span class="comment">//2.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testAdd;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;'1' + '@' + '1'&#125;"</span>) <span class="comment">//1@1</span></div><div class="line">	<span class="keyword">private</span> String testAddString;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 - 1&#125;"</span>) <span class="comment">//0.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testSubtraction;</div><div class="line"></div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;1 * 1&#125;"</span>) <span class="comment">//1.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testMultiplication;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;10 / 2&#125;"</span>) <span class="comment">//5.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testDivision;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;10 % 10&#125;"</span>) <span class="comment">//0.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testModulus ;</div><div class="line">	</div><div class="line">	<span class="meta">@Value</span>(<span class="string">"#&#123;2 ^ 2&#125;"</span>) <span class="comment">//4.0</span></div><div class="line">	<span class="keyword">private</span> <span class="keyword">double</span> testExponentialPower;</div><div class="line"></div><div class="line">	<span class="meta">@Override</span></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Customer [testEqual="</span> + testEqual + <span class="string">", testNotEqual="</span></div><div class="line">				+ testNotEqual + <span class="string">", testLessThan="</span> + testLessThan</div><div class="line">				+ <span class="string">", testLessThanOrEqual="</span> + testLessThanOrEqual</div><div class="line">				+ <span class="string">", testGreaterThan="</span> + testGreaterThan</div><div class="line">				+ <span class="string">", testGreaterThanOrEqual="</span> + testGreaterThanOrEqual</div><div class="line">				+ <span class="string">", testAnd="</span> + testAnd + <span class="string">", testOr="</span> + testOr + <span class="string">", testNot="</span></div><div class="line">				+ testNot + <span class="string">", testAdd="</span> + testAdd + <span class="string">", testAddString="</span></div><div class="line">				+ testAddString + <span class="string">", testSubtraction="</span> + testSubtraction</div><div class="line">				+ <span class="string">", testMultiplication="</span> + testMultiplication</div><div class="line">				+ <span class="string">", testDivision="</span> + testDivision + <span class="string">", testModulus="</span></div><div class="line">				+ testModulus + <span class="string">", testExponentialPower="</span></div><div class="line">				+ testExponentialPower + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="详情链接"><a href="#详情链接" class="headerlink" title="详情链接"></a>详情链接</h2><p><a href="http://www.yiibai.com/spring/spring-el-operators-example.html" target="_blank" rel="external">Spring EL运算符实例</a></p>
+<h1 id="更多详情内容"><a href="#更多详情内容" class="headerlink" title="更多详情内容"></a>更多详情内容</h1><p><a href="http://www.yiibai.com/spring/spring-el-lists-maps-example.html" target="_blank" rel="external">Spring EL Lists,Maps实例</a><br><a href="http://www.yiibai.com/spring/spring-el-regular-expression-example.html" target="_blank" rel="external">Spring EL正则表达式实例</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/spring/">spring</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/02/25/Spring表达式语言/" data-title="Spring表达式语言 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/02/25/Spring AOP+AspectJ/" title="Spring AOP+AspectJ">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Spring AOP+AspectJ</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/25/Spring自动扫描组件/"  title="Spring自动扫描组件">
+ <strong>下一篇：</strong><br/> 
+ <span>Spring自动扫描组件
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/25/Spring表达式语言/" data-title="Spring表达式语言" data-url="https://super3h.me/2017/02/25/Spring表达式语言/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-Beans"><span class="toc-number">2.</span> <span class="toc-text">Spring Beans</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL以XML形式"><span class="toc-number">3.</span> <span class="toc-text">Spring EL以XML形式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL以注解形式"><span class="toc-number">4.</span> <span class="toc-text">Spring EL以注解形式</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析"><span class="toc-number">4.1.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#执行输出"><span class="toc-number">4.2.</span> <span class="toc-text">执行输出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细内容"><span class="toc-number">4.3.</span> <span class="toc-text">详细内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL方法调用实例"><span class="toc-number">5.</span> <span class="toc-text">Spring EL方法调用实例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析-1"><span class="toc-number">5.1.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详细内容-1"><span class="toc-number">5.2.</span> <span class="toc-text">详细内容</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring-EL运算符"><span class="toc-number">6.</span> <span class="toc-text">Spring EL运算符</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#简介"><span class="toc-number">6.1.</span> <span class="toc-text">简介</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#代码解析-2"><span class="toc-number">6.2.</span> <span class="toc-text">代码解析</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#详情链接"><span class="toc-number">6.3.</span> <span class="toc-text">详情链接</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#更多详情内容"><span class="toc-number">7.</span> <span class="toc-text">更多详情内容</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

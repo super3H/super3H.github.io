@@ -1,0 +1,746 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>spring-xmlns,xmlns:xsi和xsi:schemaLocation | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="前言
+相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XML文档头拷贝过来，并没有理解其中元素（比 如xmlns，xmlns:xsi，xsi:schemaLocation）的真正含义，不知道哪些元素是多余的，也不知道为什么要加那些元素。这样当有 时候网上Copy的XML头有错的时候自己却不知道怎么下手。我也是这样的，于是今天花了点时间好好的理解">
+<meta property="og:type" content="article">
+<meta property="og:title" content="spring-xmlns,xmlns:xsi和xsi:schemaLocation">
+<meta property="og:url" content="https://super3h.me/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="前言
+相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XML文档头拷贝过来，并没有理解其中元素（比 如xmlns，xmlns:xsi，xsi:schemaLocation）的真正含义，不知道哪些元素是多余的，也不知道为什么要加那些元素。这样当有 时候网上Copy的XML头有错的时候自己却不知道怎么下手。我也是这样的，于是今天花了点时间好好的理解">
+<meta property="og:updated_time" content="2017-02-24T12:46:14.995Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="spring-xmlns,xmlns:xsi和xsi:schemaLocation">
+<meta name="twitter:description" content="前言
+相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XML文档头拷贝过来，并没有理解其中元素（比 如xmlns，xmlns:xsi，xsi:schemaLocation）的真正含义，不知道哪些元素是多余的，也不知道为什么要加那些元素。这样当有 时候网上Copy的XML头有错的时候自己却不知道怎么下手。我也是这样的，于是今天花了点时间好好的理解">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/" title="spring-xmlns,xmlns:xsi和xsi:schemaLocation" itemprop="url">spring-xmlns,xmlns:xsi和xsi:schemaLocation</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-24T12:13:43.477Z" itemprop="datePublished"> 发表于 2017-02-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#案例"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要xmlns？"><span class="toc-number">3.</span> <span class="toc-text">为什么需要xmlns？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何是用xmlns？"><span class="toc-number">4.</span> <span class="toc-text">如何是用xmlns？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xmlns和xmlns-xsi有什么不同？"><span class="toc-number">5.</span> <span class="toc-text">xmlns和xmlns:xsi有什么不同？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xsi-schemaLocation有何作用？"><span class="toc-number">6.</span> <span class="toc-text">xsi:schemaLocation有何作用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">7.</span> <span class="toc-text">原文链接</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p><em>相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XML文档头拷贝过来，并没有理解其中元素（比 如xmlns，xmlns:xsi，xsi:schemaLocation）的真正含义，不知道哪些元素是多余的，也不知道为什么要加那些元素。这样当有 时候网上Copy的XML头有错的时候自己却不知道怎么下手。我也是这样的，于是今天花了点时间好好的理解了一下这些元素及其用法，现整理与此。</em></p>
+</blockquote>
+<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><blockquote>
+<p>话不多说，先来一段Spring的XML样本，相信大家都很眼熟：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">                           http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">                           http://www.springframework.org/schema/context </div><div class="line">                           http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">                           http://www.springframework.org/schema/mvc</div><div class="line">                           http://www.springframework.org/schema/mvc/spring-mvc.xsd"&gt;</div><div class="line">                           </div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"xxx.xxx.controller"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/images/**"</span> <span class="attr">location</span>=<span class="string">"/images/"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"xxx"</span> <span class="attr">class</span>=<span class="string">"xxx.xxx.xxx.Xxx"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"xxx"</span> <span class="attr">value</span>=<span class="string">"xxxx"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>这 个文档中，根元素<beans>就不用说了，接下来是xmlns。那么什么是xmlns呢？<font color="#FF899C">xmlns其实是XML Namespace的缩写，可译为“XML命名空间”，但个人觉得，翻译后的名字反而不好理解，所以我们就叫它为XML Namespace吧。</font></beans></p>
+</blockquote>
+<h1 id="为什么需要xmlns？"><a href="#为什么需要xmlns？" class="headerlink" title="为什么需要xmlns？"></a>为什么需要xmlns？</h1><blockquote>
+<p>考虑这样两个XML文档：表示HTML表格元素的<code>&lt;table/&gt;</code>：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Bananas<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>和描述一张桌子的<code>&lt;table/&gt;</code>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>African Coffee Table<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">width</span>&gt;</span>80<span class="tag">&lt;/<span class="name">width</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">length</span>&gt;</span>120<span class="tag">&lt;/<span class="name">length</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><em>假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 <code>&lt;table&gt;</code>元素，就会发生命名冲突。XML 解析器是无法确定如何处理这类冲突。为了解决上述问题，xmlns就产生了。</em></p>
+</blockquote>
+<h1 id="如何是用xmlns？"><a href="#如何是用xmlns？" class="headerlink" title="如何是用xmlns？"></a>如何是用xmlns？</h1><blockquote>
+<p>很简单，使用语法：<code>xmlns:namespace-prefix=&quot;namespaceURI&quot;</code>。其中<font color="#42CA98">namespace-prefix为自定义前缀，只要在这个XML文档中保证前缀不重复即可；namespaceURI是这个前缀对应的XML Namespace的定义。</font>例如，<br><figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></div></pre></td></tr></table></figure></p>
+<p>这一句定义了一个<a href="http://www.springframwork.org/schema/context的Namespace（这和Java类中的包的声明很相似），并将其和前缀context绑定。所以上面的Spring" target="_blank" rel="external">http://www.springframwork.org/schema/context的Namespace（这和Java类中的包的声明很相似），并将其和前缀context绑定。所以上面的Spring</a> XML文档中会有这么一句：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"xxx.xxx.controller"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+<font color="#42CA98">这里的<component-scan>元素就来自别名为context的XML Namespace，也就是在<a href="http://www.springframework.org/schema/context中定义的。" target="_blank" rel="external">http://www.springframework.org/schema/context中定义的。</a></component-scan></font>
+
+</blockquote>
+<ul>
+<li>我们还可以将前缀定义为abc：<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:abc=<span class="string">"namespaceURI"</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这样再使用这个namespaceURI中的元素时，需要以abc为前缀，例如：<code>&lt;abc:xxx/&gt;</code>。再拿上面的例子解释怎么使用xmlns：</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里xmlns:h="url1"表示这个table是用h作为标记，table的写法在url1中定义 --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h:table</span> <span class="attr">xmlns:h</span>=<span class="string">"url1"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">h:tr</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">h:td</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">h:td</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">h:td</span>&gt;</span>Bananas<span class="tag">&lt;/<span class="name">h:td</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;/<span class="name">h:tr</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">h:table</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里xmlns:f="url2"表示这个table是用f作为标记，table的写法在url2中定义 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">f:table</span> <span class="attr">xmlns:f</span>=<span class="string">"url2"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:name</span>&gt;</span>African Coffee Table<span class="tag">&lt;/<span class="name">f:name</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:width</span>&gt;</span>80<span class="tag">&lt;/<span class="name">f:width</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:length</span>&gt;</span>120<span class="tag">&lt;/<span class="name">f:length</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">f:table</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><font color="#7030A0">后者与前者仅仅使用不同前缀，我们为<code>&lt;table&gt;</code>标签添加了一个 xmlns 属性，这样就为前缀赋予了一个与某个命名空间相关联的限定名称。</font>此时再把它们放在一起，XML解析器就不会报错了。</p>
+</blockquote>
+<h1 id="xmlns和xmlns-xsi有什么不同？"><a href="#xmlns和xmlns-xsi有什么不同？" class="headerlink" title="xmlns和xmlns:xsi有什么不同？"></a>xmlns和xmlns:xsi有什么不同？</h1><ul>
+<li>xmlns表示默认的Namespace。例如Spring XML文档中的:<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns="http://www.springframework.org/schema/beans"</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<ul>
+<li>这一句表示该文档默认的XML Namespace为<a href="http://www.springframwork.org/schema/beans。" target="_blank" rel="external">http://www.springframwork.org/schema/beans。</a><font color="#7030A0">对于默认的Namespace中的元素，可以不使用前缀。</font>例如Spring XML文档中的<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"xxx"</span> <span class="attr">class</span>=<span class="string">"xxx.xxx.xxx.Xxx"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"xxx"</span> <span class="attr">value</span>=<span class="string">"xxxx"</span>/&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>xmlns:xsi表示使用xsi作为前缀的Namespace，当然前缀xsi需要在文档中声明。</p>
+</blockquote>
+<h1 id="xsi-schemaLocation有何作用？"><a href="#xsi-schemaLocation有何作用？" class="headerlink" title="xsi:schemaLocation有何作用？"></a>xsi:schemaLocation有何作用？</h1><ul>
+<li><p><code>xsi:schemaLocation</code>属性其实是Namespace为<a href="http://www.w3.org/2001/XMLSchema-instance里的schemaLocation属性，正是因为我们一开始声明了" target="_blank" rel="external">http://www.w3.org/2001/XMLSchema-instance里的schemaLocation属性，正是因为我们一开始声明了</a></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里才写作xsi:schemaLocation（当然一般都使用这个前缀）。<font color="#EA623C">它定义了XML Namespace和对应的 XSD（Xml Schema Definition）文档的位置的关系。它的值由一个或多个URI引用对组成，两个URI之间以空白符分隔（空格和换行均可）。第一个URI是定义的 XML Namespace的值，第二个URI给出Schema文档的位置，Schema处理器将从这个位置读取Schema文档，该文档的targetNamespace必须与第一个URI相匹配。</font>例如：</p>
+<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/context </span></div><div class="line">                    http://www.springframework.org/schema/context/spring-context.xsd"</div></pre></td></tr></table></figure>
+</li>
+<li><p>这里表示Namespace为<code>http://www.springframework.org/schema/context</code>的Schema的位置为<a href="http://www.springframework.org/schema/context/spring-context.xsd。" target="_blank" rel="external">http://www.springframework.org/schema/context/spring-context.xsd</a>这里我们可以打开这个Schema的位置，下面是这个文档的开始部分：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;xsd:schema xmlns="http://www.springframework.org/schema/context" </div><div class="line">            xmlns:xsd="http://www.w3.org/2001/XMLSchema" </div><div class="line">            xmlns:beans="http://www.springframework.org/schema/beans" </div><div class="line">            xmlns:tool="http://www.springframework.org/schema/tool" </div><div class="line">            &lt;!-- 这里的targetNamespace和上方xsi:schemaLocation中的第一个URI匹配 --&gt; </div><div class="line">            targetNamespace="http://www.springframework.org/schema/context" </div><div class="line">            elementFormDefault="qualified" </div><div class="line">            attributeFormDefault="unqualified"&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>有了上面的说明后，再去理解开始的Spring XML文档，一定会有不一样的感觉！ </p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.cnblogs.com/zhao1949/p/5652167.html" target="_blank" rel="external">关于XML文档的xmlns、xmlns:xsi和xsi:schemaLocation </a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/spring/">spring</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/" data-title="spring-xmlns,xmlns:xsi和xsi:schemaLocation | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/02/25/Spring自动扫描组件/" title="Spring自动扫描组件">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Spring自动扫描组件</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/24/Spring使用@Autowired注解自动装配/"  title="Spring使用@Autowired注解自动装配">
+ <strong>下一篇：</strong><br/> 
+ <span>Spring使用@Autowired注解自动装配
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/" data-title="spring-xmlns,xmlns:xsi和xsi:schemaLocation" data-url="https://super3h.me/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#案例"><span class="toc-number">2.</span> <span class="toc-text">案例</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#为什么需要xmlns？"><span class="toc-number">3.</span> <span class="toc-text">为什么需要xmlns？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何是用xmlns？"><span class="toc-number">4.</span> <span class="toc-text">如何是用xmlns？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xmlns和xmlns-xsi有什么不同？"><span class="toc-number">5.</span> <span class="toc-text">xmlns和xmlns:xsi有什么不同？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#xsi-schemaLocation有何作用？"><span class="toc-number">6.</span> <span class="toc-text">xsi:schemaLocation有何作用？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">7.</span> <span class="toc-text">原文链接</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

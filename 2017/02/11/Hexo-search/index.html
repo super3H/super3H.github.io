@@ -1,0 +1,746 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>Hexo-本地搜索 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-本地搜索">
+<meta property="og:url" content="https://super3h.me/2017/02/11/Hexo-search/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/2.png">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/3.png">
+<meta property="og:updated_time" content="2017-02-12T04:27:44.216Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo-本地搜索">
+<meta name="twitter:description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta name="twitter:image" content="https://super3h.me/2017/02/11/Hexo-search/1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/11/Hexo-search/" title="Hexo-本地搜索" itemprop="url">Hexo-本地搜索</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-11T01:12:19.675Z" itemprop="datePublished"> 发表于 2017-02-11</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和配置插件"><span class="toc-number">1.</span> <span class="toc-text">安装和配置插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索函数的创建"><span class="toc-number">2.</span> <span class="toc-text">搜索函数的创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索函数文件的引入"><span class="toc-number">3.</span> <span class="toc-text">搜索函数文件的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入框的整改"><span class="toc-number">4.</span> <span class="toc-text">输入框的整改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浮层样式的添加"><span class="toc-number">5.</span> <span class="toc-text">浮层样式的添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用和事件添加"><span class="toc-number">6.</span> <span class="toc-text">函数调用和事件添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-number">7.</span> <span class="toc-text">参考链接</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="安装和配置插件"><a href="#安装和配置插件" class="headerlink" title="安装和配置插件"></a>安装和配置插件</h1><p><code>1、</code> <code>cd</code>到根目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save hexo-generator-search</div></pre></td></tr></table></figure></p>
+<p><code>2、</code> 在<code>__config.yml</code>最后添加一下设置项(<code>注意:</code>缩进问题，建议直接<code>copy</code>)<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">search:</span></div><div class="line"><span class="attr">  path:</span> search.xml</div><div class="line"><span class="attr">  field:</span> all</div></pre></td></tr></table></figure></p>
+<p>说明:</p>
+<ul>
+<li><code>path:</code>指定生成的索引数据的文件名。默认为 <code>search.xml</code> 。</li>
+<li><p><code>field</code> 指定索引数据的生成范围。可选值包括：</p>
+<ul>
+<li><code>post</code> - 只生成博客文章（post）的索引（默认）；</li>
+<li><code>page:</code>只生成其他页面（page）的索引；</li>
+<li><code>all:</code>生成所有文章和页面的索引。<h1 id="搜索函数的创建"><a href="#搜索函数的创建" class="headerlink" title="搜索函数的创建"></a>搜索函数的创建</h1>新建search.js在<code>themes\jacman\source\js</code>目录中，部署后将位于<code>public\js</code><br>此函数参考于<a href="http://hahack.com/codes/local-search-engine-for-hexo/#实现本地搜索函数" target="_blank" rel="external">实现本地搜索函数</a><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> searchFunc = <span class="function"><span class="keyword">function</span>(<span class="params">path, search_id, content_id</span>) </span>&#123;</div><div class="line"><span class="meta">    'use strict'</span>;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: path,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">"xml"</span>,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> xmlResponse </span>) </span>&#123;</div><div class="line">            <span class="comment">// get the contents from search data</span></div><div class="line">            <span class="keyword">var</span> datas = $( <span class="string">"entry"</span>, xmlResponse ).map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> &#123;</div><div class="line">                    <span class="attr">title</span>: $( <span class="string">"title"</span>, <span class="keyword">this</span> ).text(),</div><div class="line">                    <span class="attr">content</span>: $(<span class="string">"content"</span>,<span class="keyword">this</span>).text(),</div><div class="line">                    <span class="attr">url</span>: $( <span class="string">"url"</span> , <span class="keyword">this</span>).text()</div><div class="line">                &#125;;</div><div class="line">            &#125;).get();</div><div class="line">            <span class="keyword">var</span> $input = <span class="built_in">document</span>.getElementById(search_id);</div><div class="line">            <span class="keyword">var</span> $resultContent = <span class="built_in">document</span>.getElementById(content_id);</div><div class="line">            $input.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> str=<span class="string">'&lt;ul class=\"search-result-list\"&gt;'</span>;                </div><div class="line">                <span class="keyword">var</span> keywords = <span class="keyword">this</span>.value.trim().toLowerCase().split(<span class="regexp">/[\s\-]+/</span>);</div><div class="line">                $resultContent.innerHTML = <span class="string">""</span>;</div><div class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.value.trim().length &lt;= <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// perform local searching</span></div><div class="line">                datas.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> isMatch = <span class="literal">true</span>;</div><div class="line">                    <span class="keyword">var</span> content_index = [];</div><div class="line">                    <span class="keyword">var</span> data_title = data.title.trim().toLowerCase();</div><div class="line">                    <span class="keyword">var</span> data_content = data.content.trim().replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">""</span>).toLowerCase();</div><div class="line">                    <span class="keyword">var</span> data_url = data.url;</div><div class="line">                    <span class="keyword">var</span> index_title = <span class="number">-1</span>;</div><div class="line">                    <span class="keyword">var</span> index_content = <span class="number">-1</span>;</div><div class="line">                    <span class="keyword">var</span> first_occur = <span class="number">-1</span>;</div><div class="line">                    <span class="comment">// only match artiles with not empty titles and contents</span></div><div class="line">                    <span class="keyword">if</span>(data_title != <span class="string">''</span> &amp;&amp; data_content != <span class="string">''</span>) &#123;</div><div class="line">                        keywords.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">keyword, i</span>) </span>&#123;</div><div class="line">                            index_title = data_title.indexOf(keyword);</div><div class="line">                            index_content = data_content.indexOf(keyword);</div><div class="line">                            <span class="keyword">if</span>( index_title &lt; <span class="number">0</span> &amp;&amp; index_content &lt; <span class="number">0</span> )&#123;</div><div class="line">                                isMatch = <span class="literal">false</span>;</div><div class="line">                            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                                <span class="keyword">if</span> (index_content &lt; <span class="number">0</span>) &#123;</div><div class="line">                                    index_content = <span class="number">0</span>;</div><div class="line">                                &#125;</div><div class="line">                                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">                                    first_occur = index_content;</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">// show search results</span></div><div class="line">                    <span class="keyword">if</span> (isMatch) &#123;</div><div class="line">                        str += <span class="string">"&lt;li&gt;&lt;a href='"</span>+ data_url +<span class="string">"' class='search-result-title'&gt;"</span>+ data_title +<span class="string">"&lt;/a&gt;"</span>;</div><div class="line">                        <span class="keyword">var</span> content = data.content.trim().replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">""</span>);</div><div class="line">                        <span class="keyword">if</span> (first_occur &gt;= <span class="number">0</span>) &#123;</div><div class="line">                            <span class="comment">// cut out 100 characters</span></div><div class="line">                            <span class="keyword">var</span> start = first_occur - <span class="number">20</span>;</div><div class="line">                            <span class="keyword">var</span> end = first_occur + <span class="number">80</span>;</div><div class="line">                            <span class="keyword">if</span>(start &lt; <span class="number">0</span>)&#123;</div><div class="line">                                start = <span class="number">0</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">if</span>(start == <span class="number">0</span>)&#123;</div><div class="line">                                end = <span class="number">100</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">if</span>(end &gt; content.length)&#123;</div><div class="line">                                end = content.length;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">var</span> match_content = content.substr(start, end); </div><div class="line">                            <span class="comment">// highlight all keywords</span></div><div class="line">                            keywords.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">keyword</span>)</span>&#123;</div><div class="line">                                <span class="keyword">var</span> regS = <span class="keyword">new</span> <span class="built_in">RegExp</span>(keyword, <span class="string">"gi"</span>);</div><div class="line">                                match_content = match_content.replace(regS, <span class="string">"&lt;em class=\"search-keyword\"&gt;"</span>+keyword+<span class="string">"&lt;/em&gt;"</span>);</div><div class="line">                            &#125;);</div><div class="line">                            </div><div class="line">                            str += <span class="string">"&lt;p class=\"search-result\"&gt;"</span> + match_content +<span class="string">"...&lt;/p&gt;"</span></div><div class="line">                        &#125;</div><div class="line">                        str += <span class="string">"&lt;/li&gt;"</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">                str += <span class="string">"&lt;/ul&gt;"</span>;</div><div class="line">                $resultContent.innerHTML = str;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>searchFunc(path, search_id, content_id)</code>包含三个参数：</p>
+</li>
+<li><p><code>path:</code>用 hexo-generator-search 生成的搜索索引文件的路径。注意这个 path 和前面 hexo-generator-search 的 path 选项有所不同。这里的 path 才是指这个文件的路径，而前面的 path 指的是生成的文件名</p>
+</li>
+<li><code>search_id:</code>搜索框的 id 。对于我们的例子，就是 local-search-input;</li>
+<li><code>content_id:</code> 结果框的 id 。对于我们的例子，就是 local-search-result</li>
+</ul>
+<h1 id="搜索函数文件的引入"><a href="#搜索函数文件的引入" class="headerlink" title="搜索函数文件的引入"></a>搜索函数文件的引入</h1><p>既然搜索函数已创建，接下来就是调用了。</p>
+<blockquote>
+<p>调用之前有必要明白<code>themes\jacman\layout\_partial\header.ejs</code>中最后一个<code>form</code>表单即为页面中的<code>search</code>框<br><img src="/2017/02/11/Hexo-search/1.png" alt=""><br>对应代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"search"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span>Search<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">class</span>=<span class="string">"search form-control"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">maxlength</span>=<span class="string">"20"</span> <span class="attr">placeholder</span>=<span class="string">"&lt;%= __('search') %&gt;"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p>在目录<code>themes\jacman\layout\_partial\after_footer.ejs</code>中，添加一下内容:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    <span class="keyword">var</span> curProtocol = <span class="built_in">window</span>.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</div><div class="line">        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</div><div class="line">    s.parentNode.insertBefore(bp, s);</div><div class="line">&#125;)();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery-2.0.3.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery.imagesloaded.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/gallery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery.qrcode-0.12.0.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="comment">//以下是引入我们创建的js文件</span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/search.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>after_footer.ejs</code>专门存放各种<code>js</code>文件，从此处引入我们创建的<code>search.js</code>文件</p>
+</blockquote>
+<h1 id="输入框的整改"><a href="#输入框的整改" class="headerlink" title="输入框的整改"></a>输入框的整改</h1><blockquote>
+<p><code>思考:</code>由于主题原因，我们有两条路走：<br>1.写一个html页面用于显示搜索后的结果<br>2.用div叠加在原页面上，在进行搜索和结果展示<br>博主走的第二条路，样式如下:<br><img src="/2017/02/11/Hexo-search/2.png" alt=""><br>由于博主前台很渣，能做成这样就不错了。虽然后台也好不到哪去，哈哈<br>要添加此样式就得找到添加的位置，<code>themes\jacman\layout\layout.ejs</code>，此文件用于页面的排布,分别对应了文章，分类，归档等的排布，我们分别在每个<code>&lt;header&gt;</code>后加入以下代码<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">_partial</span>/<span class="attr">header</span>') %&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--添加以下代码--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ly"</span> <span class="attr">style</span>=<span class="string">"width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;</span></span></div><div class="line">         z-index: 2; left: 0px; display: none;" <span class="attr">onclick</span>=<span class="string">"Lock_CheckForm()"</span>&gt;</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--浮层框架开始--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"Layer2"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">style</span>=<span class="string">"width: 950px; position: absolute;left: 200px ;top:10%;z-index: 3;background-color: #fff; display: none;border-radius: 10px;"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #F8F8F8;border-radius: 10px;"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"local-search-input"</span> <span class="attr">placeholder</span>=<span class="string">"search this website"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span> <span class="attr">autocapitalize</span>=<span class="string">"off"</span> <span class="attr">style</span>=<span class="string">"outline: none;"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"local-search-close"</span> <span class="attr">onclick</span>=<span class="string">"Lock_Reset()"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">				<span class="comment">&lt;!-- 清空/重置搜索框 --&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"local-search-result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 搜索结果区 --&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--  浮层框架结束--&gt;</span></div></pre></td></tr></table></figure></p>
+<p>说明:<br><code>#ly</code>:用于暗色背景<br><code>#Layer2</code>:用于搜索和结果展示<br><code>div #local-search-input</code>:搜索框<br><code>div #local-search-close</code>:用于清空搜索框内容<br><code>div #local-search-result</code>:用于结果展示</p>
+</blockquote>
+<h1 id="浮层样式的添加"><a href="#浮层样式的添加" class="headerlink" title="浮层样式的添加"></a>浮层样式的添加</h1><blockquote>
+<p><code>html</code>写完后,改写css了，博主把所有的样式写在一个文件中了，以免乱套<br>在<code>themes\jacman\source\css</code>新建<code>search.styl</code>，此文件夹用于页面所有样式的展示，对应的代码如下:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">ul.search-result-list &#123;</div><div class="line">  padding-left: 10px;</div><div class="line">&#125;</div><div class="line">a.search-result-title &#123;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line">p.search-result &#123;</div><div class="line">  color=#555;</div><div class="line">&#125;</div><div class="line">em.search-keyword &#123;</div><div class="line">  border-bottom: 1px dashed #4088b8;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line">/*搜索框样式*/</div><div class="line">#local-search-input &#123;</div><div class="line">	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</div><div class="line">&#125;</div><div class="line">#local-search-input &#123;</div><div class="line">	font-size: 13px;</div><div class="line">	min-height: 32px;</div><div class="line">	margin: 0;</div><div class="line">	padding: 7px 8px;</div><div class="line">	outline: none;</div><div class="line">	color: #333;</div><div class="line">	background-color: #fff;</div><div class="line">	background-repeat: no-repeat;</div><div class="line">	background-position: right center;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	border-radius: 3px;</div><div class="line">	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);</div><div class="line">	-moz-box-sizing: border-box;</div><div class="line">	box-sizing: border-box;</div><div class="line">	transition: all 0.15s ease-in;</div><div class="line">	-webkit-transition: all 0.15s ease-in 0;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-input:focus &#123;</div><div class="line">	outline: none;</div><div class="line">	border-color: #51a7e8;</div><div class="line">	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075), 0 0 5px rgba(81, 167, 232, .5);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-input &#123;</div><div class="line">	margin-top: 20px;</div><div class="line">	margin-left: -46px;</div><div class="line">	font-size: 18px;</div><div class="line">	width: 850px;</div><div class="line">	height: 30px;</div><div class="line">&#125;</div><div class="line">/*搜索重置按钮*/</div><div class="line">.local-search-close:hover &#123;</div><div class="line">	zoom: 1.0;</div><div class="line">	padding: 1px 0.6em;</div><div class="line">	border: 1px solid #d3d3d3;</div><div class="line">	box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);</div><div class="line">	background: #FAF7F4;</div><div class="line">&#125;</div><div class="line">.local-search-close:active &#123;</div><div class="line">	background: #d3d3d3;</div><div class="line">&#125;</div><div class="line">.local-search-close &#123;</div><div class="line">	padding: 1px 0.7em;</div><div class="line">	box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);</div><div class="line">	cursor: pointer;</div><div class="line">	color: #808080;</div><div class="line">&#125;</div><div class="line">.local-search-close::before &#123;</div><div class="line">	content: "\2716";</div><div class="line">&#125;</div><div class="line">/* place the button on top-right */</div><div class="line">.local-search-close &#123;</div><div class="line">	top: 22px;</div><div class="line">	right: 28px;</div><div class="line">	position: absolute;</div><div class="line">&#125;</div><div class="line">/*搜索结果区*/</div><div class="line">#local-search-result &#123;</div><div class="line">  font-size: 0.9em;</div><div class="line">  text-align: left;</div><div class="line">  word-break: break-all;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-result ul.search-result-list li:hover &#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*搜索预览段落*/</div><div class="line">#local-search-result p.search-result &#123;</div><div class="line">  margin: 0.4em auto;</div><div class="line">  max-height: 3.6em;</div><div class="line">  overflow: hidden;</div><div class="line">  font-size: 0.8em;</div><div class="line">  text-align: justify;</div><div class="line">  color: #808080;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*匹配的关键词*/</div><div class="line">#local-search-result em.search-keyword &#123;</div><div class="line">  color: #f58e90;</div><div class="line">  border-bottom: 1px dashed #f58e90;</div><div class="line">  font-weight: bold;</div><div class="line">  font-size: 0.85em;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>之后就要添加样式文件了，我们到<code>themes\jacman\layout\_partial\head.ejs</code>文件中的最后几行中添加以下代码:<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;%- css('css/style') %&gt;</div><div class="line">/*以下为添加的内容*/</div><div class="line">&lt;%- css('css/search') %&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="函数调用和事件添加"><a href="#函数调用和事件添加" class="headerlink" title="函数调用和事件添加"></a>函数调用和事件添加</h1><blockquote>
+<p>样式也添加完了，接下来就是函数调用和事件添加，到<code>themes\jacman\layout\_partial\after_footer.ejs</code>目录下，在刚才引入search.js的下面添加以下代码:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/search.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">//div层的显示</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">locking</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">document</span>.all.ly.style.display = <span class="string">"block"</span>;</div><div class="line">	<span class="built_in">document</span>.all.Layer2.style.display = <span class="string">'block'</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//div层的隐藏</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lock_CheckForm</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">document</span>.all.ly.style.display = <span class="string">'none'</span>;</div><div class="line">	<span class="built_in">document</span>.all.Layer2.style.display = <span class="string">'none'</span>;</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//重置搜索框</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lock_Reset</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//拿到搜索结果层</span></div><div class="line">    <span class="keyword">var</span> $resultArea = $(<span class="string">"#local-search-result"</span>);</div><div class="line">    $resultArea.html(<span class="string">""</span>);</div><div class="line">	$(<span class="string">"#local-search-input"</span>).val(<span class="string">''</span>);</div><div class="line">&#125; </div><div class="line"><span class="comment">//拿到文件路径</span></div><div class="line"><span class="keyword">var</span> search_path = <span class="string">"&lt;%= config.search.path %&gt;"</span>;</div><div class="line"><span class="keyword">if</span> (search_path.length == <span class="number">0</span>) &#123;</div><div class="line">		search_path = <span class="string">"search.xml"</span>;</div><div class="line">	&#125;</div><div class="line"><span class="keyword">var</span> path = <span class="string">"&lt;%= config.root %&gt;"</span> + search_path;</div><div class="line"><span class="comment">//拿到页面自带的搜索框元素</span></div><div class="line"><span class="keyword">var</span> inputArea = <span class="built_in">document</span>.querySelector(<span class="string">"#search"</span>);</div><div class="line"><span class="comment">//禁止回车的输入</span></div><div class="line">inputArea.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">if</span>(event.keyCode==<span class="number">13</span>) <span class="keyword">return</span> <span class="literal">false</span>&#125;</div><div class="line"><span class="keyword">var</span> getSearchFile = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//调用搜索函数</span></div><div class="line">    searchFunc(path, <span class="string">'local-search-input'</span>, <span class="string">'local-search-result'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//给页面自带的搜索框元素添加聚焦时间</span></div><div class="line">inputArea.onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">	locking();</div><div class="line">	getSearchFile();</div><div class="line">&#125;</div><div class="line">getSearchFile();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<p>到此也就结束了，花了博主一个多小时，下回发个治颈椎的博文，哈哈！11<br>大家可以按照自己的样式修改，最后贴出我的成果<br><img src="/2017/02/11/Hexo-search/3.png" alt=""></p>
+</blockquote>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>在此谢谢这两位博主的文章<br><a href="http://moxfive.xyz/2016/05/31/hexo-local-search/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">让 Hexo 博客支持本地站内搜索</a><br><a href="http://hahack.com/codes/local-search-engine-for-hexo/#实现本地搜索函数" target="_blank" rel="external">jQuery-based Local Search Engine for Hexo</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Hexo/">Hexo</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/02/11/Hexo-search/" data-title="Hexo-本地搜索 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/02/13/J2EE-tomcat/" title="tomcat的部署">
+  <strong>上一篇：</strong><br/>
+  <span>
+  tomcat的部署</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/10/Python-list/"  title="Python-List添加元素的方法">
+ <strong>下一篇：</strong><br/> 
+ <span>Python-List添加元素的方法
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/11/Hexo-search/" data-title="Hexo-本地搜索" data-url="https://super3h.me/2017/02/11/Hexo-search/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#安装和配置插件"><span class="toc-number">1.</span> <span class="toc-text">安装和配置插件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索函数的创建"><span class="toc-number">2.</span> <span class="toc-text">搜索函数的创建</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#搜索函数文件的引入"><span class="toc-number">3.</span> <span class="toc-text">搜索函数文件的引入</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#输入框的整改"><span class="toc-number">4.</span> <span class="toc-text">输入框的整改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#浮层样式的添加"><span class="toc-number">5.</span> <span class="toc-text">浮层样式的添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#函数调用和事件添加"><span class="toc-number">6.</span> <span class="toc-text">函数调用和事件添加</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#参考链接"><span class="toc-number">7.</span> <span class="toc-text">参考链接</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

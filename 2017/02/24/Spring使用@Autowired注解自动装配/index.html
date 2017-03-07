@@ -1,0 +1,734 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>Spring使用@Autowired注解自动装配 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="引言
+在大多数情况下，你可能只需要在特定的 bean 自动装配属性。在Spring中，可以使用 @Autowired 注解通过setter方法，构造函数或字段自动装配Bean。此外，它可以在一个特定的bean属性自动装配。注意:@Autowired注解是通过匹配数据类型自动装配Bean
+
+Beans
+一个 Customer bean 在bean配置文件中声明。稍后，您将使用 “@Autowired">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring使用@Autowired注解自动装配">
+<meta property="og:url" content="https://super3h.me/2017/02/24/Spring使用@Autowired注解自动装配/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="引言
+在大多数情况下，你可能只需要在特定的 bean 自动装配属性。在Spring中，可以使用 @Autowired 注解通过setter方法，构造函数或字段自动装配Bean。此外，它可以在一个特定的bean属性自动装配。注意:@Autowired注解是通过匹配数据类型自动装配Bean
+
+Beans
+一个 Customer bean 在bean配置文件中声明。稍后，您将使用 “@Autowired">
+<meta property="og:updated_time" content="2017-02-24T11:23:35.634Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring使用@Autowired注解自动装配">
+<meta name="twitter:description" content="引言
+在大多数情况下，你可能只需要在特定的 bean 自动装配属性。在Spring中，可以使用 @Autowired 注解通过setter方法，构造函数或字段自动装配Bean。此外，它可以在一个特定的bean属性自动装配。注意:@Autowired注解是通过匹配数据类型自动装配Bean
+
+Beans
+一个 Customer bean 在bean配置文件中声明。稍后，您将使用 “@Autowired">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/24/Spring使用@Autowired注解自动装配/" title="Spring使用@Autowired注解自动装配" itemprop="url">Spring使用@Autowired注解自动装配</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-24T11:09:22.924Z" itemprop="datePublished"> 发表于 2017-02-24</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beans"><span class="toc-number">2.</span> <span class="toc-text">Beans</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册AutowiredAnnotationBeanPostProcessor"><span class="toc-number">3.</span> <span class="toc-text">注册AutowiredAnnotationBeanPostProcessor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Include"><span class="toc-number">3.1.</span> <span class="toc-text">Include </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含-AutowiredAnnotationBeanPostProcessor"><span class="toc-number">3.2.</span> <span class="toc-text">包含 AutowiredAnnotationBeanPostProcessor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired示例"><span class="toc-number">3.3.</span> <span class="toc-text">@Autowired示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-setter-方法"><span class="toc-number">3.3.1.</span> <span class="toc-text">@Autowired setter 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-构造方法"><span class="toc-number">3.3.2.</span> <span class="toc-text">@Autowired 构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-字段"><span class="toc-number">3.3.3.</span> <span class="toc-text">@Autowired 字段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#依赖检查"><span class="toc-number">4.</span> <span class="toc-text">依赖检查</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Qualifier"><span class="toc-number">5.</span> <span class="toc-text">@Qualifier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">6.</span> <span class="toc-text">原文链接</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="引言"><a href="#引言" class="headerlink" title="引言"></a>引言</h1><blockquote>
+<p>在大多数情况下，你可能只需要在特定的 bean 自动装配属性。<br>在Spring中，<em>可以使用 @Autowired 注解通过setter方法，构造函数或字段自动装配Bean。</em>此外，它可以在一个特定的bean属性自动装配。<br><code>注意:</code><strong>@Autowired注解是通过匹配数据类型自动装配Bean</strong></p>
+</blockquote>
+<h1 id="Beans"><a href="#Beans" class="headerlink" title="Beans"></a>Beans</h1><blockquote>
+<p>一个 Customer bean 在bean配置文件中声明。稍后，您将使用 “@Autowired” 来自动装配一个Person bean。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">package com.yiibai.common;</div><div class="line"></div><div class="line">public class Customer </div><div class="line">&#123;</div><div class="line">	//you want autowired this field.</div><div class="line">	private Person person;</div><div class="line">	</div><div class="line">	private int type;</div><div class="line">	private String action;</div><div class="line">	</div><div class="line">	//getter and setter method</div><div class="line">	</div><div class="line">&#125;</div><div class="line">&lt;beans xmlns="http://www.springframework.org/schema/beans"</div><div class="line">        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div><div class="line">        xsi:schemaLocation="http://www.springframework.org/schema/beans</div><div class="line">        http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"&gt;</div><div class="line"></div><div class="line">	&lt;bean id="CustomerBean" class="com.yiibai.common.Customer"&gt;</div><div class="line">		&lt;property name="action" value="buy" /&gt;</div><div class="line">		&lt;property name="type" value="1" /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line"></div><div class="line">	&lt;bean id="PersonBean" class="com.yiibai.common.Person"&gt;</div><div class="line">		&lt;property name="name" value="yiibai" /&gt;</div><div class="line">		&lt;property name="address" value="address 123" /&gt;</div><div class="line">		&lt;property name="age" value="28" /&gt;</div><div class="line">	&lt;/bean&gt;</div><div class="line">	</div><div class="line">&lt;/beans&gt;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="注册AutowiredAnnotationBeanPostProcessor"><a href="#注册AutowiredAnnotationBeanPostProcessor" class="headerlink" title="注册AutowiredAnnotationBeanPostProcessor"></a>注册AutowiredAnnotationBeanPostProcessor</h1><blockquote>
+<p>要启用@Autowired，必须注册“AutowiredAnnotationBeanPostProcessor’，你可以用两种方式做到这一点：</p>
+</blockquote>
+<h2 id="Include"><a href="#Include" class="headerlink" title="Include "></a>Include <context:annotation-config></context:annotation-config></h2><blockquote>
+<p>添加 Spring 上下文和<code>&lt;context:annotation-config /&gt;</code>在bean配置文件中<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context-2.5.xsd"&gt;</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">context:annotation-config</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"CustomerBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"action"</span> <span class="attr">value</span>=<span class="string">"buy"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"type"</span> <span class="attr">value</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"PersonBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"yiibai"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span> <span class="attr">value</span>=<span class="string">"address ABC"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"29"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><context:annotation-config> 是用于激活那些已经在spring容器里注册过的bean（<em>无论是通过xml的方式还是通过package sanning的方式</em>）上面的注解。<br><code>注意:</code><context:component-scan>除了具有<context:annotation-config>的功能之外，<context:component-scan>还可以在指定的package下扫描以及注册javabean 。</context:component-scan></context:annotation-config></context:component-scan></context:annotation-config></p>
+</blockquote>
+<h2 id="包含-AutowiredAnnotationBeanPostProcessor"><a href="#包含-AutowiredAnnotationBeanPostProcessor" class="headerlink" title="包含 AutowiredAnnotationBeanPostProcessor"></a>包含 AutowiredAnnotationBeanPostProcessor</h2><blockquote>
+<p>直接在bean配置文件包含“AutowiredAnnotationBeanPostProcessor”。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd"&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> </span></div><div class="line"><span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor"</span>/&gt;</div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"CustomerBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"action"</span> <span class="attr">value</span>=<span class="string">"buy"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"type"</span> <span class="attr">value</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"PersonBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"yiibai"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span> <span class="attr">value</span>=<span class="string">"address ABC"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"29"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Autowired示例"><a href="#Autowired示例" class="headerlink" title="@Autowired示例"></a>@Autowired示例</h2><blockquote>
+<p>现在，你可以通过 @Autowired 自动装配 bean，它可以在 setter 方法，构造函数或字段中使用。</p>
+</blockquote>
+<h3 id="Autowired-setter-方法"><a href="#Autowired-setter-方法" class="headerlink" title="@Autowired setter 方法"></a>@Autowired setter 方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">	<span class="keyword">private</span> String action;</div><div class="line">	<span class="comment">//getter and setter methods</span></div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Autowired-构造方法"><a href="#Autowired-构造方法" class="headerlink" title="@Autowired 构造方法"></a>@Autowired 构造方法</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">	<span class="keyword">private</span> String action;</div><div class="line">	<span class="comment">//getter and setter methods</span></div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Autowired-字段"><a href="#Autowired-字段" class="headerlink" title="@Autowired 字段"></a>@Autowired 字段</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">	<span class="keyword">private</span> String action;</div><div class="line">	<span class="comment">//getter and setter methods</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>上面的例子会自动装配“PersonBean”到Customer的person属性。<br>执行它<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">App</span> </span></div><div class="line">&#123;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String[] args )</span></span></div><div class="line">    &#123;</div><div class="line">    	ApplicationContext context = </div><div class="line">    	  <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="keyword">new</span> String[] &#123;<span class="string">"applicationContext.xml"</span>&#125;);</div><div class="line">    	</div><div class="line">    	Customer cust = (Customer)context.getBean(<span class="string">"CustomerBean"</span>);</div><div class="line">    	System.out.println(cust);</div><div class="line">    	</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>输出:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Customer [person=Person [name=YiibaiA], type=1, action=buy]</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="依赖检查"><a href="#依赖检查" class="headerlink" title="依赖检查"></a>依赖检查</h1><blockquote>
+<p>默认情况下，@Autowired将执行相关检查，以确保属性已经装配正常。当Spring无法找到匹配的Bean装配，它会抛出异常。要解决这个问题，可以通过 <strong>@Autowired 的“required”属性设置为false来禁用此检查功能。</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="meta">@Autowired</span>(required=<span class="keyword">false</span>)</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">	<span class="keyword">private</span> String action;</div><div class="line">	<span class="comment">//getter and setter methods</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>在上面的例子中，如果Spring不能找到一个匹配的Bean，person属性将不设定。</p>
+</blockquote>
+<h1 id="Qualifier"><a href="#Qualifier" class="headerlink" title="@Qualifier"></a>@Qualifier</h1><blockquote>
+<p>@Qualifier注解我们用来控制bean应在字段上自动装配。例如，具有两个类似的 person bean 配置文件。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd</div><div class="line">	http://www.springframework.org/schema/context</div><div class="line">	http://www.springframework.org/schema/context/spring-context-2.5.xsd"&gt;</div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">context:annotation-config</span> /&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"CustomerBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"action"</span> <span class="attr">value</span>=<span class="string">"buy"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"type"</span> <span class="attr">value</span>=<span class="string">"1"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"PersonBean1"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"yiibai-1"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span> <span class="attr">value</span>=<span class="string">"address-1"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"29"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"PersonBean2"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">value</span>=<span class="string">"yiibai-2"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"address"</span> <span class="attr">value</span>=<span class="string">"address-2"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"age"</span> <span class="attr">value</span>=<span class="string">"28"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>Spring知道哪个 bean 应当装配？<br>为了解决这个问题，可以使用 @Qualifier 自动装配一个特定的 bean，例如，<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.yiibai.common;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Qualifier;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	<span class="meta">@Qualifier</span>(<span class="string">"PersonBean1"</span>)</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> type;</div><div class="line">	<span class="keyword">private</span> String action;</div><div class="line">	<span class="comment">//getter and setter methods</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>这意味着，“PersonBean1” bean被自动装配到customer的person属性</p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.yiibai.com/spring/spring-auto-wiring-beans-with-autowired-annotation.html" target="_blank" rel="external">Spring使用@Autowired注解自动装配</a></p>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/spring/">spring</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/02/24/Spring使用@Autowired注解自动装配/" data-title="Spring使用@Autowired注解自动装配 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/" title="spring-xmlns,xmlns:xsi和xsi:schemaLocation">
+  <strong>上一篇：</strong><br/>
+  <span>
+  spring-xmlns,xmlns:xsi和xsi:schemaLocation</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/24/Spring Bean作用域实例/"  title="Spring Bean作用域实例">
+ <strong>下一篇：</strong><br/> 
+ <span>Spring Bean作用域实例
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/24/Spring使用@Autowired注解自动装配/" data-title="Spring使用@Autowired注解自动装配" data-url="https://super3h.me/2017/02/24/Spring使用@Autowired注解自动装配/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#引言"><span class="toc-number">1.</span> <span class="toc-text">引言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Beans"><span class="toc-number">2.</span> <span class="toc-text">Beans</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注册AutowiredAnnotationBeanPostProcessor"><span class="toc-number">3.</span> <span class="toc-text">注册AutowiredAnnotationBeanPostProcessor</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Include"><span class="toc-number">3.1.</span> <span class="toc-text">Include </span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#包含-AutowiredAnnotationBeanPostProcessor"><span class="toc-number">3.2.</span> <span class="toc-text">包含 AutowiredAnnotationBeanPostProcessor</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Autowired示例"><span class="toc-number">3.3.</span> <span class="toc-text">@Autowired示例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-setter-方法"><span class="toc-number">3.3.1.</span> <span class="toc-text">@Autowired setter 方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-构造方法"><span class="toc-number">3.3.2.</span> <span class="toc-text">@Autowired 构造方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Autowired-字段"><span class="toc-number">3.3.3.</span> <span class="toc-text">@Autowired 字段</span></a></li></ol></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#依赖检查"><span class="toc-number">4.</span> <span class="toc-text">依赖检查</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Qualifier"><span class="toc-number">5.</span> <span class="toc-text">@Qualifier</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">6.</span> <span class="toc-text">原文链接</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

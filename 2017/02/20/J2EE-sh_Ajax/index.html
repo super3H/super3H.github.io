@@ -1,0 +1,741 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>struts和ajax结合 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包这里列出我所用的所有包
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_showImg">
+<meta property="og:type" content="article">
+<meta property="og:title" content="struts和ajax结合">
+<meta property="og:url" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包这里列出我所用的所有包
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_showImg">
+<meta property="og:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/2.png">
+<meta property="og:updated_time" content="2017-02-20T05:31:57.021Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="struts和ajax结合">
+<meta name="twitter:description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包这里列出我所用的所有包
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_showImg">
+<meta name="twitter:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/02/20/J2EE-sh_Ajax/" title="struts和ajax结合" itemprop="url">struts和ajax结合</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-02-20T04:41:03.991Z" itemprop="datePublished"> 发表于 2017-02-20</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目想法"><span class="toc-number">1.</span> <span class="toc-text">项目想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目过程"><span class="toc-number">2.</span> <span class="toc-text">项目过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入包的问题"><span class="toc-number">2.1.</span> <span class="toc-text">导入包的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对绝对路径问题解决"><span class="toc-number">2.2.</span> <span class="toc-text">相对绝对路径问题解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#struts配置问题"><span class="toc-number">2.3.</span> <span class="toc-text">struts配置问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试所报的异常"><span class="toc-number">3.</span> <span class="toc-text">调试所报的异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hibernate分页"><span class="toc-number">3.1.</span> <span class="toc-text">hibernate分页</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码"><span class="toc-number">4.</span> <span class="toc-text">源码</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="项目想法"><a href="#项目想法" class="headerlink" title="项目想法"></a>项目想法</h1><blockquote>
+<p>这里接着上回用servlet和ajax结合，换成用<code>struts2和hibernate</code>框架生成。</p>
+</blockquote>
+<h1 id="项目过程"><a href="#项目过程" class="headerlink" title="项目过程"></a>项目过程</h1><blockquote>
+<p>这里介绍点我用框架所遇到的问题</p>
+</blockquote>
+<h2 id="导入包的问题"><a href="#导入包的问题" class="headerlink" title="导入包的问题"></a>导入包的问题</h2><blockquote>
+<p>除了struts基本包，hibernate必须包之外，还需加以下包<br><img src="/2017/02/20/J2EE-sh_Ajax/1.png" alt=""><br>这里列出我所用的所有包<br><img src="/2017/02/20/J2EE-sh_Ajax/2.png" alt=""></p>
+</blockquote>
+<h2 id="相对绝对路径问题解决"><a href="#相对绝对路径问题解决" class="headerlink" title="相对绝对路径问题解决"></a>相对绝对路径问题解决</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--采用struts标签来替代--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">s:url</span> <span class="attr">action</span>=<span class="string">'weibo_showImg'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">'id'</span> <span class="attr">value</span>=<span class="string">'#weibo.id'</span>&gt;</span><span class="tag">&lt;/<span class="name">s:param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">s:url</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="struts配置问题"><a href="#struts配置问题" class="headerlink" title="struts配置问题"></a>struts配置问题</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"weibo"</span> <span class="attr">extends</span>=<span class="string">"json-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"weibo_*"</span> <span class="attr">class</span>=<span class="string">"hhh.controller.WeiboAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toIndex"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"publish"</span>&gt;</span>/WEB-INF/jsp/publish.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toList"</span>&gt;</span>/WEB-INF/jsp/list.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"json"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!--必须加这一句--&gt;</span></div><div class="line">            	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"root"</span>&gt;</span>postData<span class="tag">&lt;/<span class="name">param</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">allowed-methods</span>&gt;</span>success,publishUI,listAirticle,publish,showImg<span class="tag">&lt;/<span class="name">allowed-methods</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>博主一开始没有加这一句<code>&lt;param name=&quot;root&quot;&gt;postData&lt;/param&gt;</code>，导致各种找，终于不负辛苦，找到了，这里贴出<code>action</code>中的代码：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">listAirticle</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">"post"</span>.equals(way))&#123;</div><div class="line">			currentPage += postTime;</div><div class="line">			Page page = service.listAirticle(currentPage);</div><div class="line">			postData = JSONArray.fromObject(page.getRecords()).toString();</div><div class="line">			setPostData(postData);</div><div class="line">			System.out.println(postData);<span class="comment">//打印转换成json的数据</span></div><div class="line">			<span class="keyword">return</span> SUCCESS;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Page page = service.listAirticle(currentPage);</div><div class="line">			ActionContext.getContext().put(<span class="string">"weibos"</span>, page.getRecords());</div><div class="line">			<span class="keyword">return</span> <span class="string">"toList"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="调试所报的异常"><a href="#调试所报的异常" class="headerlink" title="调试所报的异常"></a>调试所报的异常</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">commons-beanutils-1.8.0.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/beanutils/DynaBean </div><div class="line">commons-collections.jar 不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/collections/map/ListOrderedMap</div><div class="line">commons-lang-2.4.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/lang/exception/NestableRuntimeException</div><div class="line">commons-logging-1.1.1.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory </div><div class="line">ezmorph-1.0.4.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: net/sf/ezmorph/Morpher </div><div class="line">json-lib-2.3-jdk15.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: net/sf/json/JSONObject</div></pre></td></tr></table></figure>
+<blockquote>
+<p>更详细请参考原文<a href="http://blog.csdn.net/zenson_g/article/details/8491436" target="_blank" rel="external">java转换json需要导入的jar包，org/apache/commons/lang/exception/NestableRuntimeException</a><br>报异常:<code>There is no result type defined for type &#39;json&#39; mapped with name &#39;success&#39;.</code><br>首先要检查 是否有<code>json-lib-2.3-jdk15.jar</code>和<code>struts2-json-plugin-2.3.4.1.jar</code>两个包<br>如果还报错，那就是<code>struts.xml</code>配置问题，将<code>&lt;package中的 extends=&quot;struts-default&quot;</code>为 <code>extends=&quot;json-default&quot;</code><br>更详细内容请参考<a href="http://blog.csdn.net/zzq900503/article/details/34946691" target="_blank" rel="external">SSH搭建遇到的问题—There is no result type defined for type ‘json’ mapped with name ‘success’.</a></p>
+</blockquote>
+<h2 id="hibernate分页"><a href="#hibernate分页" class="headerlink" title="hibernate分页"></a>hibernate分页</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String hql=<span class="string">"select eage from Emp order by eage"</span>;                          </div><div class="line">Query query= session. createQuery(hql). setFirstResult(<span class="number">0</span>). setMaxResults(<span class="number">5</span>);  <span class="comment">//从0开始，现实5条数据</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>更详细请参考原文<a href="http://blog.csdn.net/pkgk2013/article/details/51922872" target="_blank" rel="external">web开发（九）之Hibernate分页查询</a></p>
+</blockquote>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
+<p>源码请参考<a href="https://github.com/super3H/AjaxTest/tree/master/Struts-hibernate-test" target="_blank" rel="external">AjaxTest/Struts-hibernate-test/</a>，欢迎订阅。</p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/Ajax/">Ajax</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/02/20/J2EE-sh_Ajax/" data-title="struts和ajax结合 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+ <div class="prev" >
+ <a href="/2017/02/20/Python-Crawler-regex/" title="Crawler学习之Regex">
+  <strong>上一篇：</strong><br/>
+  <span>
+  Crawler学习之Regex</span>
+</a>
+</div>
+
+
+<div class="next">
+<a href="/2017/02/19/js相关问题/"  title="js相关问题">
+ <strong>下一篇：</strong><br/> 
+ <span>js相关问题
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/02/20/J2EE-sh_Ajax/" data-title="struts和ajax结合" data-url="https://super3h.me/2017/02/20/J2EE-sh_Ajax/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#项目想法"><span class="toc-number">1.</span> <span class="toc-text">项目想法</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#项目过程"><span class="toc-number">2.</span> <span class="toc-text">项目过程</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#导入包的问题"><span class="toc-number">2.1.</span> <span class="toc-text">导入包的问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#相对绝对路径问题解决"><span class="toc-number">2.2.</span> <span class="toc-text">相对绝对路径问题解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#struts配置问题"><span class="toc-number">2.3.</span> <span class="toc-text">struts配置问题</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#调试所报的异常"><span class="toc-number">3.</span> <span class="toc-text">调试所报的异常</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#hibernate分页"><span class="toc-number">3.1.</span> <span class="toc-text">hibernate分页</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#源码"><span class="toc-number">4.</span> <span class="toc-text">源码</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>
