@@ -5,38 +5,32 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>Spring自动装配Beans | HHH&#39;Blog</title>
+    <title>java初始化顺序 | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="Spring自动装配Beans的5中模式
-在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+    <meta name="description" content="子类继承父类实例化对象过程
+代码示例:
 
-
-在Spring中，支持 5 自动装配模式。
-no – 缺省情况">
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class Parent &amp;#123;    // 静态变量    public static String p_StaticField = &quot;父类--静态变量&quot;;    //">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Spring自动装配Beans">
-<meta property="og:url" content="https://super3h.me/2017/02/22/Spring自动装配Beans/index.html">
+<meta property="og:title" content="java初始化顺序">
+<meta property="og:url" content="https://super3h.me/2017/03/09/java初始化顺序/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="Spring自动装配Beans的5中模式
-在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+<meta property="og:description" content="子类继承父类实例化对象过程
+代码示例:
 
-
-在Spring中，支持 5 自动装配模式。
-no – 缺省情况">
-<meta property="og:updated_time" content="2017-02-23T07:56:54.430Z">
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class Parent &amp;#123;    // 静态变量    public static String p_StaticField = &quot;父类--静态变量&quot;;    //">
+<meta property="og:updated_time" content="2017-03-09T06:59:31.822Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Spring自动装配Beans">
-<meta name="twitter:description" content="Spring自动装配Beans的5中模式
-在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+<meta name="twitter:title" content="java初始化顺序">
+<meta name="twitter:description" content="子类继承父类实例化对象过程
+代码示例:
 
-
-在Spring中，支持 5 自动装配模式。
-no – 缺省情况">
+1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class Parent &amp;#123;    // 静态变量    public static String p_StaticField = &quot;父类--静态变量&quot;;    //">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -113,14 +107,14 @@ no – 缺省情况">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/22/Spring自动装配Beans/" title="Spring自动装配Beans" itemprop="url">Spring自动装配Beans</a>
+      <a href="/2017/03/09/java初始化顺序/" title="java初始化顺序" itemprop="url">java初始化顺序</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-22T05:31:48.467Z" itemprop="datePublished"> 发表于 2017-02-22</time>
+    <time datetime="2017-03-09T06:53:22.326Z" itemprop="datePublished"> 发表于 2017-03-09</time>
     
   </p>
 </header>
@@ -129,39 +123,20 @@ no – 缺省情况">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring自动装配Beans的5中模式"><span class="toc-number">1.</span> <span class="toc-text">Spring自动装配Beans的5中模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘no’"><span class="toc-number">2.1.</span> <span class="toc-text">Auto-Wiring ‘no’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘byName’"><span class="toc-number">2.2.</span> <span class="toc-text">Auto-Wiring ‘byName’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘byType’"><span class="toc-number">2.3.</span> <span class="toc-text">Auto-Wiring ‘byType’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘constructor’"><span class="toc-number">2.4.</span> <span class="toc-text">Auto-Wiring ‘constructor’</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">3.</span> <span class="toc-text">原文链接</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="Spring自动装配Beans的5中模式"><a href="#Spring自动装配Beans的5中模式" class="headerlink" title="Spring自动装配Beans的5中模式"></a>Spring自动装配Beans的5中模式</h1><blockquote>
-<p>在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 <bean>定义<code>“autowire”</code>属性。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span></div></pre></td></tr></table></figure></bean></p>
+		<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
+<p>代码示例:</p>
 </blockquote>
-<ul>
-<li>在Spring中，支持 5 自动装配模式。<ul>
-<li><code>no</code> – 缺省情况下，自动配置是通过“ref”属性手动设定</li>
-<li><code>byName</code> – 根据属性名称自动装配。如果一个bean的名称和其他bean属性的名称是一样的，将会自装配它。</li>
-<li><code>byType</code> – 按数据类型自动装配。如果一个bean的数据类型是用其它bean属性的数据类型，兼容并自动装配它。</li>
-<li><code>constructor</code> – 在构造函数参数的byType方式。</li>
-<li><code>autodetect</code> – 如果找到默认的构造函数，使用“自动装配用构造”; 否则，使用“按类型自动装配”。</li>
-</ul>
-</li>
-</ul>
-<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><blockquote>
-<p><code>Customer</code> 和 <code>Person</code> 对象自动装配示范。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String p_StaticField = <span class="string">"父类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)</span></div><div class="line">　　</div><div class="line">    <span class="comment">//如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化</span></div><div class="line">    <span class="keyword">public</span> String p_Field = <span class="string">"父类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(p_StaticField);</div><div class="line">        System.out.println(<span class="string">"父类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(p_Field);</div><div class="line">        System.out.println(<span class="string">"父类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"父类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s_StaticField = <span class="string">"子类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量</span></div><div class="line">    <span class="keyword">public</span> String s_Field = <span class="string">"子类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(s_StaticField);</div><div class="line">        System.out.println(<span class="string">"子类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(s_Field);</div><div class="line">        System.out.println(<span class="string">"子类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SubClass</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super();</span></div><div class="line">        System.out.println(<span class="string">"子类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 程序入口</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"*************in main***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">        System.out.println(<span class="string">"*************second subClass***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>输出结果:</p>
 </blockquote>
-<h2 id="Auto-Wiring-‘no’"><a href="#Auto-Wiring-‘no’" class="headerlink" title="Auto-Wiring ‘no’"></a>Auto-Wiring ‘no’</h2><blockquote>
-<p>这是默认的模式，你需要通过 ‘ref’ 属性来连接 bean。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"person"</span> <span class="attr">ref</span>=<span class="string">"person"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="Auto-Wiring-‘byName’"><a href="#Auto-Wiring-‘byName’" class="headerlink" title="Auto-Wiring ‘byName’"></a>Auto-Wiring ‘byName’</h2><blockquote>
-<p>按属性名称自动装配。在这种情况下，由于<strong>对“person” bean的名称是相同于“customer” bean 的属性(“person”)名称</strong>，所以，Spring会自动通过setter方法将其装配 – “setPerson(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span>	</div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="Auto-Wiring-‘byType’"><a href="#Auto-Wiring-‘byType’" class="headerlink" title="Auto-Wiring ‘byType’"></a>Auto-Wiring ‘byType’</h2><blockquote>
-<p>通过按属性的数据类型自动装配Bean。在这种情况下，<strong>由于“Person” bean中的数据类型是与“customer” bean的属性(Person对象)的数据类型一样的</strong>，所以，Spring会自动通过setter方法将其自动装配。– “setPerson(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byType"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h2 id="Auto-Wiring-‘constructor’"><a href="#Auto-Wiring-‘constructor’" class="headerlink" title="Auto-Wiring ‘constructor’"></a>Auto-Wiring ‘constructor’</h2><blockquote>
-<p>通过构造函数参数的数据类型按属性自动装配Bean。在这种情况下，<strong>由于“person” bean的数据类型与“customer” bean的属性(Person对象)的构造函数参数的数据类型是一样的</strong>，所以，Spring通过构造方法自动装配 – “public Customer(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"constructor"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.yiibai.com/spring/spring-auto-wiring-beans-in-xml.html" target="_blank" rel="external">Spring自动装配Beans</a></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font></blockquote>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -169,7 +144,7 @@ no – 缺省情况">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/spring/">spring</a>
+  <a class="article-category-link" href="/categories/JavaSE/">JavaSE</a>
 </div>
 
 
@@ -179,7 +154,7 @@ no – 缺省情况">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/02/22/Spring自动装配Beans/" data-title="Spring自动装配Beans | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2017/03/09/java初始化顺序/" data-title="java初始化顺序 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -192,19 +167,11 @@ no – 缺省情况">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/02/23/Spring JavaConfig/" title="Spring JavaConfig">
-  <strong>上一篇：</strong><br/>
-  <span>
-  Spring JavaConfig</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/02/22/maven外部依赖/"  title="maven外部依赖">
+<a href="/2017/03/07/java错题总结/"  title="java错题总结">
  <strong>下一篇：</strong><br/> 
- <span>maven外部依赖
+ <span>java错题总结
 </span>
 </a>
 </div>
@@ -213,7 +180,7 @@ no – 缺省情况">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/02/22/Spring自动装配Beans/" data-title="Spring自动装配Beans" data-url="https://super3h.me/2017/02/22/Spring自动装配Beans/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/09/java初始化顺序/" data-title="java初始化顺序" data-url="https://super3h.me/2017/03/09/java初始化顺序/"></div>
 </section>
 
 
@@ -229,7 +196,7 @@ no – 缺省情况">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Spring自动装配Beans的5中模式"><span class="toc-number">1.</span> <span class="toc-text">Spring自动装配Beans的5中模式</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#示例"><span class="toc-number">2.</span> <span class="toc-text">示例</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘no’"><span class="toc-number">2.1.</span> <span class="toc-text">Auto-Wiring ‘no’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘byName’"><span class="toc-number">2.2.</span> <span class="toc-text">Auto-Wiring ‘byName’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘byType’"><span class="toc-number">2.3.</span> <span class="toc-text">Auto-Wiring ‘byType’</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Auto-Wiring-‘constructor’"><span class="toc-number">2.4.</span> <span class="toc-text">Auto-Wiring ‘constructor’</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">3.</span> <span class="toc-text">原文链接</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
  
   </div>
 

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-07T05:02:28.145Z</updated>
+  <updated>2017-03-09T06:59:31.822Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>java初始化顺序</title>
+    <link href="https://super3h.me/2017/03/09/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://super3h.me/2017/03/09/java初始化顺序/</id>
+    <published>2017-03-09T06:53:22.326Z</published>
+    <updated>2017-03-09T06:59:31.822Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
+<p>代码示例:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String p_StaticField = <span class="string">"父类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)</span></div><div class="line">　　</div><div class="line">    <span class="comment">//如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化</span></div><div class="line">    <span class="keyword">public</span> String p_Field = <span class="string">"父类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(p_StaticField);</div><div class="line">        System.out.println(<span class="string">"父类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(p_Field);</div><div class="line">        System.out.println(<span class="string">"父类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"父类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s_StaticField = <span class="string">"子类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量</span></div><div class="line">    <span class="keyword">public</span> String s_Field = <span class="string">"子类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(s_StaticField);</div><div class="line">        System.out.println(<span class="string">"子类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(s_Field);</div><div class="line">        System.out.println(<span class="string">"子类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SubClass</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super();</span></div><div class="line">        System.out.println(<span class="string">"子类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 程序入口</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"*************in main***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">        System.out.println(<span class="string">"*************second subClass***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>输出结果:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font></blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;a href=&quot;#子类继承父类实例化对象过程&quot; class=&quot;headerlink&quot; title=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;/a&gt;子类继承父类实例化对象过程&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;代码示例:&lt;/p&gt;
+&lt;/b
+    
+    </summary>
+    
+      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>java错题总结</title>
@@ -1141,34 +1173,6 @@
     
       &lt;h1 id=&quot;案例学习&quot;&gt;&lt;a href=&quot;#案例学习&quot; class=&quot;headerlink&quot; title=&quot;案例学习&quot;&gt;&lt;/a&gt;案例学习&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;kaptcha，它是一个流行的第三方Java库，它被用来生成 “验证码” 的图片，以阻止垃圾邮件，
-    
-    </summary>
-    
-      <category term="maven" scheme="https://super3h.me/categories/maven/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>maven添加远程仓库</title>
-    <link href="https://super3h.me/2017/02/21/maven%E6%B7%BB%E5%8A%A0%E8%BF%9C%E7%A8%8B%E4%BB%93%E5%BA%93/"/>
-    <id>https://super3h.me/2017/02/21/maven添加远程仓库/</id>
-    <published>2017-02-21T13:16:59.024Z</published>
-    <updated>2017-02-21T13:19:46.922Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="Java-net资源库"><a href="#Java-net资源库" class="headerlink" title="Java.net资源库"></a>Java.net资源库</h1><blockquote>
-<p>添加Java.net远程仓库的详细信息在“pom.xml”文件<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--pom.xml--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">...</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">id</span>&gt;</span>java.net<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">url</span>&gt;</span>https://maven.java.net/content/repositories/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="JBoss-Maven存储库"><a href="#JBoss-Maven存储库" class="headerlink" title="JBoss Maven存储库"></a>JBoss Maven存储库</h1><blockquote>
-<p>添加JBoss远程仓库的详细信息在 “pom.xml” 文件中<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">...</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">repositories</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">repository</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">id</span>&gt;</span>JBoss repository<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">url</span>&gt;</span>http://repository.jboss.org/nexus/content/groups/public/<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">repository</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">repositories</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
-</blockquote>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.yiibai.com/maven/add-remote-repository-in-maven-pom-xml.html" target="_blank" rel="external">Maven添加远程仓库</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;Java-net资源库&quot;&gt;&lt;a href=&quot;#Java-net资源库&quot; class=&quot;headerlink&quot; title=&quot;Java.net资源库&quot;&gt;&lt;/a&gt;Java.net资源库&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;添加Java.net远程仓库的详细信息在“
     
     </summary>
     
