@@ -4,6 +4,32 @@
   
     
     <entry>
+      <title><![CDATA[s2sh-大学资源共享网项目]]></title>
+      <url>https://super3h.me/2017/03/10/s2sh-%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E7%BD%91%E9%A1%B9%E7%9B%AE/</url>
+      <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库问题"><a href="#数据库问题" class="headerlink" title="数据库问题"></a>数据库问题</h2><blockquote>
+<p>突然发现当数据库中没有数据，直接级联添加<code>学校-学院-课程</code>，竟然会报如下错:</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR SqlExceptionHelper Cannot add or <span class="keyword">update</span> a <span class="keyword">child</span> <span class="keyword">row</span>: a foreign <span class="keyword">key</span> <span class="keyword">constraint</span> fails (<span class="string">`s2shtest01`</span>.<span class="string">`academy`</span>, <span class="keyword">CONSTRAINT</span> <span class="string">`FKiuc88a6pjg69r9krnm57slii4`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`aid`</span>) <span class="keyword">REFERENCES</span> <span class="string">`school`</span> (<span class="string">`sid`</span>))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>刚开始以为是<code>hibernate</code>没有添加<code>cascade</code>的缘故，集体原因不详，猜测为主从表不一致的问题.</p>
+</blockquote>
+]]></content>
+    </entry>
+    
+    <entry>
+      <title><![CDATA[ElementUI 学习]]></title>
+      <url>https://super3h.me/2017/03/10/ElementUI%20%E5%AD%A6%E4%B9%A0/</url>
+      <content type="html"><![CDATA[<h1 id="学习中所遇问题"><a href="#学习中所遇问题" class="headerlink" title="学习中所遇问题"></a>学习中所遇问题</h1><h2 id="el中嵌套问题"><a href="#el中嵌套问题" class="headerlink" title="el中嵌套问题"></a>el中嵌套问题</h2><blockquote>
+<p>el嵌套如果不显示，可以在中间嵌套div元素，如下表示:</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: block;"</span> <span class="attr">id</span>=<span class="string">"add"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">el-card</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-position</span>=<span class="string">"left"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"所在大学"</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="el-form问题"><a href="#el-form问题" class="headerlink" title="el-form问题"></a>el-form问题</h2><p><code>label-position</code>必须配合<code>label-width</code>一起才能起作用</p>
+<pre><code class="html">
+</code></pre>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[java初始化顺序]]></title>
       <url>https://super3h.me/2017/03/09/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/</url>
       <content type="html"><![CDATA[<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
@@ -15,7 +41,10 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font></blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font>
+
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://blog.csdn.net/ganjing222/article/details/50993282" target="_blank" rel="external"> JAVA基础-子类继承父类实例化对象过程</a></p>
 ]]></content>
     </entry>
     

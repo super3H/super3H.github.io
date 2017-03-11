@@ -24,7 +24,7 @@
 代码示例:
 
 1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950class Parent &amp;#123;    // 静态变量    public static String p_StaticField = &quot;父类--静态变量&quot;;    //">
-<meta property="og:updated_time" content="2017-03-09T06:59:31.822Z">
+<meta property="og:updated_time" content="2017-03-09T07:05:32.198Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="java初始化顺序">
 <meta name="twitter:description" content="子类继承父类实例化对象过程
@@ -123,7 +123,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">3.</span> <span class="toc-text">原文链接</span></a></li></ol>
 		
 		</div>
 		
@@ -136,7 +136,10 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font></blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font>
+
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://blog.csdn.net/ganjing222/article/details/50993282" target="_blank" rel="external"> JAVA基础-子类继承父类实例化对象过程</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -167,6 +170,14 @@
 	
 <nav class="article-nav clearfix">
  
+ <div class="prev" >
+ <a href="/2017/03/10/ElementUI 学习/" title="ElementUI 学习">
+  <strong>上一篇：</strong><br/>
+  <span>
+  ElementUI 学习</span>
+</a>
+</div>
+
 
 <div class="next">
 <a href="/2017/03/07/java错题总结/"  title="java错题总结">
@@ -196,7 +207,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#子类继承父类实例化对象过程"><span class="toc-number">1.</span> <span class="toc-text">子类继承父类实例化对象过程</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">2.</span> <span class="toc-text">总结</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文链接"><span class="toc-number">3.</span> <span class="toc-text">原文链接</span></a></li></ol>
  
   </div>
 
@@ -231,6 +242,10 @@
 		
 		  
 			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ElementUI/" title="ElementUI">ElementUI<sup>1</sup></a></li>
 		  
 		
 		  
@@ -306,7 +321,7 @@
 		  
 		
 		  
-			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>1</sup></a></li>
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>2</sup></a></li>
 		  
 		
 		  

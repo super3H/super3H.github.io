@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-09T06:59:31.822Z</updated>
+  <updated>2017-03-10T08:03:40.472Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -16,11 +16,65 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>s2sh-大学资源共享网项目</title>
+    <link href="https://super3h.me/2017/03/10/s2sh-%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E7%BD%91%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://super3h.me/2017/03/10/s2sh-大学资源共享网项目/</id>
+    <published>2017-03-10T08:00:29.266Z</published>
+    <updated>2017-03-10T08:03:40.472Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库问题"><a href="#数据库问题" class="headerlink" title="数据库问题"></a>数据库问题</h2><blockquote>
+<p>突然发现当数据库中没有数据，直接级联添加<code>学校-学院-课程</code>，竟然会报如下错:</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR SqlExceptionHelper Cannot add or <span class="keyword">update</span> a <span class="keyword">child</span> <span class="keyword">row</span>: a foreign <span class="keyword">key</span> <span class="keyword">constraint</span> fails (<span class="string">`s2shtest01`</span>.<span class="string">`academy`</span>, <span class="keyword">CONSTRAINT</span> <span class="string">`FKiuc88a6pjg69r9krnm57slii4`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`aid`</span>) <span class="keyword">REFERENCES</span> <span class="string">`school`</span> (<span class="string">`sid`</span>))</div></pre></td></tr></table></figure>
+<blockquote>
+<p>刚开始以为是<code>hibernate</code>没有添加<code>cascade</code>的缘故，集体原因不详，猜测为主从表不一致的问题.</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;所遇问题&quot;&gt;&lt;a href=&quot;#所遇问题&quot; class=&quot;headerlink&quot; title=&quot;所遇问题&quot;&gt;&lt;/a&gt;所遇问题&lt;/h1&gt;&lt;h2 id=&quot;数据库问题&quot;&gt;&lt;a href=&quot;#数据库问题&quot; class=&quot;headerlink&quot; title=&quot;数据库问题&quot;&gt;
+    
+    </summary>
+    
+      <category term="s2sh" scheme="https://super3h.me/categories/s2sh/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>ElementUI 学习</title>
+    <link href="https://super3h.me/2017/03/10/ElementUI%20%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://super3h.me/2017/03/10/ElementUI 学习/</id>
+    <published>2017-03-10T04:05:37.741Z</published>
+    <updated>2017-03-10T04:09:16.713Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="学习中所遇问题"><a href="#学习中所遇问题" class="headerlink" title="学习中所遇问题"></a>学习中所遇问题</h1><h2 id="el中嵌套问题"><a href="#el中嵌套问题" class="headerlink" title="el中嵌套问题"></a>el中嵌套问题</h2><blockquote>
+<p>el嵌套如果不显示，可以在中间嵌套div元素，如下表示:</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: block;"</span> <span class="attr">id</span>=<span class="string">"add"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">el-card</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-position</span>=<span class="string">"left"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"所在大学"</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="el-form问题"><a href="#el-form问题" class="headerlink" title="el-form问题"></a>el-form问题</h2><p><code>label-position</code>必须配合<code>label-width</code>一起才能起作用</p>
+<pre><code class="html">
+</code></pre>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;学习中所遇问题&quot;&gt;&lt;a href=&quot;#学习中所遇问题&quot; class=&quot;headerlink&quot; title=&quot;学习中所遇问题&quot;&gt;&lt;/a&gt;学习中所遇问题&lt;/h1&gt;&lt;h2 id=&quot;el中嵌套问题&quot;&gt;&lt;a href=&quot;#el中嵌套问题&quot; class=&quot;headerlink
+    
+    </summary>
+    
+      <category term="ElementUI" scheme="https://super3h.me/categories/ElementUI/"/>
+    
+    
+  </entry>
+  
+  <entry>
     <title>java初始化顺序</title>
     <link href="https://super3h.me/2017/03/09/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
     <id>https://super3h.me/2017/03/09/java初始化顺序/</id>
     <published>2017-03-09T06:53:22.326Z</published>
-    <updated>2017-03-09T06:59:31.822Z</updated>
+    <updated>2017-03-09T07:05:32.198Z</updated>
     
     <content type="html"><![CDATA[<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
 <p>代码示例:</p>
@@ -31,7 +85,10 @@
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font></blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font>
+
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://blog.csdn.net/ganjing222/article/details/50993282" target="_blank" rel="external"> JAVA基础-子类继承父类实例化对象过程</a></p>
 ]]></content>
     
     <summary type="html">
@@ -1078,101 +1135,6 @@
     
       &lt;h1 id=&quot;maven相关参数&quot;&gt;&lt;a href=&quot;#maven相关参数&quot; class=&quot;headerlink&quot; title=&quot;maven相关参数&quot;&gt;&lt;/a&gt;maven相关参数&lt;/h1&gt;&lt;ul&gt;
 &lt;li&gt;&lt;code&gt;groupId:&lt;/code&gt;代表组织和整个项目的唯一标志。
-    
-    </summary>
-    
-      <category term="maven" scheme="https://super3h.me/categories/maven/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>maven依赖机制</title>
-    <link href="https://super3h.me/2017/02/21/maven%E4%BE%9D%E8%B5%96%E6%9C%BA%E5%88%B6/"/>
-    <id>https://super3h.me/2017/02/21/maven依赖机制/</id>
-    <published>2017-02-21T13:51:18.163Z</published>
-    <updated>2017-02-21T14:05:43.352Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="案例分析"><a href="#案例分析" class="headerlink" title="案例分析"></a>案例分析</h1><blockquote>
-<p>让我们看一个案例研究，以了解它是如何工作的。假设你想使用 Log4j 作为项目的日志。这里你要做什么？</p>
-</blockquote>
-<ol>
-<li><p>在传统方式</p>
-<ol>
-<li>访问<a href="http://logging.apache.org/log4j/" target="_blank" rel="external">http://logging.apache.org/log4j/</a></li>
-<li>下载 Log4 j的 jar 库</li>
-<li>复制 jar 到项目类路径</li>
-<li>手动将其包含到项目的依赖</li>
-<li>所有的管理需要一切由自己做</li>
-<li>如果有 Log4j 版本升级，则需要重复上述步骤一次</li>
-</ol>
-</li>
-<li><p>在Maven的方式</p>
-<ol>
-<li><p>你需要知道 log4j 的 Maven 坐标，例如：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>它会自动下载 log4j 的1.2.14 版本库。如果“version”标签被忽略，它会自动升级库时当有新的版本时</p>
-</li>
-<li><p>声明 Maven 的坐标转换成 pom.xml 文件</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>log4j<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.14<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-<li><p>当 Maven 编译或构建，log4j 的 jar 会自动下载，并把它放到 Maven 本地存储库</p>
-</li>
-<li>所有由 Maven 管理</li>
-</ol>
-</li>
-</ol>
-<h1 id="解释说明"><a href="#解释说明" class="headerlink" title="解释说明"></a>解释说明</h1><blockquote>
-<p>看看有什么不同？那么到底在Maven发生了什么？当建立一个Maven的项目，pom.xml文件将被解析，如果看到 log4j 的 Maven 坐标，然后 Maven 按此顺序搜索 log4j 库：</p>
-<pre><code>1. 在 Maven 的本地仓库搜索 log4j 
-2. 在 Maven 中央存储库搜索 log4j
-3. 在 Maven 远程仓库搜索 log4j(如果在 pom.xml 中定义)
-</code></pre><p>Maven 依赖库管理是一个非常好的工具，为您节省了大量的工作<br><code>如何找到 Maven 坐标:</code><strong>访问 Maven 中心储存库，搜索下载您想要的jar。</strong></p>
-</blockquote>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.yiibai.com/maven/maven-dependency-to-download-library.html" target="_blank" rel="external">Maven依赖机制</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;案例分析&quot;&gt;&lt;a href=&quot;#案例分析&quot; class=&quot;headerlink&quot; title=&quot;案例分析&quot;&gt;&lt;/a&gt;案例分析&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;让我们看一个案例研究，以了解它是如何工作的。假设你想使用 Log4j 作为项目的日志。这里你要做什
-    
-    </summary>
-    
-      <category term="maven" scheme="https://super3h.me/categories/maven/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>maven-定制库到Maven本地资源库</title>
-    <link href="https://super3h.me/2017/02/21/maven-%E5%AE%9A%E5%88%B6%E5%BA%93%E5%88%B0Maven%E6%9C%AC%E5%9C%B0%E8%B5%84%E6%BA%90%E5%BA%93/"/>
-    <id>https://super3h.me/2017/02/21/maven-定制库到Maven本地资源库/</id>
-    <published>2017-02-21T13:35:33.780Z</published>
-    <updated>2017-02-21T13:40:11.464Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="案例学习"><a href="#案例学习" class="headerlink" title="案例学习"></a>案例学习</h1><blockquote>
-<p>kaptcha，它是一个流行的第三方Java库，它被用来生成 “验证码” 的图片，以阻止垃圾邮件，但它不在 Maven 的中央仓库中，这里拿它来举例</p>
-</blockquote>
-<h1 id="mvn-安装"><a href="#mvn-安装" class="headerlink" title="mvn 安装"></a>mvn 安装</h1><blockquote>
-<p>下载 “kaptcha”，将其解压缩并将 kaptcha-version.jar 复制到其他地方，比如：C盘。发出下面的命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn install:install-file -Dfile=c:\kaptcha-&#123;version&#125;.jar -DgroupId=com.google.code -DartifactId=kaptcha -Dversion=&#123;version&#125; -Dpackaging=jar</div></pre></td></tr></table></figure></p>
-</blockquote>
-<p>示例:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">D:\&gt;mvn install:install-file -Dfile=c:\kaptcha-2.3.jar -DgroupId=com.google.code </div><div class="line">-DartifactId=kaptcha -Dversion=2.3 -Dpackaging=jar</div><div class="line">[INFO] Scanning for projects...</div><div class="line">[INFO] Searching repository for plugin with prefix: &apos;install&apos;.</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] Building Maven Default Project</div><div class="line">[INFO]    task-segment: [install:install-file] (aggregator-style)</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] [install:install-file]</div><div class="line">[INFO] Installing c:\kaptcha-2.3.jar to </div><div class="line">D:\maven_repo\com\google\code\kaptcha\2.3\kaptcha-2.3.jar</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] BUILD SUCCESSFUL</div><div class="line">[INFO] ------------------------------------------------------------------------</div><div class="line">[INFO] Total time: &lt; 1 second</div><div class="line">[INFO] Finished at: Tue May 12 13:41:42 SGT 2014</div><div class="line">[INFO] Final Memory: 3M/6M</div><div class="line">[INFO] ------------------------------------------------------------------------</div></pre></td></tr></table></figure></p>
-<blockquote>
-<p>“kaptcha” jar被复制到 Maven 本地存储库。</p>
-</blockquote>
-<h1 id="pom-xml"><a href="#pom-xml" class="headerlink" title="pom.xml"></a>pom.xml</h1><blockquote>
-<p>安装完毕后，就在 pom.xml 中声明 kaptcha 的坐标<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.google.code<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>kaptcha<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">version</span>&gt;</span>2.3<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line"> <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>构建它，现在 “kaptcha” jar 能够从你的 Maven 本地存储库检索了</p>
-</blockquote>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.yiibai.com/maven/include-library-manully-into-maven-local-repository.html" target="_blank" rel="external">定制库到Maven本地资源库</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;案例学习&quot;&gt;&lt;a href=&quot;#案例学习&quot; class=&quot;headerlink&quot; title=&quot;案例学习&quot;&gt;&lt;/a&gt;案例学习&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;kaptcha，它是一个流行的第三方Java库，它被用来生成 “验证码” 的图片，以阻止垃圾邮件，
     
     </summary>
     
