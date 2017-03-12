@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-11T15:15:38.044Z</updated>
+  <updated>2017-03-12T14:01:41.824Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,49 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>在网页中使用markdown</title>
+    <link href="https://super3h.me/2017/03/12/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8markdown/"/>
+    <id>https://super3h.me/2017/03/12/在网页中使用markdown/</id>
+    <published>2017-03-12T13:38:28.061Z</published>
+    <updated>2017-03-12T14:01:41.824Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
+</blockquote>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><p><img src="/2017/03/12/在网页中使用markdown/1.png" alt=""></p>
+<blockquote>
+<p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
+</blockquote>
+<ul>
+<li>可得原代码为:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Simple example - Editor.md examples<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/editormd.css"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test-editormd"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span>### 这里插入内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/editormd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="keyword">var</span> testEditor;</div><div class="line"></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				testEditor = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">    				<span class="comment">//调整宽度</span></div><div class="line">					width: <span class="string">"60%"</span>,</div><div class="line">					<span class="comment">//调整高度</span></div><div class="line">					height: <span class="number">400</span>,</div><div class="line">					<span class="attr">syncScrolling</span>: <span class="string">"single"</span>,</div><div class="line">					<span class="attr">path</span>: <span class="string">"./lib/"</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这里把目录改了下：</p>
+</blockquote>
+<p><img src="/2017/03/12/在网页中使用markdown/2.png" alt=""></p>
+<ul>
+<li><code>lib</code>：为根目录下的文件，直接复制即可</li>
+<li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
+<li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
+<li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
+</ul>
+<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到&lt;a hre
+    
+    </summary>
+    
+      <category term="javascript" scheme="https://super3h.me/categories/javascript/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>s2sh-大学资源共享网项目</title>
@@ -1130,39 +1173,6 @@
     <summary type="html">
     
       &lt;h1 id=&quot;原文链接&quot;&gt;&lt;a href=&quot;#原文链接&quot; class=&quot;headerlink&quot; title=&quot;原文链接&quot;&gt;&lt;/a&gt;原文链接&lt;/h1&gt;&lt;p&gt;详情参考&lt;a href=&quot;http://jingyan.baidu.com/article/9f63fb91a7d2a5c8
-    
-    </summary>
-    
-      <category term="maven" scheme="https://super3h.me/categories/maven/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>maven相关参数讲解</title>
-    <link href="https://super3h.me/2017/02/21/maven%E7%9B%B8%E5%85%B3%E5%8F%82%E6%95%B0%E8%AE%B2%E8%A7%A3/"/>
-    <id>https://super3h.me/2017/02/21/maven相关参数讲解/</id>
-    <published>2017-02-21T14:16:56.887Z</published>
-    <updated>2017-02-21T14:27:59.194Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="maven相关参数"><a href="#maven相关参数" class="headerlink" title="maven相关参数"></a>maven相关参数</h1><ul>
-<li><code>groupId:</code>代表组织和整个项目的唯一标志。比如说所有的Maven组件的groupId都是org.apache.maven</li>
-<li><code>artifactId:</code>具体项目的名称，它于groupId共同确定一个项目在maven repo中的位置，例如，<em>groupId=org.codehaus.mojo, artifactId=my-project的项目，在maven repo中的位置为：$M2_REPO/org/codehaus/mojo/my-project</em></li>
-<li><code>version:</code>用于说明目前项目的版本，在引用依赖的时候确定具体依赖的版本号。</li>
-<li><code>packaging:</code> 规定项目的输出格式，包括<code>jar、war、pom、apk</code>等，根据实际需要确定。例如，<em>开发一般的java库，可以使用jar packaging；开发android则是apk packaging。</em></li>
-</ul>
-<h1 id="例子说明"><a href="#例子说明" class="headerlink" title="例子说明"></a>例子说明</h1><blockquote>
-<p>一般来说，Maven肯定要用到pom文件，全名叫<code>Project Object Model</code>。简单的说，就是这个pom.xml文件含有project的相关信息。以下面的pom文件为例，举个简单的例子：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven,apache.org/POM/4.0.0"</span></span></div><div class="line">　　<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3c.org/2001/XMLSchema-instance"</span></div><div class="line">　　<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">　　<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>my-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>其中，groupId代表的是<code>唯一的一个标识</code>，比如一个组织或者一个项目的名字，基本上是唯一的，以这个maven为例就是org.apache.maven。<br><code>artifactId:</code>代表的是名字，如果刚刚那个有点像身份证，这个就是类似姓名的东西。<br><code>version:</code>比较好理解，就是版本号，比如1.2.1版本这样的。<br>最后的<code>packaging</code>是我们提供组件的类型，比如使用时打包成一个jar或者是一个war之类的，默认为打成jar包。<br><strong>还要注意不得不提到maven的一个插件<code>maven-archetype-plugin</code>。这个插件是为了方便我们弄一些模板或者原型直接生成会更加方便。通过cmd指令，我们可以确定我们需要的是哪个原型</strong><br>cmd的命令的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-grizzly2 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=simple-service -Dpackage=com.example -DarchetypeVersion=2.17</div></pre></td></tr></table></figure></p>
-<p><code>archetypeGroupId:</code>这个和刚刚那个很像，指的是原型唯一的标识archetypeArtifactId：原型的名字。<br><code>interactiveMode:</code>交互模式，默认为true。<em>我上面的cmd命令是一次性把该输入的都输入进去了，免去了交互所以是false。如果你选择交互的话，就是有一步一步的选项指引你去选择和填写相关的标识之类的。</em><br><code>archetypeCatalog:</code>这个例子里面没有，指的是查找规则<br>至于后面那些groupId之类的，前面已经说过的就是生成的项目的一些标识名字之类的相关信息，<strong>不过要注意这个package是生成项目的包结构而不是提供组件的类型了</strong></p>
-</blockquote>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="https://zhidao.baidu.com/question/263104967434409685.html" target="_blank" rel="external">Maven中的参数分别是什么意思？</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;maven相关参数&quot;&gt;&lt;a href=&quot;#maven相关参数&quot; class=&quot;headerlink&quot; title=&quot;maven相关参数&quot;&gt;&lt;/a&gt;maven相关参数&lt;/h1&gt;&lt;ul&gt;
-&lt;li&gt;&lt;code&gt;groupId:&lt;/code&gt;代表组织和整个项目的唯一标志。
     
     </summary>
     
