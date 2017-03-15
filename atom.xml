@@ -152,14 +152,18 @@
     <link href="https://super3h.me/2017/03/10/s2sh-%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E7%BD%91%E9%A1%B9%E7%9B%AE/"/>
     <id>https://super3h.me/2017/03/10/s2sh-大学资源共享网项目/</id>
     <published>2017-03-10T08:00:29.266Z</published>
-    <updated>2017-03-11T15:15:38.044Z</updated>
+    <updated>2017-03-15T14:57:16.928Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库问题"><a href="#数据库问题" class="headerlink" title="数据库问题"></a>数据库问题</h2><blockquote>
-<p>突然发现当数据库中没有数据，直接级联添加<code>学校-学院-课程</code>，竟然会报如下错:</p>
+    <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库错误"><a href="#数据库错误" class="headerlink" title="数据库错误"></a>数据库错误</h2><blockquote>
+<p>报如下错:</p>
 </blockquote>
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ERROR SqlExceptionHelper Cannot add or <span class="keyword">update</span> a <span class="keyword">child</span> <span class="keyword">row</span>: a foreign <span class="keyword">key</span> <span class="keyword">constraint</span> fails (<span class="string">`s2shtest01`</span>.<span class="string">`academy`</span>, <span class="keyword">CONSTRAINT</span> <span class="string">`FKiuc88a6pjg69r9krnm57slii4`</span> FOREIGN <span class="keyword">KEY</span> (<span class="string">`aid`</span>) <span class="keyword">REFERENCES</span> <span class="string">`school`</span> (<span class="string">`sid`</span>))</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot add or update a child row: <span class="function">a foreign key constraint <span class="title">fails</span> <span class="params">(`s2shtest01`.`problem`, CONSTRAINT `FK5lcmhm21chjl0wog8par6isxn` FOREIGN KEY (`pid`)</span> REFERENCES `course` <span class="params">(`cid`)</span>)</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>刚开始以为是<code>hibernate</code>没有添加<code>cascade</code>的缘故，集体原因不详，猜测为主从表不一致的问题.</p>
+<p>后来发现。。<code>hibernate</code>配置文件竟然写错了，如此低级的错误</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"School"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"academys"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="comment">&lt;!--&lt;column name="aid"&gt;&lt;/column&gt;--&gt;</span></div><div class="line">        		<span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"Academy"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>错误如上,<code>&lt;key&gt;</code>里为academys的外键。。结果把它的外键和自己的主键绑定到一起了。</p>
 </blockquote>
 <h2 id="json解决hibernate中级联对象延迟加载问题"><a href="#json解决hibernate中级联对象延迟加载问题" class="headerlink" title="json解决hibernate中级联对象延迟加载问题"></a>json解决hibernate中级联对象延迟加载问题</h2><ul>
 <li>简介<blockquote>
@@ -189,11 +193,25 @@
 <blockquote>
 <p>详情请参考<a href="http://blog.csdn.net/evelyn2010816/article/details/6321758" target="_blank" rel="external">json解决hibernate中级联对象延迟加载问题net.sf.json.JSONException: </a></p>
 </blockquote>
+<h2 id="c-forEach问题"><a href="#c-forEach问题" class="headerlink" title="c:forEach问题"></a>c:forEach问题</h2><blockquote>
+<p>报错如下:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">According to TLD or attribute directive in tag file, attribute value does not accept any exception</div></pre></td></tr></table></figure>
+<ul>
+<li>方法如下<ul>
+<li>一种是将<code>http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd</code>改成<code>http://java.sun.com/xml/ns/javaee/web-app_2_3.xsd</code>；</li>
+<li>另一种是将JSP页面中的<font color="red"><strong>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core&quot;%&gt;改成" target="_blank" rel="external">http://java.sun.com/jstl/core&quot;%&gt;改成</a>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core_rt&quot;%&gt;。" target="_blank" rel="external">http://java.sun.com/jstl/core_rt&quot;%&gt;。</a></strong></font>在jstl-1.0.2.jar下的META-INF中有一个c.tld还有一个c-rt.tld,后一个好像是jstl核心库备用板的标签描述文件。<blockquote>
+<p>参考如下:<a href="http://blog.sina.com.cn/s/blog_6b39e1d10100mwp4.html" target="_blank" rel="external">According to TLD or attribute directive in tag file</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
 ]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;所遇问题&quot;&gt;&lt;a href=&quot;#所遇问题&quot; class=&quot;headerlink&quot; title=&quot;所遇问题&quot;&gt;&lt;/a&gt;所遇问题&lt;/h1&gt;&lt;h2 id=&quot;数据库问题&quot;&gt;&lt;a href=&quot;#数据库问题&quot; class=&quot;headerlink&quot; title=&quot;数据库问题&quot;&gt;
+      &lt;h1 id=&quot;所遇问题&quot;&gt;&lt;a href=&quot;#所遇问题&quot; class=&quot;headerlink&quot; title=&quot;所遇问题&quot;&gt;&lt;/a&gt;所遇问题&lt;/h1&gt;&lt;h2 id=&quot;数据库错误&quot;&gt;&lt;a href=&quot;#数据库错误&quot; class=&quot;headerlink&quot; title=&quot;数据库错误&quot;&gt;
     
     </summary>
     
@@ -207,7 +225,7 @@
     <link href="https://super3h.me/2017/03/10/ElementUI%20%E5%AD%A6%E4%B9%A0/"/>
     <id>https://super3h.me/2017/03/10/ElementUI 学习/</id>
     <published>2017-03-10T04:05:37.741Z</published>
-    <updated>2017-03-14T07:08:04.418Z</updated>
+    <updated>2017-03-14T15:09:58.907Z</updated>
     
     <content type="html"><![CDATA[<h1 id="ElementUI初学"><a href="#ElementUI初学" class="headerlink" title="ElementUI初学"></a>ElementUI初学</h1><h2 id="导航菜单学习"><a href="#导航菜单学习" class="headerlink" title="导航菜单学习"></a>导航菜单学习</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-menu</span> =<span class="string">"1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"1"</span> &gt;</span></div><div class="line">    	提问</div><div class="line">    <span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-menu</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -217,7 +235,7 @@
 <blockquote>
 <p>效果如图</p>
 </blockquote>
-<p><img src="/2017/03/10/ElementUI 学习/3.png" alt="">g</p>
+<p><img src="/2017/03/10/ElementUI 学习/3.png" alt=""></p>
 <h2 id="el-row来进行排版"><a href="#el-row来进行排版" class="headerlink" title="el-row来进行排版"></a>el-row来进行排版</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-row</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"20"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
 <p><code>el-row</code>下包含<code>el-col</code>元素,其中一个占四份，一个占20分，形成效果如图</p>
