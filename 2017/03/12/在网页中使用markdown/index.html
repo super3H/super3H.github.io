@@ -37,7 +37,8 @@
 <meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/1.png">
 <meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/2.png">
 <meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/3.png">
-<meta property="og:updated_time" content="2017-03-13T14:37:35.754Z">
+<meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/4.png">
+<meta property="og:updated_time" content="2017-03-17T12:53:37.206Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="在网页中使用markdown">
 <meta name="twitter:description" content="前言
@@ -142,7 +143,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在页面中显示"><span class="toc-number">4.</span> <span class="toc-text">如何在页面中显示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提交html代码"><span class="toc-number">4.1.</span> <span class="toc-text">提交html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面显示"><span class="toc-number">4.2.</span> <span class="toc-text">页面显示</span></a></li></ol></li></ol>
 		
 		</div>
 		
@@ -169,7 +170,21 @@
 </ul>
 <h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
-<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font></blockquote>
+<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
+
+</blockquote>
+<h1 id="如何在页面中显示"><a href="#如何在页面中显示" class="headerlink" title="如何在页面中显示"></a>如何在页面中显示</h1><h2 id="提交html代码"><a href="#提交html代码" class="headerlink" title="提交html代码"></a>提交html代码</h2><blockquote>
+<p>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pDescription"</span> <span class="attr">class</span>=<span class="string">"editormd-html-textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>js代码如下:</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ohtml=$(<span class="string">'.editormd-html-textarea'</span>), opreview=$(<span class="string">'.editormd-preview'</span>).clone(); </div><div class="line"> ohtml.val(opreview.html());</div></pre></td></tr></table></figure>
+<blockquote>
+<p>最后form表单提交，后台拿到pDescription的值即可</p>
+</blockquote>
+<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
+<p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
+</blockquote>
+<p><img src="/2017/03/12/在网页中使用markdown/4.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -237,7 +252,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在页面中显示"><span class="toc-number">4.</span> <span class="toc-text">如何在页面中显示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提交html代码"><span class="toc-number">4.1.</span> <span class="toc-text">提交html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面显示"><span class="toc-number">4.2.</span> <span class="toc-text">页面显示</span></a></li></ol></li></ol>
  
   </div>
 
@@ -363,7 +378,7 @@
 		  
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端<sup>1</sup></a></li>
+			<li><a href="/categories/前端/" title="前端">前端<sup>2</sup></a></li>
 		  
 		
 		</ul>
