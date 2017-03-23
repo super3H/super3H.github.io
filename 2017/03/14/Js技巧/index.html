@@ -24,7 +24,7 @@
 通过点击事件将div属性由display:none;变为display:block
 
 样式布局如下:123456789101112131415161718192021222324252627282930313233343536373839404142&amp;lt;el-row&amp;gt;	&amp;lt;el-col :span=&quot;4&quot;&amp;gt;		&amp;lt;el-menu default-a">
-<meta property="og:updated_time" content="2017-03-14T09:04:50.640Z">
+<meta property="og:updated_time" content="2017-03-22T13:52:21.726Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Js技巧">
 <meta name="twitter:description" content="导航菜单div的切换原理
@@ -123,7 +123,7 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导航菜单div的切换"><span class="toc-number">1.</span> <span class="toc-text">导航菜单div的切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式布局如下"><span class="toc-number">1.2.</span> <span class="toc-text">样式布局如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码逻辑"><span class="toc-number">1.3.</span> <span class="toc-text">js代码逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js实现表单提交和重置"><span class="toc-number">2.</span> <span class="toc-text">js实现表单提交和重置</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导航菜单div的切换"><span class="toc-number">1.</span> <span class="toc-text">导航菜单div的切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式布局如下"><span class="toc-number">1.2.</span> <span class="toc-text">样式布局如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码逻辑"><span class="toc-number">1.3.</span> <span class="toc-text">js代码逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js实现表单提交和重置"><span class="toc-number">2.</span> <span class="toc-text">js实现表单提交和重置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js正则表达式替换"><span class="toc-number">3.</span> <span class="toc-text">js正则表达式替换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#判断元素内是否有内容或者有某个标签"><span class="toc-number">4.</span> <span class="toc-text">判断元素内是否有内容或者有某个标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断文本是否为空"><span class="toc-number">4.1.</span> <span class="toc-text">判断文本是否为空</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"><span class="toc-number">4.2.</span> <span class="toc-text">判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mousemove事件获取鼠标位置"><span class="toc-number">5.</span> <span class="toc-text">mousemove事件获取鼠标位置</span></a></li></ol>
 		
 		</div>
 		
@@ -138,7 +138,25 @@
 <h1 id="js实现表单提交和重置"><a href="#js实现表单提交和重置" class="headerlink" title="js实现表单提交和重置"></a>js实现表单提交和重置</h1><blockquote>
 <p>代码如下:</p>
 </blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重置</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).reset();</div><div class="line"><span class="comment">//提交</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).submit();</div></pre></td></tr></table></figure>  
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重置</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).reset();</div><div class="line"><span class="comment">//提交</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).submit();</div></pre></td></tr></table></figure>
+<h1 id="js正则表达式替换"><a href="#js正则表达式替换" class="headerlink" title="js正则表达式替换"></a>js正则表达式替换</h1><blockquote>
+<p>博主这里要把图片对应的url换一下</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1_1.jpg"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/2_1.jpg"</span>/&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>js的replace可以使用正则替换,将_1替换成_2，默认会全文搜索</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each($(<span class="string">"img"</span>), <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="keyword">this</span>).bind(<span class="string">"mousemove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">var</span> $src = $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</div><div class="line">				<span class="keyword">var</span> changeSrc = $src.replace(<span class="regexp">/_\d/</span>,<span class="string">"_2"</span>);</div><div class="line">				$(<span class="string">"#showArea"</span>).html(<span class="string">"&lt;img src="</span>+changeSrc+<span class="string">" style='width:200px;height:300px' id='imgEnlarge' /&gt;"</span>)</div><div class="line">			&#125;)</div><div class="line">		&#125;);</div></pre></td></tr></table></figure>
+<h1 id="判断元素内是否有内容或者有某个标签"><a href="#判断元素内是否有内容或者有某个标签" class="headerlink" title="判断元素内是否有内容或者有某个标签"></a>判断元素内是否有内容或者有某个标签</h1><h2 id="判断文本是否为空"><a href="#判断文本是否为空" class="headerlink" title="判断文本是否为空"></a>判断文本是否为空</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqObj = $(<span class="keyword">this</span>);</div><div class="line"><span class="keyword">if</span>(jqObj.text().trim())&#123; <span class="comment">//trim()方法是去空格，$.trim()函数删除提供字符串的所有换行符,空格（包括非中断空格），开始和结束tab。如果这些空白字符在字符串中间发生时，它们将被保留。</span></div><div class="line">    jqObj.hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h2 id="判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"><a href="#判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素" class="headerlink" title="判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"></a>判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqObj = $(<span class="keyword">this</span>);</div><div class="line"><span class="keyword">if</span>(!jqObj.has(<span class="string">'li'</span>).length)&#123;</div><div class="line">    jqObj.hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><a href="http://www.cnblogs.com/acafaxy/archive/2012/02/02/JQuery.html" target="_blank" rel="external">JQuery判断一个元素下面是否有内容或者有某个标签</a>感谢这位作者解决了我的困惑，真诚的感谢，哈哈!</p>
+</blockquote>
+<h1 id="mousemove事件获取鼠标位置"><a href="#mousemove事件获取鼠标位置" class="headerlink" title="mousemove事件获取鼠标位置"></a>mousemove事件获取鼠标位置</h1><blockquote>
+<p>直接上代码</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#showArea"</span>).mousemove(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">			e.pageX;<span class="comment">//鼠标x轴</span></div><div class="line">			e.pageX;<span class="comment">//鼠标y轴</span></div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
@@ -205,7 +223,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导航菜单div的切换"><span class="toc-number">1.</span> <span class="toc-text">导航菜单div的切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式布局如下"><span class="toc-number">1.2.</span> <span class="toc-text">样式布局如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码逻辑"><span class="toc-number">1.3.</span> <span class="toc-text">js代码逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js实现表单提交和重置"><span class="toc-number">2.</span> <span class="toc-text">js实现表单提交和重置</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#导航菜单div的切换"><span class="toc-number">1.</span> <span class="toc-text">导航菜单div的切换</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原理"><span class="toc-number">1.1.</span> <span class="toc-text">原理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#样式布局如下"><span class="toc-number">1.2.</span> <span class="toc-text">样式布局如下:</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码逻辑"><span class="toc-number">1.3.</span> <span class="toc-text">js代码逻辑</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js实现表单提交和重置"><span class="toc-number">2.</span> <span class="toc-text">js实现表单提交和重置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#js正则表达式替换"><span class="toc-number">3.</span> <span class="toc-text">js正则表达式替换</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#判断元素内是否有内容或者有某个标签"><span class="toc-number">4.</span> <span class="toc-text">判断元素内是否有内容或者有某个标签</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#判断文本是否为空"><span class="toc-number">4.1.</span> <span class="toc-text">判断文本是否为空</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"><span class="toc-number">4.2.</span> <span class="toc-text">判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#mousemove事件获取鼠标位置"><span class="toc-number">5.</span> <span class="toc-text">mousemove事件获取鼠标位置</span></a></li></ol>
  
   </div>
 
@@ -275,7 +293,7 @@
 		  
 		
 		  
-			<li><a href="/categories/Python/" title="Python">Python<sup>7</sup></a></li>
+			<li><a href="/categories/Python/" title="Python">Python<sup>8</sup></a></li>
 		  
 		
 		  

@@ -5,52 +5,32 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>在网页中使用markdown | HHH&#39;Blog</title>
+    <title>python的字节与字符 | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="前言
-博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到editor.md，国人开发哦！！
+    <meta name="description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
 
-使用方法下载后的目录如图
-
-在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;
-
-
-可得原代码为:12345678910111213141516171819202122232425262728293031">
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在网页中使用markdown">
-<meta property="og:url" content="https://super3h.me/2017/03/12/在网页中使用markdown/index.html">
+<meta property="og:title" content="python的字节与字符">
+<meta property="og:url" content="https://super3h.me/2017/03/23/python的字节与字符/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="前言
-博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到editor.md，国人开发哦！！
+<meta property="og:description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
 
-使用方法下载后的目录如图
-
-在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;
-
-
-可得原代码为:12345678910111213141516171819202122232425262728293031">
-<meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/1.png">
-<meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/2.png">
-<meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/3.png">
-<meta property="og:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/4.png">
-<meta property="og:updated_time" content="2017-03-17T12:53:37.206Z">
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
+<meta property="og:updated_time" content="2017-03-23T01:24:29.702Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在网页中使用markdown">
-<meta name="twitter:description" content="前言
-博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到editor.md，国人开发哦！！
+<meta name="twitter:title" content="python的字节与字符">
+<meta name="twitter:description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
 
-使用方法下载后的目录如图
-
-在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;
-
-
-可得原代码为:12345678910111213141516171819202122232425262728293031">
-<meta name="twitter:image" content="https://super3h.me/2017/03/12/在网页中使用markdown/1.png">
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -127,14 +107,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/12/在网页中使用markdown/" title="在网页中使用markdown" itemprop="url">在网页中使用markdown</a>
+      <a href="/2017/03/23/python的字节与字符/" title="python的字节与字符" itemprop="url">python的字节与字符</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-12T13:38:28.061Z" itemprop="datePublished"> 发表于 2017-03-12</time>
+    <time datetime="2017-03-23T01:05:55.623Z" itemprop="datePublished"> 发表于 2017-03-23</time>
     
   </p>
 </header>
@@ -143,48 +123,71 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在页面中显示"><span class="toc-number">4.</span> <span class="toc-text">如何在页面中显示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提交html代码"><span class="toc-number">4.1.</span> <span class="toc-text">提交html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面显示"><span class="toc-number">4.2.</span> <span class="toc-text">页面显示</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#str与unicode"><span class="toc-number">1.</span> <span class="toc-text">str与unicode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#encode与decode"><span class="toc-number">2.</span> <span class="toc-text">encode与decode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UnicodeEncodeError"><span class="toc-number">3.</span> <span class="toc-text">UnicodeEncodeError</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UnicodeDecodeError"><span class="toc-number">4.</span> <span class="toc-text">UnicodeDecodeError</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">5.</span> <span class="toc-text">原文参考</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
+		<h1 id="str与unicode"><a href="#str与unicode" class="headerlink" title="str与unicode"></a>str与unicode</h1><blockquote>
+<p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。</p>
 </blockquote>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><p><img src="/2017/03/12/在网页中使用markdown/1.png" alt=""></p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'禅'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line"><span class="string">'\xec\xf8'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(s)</div><div class="line">&lt;type <span class="string">'str'</span>&gt;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
+<p>而 unicode 类型的 u”禅” 对应的 unicode 符号是 u’\u7985’</p>
 </blockquote>
-<ul>
-<li>可得原代码为:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Simple example - Editor.md examples<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/editormd.css"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test-editormd"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span>### 这里插入内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/editormd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="keyword">var</span> testEditor;</div><div class="line"></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				testEditor = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">    				<span class="comment">//调整宽度</span></div><div class="line">					width: <span class="string">"60%"</span>,</div><div class="line">					<span class="comment">//调整高度</span></div><div class="line">					height: <span class="number">400</span>,</div><div class="line">					<span class="attr">syncScrolling</span>: <span class="string">"single"</span>,</div><div class="line">					<span class="attr">path</span>: <span class="string">"./lib/"</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(u)</div><div class="line">&lt;type <span class="string">'unicode'</span>&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们要把 unicode 符号保存到文件或者传输到网络就需要经过编码处理转换成 str 类型，于是 python 提供了 encode 方法，从 unicode 转换到 str，反之亦然。</p>
+</blockquote>
+<h1 id="encode与decode"><a href="#encode与decode" class="headerlink" title="encode与decode"></a>encode与decode</h1><ul>
+<li><p>encode</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">'\xe7\xa6\x85'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>decode</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <blockquote>
-<p>这里把目录改了下：</p>
+<p>unicode 到 str 的转换要用 encode 方法，反过来就是用 decode 方法</p>
 </blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/2.png" alt=""></p>
-<ul>
-<li><code>lib</code>：为根目录下的文件，直接复制即可</li>
-<li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
-<li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
-<li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
-</ul>
-<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
-<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
+<h1 id="UnicodeEncodeError"><a href="#UnicodeEncodeError" class="headerlink" title="UnicodeEncodeError"></a>UnicodeEncodeError</h1><blockquote>
+<p>UnicodeEncodeError 发生在 unicode 字符串转换成 str 字节序列的时候，来看一个例子，把一串 unicode 字符串保存到文件</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    name = <span class="string">u'Python之禅'</span></div><div class="line">    f = open(<span class="string">"output.txt"</span>, <span class="string">"w"</span>)</div><div class="line">    f.write(name)</div><div class="line"></div><div class="line"><span class="comment"># 错误如下</span></div><div class="line">UnicodeEncodeError: <span class="string">'ascii'</span> codec can<span class="string">'t encode characters in position 6-7: ordinal not in range(128)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>原因:</code><font color="#E7C800">因为调用 write 方法时，Python 会先判断字符串是什么类型，如果是 str，就直接写入文件，不需要编码，因为 str 类型的字符串本身就是一串二进制的字节序列了。</font></p>
+<p><font color="#008AE2">如果字符串是 unicode 类型，那么它会先调用 encode 方法把 unicode 字符串转换成二进制形式的 str 类型，才保存到文件，而 encode 方法会使用 python 默认的 ascii 码来编码</font><br>相当于：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"ascii"</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>但是，<strong>我们知道 ASCII 字符集中只包含了128个拉丁字母，不包括中文字符</strong>，因此 出现了 ‘ascii’ codec can’t encode characters 的错误。要正确地使用 encode ，就必须指定一个包含了中文字符的字符集，比如：UTF-8、GBK。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">'Python\xe4\xb9\x8b\xe7\xa6\x85'</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"gbk"</span>)</div><div class="line"><span class="string">'Python\xd6\xae\xec\xf8'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>所以要把 unicode 字符串正确地写入文件，就应该预先把字符串进行 UTF-8 或 GBK 编码转换。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    name = <span class="string">u'Python之禅'</span></div><div class="line">    name = name.encode(<span class="string">'utf-8'</span>)</div><div class="line">    <span class="keyword">with</span> open(<span class="string">"output.txt"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> f:</div><div class="line">        f.write(name)</div></pre></td></tr></table></figure>
+<h1 id="UnicodeDecodeError"><a href="#UnicodeDecodeError" class="headerlink" title="UnicodeDecodeError"></a>UnicodeDecodeError</h1><blockquote>
+<p>UnicodeDecodeError 发生在 str 类型的字节序列解码成 unicode 类型的字符串时</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'\xe7\xa6\x85'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b.decode(<span class="string">"gbk"</span>)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">UnicodeDecodeError: <span class="string">'gbk'</span> codec can<span class="string">'t decode byte 0x85 in position 2: incomplete multibyte sequence</span></div></pre></td></tr></table></figure>
+<blockquote>
+<font color="#E77575">把一个经过 UTF-8 编码后生成的字节序列 ‘\xe7\xa6\x85’ 再用 GBK 解码转换成 unicode 字符串时，出现 UnicodeDecodeError，因为 （对于中文字符）GBK 编码只占用两个字节，而 UTF-8 占用3个字节，用 GBK 转换时，还多出一个字节，因此它没法解析。避免 UnicodeDecodeError 的关键是保持 编码和解码时用的编码类型一致。</font>
+
+<p>再举一个 UnicodeDecodeError 的例子</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x = u"Python"</div><div class="line">&gt;&gt;&gt; y = "之禅"</div><div class="line">&gt;&gt;&gt; x + y</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</div><div class="line">UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 0: ordinal not in range(128)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<font color="#8AB475">str 与 unicode 字符串 执行 + 操作是，Python 会把 str 类型的字节序列隐式地转换成（解码）成 和 x 一样的 unicode 类型，但Python是使用默认的 ascii 编码来转换的，而 ASCII 中不包含中文，所以报错了。</font>
 
 </blockquote>
-<h1 id="如何在页面中显示"><a href="#如何在页面中显示" class="headerlink" title="如何在页面中显示"></a>如何在页面中显示</h1><h2 id="提交html代码"><a href="#提交html代码" class="headerlink" title="提交html代码"></a>提交html代码</h2><blockquote>
-<p>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pDescription"</span> <span class="attr">class</span>=<span class="string">"editormd-html-textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>js代码如下:</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ohtml=$(<span class="string">'.editormd-html-textarea'</span>), opreview=$(<span class="string">'.editormd-preview'</span>).clone(); </div><div class="line"> ohtml.val(opreview.html());</div></pre></td></tr></table></figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>y.decode(<span class="string">'ascii'</span>)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">UnicodeDecodeError: <span class="string">'ascii'</span> codec can<span class="string">'t decode byte 0xe4 in position 0: ordinal not in range(128)</span></div></pre></td></tr></table></figure>
 <blockquote>
-<p>最后form表单提交，后台拿到pDescription的值即可</p>
+<p>正确地方式应该是显示地把 y 用 UTF-8 或者 GBK 进行解码。</p>
 </blockquote>
-<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
-<p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="string">u"Python"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = <span class="string">"之禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = y.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x + y</div><div class="line"><span class="string">u'Python\u4e4b\u7985'</span></div></pre></td></tr></table></figure>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！</p>
 </blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/4.png" alt=""></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -192,7 +195,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/javascript/">javascript</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -202,7 +205,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/03/12/在网页中使用markdown/" data-title="在网页中使用markdown | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2017/03/23/python的字节与字符/" data-title="python的字节与字符 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -215,19 +218,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/14/idea学习/" title="idea学习">
-  <strong>上一篇：</strong><br/>
-  <span>
-  idea学习</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/10/s2sh-大学资源共享网项目/"  title="s2sh-大学资源共享网项目">
+<a href="/2017/03/19/爬虫-爬取学校官网/"  title="爬虫-爬取学校官网">
  <strong>下一篇：</strong><br/> 
- <span>s2sh-大学资源共享网项目
+ <span>爬虫-爬取学校官网
 </span>
 </a>
 </div>
@@ -236,7 +231,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/12/在网页中使用markdown/" data-title="在网页中使用markdown" data-url="https://super3h.me/2017/03/12/在网页中使用markdown/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/23/python的字节与字符/" data-title="python的字节与字符" data-url="https://super3h.me/2017/03/23/python的字节与字符/"></div>
 </section>
 
 
@@ -252,7 +247,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#使用方法"><span class="toc-number">2.</span> <span class="toc-text">使用方法</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#下载后的目录如图"><span class="toc-number">2.1.</span> <span class="toc-text">下载后的目录如图</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最后效果图"><span class="toc-number">2.2.</span> <span class="toc-text">最后效果图</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#注意"><span class="toc-number">3.</span> <span class="toc-text">注意</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#如何在页面中显示"><span class="toc-number">4.</span> <span class="toc-text">如何在页面中显示</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#提交html代码"><span class="toc-number">4.1.</span> <span class="toc-text">提交html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#页面显示"><span class="toc-number">4.2.</span> <span class="toc-text">页面显示</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#str与unicode"><span class="toc-number">1.</span> <span class="toc-text">str与unicode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#encode与decode"><span class="toc-number">2.</span> <span class="toc-text">encode与decode</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UnicodeEncodeError"><span class="toc-number">3.</span> <span class="toc-text">UnicodeEncodeError</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#UnicodeDecodeError"><span class="toc-number">4.</span> <span class="toc-text">UnicodeDecodeError</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">5.</span> <span class="toc-text">原文参考</span></a></li></ol>
  
   </div>
 
