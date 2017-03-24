@@ -33,7 +33,7 @@ SpringMVC原理图
 2.寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。
 3.调">
 <meta property="og:image" content="https://super3h.me/2017/03/24/SpringMVC初学/1.jpg">
-<meta property="og:updated_time" content="2017-03-24T07:45:40.564Z">
+<meta property="og:updated_time" content="2017-03-24T07:50:32.510Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC初学">
 <meta name="twitter:description" content="SpringMVC框架介绍
@@ -167,21 +167,23 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </ul>
 <h1 id="DispatcherServlet"><a href="#DispatcherServlet" class="headerlink" title="DispatcherServlet"></a>DispatcherServlet</h1><blockquote>
 <p>DispatcherServlet是整个Spring MVC的核心。它负责接收HTTP请求组织协调Spring MVC的各个组成部分。其主要工作有以下三项：</p>
-<pre><code>1. 截获符合特定格式的URL请求。
-2. 初始化DispatcherServlet上下文对应的WebApplicationContext，并将其与业务层、持久化层的WebApplicationContext建立关联。
-3. 初始化Spring MVC的各个组成组件，并装配到DispatcherServlet中。
-</code></pre></blockquote>
+</blockquote>
+<ol>
+<li>截获符合特定格式的URL请求。</li>
+<li>初始化DispatcherServlet上下文对应的WebApplicationContext，并将其与业务层、持久化层的WebApplicationContext建立关联。</li>
+<li>初始化Spring MVC的各个组成组件，并装配到DispatcherServlet中。</li>
+</ol>
 <h1 id="web-xml配置解释"><a href="#web-xml配置解释" class="headerlink" title="web-xml配置解释"></a>web-xml配置解释</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>SpringMVC_day01<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloWeb<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>WEB-INF/spring/HelloWeb-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloWeb<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span><span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li><code>init-param:</code><ul>
-<li><strong><font color="#137300">HelloWeb DispatcherServlet初始化时，框架将尝试从位于应用程序的WebContent/WEB-INF目录中的名为[servlet-name]-servlet.xml的文件加载应用程序上下文。</font></strong></li>
-<li><strong><font color="#137300">这里我们配置此参数，让其从<code>WEB-INF/spring/HelloWeb-servlet.xml</code>下读取配置文件</font></strong></li>
+<li>HelloWeb DispatcherServlet初始化时，框架将尝试从位于应用程序的WebContent/WEB-INF目录中的名为[servlet-name]-servlet.xml的文件加载应用程序上下文。</li>
+<li>这里我们配置此参数，让其从<code>WEB-INF/spring/HelloWeb-servlet.xml</code>下读取配置文件</li>
 </ul>
 </li>
 <li><code>load-on-startup:</code><ul>
-<li><strong><font color="#137300">当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；</font></strong></li>
-<li><strong><font color="#137300">当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。</font></strong></li>
-<li><strong><font color="#137300"> 正数的值越小，启动该servlet的优先级越高</font></strong></li>
+<li>当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；</li>
+<li>当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。</li>
+<li>正数的值越小，启动该servlet的优先级越高</li>
 </ul>
 </li>
 </ul>
