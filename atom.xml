@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-24T07:32:09.575Z</updated>
+  <updated>2017-03-24T07:45:40.564Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://super3h.me/2017/03/24/SpringMVC%E5%88%9D%E5%AD%A6/"/>
     <id>https://super3h.me/2017/03/24/SpringMVC初学/</id>
     <published>2017-03-24T06:24:22.452Z</published>
-    <updated>2017-03-24T07:32:09.575Z</updated>
+    <updated>2017-03-24T07:45:40.564Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h1><blockquote>
 <p>Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。</p>
@@ -55,16 +55,14 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h1 id="web-xml配置解释"><a href="#web-xml配置解释" class="headerlink" title="web-xml配置解释"></a>web-xml配置解释</h1><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">web-app</span> <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span> <span class="attr">xmlns</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee"</span> <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_3_1.xsd"</span> <span class="attr">id</span>=<span class="string">"WebApp_ID"</span> <span class="attr">version</span>=<span class="string">"3.1"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">display-name</span>&gt;</span>SpringMVC_day01<span class="tag">&lt;/<span class="name">display-name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">welcome-file</span>&gt;</span>index.jsp<span class="tag">&lt;/<span class="name">welcome-file</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">welcome-file-list</span>&gt;</span></div><div class="line">  </div><div class="line">  <span class="tag">&lt;<span class="name">servlet</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloWeb<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-class</span>&gt;</span>org.springframework.web.servlet.DispatcherServlet<span class="tag">&lt;/<span class="name">servlet-class</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">init-param</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>WEB-INF/spring/HelloWeb-servlet.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">load-on-startup</span>&gt;</span>1<span class="tag">&lt;/<span class="name">load-on-startup</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">servlet-mapping</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">servlet-name</span>&gt;</span>HelloWeb<span class="tag">&lt;/<span class="name">servlet-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span><span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">servlet-mapping</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">web-app</span>&gt;</span></div></pre></td></tr></table></figure>
 <ul>
 <li><code>init-param:</code><ul>
-<li><font color="#137300">HelloWeb DispatcherServlet初始化时，框架将尝试从位于应用程序的WebContent/WEB-INF目录中的名为[servlet-name]-servlet.xml的文件加载应用程序上下文。</font></li>
-<li><font color="#137300">这里我们配置此参数，让其从<code>WEB-INF/spring/HelloWeb-servlet.xml</code>下读取配置文件</font></li>
+<li><strong><font color="#137300">HelloWeb DispatcherServlet初始化时，框架将尝试从位于应用程序的WebContent/WEB-INF目录中的名为[servlet-name]-servlet.xml的文件加载应用程序上下文。</font></strong></li>
+<li><strong><font color="#137300">这里我们配置此参数，让其从<code>WEB-INF/spring/HelloWeb-servlet.xml</code>下读取配置文件</font></strong></li>
 </ul>
 </li>
 <li><code>load-on-startup:</code><ul>
-<li><font color="#137300">当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；</font></li>
-<li><font color="#137300">当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。</font></li>
-<li><font color="#137300"> 正数的值越小，启动该servlet的优先级越高</font>
-
-</li>
+<li><strong><font color="#137300">当值为0或者大于0时，表示容器在应用启动时就加载这个servlet；</font></strong></li>
+<li><strong><font color="#137300">当是一个负数时或者没有指定时，则指示容器在该servlet被选择时才加载。</font></strong></li>
+<li><strong><font color="#137300"> 正数的值越小，启动该servlet的优先级越高</font></strong></li>
 </ul>
 </li>
 </ul>
@@ -75,9 +73,9 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.springmvc;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.ModelMap;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/hello"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">printHello</span><span class="params">(ModelMap modelMap)</span></span>&#123;</div><div class="line">		modelMap.put(<span class="string">"message"</span>, <span class="string">"hello spring mvc"</span>);</div><div class="line">		<span class="keyword">return</span> <span class="string">"hello"</span>;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <ul>
 <li><code>value</code>属性<strong><font color="#D55555">指示处理程序方法映射到的URL，method属性定义处理HTTP GET请求的服务方法。关于以上定义的控制器，需要注意以下几点：</font></strong><ul>
-<li><strong><font color="#F3B1D9">在服务方法中定义所需的业务逻辑。可以根据需要在此方法内调用其他方法</font></strong></li>
-<li><strong><font color="#F3B1D9">基于定义的业务逻辑，将在此方法中创建一个模型。可以设置不同的模型属性，这些属性将被视图访问以呈现最终结果。此示例创建且有属性“<code>message</code>”的模型。</font></strong></li>
-<li><strong><font color="#F3B1D9">定义的服务方法可以返回一个String，它包含要用于渲染模型的视图的名称。此示例将“hello”返回为逻辑视图名称。</font></strong></li>
+<li><strong><font color="#808080">在服务方法中定义所需的业务逻辑。可以根据需要在此方法内调用其他方法</font></strong></li>
+<li><strong><font color="#808080">基于定义的业务逻辑，将在此方法中创建一个模型。可以设置不同的模型属性，这些属性将被视图访问以呈现最终结果。此示例创建且有属性“<code>message</code>”的模型。</font></strong></li>
+<li><strong><font color="#808080">定义的服务方法可以返回一个String，它包含要用于渲染模型的视图的名称。此示例将“hello”返回为逻辑视图名称。</font></strong></li>
 </ul>
 </li>
 </ul>
