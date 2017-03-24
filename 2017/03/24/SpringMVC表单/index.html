@@ -5,85 +5,41 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>java错题总结 | HHH&#39;Blog</title>
+    <title>SpringMVC表单 | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="错题分析Integer的考察
-在jdk1.5的环境下，有如下4条语句：
+    <meta name="description" content="SpringMVC表单过程中所遇问题
+报错如下
 
-1234Integer i01 = 59;int i02 = 59;Integer i03 =Integer.valueOf(59);Integer i04 = new Integer(59)
+1The request sent by the client was syntactically incorrect.
+前台提交form，tomcat返回 http status 400   The request sent by the client was syntactically incorrect，控制台无任何错误输出。
 
-以下输出结果为false的是：
-解析如下:
-
-
-
-
-java类加载
-以下哪项不属于java类加载过程？
-
-
-
-分析如下:
-
-
-eq">
+原因:这是因">
 <meta property="og:type" content="article">
-<meta property="og:title" content="java错题总结">
-<meta property="og:url" content="https://super3h.me/2017/03/07/java错题总结/index.html">
+<meta property="og:title" content="SpringMVC表单">
+<meta property="og:url" content="https://super3h.me/2017/03/24/SpringMVC表单/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="错题分析Integer的考察
-在jdk1.5的环境下，有如下4条语句：
+<meta property="og:description" content="SpringMVC表单过程中所遇问题
+报错如下
 
-1234Integer i01 = 59;int i02 = 59;Integer i03 =Integer.valueOf(59);Integer i04 = new Integer(59)
+1The request sent by the client was syntactically incorrect.
+前台提交form，tomcat返回 http status 400   The request sent by the client was syntactically incorrect，控制台无任何错误输出。
 
-以下输出结果为false的是：
-解析如下:
-
-
-
-
-java类加载
-以下哪项不属于java类加载过程？
-
-
-
-分析如下:
-
-
-eq">
-<meta property="og:image" content="https://super3h.me/2017/03/07/java错题总结/1.png">
-<meta property="og:image" content="https://super3h.me/2017/03/07/java错题总结/2.png">
-<meta property="og:image" content="https://super3h.me/2017/03/07/java错题总结/3.png">
-<meta property="og:image" content="https://super3h.me/2017/03/07/java错题总结/4.png">
-<meta property="og:updated_time" content="2017-03-07T05:02:28.145Z">
+原因:这是因">
+<meta property="og:updated_time" content="2017-03-24T14:13:39.550Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="java错题总结">
-<meta name="twitter:description" content="错题分析Integer的考察
-在jdk1.5的环境下，有如下4条语句：
+<meta name="twitter:title" content="SpringMVC表单">
+<meta name="twitter:description" content="SpringMVC表单过程中所遇问题
+报错如下
 
-1234Integer i01 = 59;int i02 = 59;Integer i03 =Integer.valueOf(59);Integer i04 = new Integer(59)
+1The request sent by the client was syntactically incorrect.
+前台提交form，tomcat返回 http status 400   The request sent by the client was syntactically incorrect，控制台无任何错误输出。
 
-以下输出结果为false的是：
-解析如下:
-
-
-
-
-java类加载
-以下哪项不属于java类加载过程？
-
-
-
-分析如下:
-
-
-eq">
-<meta name="twitter:image" content="https://super3h.me/2017/03/07/java错题总结/1.png">
+原因:这是因">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -160,14 +116,14 @@ eq">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/07/java错题总结/" title="java错题总结" itemprop="url">java错题总结</a>
+      <a href="/2017/03/24/SpringMVC表单/" title="SpringMVC表单" itemprop="url">SpringMVC表单</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-07T04:27:51.949Z" itemprop="datePublished"> 发表于 2017-03-07</time>
+    <time datetime="2017-03-24T13:05:56.716Z" itemprop="datePublished"> 发表于 2017-03-24</time>
     
   </p>
 </header>
@@ -176,49 +132,36 @@ eq">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#错题分析"><span class="toc-number">1.</span> <span class="toc-text">错题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Integer的考察"><span class="toc-number">1.1.</span> <span class="toc-text">Integer的考察</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java类加载"><span class="toc-number">1.2.</span> <span class="toc-text">java类加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals"><span class="toc-number">1.3.</span> <span class="toc-text">equals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wait-方法和-sleep-方法的区别"><span class="toc-number">1.4.</span> <span class="toc-text">wait()方法和 sleep()方法的区别</span></a></li></ol></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC表单"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过程中所遇问题"><span class="toc-number">1.1.</span> <span class="toc-text">过程中所遇问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-ModelAttribute注解"><span class="toc-number">1.2.</span> <span class="toc-text">关于@ModelAttribute注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ModelAndView对象解析"><span class="toc-number">1.3.</span> <span class="toc-text">ModelAndView对象解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC静态页面"><span class="toc-number">2.</span> <span class="toc-text">SpringMVC静态页面</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="错题分析"><a href="#错题分析" class="headerlink" title="错题分析"></a>错题分析</h1><h2 id="Integer的考察"><a href="#Integer的考察" class="headerlink" title="Integer的考察"></a>Integer的考察</h2><blockquote>
-<p>在jdk1.5的环境下，有如下4条语句：</p>
+		<h1 id="SpringMVC表单"><a href="#SpringMVC表单" class="headerlink" title="SpringMVC表单"></a>SpringMVC表单</h1><h2 id="过程中所遇问题"><a href="#过程中所遇问题" class="headerlink" title="过程中所遇问题"></a>过程中所遇问题</h2><blockquote>
+<p>报错如下</p>
 </blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Integer i01 = <span class="number">59</span>;</div><div class="line"><span class="keyword">int</span> i02 = <span class="number">59</span>;</div><div class="line">Integer i03 =Integer.valueOf(<span class="number">59</span>);</div><div class="line">Integer i04 = <span class="keyword">new</span> Integer(<span class="number">59</span>)</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">The request sent by the client was syntactically incorrect.</div></pre></td></tr></table></figure>
+<p>前台提交form，tomcat返回 http status 400   The request sent by the client was syntactically incorrect，控制台无任何错误输出。</p>
 <ul>
-<li>以下输出结果为false的是：<br><img src="/2017/03/07/java错题总结/1.png" alt=""><blockquote>
-<p>解析如下:</p>
+<li><code>原因:</code><strong>这是因为前台form表单中的某些参数 和 后台接受的参数类型不一致导致的。即参数名称相同，但是类型不一致。spring mvc在绑定参数的时候出现异常，所以返回400错误。但是坑爹的地方在于，这个异常会被spring mvc吃掉，不会显示在控制台中。</strong></li>
+<li><code>解决办法:</code><strong>检查form表单中的参数和后台的参数对应，看是否有参数名相同但是类型不一致的情况。或者把当前日志设为debug 级别，然后在日志中即可看到spring 抛出的异常信息，即可发现哪个参数出现了错误。</strong><blockquote>
+<p>详细内容可参考:<a href="https://my.oschina.net/building/blog/137824" target="_blank" rel="external">Spring MVC 遇到的问题集锦</a></p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/2017/03/07/java错题总结/2.png" alt=""></p>
-<h2 id="java类加载"><a href="#java类加载" class="headerlink" title="java类加载"></a>java类加载</h2><blockquote>
-<p>以下哪项不属于java类加载过程？</p>
-</blockquote>
-<p><img src="/2017/03/07/java错题总结/3.png" alt=""></p>
+<h2 id="关于-ModelAttribute注解"><a href="#关于-ModelAttribute注解" class="headerlink" title="关于@ModelAttribute注解"></a>关于@ModelAttribute注解</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/addStudent"</span>,method=RequestMethod.POST)</div><div class="line">	   <span class="function"><span class="keyword">public</span> String <span class="title">addStudent</span><span class="params">(@ModelAttribute Student student,ModelMap model)</span> </span>&#123;</div><div class="line">	      model.addAttribute(<span class="string">"name"</span>, student.getName());</div><div class="line">	      model.addAttribute(<span class="string">"age"</span>, student.getAge());</div><div class="line">	      model.addAttribute(<span class="string">"id"</span>, student.getId());      </div><div class="line">	      <span class="keyword">return</span> <span class="string">"result"</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>在这个例子里，<code>@ModelAttribute User user</code>中<code>@ModelAttribute</code>将前台表单的值封装到user中</p>
 <blockquote>
-<p>分析如下:</p>
+<p>更详细的内容:<a href="http://blog.csdn.net/li_xiao_ming/article/details/8349115" target="_blank" rel="external">spring学习之@ModelAttribute运用详解</a></p>
 </blockquote>
-<p><img src="/2017/03/07/java错题总结/4.png" alt=""></p>
-<h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><blockquote>
-<p>列出<code>equals</code>的源码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+<h2 id="ModelAndView对象解析"><a href="#ModelAndView对象解析" class="headerlink" title="ModelAndView对象解析"></a>ModelAndView对象解析</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/asstudent"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">showStudent</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">"student"</span>,<span class="string">"command"</span>,<span class="keyword">new</span> Student());</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <blockquote>
-<p>Object 中euqals的源码如上。没有重写equals时，是直接用==判断的，而String中重写了equals方法</p>
+<p>解析<code>ModelAndView</code>对象，我们从源码入手</p>
 </blockquote>
-<h2 id="wait-方法和-sleep-方法的区别"><a href="#wait-方法和-sleep-方法的区别" class="headerlink" title="wait()方法和 sleep()方法的区别"></a>wait()方法和 sleep()方法的区别</h2><blockquote>
-<p>这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类。</p>
-</blockquote>
-<ul>
-<li><font color="#DB7676">sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程里调用了b的sleep方法，实际上还是a去睡觉，要让b线程睡觉要在b的代码中调用sleep。</font></li>
-<li><font color="red"><strong>最主要是sleep方法没有释放锁，而wait方法释放了锁，使得敏感词线程可以使用同步控制块或者方法。</strong></font>sleep不出让系统资源；wait是进入线程等待池等待，出让系统资源敏感词线程可以占用CPU。一般wait不会加时间限制，因为如果wait线程的运行资源不够，再出来也没用，要等待敏感词线程调用notify/notifyAll唤醒等待池中的所有线程，才会进入就绪队列等待OS分配系统资源。sleep(milliseconds)可以用时间指定使它自动唤醒过来，如果时间不到只能调用interrupt()强行打断。<font color="#25CB73"><strong><em>Thread.Sleep(0)的作用是“触发操作系统立刻重新进行一次CPU竞争”。</em></strong></font>
-</li>
-<li><p>使用范围：wait，notify和notifyAll只能在同步控制方法或者同步控制块里面使用，而sleep可以在任何地方使用 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span>(x)&#123; </div><div class="line">   x.notify() </div><div class="line">  <span class="comment">//或者wait() </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>sleep必须捕获异常，而wait，notify和notifyAll不需要捕获异常</p>
-</li>
-</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">	 * Convenient constructor to take a single model object.</div><div class="line">	 * <span class="doctag">@param</span> viewName name of the View to render, to be resolved</div><div class="line">	 * by the DispatcherServlet's ViewResolver</div><div class="line">	 * <span class="doctag">@param</span> modelName name of the single entry in the model</div><div class="line">	 * <span class="doctag">@param</span> modelObject the single model object</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ModelAndView</span><span class="params">(String viewName, String modelName, Object modelObject)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.view = viewName;</div><div class="line">		addObject(modelName, modelObject);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<p>官方文档说的很清楚，第一个<code>String</code>参数为返回的视图名，也就是说:<strong>我们访问 localhost:8080/项目名/asstudent Spring 会根据视图名跳转到<code>/WEB-INF/jsp/viewName.jsp</code></strong>，<code>modelName</code>:<strong>所需要封装的参数名</strong>，<code>modelObject</code>:<strong>所需封装的对象</strong></p>
+<h1 id="SpringMVC静态页面"><a href="#SpringMVC静态页面" class="headerlink" title="SpringMVC静态页面"></a>SpringMVC静态页面</h1><p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/staticPage"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">redirect</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"redirect:/aaa/final.html"</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/pages/"</span> mapping=<span class="string">"/aaa/**"</span>/&gt;</div><div class="line">&lt;mvc:annotation-driven /&gt;</div></pre></td></tr></table></figure>
+<p>当访问 <code>/staticPage</code> 时，根据返回值 <code>redirect:/aaa/final.html</code> 重定向到 <code>/aaa/final.html</code> ，由配置文件知 <code>/aaa/**</code> 映射到 <code>/WEB-INF/pages/</code> ，所以最后找到<code>/WEB-INF/pages/final.html</code>。</p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -226,7 +169,7 @@ eq">
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/JavaSE/">JavaSE</a>
+  <a class="article-category-link" href="/categories/SpringMVC/">SpringMVC</a>
 </div>
 
 
@@ -236,7 +179,7 @@ eq">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/03/07/java错题总结/" data-title="java错题总结 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2017/03/24/SpringMVC表单/" data-title="SpringMVC表单 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -249,19 +192,11 @@ eq">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/09/java初始化顺序/" title="java初始化顺序">
-  <strong>上一篇：</strong><br/>
-  <span>
-  java初始化顺序</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/02/log4J的使用/"  title="log4J的使用">
+<a href="/2017/03/24/SpringMVC初学/"  title="SpringMVC初学">
  <strong>下一篇：</strong><br/> 
- <span>log4J的使用
+ <span>SpringMVC初学
 </span>
 </a>
 </div>
@@ -270,7 +205,7 @@ eq">
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/07/java错题总结/" data-title="java错题总结" data-url="https://super3h.me/2017/03/07/java错题总结/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/24/SpringMVC表单/" data-title="SpringMVC表单" data-url="https://super3h.me/2017/03/24/SpringMVC表单/"></div>
 </section>
 
 
@@ -286,7 +221,7 @@ eq">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#错题分析"><span class="toc-number">1.</span> <span class="toc-text">错题分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#Integer的考察"><span class="toc-number">1.1.</span> <span class="toc-text">Integer的考察</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#java类加载"><span class="toc-number">1.2.</span> <span class="toc-text">java类加载</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#equals"><span class="toc-number">1.3.</span> <span class="toc-text">equals</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#wait-方法和-sleep-方法的区别"><span class="toc-number">1.4.</span> <span class="toc-text">wait()方法和 sleep()方法的区别</span></a></li></ol></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC表单"><span class="toc-number">1.</span> <span class="toc-text">SpringMVC表单</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#过程中所遇问题"><span class="toc-number">1.1.</span> <span class="toc-text">过程中所遇问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#关于-ModelAttribute注解"><span class="toc-number">1.2.</span> <span class="toc-text">关于@ModelAttribute注解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ModelAndView对象解析"><span class="toc-number">1.3.</span> <span class="toc-text">ModelAndView对象解析</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#SpringMVC静态页面"><span class="toc-number">2.</span> <span class="toc-text">SpringMVC静态页面</span></a></li></ol>
  
   </div>
 
