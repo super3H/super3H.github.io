@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-24T14:13:39.550Z</updated>
+  <updated>2017-03-24T14:20:56.952Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://super3h.me/2017/03/24/SpringMVC%E8%A1%A8%E5%8D%95/"/>
     <id>https://super3h.me/2017/03/24/SpringMVC表单/</id>
     <published>2017-03-24T13:05:56.716Z</published>
-    <updated>2017-03-24T14:13:39.550Z</updated>
+    <updated>2017-03-24T14:20:56.952Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SpringMVC表单"><a href="#SpringMVC表单" class="headerlink" title="SpringMVC表单"></a>SpringMVC表单</h1><h2 id="过程中所遇问题"><a href="#过程中所遇问题" class="headerlink" title="过程中所遇问题"></a>过程中所遇问题</h2><blockquote>
 <p>报错如下</p>
@@ -45,9 +45,13 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">	 * Convenient constructor to take a single model object.</div><div class="line">	 * <span class="doctag">@param</span> viewName name of the View to render, to be resolved</div><div class="line">	 * by the DispatcherServlet's ViewResolver</div><div class="line">	 * <span class="doctag">@param</span> modelName name of the single entry in the model</div><div class="line">	 * <span class="doctag">@param</span> modelObject the single model object</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ModelAndView</span><span class="params">(String viewName, String modelName, Object modelObject)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.view = viewName;</div><div class="line">		addObject(modelName, modelObject);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 <p>官方文档说的很清楚，第一个<code>String</code>参数为返回的视图名，也就是说:<strong>我们访问 localhost:8080/项目名/asstudent Spring 会根据视图名跳转到<code>/WEB-INF/jsp/viewName.jsp</code></strong>，<code>modelName</code>:<strong>所需要封装的参数名</strong>，<code>modelObject</code>:<strong>所需封装的对象</strong></p>
-<h1 id="SpringMVC静态页面"><a href="#SpringMVC静态页面" class="headerlink" title="SpringMVC静态页面"></a>SpringMVC静态页面</h1><p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/staticPage"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">redirect</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"redirect:/aaa/final.html"</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="SpringMVC静态页面"><a href="#SpringMVC静态页面" class="headerlink" title="SpringMVC静态页面"></a>SpringMVC静态页面</h1><h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/staticPage"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">redirect</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"redirect:/aaa/final.html"</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/pages/"</span> mapping=<span class="string">"/aaa/**"</span>/&gt;</div><div class="line">&lt;mvc:annotation-driven /&gt;</div></pre></td></tr></table></figure>
 <p>当访问 <code>/staticPage</code> 时，根据返回值 <code>redirect:/aaa/final.html</code> 重定向到 <code>/aaa/final.html</code> ，由配置文件知 <code>/aaa/**</code> 映射到 <code>/WEB-INF/pages/</code> ，所以最后找到<code>/WEB-INF/pages/final.html</code>。</p>
+<h2 id="lt-mvc-annotation-driven-gt"><a href="#lt-mvc-annotation-driven-gt" class="headerlink" title="&lt;mvc:annotation-driven/&gt;"></a><code>&lt;mvc:annotation-driven/&gt;</code></h2><p><code>&lt;mvc:annotation-driven/&gt;</code>是告知Spring，我们启用注解驱动。然后Spring会自动为我们注册上面说到的几个Bean到工厂中，来处理我们的请求。</p>
+<blockquote>
+<p>详情可看:<a href="https://my.oschina.net/HeliosFly/blog/205343" target="_blank" rel="external">Spring MVC 解读——<code>&lt;mvc:annotation-driven/&gt;</code></a>，作者讲的非常清晰</p>
+</blockquote>
 ]]></content>
     
     <summary type="html">
