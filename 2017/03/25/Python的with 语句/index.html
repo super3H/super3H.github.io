@@ -5,25 +5,26 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>页面点赞 | HHH&#39;Blog</title>
+    <title>Python的with 语句 | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="页面点赞css样式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051.zan,.zan1 &amp;#123;				width: 60px;				height: 60px;				position: relative;				float: right;				padd">
+    <meta name="description" content="前言with 语句是被设计用来简化“try / finally”语句的。通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：12with context_exp [as var]:    with_suit
+with 语句解释with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 with_suit。 context_e">
 <meta property="og:type" content="article">
-<meta property="og:title" content="页面点赞">
-<meta property="og:url" content="https://super3h.me/2017/03/17/页面点赞/index.html">
+<meta property="og:title" content="Python的with 语句">
+<meta property="og:url" content="https://super3h.me/2017/03/25/Python的with 语句/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="页面点赞css样式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051.zan,.zan1 &amp;#123;				width: 60px;				height: 60px;				position: relative;				float: right;				padd">
-<meta property="og:image" content="https://super3h.me/2017/03/17/页面点赞/1.png">
-<meta property="og:updated_time" content="2017-03-20T01:08:41.090Z">
+<meta property="og:description" content="前言with 语句是被设计用来简化“try / finally”语句的。通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：12with context_exp [as var]:    with_suit
+with 语句解释with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 with_suit。 context_e">
+<meta property="og:updated_time" content="2017-03-25T04:53:35.037Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="页面点赞">
-<meta name="twitter:description" content="页面点赞css样式123456789101112131415161718192021222324252627282930313233343536373839404142434445464748495051.zan,.zan1 &amp;#123;				width: 60px;				height: 60px;				position: relative;				float: right;				padd">
-<meta name="twitter:image" content="https://super3h.me/2017/03/17/页面点赞/1.png">
+<meta name="twitter:title" content="Python的with 语句">
+<meta name="twitter:description" content="前言with 语句是被设计用来简化“try / finally”语句的。通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：12with context_exp [as var]:    with_suit
+with 语句解释with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 with_suit。 context_e">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -100,14 +101,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/03/17/页面点赞/" title="页面点赞" itemprop="url">页面点赞</a>
+      <a href="/2017/03/25/Python的with 语句/" title="Python的with 语句" itemprop="url">Python的with 语句</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-03-17T12:54:38.828Z" itemprop="datePublished"> 发表于 2017-03-17</time>
+    <time datetime="2017-03-25T04:47:09.357Z" itemprop="datePublished"> 发表于 2017-03-25</time>
     
   </p>
 </header>
@@ -116,22 +117,22 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#页面点赞"><span class="toc-number">1.</span> <span class="toc-text">页面点赞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#css样式"><span class="toc-number">1.1.</span> <span class="toc-text">css样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html代码"><span class="toc-number">1.2.</span> <span class="toc-text">html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码"><span class="toc-number">1.3.</span> <span class="toc-text">js代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">2.</span> <span class="toc-text">原文参考</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#with-语句解释"><span class="toc-number">2.</span> <span class="toc-text">with 语句解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">3.</span> <span class="toc-text">原文参考</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="页面点赞"><a href="#页面点赞" class="headerlink" title="页面点赞"></a>页面点赞</h1><h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.zan</span>,<span class="selector-class">.zan1</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">position</span>: relative;</div><div class="line">				<span class="attribute">float</span>: right;</div><div class="line">				<span class="attribute">padding-left</span>: <span class="number">40px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">				<span class="comment">/* relative(相对定位) 对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级 */</span></div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之前添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="comment">/* 正方形的内切圆的半径等于正方形边长的一半 */</span></div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="comment">/* 长方形 */</span></div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="comment">/* 逆时针旋转45°*/</span></div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="comment">/* absolute(绝对定位) 脱离文档流，通过 top,bottom,left,right 定位 */</span></div><div class="line">				<span class="attribute">left</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之后添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:after</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">28px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#4C9ED9</span>;</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
-<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"zan"</span> <span class="attr">style</span>=<span class="string">"cursor: pointer;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".zan"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">			$(<span class="keyword">this</span>).toggleClass(<span class="string">"zan1"</span>);</div><div class="line">			alert($(<span class="string">"&gt;input"</span>,<span class="keyword">this</span>).val());</div><div class="line">			<span class="keyword">var</span> classname=$(<span class="keyword">this</span>).attr(<span class="string">"class"</span>);</div><div class="line">			<span class="keyword">var</span> zan_num=<span class="built_in">parseInt</span>($(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text());</div><div class="line">			<span class="keyword">if</span>(classname == <span class="string">"zan zan1"</span>)&#123;</div><div class="line">				zan_num +=<span class="number">1</span>;</div><div class="line">				$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(classname== <span class="string">"zan"</span>)&#123;</div><div class="line">				zan_num -=<span class="number">1</span>;</div><div class="line">				$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">			&#125;</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>将其简单改一下即可与后台同步</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">".zan"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				$(<span class="keyword">this</span>).toggleClass(<span class="string">"zan1"</span>);</div><div class="line">				<span class="keyword">var</span> classname=$(<span class="keyword">this</span>).attr(<span class="string">"class"</span>);</div><div class="line">				<span class="keyword">var</span> zan_num=<span class="built_in">parseInt</span>($(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text());</div><div class="line">				<span class="keyword">var</span> anid = $(<span class="string">"&gt;input"</span>,<span class="keyword">this</span>).val();</div><div class="line">				<span class="keyword">if</span>(classname == <span class="string">"zan zan1"</span>)&#123;</div><div class="line">					zan_num +=<span class="number">1</span>;</div><div class="line">					$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">					$.post(<span class="string">"queryAction_agree"</span>,&#123;</div><div class="line">    					<span class="comment">//传入所需的数据</span></div><div class="line">						anid: anid,</div><div class="line">						<span class="attr">agreeNumber</span>: zan_num<span class="comment">//点赞数</span></div><div class="line">					&#125;);</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(classname== <span class="string">"zan"</span>)&#123;</div><div class="line">					zan_num -=<span class="number">1</span>;</div><div class="line">					$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">					$.post(<span class="string">"queryAction_disagree"</span>,&#123;</div><div class="line">    					<span class="comment">//传入所需的数据</span></div><div class="line">						anid: anid,</div><div class="line">						<span class="attr">agreeNumber</span>: zan_num<span class="comment">//点赞数</span></div><div class="line">					&#125;)</div><div class="line">				&#125;</div><div class="line">			&#125;)</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里贴一张效果图</p>
-</blockquote>
-<p><img src="/2017/03/17/页面点赞/1.png" alt=""></p>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.qdfuns.com/notes/14388/6c55f67462c70fc1e5042cf1d5417bf9.html" target="_blank" rel="external">点赞效果实现——点击♥后边的数量+1，再次点击♥后边的数量-1</a></p>
+		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>with 语句是被设计用来简化“try / finally”语句的。</strong>通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> context_exp [<span class="keyword">as</span> var]:</div><div class="line">    with_suit</div></pre></td></tr></table></figure></p>
+<h1 id="with-语句解释"><a href="#with-语句解释" class="headerlink" title="with 语句解释"></a>with 语句解释</h1><p>with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 <code>with_suit</code>。 <code>context_exp</code> 表达式的作用是提供一个上下文管理器（Context Manager），整个 with_suit 代码块都是在这个上下文管理器的运行环境下执行的。<strong>context_exp 可以直接是一个上下文管理器的引用，也可以是一句可执行的表达式，with 语句会自动执行这个表达式以获得上下文管理对象。</strong>with 语句的实际执行流程是这样的：</p>
+<ol>
+<li>执行 <code>context_exp</code> 以获取上下文管理器</li>
+<li>加载上下文管理器的<code>__exit__()</code> 方法以备稍后调用</li>
+<li>调用上下文管理器的 <code>__enter__()</code> 方法</li>
+<li>如果有 as var 从句，则将 <code>__enter__()</code> 方法的返回值赋给 var</li>
+<li>执行子代码块<code>with_suit</code></li>
+<li>调用上下文管理器的<code>__exit__()</code> 方法，如果 with_suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 <code>__exit__()</code>，否则传三个 None</li>
+<li>如果 <code>with_suit</code> 的退出由异常引发，并且 <code>__exit__()</code>的返回值等于 False，那么这个异常将被重新引发一次；如果 <code>__exit__()</code>的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码</li>
+</ol>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p>更详细内容请看:<a href="https://my.oschina.net/lionets/blog/196197" target="_blank" rel="external">Python 中的 with 语句与上下文管理器</a></p>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -139,7 +140,7 @@
 
 <div class="article-categories">
   <span></span>
-  <a class="article-category-link" href="/categories/前端/">前端</a>
+  <a class="article-category-link" href="/categories/Python/">Python</a>
 </div>
 
 
@@ -149,7 +150,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/03/17/页面点赞/" data-title="页面点赞 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2017/03/25/Python的with 语句/" data-title="Python的with 语句 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -162,19 +163,11 @@
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/03/19/爬虫-爬取学校官网/" title="爬虫-爬取学校官网">
-  <strong>上一篇：</strong><br/>
-  <span>
-  爬虫-爬取学校官网</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/03/14/前台学习/"  title="前台学习">
+<a href="/2017/03/24/SpringMVC表单/"  title="SpringMVC表单">
  <strong>下一篇：</strong><br/> 
- <span>前台学习
+ <span>SpringMVC表单
 </span>
 </a>
 </div>
@@ -183,7 +176,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/03/17/页面点赞/" data-title="页面点赞" data-url="https://super3h.me/2017/03/17/页面点赞/"></div>
+	<div class="ds-thread" data-thread-key="2017/03/25/Python的with 语句/" data-title="Python的with 语句" data-url="https://super3h.me/2017/03/25/Python的with 语句/"></div>
 </section>
 
 
@@ -199,7 +192,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#页面点赞"><span class="toc-number">1.</span> <span class="toc-text">页面点赞</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#css样式"><span class="toc-number">1.1.</span> <span class="toc-text">css样式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#html代码"><span class="toc-number">1.2.</span> <span class="toc-text">html代码</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#js代码"><span class="toc-number">1.3.</span> <span class="toc-text">js代码</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">2.</span> <span class="toc-text">原文参考</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#with-语句解释"><span class="toc-number">2.</span> <span class="toc-text">with 语句解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#原文参考"><span class="toc-number">3.</span> <span class="toc-text">原文参考</span></a></li></ol>
  
   </div>
 

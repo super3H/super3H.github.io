@@ -4,6 +4,24 @@
   
     
     <entry>
+      <title><![CDATA[Python的with 语句]]></title>
+      <url>https://super3h.me/2017/03/25/Python%E7%9A%84with%20%E8%AF%AD%E5%8F%A5/</url>
+      <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>with 语句是被设计用来简化“try / finally”语句的。</strong>通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> context_exp [<span class="keyword">as</span> var]:</div><div class="line">    with_suit</div></pre></td></tr></table></figure></p>
+<h1 id="with-语句解释"><a href="#with-语句解释" class="headerlink" title="with 语句解释"></a>with 语句解释</h1><p>with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 <code>with_suit</code>。 <code>context_exp</code> 表达式的作用是提供一个上下文管理器（Context Manager），整个 with_suit 代码块都是在这个上下文管理器的运行环境下执行的。<strong>context_exp 可以直接是一个上下文管理器的引用，也可以是一句可执行的表达式，with 语句会自动执行这个表达式以获得上下文管理对象。</strong>with 语句的实际执行流程是这样的：</p>
+<ol>
+<li>执行 <code>context_exp</code> 以获取上下文管理器</li>
+<li>加载上下文管理器的<code>__exit__()</code> 方法以备稍后调用</li>
+<li>调用上下文管理器的 <code>__enter__()</code> 方法</li>
+<li>如果有 as var 从句，则将 <code>__enter__()</code> 方法的返回值赋给 var</li>
+<li>执行子代码块<code>with_suit</code></li>
+<li>调用上下文管理器的<code>__exit__()</code> 方法，如果 with_suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 <code>__exit__()</code>，否则传三个 None</li>
+<li>如果 <code>with_suit</code> 的退出由异常引发，并且 <code>__exit__()</code>的返回值等于 False，那么这个异常将被重新引发一次；如果 <code>__exit__()</code>的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码</li>
+</ol>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p>更详细内容请看:<a href="https://my.oschina.net/lionets/blog/196197" target="_blank" rel="external">Python 中的 with 语句与上下文管理器</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[SpringMVC表单]]></title>
       <url>https://super3h.me/2017/03/24/SpringMVC%E8%A1%A8%E5%8D%95/</url>
       <content type="html"><![CDATA[<h1 id="SpringMVC表单"><a href="#SpringMVC表单" class="headerlink" title="SpringMVC表单"></a>SpringMVC表单</h1><h2 id="过程中所遇问题"><a href="#过程中所遇问题" class="headerlink" title="过程中所遇问题"></a>过程中所遇问题</h2><blockquote>
@@ -183,7 +201,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="string">u"Python"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = <span class="string">"之禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = y.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x + y</div><div class="line"><span class="string">u'Python\u4e4b\u7985'</span></div></pre></td></tr></table></figure>
 <h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！</p>
+<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！<br><a href="https://my.oschina.net/leejun2005/blog/74430" target="_blank" rel="external">详解 python 中文编码与处理</a></p>
 </blockquote>
 ]]></content>
     </entry>

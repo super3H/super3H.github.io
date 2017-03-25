@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-24T14:20:56.952Z</updated>
+  <updated>2017-03-25T04:53:35.037Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,38 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Python的with 语句</title>
+    <link href="https://super3h.me/2017/03/25/Python%E7%9A%84with%20%E8%AF%AD%E5%8F%A5/"/>
+    <id>https://super3h.me/2017/03/25/Python的with 语句/</id>
+    <published>2017-03-25T04:47:09.357Z</published>
+    <updated>2017-03-25T04:53:35.037Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>with 语句是被设计用来简化“try / finally”语句的。</strong>通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> context_exp [<span class="keyword">as</span> var]:</div><div class="line">    with_suit</div></pre></td></tr></table></figure></p>
+<h1 id="with-语句解释"><a href="#with-语句解释" class="headerlink" title="with 语句解释"></a>with 语句解释</h1><p>with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 <code>with_suit</code>。 <code>context_exp</code> 表达式的作用是提供一个上下文管理器（Context Manager），整个 with_suit 代码块都是在这个上下文管理器的运行环境下执行的。<strong>context_exp 可以直接是一个上下文管理器的引用，也可以是一句可执行的表达式，with 语句会自动执行这个表达式以获得上下文管理对象。</strong>with 语句的实际执行流程是这样的：</p>
+<ol>
+<li>执行 <code>context_exp</code> 以获取上下文管理器</li>
+<li>加载上下文管理器的<code>__exit__()</code> 方法以备稍后调用</li>
+<li>调用上下文管理器的 <code>__enter__()</code> 方法</li>
+<li>如果有 as var 从句，则将 <code>__enter__()</code> 方法的返回值赋给 var</li>
+<li>执行子代码块<code>with_suit</code></li>
+<li>调用上下文管理器的<code>__exit__()</code> 方法，如果 with_suit 的退出是由异常引发的，那么该异常的 type、value 和 traceback 会作为参数传给 <code>__exit__()</code>，否则传三个 None</li>
+<li>如果 <code>with_suit</code> 的退出由异常引发，并且 <code>__exit__()</code>的返回值等于 False，那么这个异常将被重新引发一次；如果 <code>__exit__()</code>的返回值等于 True，那么这个异常就被无视掉，继续执行后面的代码</li>
+</ol>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p>更详细内容请看:<a href="https://my.oschina.net/lionets/blog/196197" target="_blank" rel="external">Python 中的 with 语句与上下文管理器</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;with 语句是被设计用来简化“try / finally”语句的。&lt;/strong&gt;通常的用处在于共享资源的获取和释放，比
+    
+    </summary>
+    
+      <category term="Python" scheme="https://super3h.me/categories/Python/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>SpringMVC表单</title>
@@ -167,7 +199,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/23/python%E7%9A%84%E5%AD%97%E8%8A%82%E4%B8%8E%E5%AD%97%E7%AC%A6/"/>
     <id>https://super3h.me/2017/03/23/python的字节与字符/</id>
     <published>2017-03-23T01:05:55.623Z</published>
-    <updated>2017-03-23T01:24:29.702Z</updated>
+    <updated>2017-03-25T05:02:50.231Z</updated>
     
     <content type="html"><![CDATA[<h1 id="str与unicode"><a href="#str与unicode" class="headerlink" title="str与unicode"></a>str与unicode</h1><blockquote>
 <p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。</p>
@@ -228,7 +260,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </blockquote>
 <figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="string">u"Python"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = <span class="string">"之禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = y.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x + y</div><div class="line"><span class="string">u'Python\u4e4b\u7985'</span></div></pre></td></tr></table></figure>
 <h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><blockquote>
-<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！</p>
+<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！<br><a href="https://my.oschina.net/leejun2005/blog/74430" target="_blank" rel="external">详解 python 中文编码与处理</a></p>
 </blockquote>
 ]]></content>
     
@@ -1232,84 +1264,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     
       &lt;h1 id=&quot;自动组件扫描&quot;&gt;&lt;a href=&quot;#自动组件扫描&quot; class=&quot;headerlink&quot; title=&quot;自动组件扫描&quot;&gt;&lt;/a&gt;自动组件扫描&lt;/h1&gt;&lt;blockquote&gt;
 &lt;p&gt;启用Spring组件扫描功能。&lt;br&gt;使用@Component注释来表示这是类是一
-    
-    </summary>
-    
-      <category term="spring" scheme="https://super3h.me/categories/spring/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>spring-xmlns,xmlns:xsi和xsi:schemaLocation</title>
-    <link href="https://super3h.me/2017/02/24/spring-xmlns,xmlns%20xsi%E5%92%8Cxsi%20schemaLocation/"/>
-    <id>https://super3h.me/2017/02/24/spring-xmlns,xmlns xsi和xsi schemaLocation/</id>
-    <published>2017-02-24T12:13:43.477Z</published>
-    <updated>2017-02-24T12:46:14.995Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p><em>相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XML文档头拷贝过来，并没有理解其中元素（比 如xmlns，xmlns:xsi，xsi:schemaLocation）的真正含义，不知道哪些元素是多余的，也不知道为什么要加那些元素。这样当有 时候网上Copy的XML头有错的时候自己却不知道怎么下手。我也是这样的，于是今天花了点时间好好的理解了一下这些元素及其用法，现整理与此。</em></p>
-</blockquote>
-<h1 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h1><blockquote>
-<p>话不多说，先来一段Spring的XML样本，相信大家都很眼熟：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">       <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">       <span class="attr">xmlns:context</span>=<span class="string">"http://www.springframework.org/schema/context"</span></div><div class="line">       <span class="attr">xmlns:mvc</span>=<span class="string">"http://www.springframework.org/schema/mvc"</span></div><div class="line">       <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans </span></div><div class="line">                           http://www.springframework.org/schema/beans/spring-beans.xsd</div><div class="line">                           http://www.springframework.org/schema/context </div><div class="line">                           http://www.springframework.org/schema/context/spring-context.xsd</div><div class="line">                           http://www.springframework.org/schema/mvc</div><div class="line">                           http://www.springframework.org/schema/mvc/spring-mvc.xsd"&gt;</div><div class="line">                           </div><div class="line">    <span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"xxx.xxx.controller"</span> /&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">context:annotation-config</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:default-servlet-handler</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:annotation-driven</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">mvc:resources</span> <span class="attr">mapping</span>=<span class="string">"/images/**"</span> <span class="attr">location</span>=<span class="string">"/images/"</span> /&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"xxx"</span> <span class="attr">class</span>=<span class="string">"xxx.xxx.xxx.Xxx"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"xxx"</span> <span class="attr">value</span>=<span class="string">"xxxx"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>这 个文档中，根元素<beans>就不用说了，接下来是xmlns。那么什么是xmlns呢？<font color="#FF899C">xmlns其实是XML Namespace的缩写，可译为“XML命名空间”，但个人觉得，翻译后的名字反而不好理解，所以我们就叫它为XML Namespace吧。</font></beans></p>
-</blockquote>
-<h1 id="为什么需要xmlns？"><a href="#为什么需要xmlns？" class="headerlink" title="为什么需要xmlns？"></a>为什么需要xmlns？</h1><blockquote>
-<p>考虑这样两个XML文档：表示HTML表格元素的<code>&lt;table/&gt;</code>：</p>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">tr</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">td</span>&gt;</span>Bananas<span class="tag">&lt;/<span class="name">td</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">tr</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure>
-<p>和描述一张桌子的<code>&lt;table/&gt;</code>：<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">table</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">name</span>&gt;</span>African Coffee Table<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">width</span>&gt;</span>80<span class="tag">&lt;/<span class="name">width</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">length</span>&gt;</span>120<span class="tag">&lt;/<span class="name">length</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">table</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p><em>假如这两个 XML 文档被一起使用，由于两个文档都包含带有不同内容和定义的 <code>&lt;table&gt;</code>元素，就会发生命名冲突。XML 解析器是无法确定如何处理这类冲突。为了解决上述问题，xmlns就产生了。</em></p>
-</blockquote>
-<h1 id="如何是用xmlns？"><a href="#如何是用xmlns？" class="headerlink" title="如何是用xmlns？"></a>如何是用xmlns？</h1><blockquote>
-<p>很简单，使用语法：<code>xmlns:namespace-prefix=&quot;namespaceURI&quot;</code>。其中<font color="#42CA98">namespace-prefix为自定义前缀，只要在这个XML文档中保证前缀不重复即可；namespaceURI是这个前缀对应的XML Namespace的定义。</font>例如，<br><figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:context=<span class="string">"http://www.springframework.org/schema/context"</span></div></pre></td></tr></table></figure></p>
-<p>这一句定义了一个<a href="http://www.springframwork.org/schema/context的Namespace（这和Java类中的包的声明很相似），并将其和前缀context绑定。所以上面的Spring" target="_blank" rel="external">http://www.springframwork.org/schema/context的Namespace（这和Java类中的包的声明很相似），并将其和前缀context绑定。所以上面的Spring</a> XML文档中会有这么一句：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context:component-scan</span> <span class="attr">base-package</span>=<span class="string">"xxx.xxx.controller"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
-<font color="#42CA98">这里的<component-scan>元素就来自别名为context的XML Namespace，也就是在<a href="http://www.springframework.org/schema/context中定义的。" target="_blank" rel="external">http://www.springframework.org/schema/context中定义的。</a></component-scan></font>
-
-</blockquote>
-<ul>
-<li>我们还可以将前缀定义为abc：<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:abc=<span class="string">"namespaceURI"</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>这样再使用这个namespaceURI中的元素时，需要以abc为前缀，例如：<code>&lt;abc:xxx/&gt;</code>。再拿上面的例子解释怎么使用xmlns：</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里xmlns:h="url1"表示这个table是用h作为标记，table的写法在url1中定义 --&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">h:table</span> <span class="attr">xmlns:h</span>=<span class="string">"url1"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">h:tr</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">h:td</span>&gt;</span>Apples<span class="tag">&lt;/<span class="name">h:td</span>&gt;</span> </div><div class="line">    <span class="tag">&lt;<span class="name">h:td</span>&gt;</span>Bananas<span class="tag">&lt;/<span class="name">h:td</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;/<span class="name">h:tr</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">h:table</span>&gt;</span></div></pre></td></tr></table></figure>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 这里xmlns:f="url2"表示这个table是用f作为标记，table的写法在url2中定义 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">f:table</span> <span class="attr">xmlns:f</span>=<span class="string">"url2"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:name</span>&gt;</span>African Coffee Table<span class="tag">&lt;/<span class="name">f:name</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:width</span>&gt;</span>80<span class="tag">&lt;/<span class="name">f:width</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">f:length</span>&gt;</span>120<span class="tag">&lt;/<span class="name">f:length</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">f:table</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><font color="#7030A0">后者与前者仅仅使用不同前缀，我们为<code>&lt;table&gt;</code>标签添加了一个 xmlns 属性，这样就为前缀赋予了一个与某个命名空间相关联的限定名称。</font>此时再把它们放在一起，XML解析器就不会报错了。</p>
-</blockquote>
-<h1 id="xmlns和xmlns-xsi有什么不同？"><a href="#xmlns和xmlns-xsi有什么不同？" class="headerlink" title="xmlns和xmlns:xsi有什么不同？"></a>xmlns和xmlns:xsi有什么不同？</h1><ul>
-<li>xmlns表示默认的Namespace。例如Spring XML文档中的:<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns="http://www.springframework.org/schema/beans"</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<ul>
-<li>这一句表示该文档默认的XML Namespace为<a href="http://www.springframwork.org/schema/beans。" target="_blank" rel="external">http://www.springframwork.org/schema/beans。</a><font color="#7030A0">对于默认的Namespace中的元素，可以不使用前缀。</font>例如Spring XML文档中的<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"xxx"</span> <span class="attr">class</span>=<span class="string">"xxx.xxx.xxx.Xxx"</span>&gt;</span> </div><div class="line">  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"xxx"</span> <span class="attr">value</span>=<span class="string">"xxxx"</span>/&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>xmlns:xsi表示使用xsi作为前缀的Namespace，当然前缀xsi需要在文档中声明。</p>
-</blockquote>
-<h1 id="xsi-schemaLocation有何作用？"><a href="#xsi-schemaLocation有何作用？" class="headerlink" title="xsi:schemaLocation有何作用？"></a>xsi:schemaLocation有何作用？</h1><ul>
-<li><p><code>xsi:schemaLocation</code>属性其实是Namespace为<a href="http://www.w3.org/2001/XMLSchema-instance里的schemaLocation属性，正是因为我们一开始声明了" target="_blank" rel="external">http://www.w3.org/2001/XMLSchema-instance里的schemaLocation属性，正是因为我们一开始声明了</a></p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"</div></pre></td></tr></table></figure>
-</li>
-<li><p>这里才写作xsi:schemaLocation（当然一般都使用这个前缀）。<font color="#EA623C">它定义了XML Namespace和对应的 XSD（Xml Schema Definition）文档的位置的关系。它的值由一个或多个URI引用对组成，两个URI之间以空白符分隔（空格和换行均可）。第一个URI是定义的 XML Namespace的值，第二个URI给出Schema文档的位置，Schema处理器将从这个位置读取Schema文档，该文档的targetNamespace必须与第一个URI相匹配。</font>例如：</p>
-<figure class="highlight d"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">xsi:schemaLocation=<span class="string">"http://www.springframework.org/schema/context </span></div><div class="line">                    http://www.springframework.org/schema/context/spring-context.xsd"</div></pre></td></tr></table></figure>
-</li>
-<li><p>这里表示Namespace为<code>http://www.springframework.org/schema/context</code>的Schema的位置为<a href="http://www.springframework.org/schema/context/spring-context.xsd。" target="_blank" rel="external">http://www.springframework.org/schema/context/spring-context.xsd</a>这里我们可以打开这个Schema的位置，下面是这个文档的开始部分：</p>
-<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">&lt;xsd:schema xmlns="http://www.springframework.org/schema/context" </div><div class="line">            xmlns:xsd="http://www.w3.org/2001/XMLSchema" </div><div class="line">            xmlns:beans="http://www.springframework.org/schema/beans" </div><div class="line">            xmlns:tool="http://www.springframework.org/schema/tool" </div><div class="line">            &lt;!-- 这里的targetNamespace和上方xsi:schemaLocation中的第一个URI匹配 --&gt; </div><div class="line">            targetNamespace="http://www.springframework.org/schema/context" </div><div class="line">            elementFormDefault="qualified" </div><div class="line">            attributeFormDefault="unqualified"&gt;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>有了上面的说明后，再去理解开始的Spring XML文档，一定会有不一样的感觉！ </p>
-</blockquote>
-<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.cnblogs.com/zhao1949/p/5652167.html" target="_blank" rel="external">关于XML文档的xmlns、xmlns:xsi和xsi:schemaLocation </a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;&lt;em&gt;相信很多人和我一样，在编写Spring或者Maven或者其他需要用到XML文档的程序时，通常都是将这些XM
     
     </summary>
     
