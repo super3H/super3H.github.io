@@ -30,7 +30,7 @@
 前台提交form，tomcat返回 http status 400   The request sent by the client was syntactically incorrect，控制台无任何错误输出。
 
 原因:这是因">
-<meta property="og:updated_time" content="2017-03-24T14:20:56.952Z">
+<meta property="og:updated_time" content="2017-03-25T06:46:01.256Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="SpringMVC表单">
 <meta name="twitter:description" content="SpringMVC表单过程中所遇问题
@@ -158,7 +158,7 @@
 <p>解析<code>ModelAndView</code>对象，我们从源码入手</p>
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line">	 * Convenient constructor to take a single model object.</div><div class="line">	 * <span class="doctag">@param</span> viewName name of the View to render, to be resolved</div><div class="line">	 * by the DispatcherServlet's ViewResolver</div><div class="line">	 * <span class="doctag">@param</span> modelName name of the single entry in the model</div><div class="line">	 * <span class="doctag">@param</span> modelObject the single model object</div><div class="line">	 */</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">ModelAndView</span><span class="params">(String viewName, String modelName, Object modelObject)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.view = viewName;</div><div class="line">		addObject(modelName, modelObject);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-<p>官方文档说的很清楚，第一个<code>String</code>参数为返回的视图名，也就是说:<strong>我们访问 localhost:8080/项目名/asstudent Spring 会根据视图名跳转到<code>/WEB-INF/jsp/viewName.jsp</code></strong>，<code>modelName</code>:<strong>所需要封装的参数名</strong>，<code>modelObject</code>:<strong>所需封装的对象</strong></p>
+<p>官方文档说的很清楚，第一个<code>String</code>参数为返回的视图名，也就是说:<strong>我们访问 localhost:8080/项目名/asstudent Spring 会根据视图名跳转到<code>/WEB-INF/jsp/viewName.jsp</code></strong>，<code>modelName</code>:<strong>所需要封装的参数名</strong>，<code>modelObject</code>:<strong>所需封装的对象</strong><br><code>注意:</code><strong><font color="#DB7676">modelName必须使用’command’ ，因为如果在JSP文件中使用<code>&lt;form:form&gt;</code>标签，spring框架需要一个名称为“command”的对象</font></strong></p>
 <h1 id="SpringMVC静态页面"><a href="#SpringMVC静态页面" class="headerlink" title="SpringMVC静态页面"></a>SpringMVC静态页面</h1><h2 id="代码解析"><a href="#代码解析" class="headerlink" title="代码解析"></a>代码解析</h2><p>代码如下:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@RequestMapping</span>(value=<span class="string">"/staticPage"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">redirect</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"redirect:/aaa/final.html"</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&lt;mvc:resources location=<span class="string">"/WEB-INF/pages/"</span> mapping=<span class="string">"/aaa/**"</span>/&gt;</div><div class="line">&lt;mvc:annotation-driven /&gt;</div></pre></td></tr></table></figure>
 <p>当访问 <code>/staticPage</code> 时，根据返回值 <code>redirect:/aaa/final.html</code> 重定向到 <code>/aaa/final.html</code> ，由配置文件知 <code>/aaa/**</code> 映射到 <code>/WEB-INF/pages/</code> ，所以最后找到<code>/WEB-INF/pages/final.html</code>。</p>
@@ -315,7 +315,7 @@
 		  
 		
 		  
-			<li><a href="/categories/SpringMVC/" title="SpringMVC">SpringMVC<sup>2</sup></a></li>
+			<li><a href="/categories/SpringMVC/" title="SpringMVC">SpringMVC<sup>3</sup></a></li>
 		  
 		
 		  
