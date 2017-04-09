@@ -5,25 +5,41 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>python is和==的区别 | HHH&#39;Blog</title>
+    <title>python2.7 IndentationError | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="is和==的区别Python中的对象包含三要素：id、type、value。其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值。is判断的是a对象是否就是b对象，是通过id来判断的。==判断的是a对象的值是否和b对象的值相等，是通过value来判断的">
+    <meta name="description" content="错误- IndentationError: unexpected indent
+
+原因- 你的文件里格式不对了，可能是tab和空格没对齐的问题，你需要检查下tab和空格了
+
+解决方案
+重新调整空格(4个空格)
+方案二">
 <meta property="og:type" content="article">
-<meta property="og:title" content="python is和==的区别">
-<meta property="og:url" content="https://super3h.me/2017/02/07/Python-is_==/index.html">
+<meta property="og:title" content="python2.7 IndentationError">
+<meta property="og:url" content="https://super3h.me/2016/12/25/Python-IndentationError/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="is和==的区别Python中的对象包含三要素：id、type、value。其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值。is判断的是a对象是否就是b对象，是通过id来判断的。==判断的是a对象的值是否和b对象的值相等，是通过value来判断的">
-<meta property="og:image" content="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg">
-<meta property="og:updated_time" content="2017-02-07T14:57:24.660Z">
+<meta property="og:description" content="错误- IndentationError: unexpected indent
+
+原因- 你的文件里格式不对了，可能是tab和空格没对齐的问题，你需要检查下tab和空格了
+
+解决方案
+重新调整空格(4个空格)
+方案二">
+<meta property="og:updated_time" content="2017-01-24T08:09:09.991Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="python is和==的区别">
-<meta name="twitter:description" content="is和==的区别Python中的对象包含三要素：id、type、value。其中id用来唯一标识一个对象，type标识对象的类型，value是对象的值。is判断的是a对象是否就是b对象，是通过id来判断的。==判断的是a对象的值是否和b对象的值相等，是通过value来判断的">
-<meta name="twitter:image" content="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg">
+<meta name="twitter:title" content="python2.7 IndentationError">
+<meta name="twitter:description" content="错误- IndentationError: unexpected indent
+
+原因- 你的文件里格式不对了，可能是tab和空格没对齐的问题，你需要检查下tab和空格了
+
+解决方案
+重新调整空格(4个空格)
+方案二">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -100,14 +116,14 @@
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/02/07/Python-is_==/" title="python is和==的区别" itemprop="url">python is和==的区别</a>
+      <a href="/2016/12/25/Python-IndentationError/" title="python2.7 IndentationError" itemprop="url">python2.7 IndentationError</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-02-07T14:48:31.381Z" itemprop="datePublished"> 发表于 2017-02-07</time>
+    <time datetime="2016-12-25T14:59:02.284Z" itemprop="datePublished"> 发表于 2016-12-25</time>
     
   </p>
 </header>
@@ -116,11 +132,18 @@
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#is和-的区别"><span class="toc-number">1.</span> <span class="toc-text">is和==的区别</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#错误"><span class="toc-number">1.</span> <span class="toc-text">错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">1.1.</span> <span class="toc-text">原因</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h1><p><code>Python</code>中的对象包含三要素：<code>id</code>、<code>type</code>、<code>value</code>。<br>其中<code>id</code>用来唯一标识一个对象，<code>type</code>标识对象的类型，<code>value</code>是对象的值。<br><code>is</code>判断的是a对象是否就是b对象，是通过<code>id</code>来判断的。<br><code>==</code>判断的是a对象的值是否和b对象的值相等，是通过<code>value</code>来判断的<br><img src="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg" alt=""></p>
+		<h1 id="错误"><a href="#错误" class="headerlink" title="错误"></a>错误</h1><font color="red"><br>- IndentationError: unexpected indent<br></font>
+
+<h2 id="原因"><a href="#原因" class="headerlink" title="原因"></a>原因</h2><font color="green"><br>- 你的文件里格式不对了，可能是tab和空格没对齐的问题，你需要检查下tab和空格了<br></font>
+
+<h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ul>
+<li>重新调整空格(4个空格)</li>
+<li><a href="http://dikar.iteye.com/blog/308934" target="_blank" rel="external">方案二</a></li>
+</ul>
   
 	</div>
 		<footer class="article-footer clearfix">
@@ -138,7 +161,7 @@
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/02/07/Python-is_==/" data-title="python is和==的区别 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2016/12/25/Python-IndentationError/" data-title="python2.7 IndentationError | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,18 +175,18 @@
 <nav class="article-nav clearfix">
  
  <div class="prev" >
- <a href="/2017/02/08/Hexo-域名/" title="Hexo-github 域名设置">
+ <a href="/2016/12/31/input输入框/" title="input输入框">
   <strong>上一篇：</strong><br/>
   <span>
-  Hexo-github 域名设置</span>
+  input输入框</span>
 </a>
 </div>
 
 
 <div class="next">
-<a href="/2017/02/05/WeiXin-Python/"  title="python开发公众号">
+<a href="/2016/12/25/Python-virtualenv/"  title="python2.7 安装配置虚拟环境出错">
  <strong>下一篇：</strong><br/> 
- <span>python开发公众号
+ <span>python2.7 安装配置虚拟环境出错
 </span>
 </a>
 </div>
@@ -172,7 +195,7 @@
 
 	
 <section id="comments" class="comment">
-	<div class="ds-thread" data-thread-key="2017/02/07/Python-is_==/" data-title="python is和==的区别" data-url="https://super3h.me/2017/02/07/Python-is_==/"></div>
+	<div class="ds-thread" data-thread-key="2016/12/25/Python-IndentationError/" data-title="python2.7 IndentationError" data-url="https://super3h.me/2016/12/25/Python-IndentationError/"></div>
 </section>
 
 
@@ -188,7 +211,7 @@
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#is和-的区别"><span class="toc-number">1.</span> <span class="toc-text">is和==的区别</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#错误"><span class="toc-number">1.</span> <span class="toc-text">错误</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#原因"><span class="toc-number">1.1.</span> <span class="toc-text">原因</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#解决方案"><span class="toc-number">2.</span> <span class="toc-text">解决方案</span></a></li></ol>
  
   </div>
 
@@ -270,7 +293,7 @@
 		  
 		
 		  
-			<li><a href="/categories/SpringMVC/" title="SpringMVC">SpringMVC<sup>5</sup></a></li>
+			<li><a href="/categories/SpringMVC/" title="SpringMVC">SpringMVC<sup>6</sup></a></li>
 		  
 		
 		  
@@ -322,7 +345,7 @@
 		  
 		
 		  
-			<li><a href="/categories/前端/" title="前端">前端<sup>2</sup></a></li>
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
 		  
 		
 		</ul>
