@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-03-29T10:51:18.663Z</updated>
+  <updated>2017-04-15T14:30:30.840Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,77 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Java-Sum练习</title>
+    <link href="https://super3h.me/2017/04/15/Java-Sum%E7%BB%83%E4%B9%A0/"/>
+    <id>https://super3h.me/2017/04/15/Java-Sum练习/</id>
+    <published>2017-04-15T11:45:24.098Z</published>
+    <updated>2017-04-15T14:30:30.840Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="有关算法数字求和总结"><a href="#有关算法数字求和总结" class="headerlink" title="有关算法数字求和总结"></a>有关算法数字求和总结</h1><p><strong>题目设置数字个数设置不大时，可以添加判断来减少算法的时间复杂度，但是当个数过多时，添加过多的判断则会导致处理时间增大！！！</strong></p>
+<h2 id="TowSum"><a href="#TowSum" class="headerlink" title="TowSum"></a>TowSum</h2><ul>
+<li>题目<br><img src="/2017/04/15/Java-Sum练习/./Java-Sum练习/2.png" alt=""></li>
+<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</div><div class="line">	    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</div><div class="line">	        <span class="keyword">if</span> (map.containsKey(target - numbers[i])) &#123;</div><div class="line">	            result[<span class="number">1</span>] = i + <span class="number">1</span>;</div><div class="line">	            result[<span class="number">0</span>] = map.get(target - numbers[i]);</div><div class="line">	            <span class="keyword">return</span> result;</div><div class="line">	        &#125;</div><div class="line">	        map.put(numbers[i], i + <span class="number">1</span>);</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> result;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="ThreeSum"><a href="#ThreeSum" class="headerlink" title="ThreeSum"></a>ThreeSum</h2><ul>
+<li>题目<br><img src="/2017/04/15/Java-Sum练习/./Java-Sum练习/3.png" alt=""></li>
+<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i + <span class="number">2</span> &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;              <span class="comment">// skip same result</span></div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> j = i + <span class="number">1</span>, k = nums.length - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">int</span> target = -nums[i];</div><div class="line">        <span class="keyword">while</span> (j &lt; k) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[j] + nums[k] == target) &#123;</div><div class="line">                res.add(Arrays.asList(nums[i], nums[j], nums[k]));</div><div class="line">                j++;</div><div class="line">                k--;</div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) j++;  <span class="comment">// skip same result</span></div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[k] == nums[k + <span class="number">1</span>]) k--;  <span class="comment">// skip same result</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[j] + nums[k] &gt; target) &#123;</div><div class="line">                k--;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="FourSum"><a href="#FourSum" class="headerlink" title="FourSum"></a>FourSum</h2><ul>
+<li>题目<br><img src="/2017/04/15/Java-Sum练习/./Java-Sum练习/1.png" alt=""></li>
+<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">if</span>(nums.length&lt;<span class="number">4</span>)</div><div class="line">			<span class="keyword">return</span> results;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">3</span>;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>])</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;nums.length-<span class="number">2</span>;j++)&#123;</div><div class="line">				<span class="keyword">if</span>((j-<span class="number">1</span>)!=i&amp;&amp;nums[j]==nums[j-<span class="number">1</span>])</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">int</span> k = j+<span class="number">1</span>,l = nums.length-<span class="number">1</span>;</div><div class="line">				<span class="keyword">int</span> subTarget = target-nums[i]-nums[j];</div><div class="line">				<span class="keyword">while</span>(l&gt;k)&#123;</div><div class="line">					<span class="keyword">if</span>(nums[l]+nums[k] == subTarget)&#123;</div><div class="line">						results.add(Arrays.asList(nums[i],nums[j],nums[k],nums[l]));</div><div class="line">						l--;</div><div class="line">						k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp; nums[k] == nums[k-<span class="number">1</span>]) k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp;nums[l] == nums[l+<span class="number">1</span>]) l--;</div><div class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[l]+nums[k] &gt; subTarget)&#123;</div><div class="line">						l--;</div><div class="line">					&#125;<span class="keyword">else</span>&#123;</div><div class="line">						k++;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> results;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h2 id="FourSum2"><a href="#FourSum2" class="headerlink" title="FourSum2"></a>FourSum2</h2><ul>
+<li>题目<br><img src="/2017/04/15/Java-Sum练习/4.png" alt=""></li>
+<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B, <span class="keyword">int</span>[] C, <span class="keyword">int</span>[] D)</span> </span>&#123;</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">	    </div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;C.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;D.length; j++) &#123;</div><div class="line">	            <span class="keyword">int</span> sum = C[i] + D[j];</div><div class="line">	            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;B.length; j++) &#123;</div><div class="line">	            res += map.getOrDefault(-<span class="number">1</span> * (A[i]+B[j]), <span class="number">0</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">return</span> res;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;有关算法数字求和总结&quot;&gt;&lt;a href=&quot;#有关算法数字求和总结&quot; class=&quot;headerlink&quot; title=&quot;有关算法数字求和总结&quot;&gt;&lt;/a&gt;有关算法数字求和总结&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;题目设置数字个数设置不大时，可以添加判断来减少算法的时间复杂
+    
+    </summary>
+    
+      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java-ValueOf</title>
+    <link href="https://super3h.me/2017/04/15/Java-ValueOf/"/>
+    <id>https://super3h.me/2017/04/15/Java-ValueOf/</id>
+    <published>2017-04-15T05:57:14.156Z</published>
+    <updated>2017-04-15T06:06:52.492Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="value-of"><a href="#value-of" class="headerlink" title="value of"></a>value of</h1><ul>
+<li>Integer valueOf(int i)：返回一个表示指定的 int 值的 Integer 实例。</li>
+<li>Integer valueOf(String s):返回保存指定的 String 的值的 Integer 对象。</li>
+<li>Integer valueOf(String s, int radix): 返回一个 Integer 对象，该对象中保存了用第二个参数提供的基数进行解析时从指定的 String 中提取的值。</li>
+</ul>
+<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">System.out.println(Integer.valueOf(<span class="string">"127"</span>)==Integer.valueOf(<span class="string">"127"</span>));<span class="comment">//true</span></div><div class="line">System.out.println(Integer.valueOf(<span class="string">"128"</span>)==Integer.valueOf(<span class="string">"128"</span>));<span class="comment">//false</span></div><div class="line">System.out.println(Integer.parseInt(<span class="string">"128"</span>)==Integer.valueOf(<span class="string">"128"</span>));<span class="comment">//true</span></div></pre></td></tr></table></figure>
+<h1 id="解析"><a href="#解析" class="headerlink" title="解析"></a>解析</h1><p>看官方文档可以发现:</p>
+<blockquote>
+<p><code>This method will always cache values in the range -128 to 127</code><br>默认会缓存-128到127间的值，因为128没有被缓存，所以每次调用，都会生成一个新的整型对象，因此两个128整型对象是不同的对象。</p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;value-of&quot;&gt;&lt;a href=&quot;#value-of&quot; class=&quot;headerlink&quot; title=&quot;value of&quot;&gt;&lt;/a&gt;value of&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;Integer valueOf(int i)：返回一个表示指定的 int 值的 
+    
+    </summary>
+    
+      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>SpringMVC 注解</title>
@@ -956,178 +1027,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     </summary>
     
       <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java错题总结</title>
-    <link href="https://super3h.me/2017/03/07/java%E9%94%99%E9%A2%98%E6%80%BB%E7%BB%93/"/>
-    <id>https://super3h.me/2017/03/07/java错题总结/</id>
-    <published>2017-03-07T04:27:51.949Z</published>
-    <updated>2017-03-07T05:02:28.145Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="错题分析"><a href="#错题分析" class="headerlink" title="错题分析"></a>错题分析</h1><h2 id="Integer的考察"><a href="#Integer的考察" class="headerlink" title="Integer的考察"></a>Integer的考察</h2><blockquote>
-<p>在jdk1.5的环境下，有如下4条语句：</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Integer i01 = <span class="number">59</span>;</div><div class="line"><span class="keyword">int</span> i02 = <span class="number">59</span>;</div><div class="line">Integer i03 =Integer.valueOf(<span class="number">59</span>);</div><div class="line">Integer i04 = <span class="keyword">new</span> Integer(<span class="number">59</span>)</div></pre></td></tr></table></figure>
-<ul>
-<li>以下输出结果为false的是：<br><img src="/2017/03/07/java错题总结/1.png" alt=""><blockquote>
-<p>解析如下:</p>
-</blockquote>
-</li>
-</ul>
-<p><img src="/2017/03/07/java错题总结/2.png" alt=""></p>
-<h2 id="java类加载"><a href="#java类加载" class="headerlink" title="java类加载"></a>java类加载</h2><blockquote>
-<p>以下哪项不属于java类加载过程？</p>
-</blockquote>
-<p><img src="/2017/03/07/java错题总结/3.png" alt=""></p>
-<blockquote>
-<p>分析如下:</p>
-</blockquote>
-<p><img src="/2017/03/07/java错题总结/4.png" alt=""></p>
-<h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><blockquote>
-<p>列出<code>equals</code>的源码</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">equals</span><span class="params">(Object obj)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> (<span class="keyword">this</span> == obj);</div><div class="line">    &#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>Object 中euqals的源码如上。没有重写equals时，是直接用==判断的，而String中重写了equals方法</p>
-</blockquote>
-<h2 id="wait-方法和-sleep-方法的区别"><a href="#wait-方法和-sleep-方法的区别" class="headerlink" title="wait()方法和 sleep()方法的区别"></a>wait()方法和 sleep()方法的区别</h2><blockquote>
-<p>这两个方法来自不同的类分别是，sleep来自Thread类，和wait来自Object类。</p>
-</blockquote>
-<ul>
-<li><font color="#DB7676">sleep是Thread的静态类方法，谁调用的谁去睡觉，即使在a线程里调用了b的sleep方法，实际上还是a去睡觉，要让b线程睡觉要在b的代码中调用sleep。</font></li>
-<li><font color="red"><strong>最主要是sleep方法没有释放锁，而wait方法释放了锁，使得敏感词线程可以使用同步控制块或者方法。</strong></font>sleep不出让系统资源；wait是进入线程等待池等待，出让系统资源敏感词线程可以占用CPU。一般wait不会加时间限制，因为如果wait线程的运行资源不够，再出来也没用，要等待敏感词线程调用notify/notifyAll唤醒等待池中的所有线程，才会进入就绪队列等待OS分配系统资源。sleep(milliseconds)可以用时间指定使它自动唤醒过来，如果时间不到只能调用interrupt()强行打断。<font color="#25CB73"><strong><em>Thread.Sleep(0)的作用是“触发操作系统立刻重新进行一次CPU竞争”。</em></strong></font>
-</li>
-<li><p>使用范围：wait，notify和notifyAll只能在同步控制方法或者同步控制块里面使用，而sleep可以在任何地方使用 </p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">synchronized</span>(x)&#123; </div><div class="line">   x.notify() </div><div class="line">  <span class="comment">//或者wait() </span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-<li><p>sleep必须捕获异常，而wait，notify和notifyAll不需要捕获异常</p>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;错题分析&quot;&gt;&lt;a href=&quot;#错题分析&quot; class=&quot;headerlink&quot; title=&quot;错题分析&quot;&gt;&lt;/a&gt;错题分析&lt;/h1&gt;&lt;h2 id=&quot;Integer的考察&quot;&gt;&lt;a href=&quot;#Integer的考察&quot; class=&quot;headerlink&quot; titl
-    
-    </summary>
-    
-      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>log4J的使用</title>
-    <link href="https://super3h.me/2017/03/02/log4J%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
-    <id>https://super3h.me/2017/03/02/log4J的使用/</id>
-    <published>2017-03-02T08:33:38.706Z</published>
-    <updated>2017-03-03T05:20:12.204Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="log4J的安装"><a href="#log4J的安装" class="headerlink" title="log4J的安装"></a>log4J的安装</h1><p>进入官网下载即可<a href="http://logging.apache.org/log4j/1.2/download.html" target="_blank" rel="external">http://logging.apache.org/log4j/1.2/download.html</a></p>
-<h1 id="log4J的配置及解释"><a href="#log4J的配置及解释" class="headerlink" title="log4J的配置及解释"></a>log4J的配置及解释</h1><h2 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"># Define the root logger with appender file</div><div class="line">log4j.rootLogger = DEBUG, FILE</div><div class="line"></div><div class="line"># Define the file appender</div><div class="line">log4j.appender.FILE=org.apache.log4j.FileAppender</div><div class="line"># Set the name of the file</div><div class="line">log4j.appender.FILE.File=C:\log.out</div><div class="line"></div><div class="line"># Set the immediate flush to true (default)</div><div class="line">log4j.appender.FILE.ImmediateFlush=true</div><div class="line"></div><div class="line"># Set the threshold to debug mode</div><div class="line">log4j.appender.FILE.Threshold=debug</div><div class="line"></div><div class="line"># Set the append to false, overwrite</div><div class="line">log4j.appender.FILE.Append=false</div><div class="line"></div><div class="line"># Define the layout for file appender</div><div class="line">log4j.appender.FILE.layout=org.apache.log4j.PatternLayout</div><div class="line">log4j.appender.FILE.layout.conversionPattern=%m%n</div></pre></td></tr></table></figure>
-<ul>
-<li>根日志记录器(logger)的级别定义为DEBUG并连接附加器命名为FILE</li>
-<li>附加器(appender)File是定义为org.apache.log4j.FileAppender并写入到一个名为“log.out”位于日志log目录下</li>
-<li>定义的布局模式是%m%n，这意味着每打印日志消息之后，将加上一个换行符<blockquote>
-<p>注意:<font color="#4ACC60">log4j支持UNIX风格的变量替换，如 ${variableName}.</font></p>
-</blockquote>
-</li>
-</ul>
-<h2 id="调试级别"><a href="#调试级别" class="headerlink" title="调试级别"></a>调试级别</h2><p>使用DEBUG两个追加程序。所有可能的选项有：</p>
-<ul>
-<li>TRACE</li>
-<li>DEBUG</li>
-<li>INFO</li>
-<li>WARN</li>
-<li>ERROR</li>
-<li>FATAL</li>
-<li>ALL</li>
-</ul>
-<h2 id="Appenders"><a href="#Appenders" class="headerlink" title="Appenders"></a>Appenders</h2><blockquote>
-<p>Apache的log4j提供<code>Appender</code>对象<font color="#FFAA25"><strong>主要负责打印日志消息到不同的目的地</strong></font>，如控制台，文件，sockets，NT事件日志等等。<br>每个<code>Appender</code>对象具有与之相关联的不同的属性，并且这些属性表明对象的行为</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th style="text-align:center">属性</th>
-<th>描述</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:center">layout</td>
-<td>Appender使用布局Layout 对象和与之相关的格式化的日志记录信息转换模式</td>
-</tr>
-<tr>
-<td style="text-align:center">target</td>
-<td>目标可以是一个控制台，一个文件，或根据附加器的另一个项目</td>
-</tr>
-<tr>
-<td style="text-align:center">level</td>
-<td>级别是必需的，以控制日志消息的过滤</td>
-</tr>
-<tr>
-<td style="text-align:center">threshold</td>
-<td>Appender可以有与之独立的记录器级别相关联的级别阈值水平。Appender忽略具有级别低于阈级别的任何日志消息</td>
-</tr>
-<tr>
-<td style="text-align:center">filter</td>
-<td>Filter 对象可以分析超出级别的匹配记录信息，并决定是否记录的请求应该由一个特定 Appender 或忽略处理</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Layout"><a href="#Layout" class="headerlink" title="Layout"></a>Layout</h2><p>我们使用的PatternLayout 使用 appender。所有可能的选项有：</p>
-<ul>
-<li>DateLayout</li>
-<li>HTMLLayout</li>
-<li><a href="http://www.yiibai.com/log4j/log4j_patternlayout.html" target="_blank" rel="external">PatternLayout</a></li>
-<li><a href="http://www.yiibai.com/log4j/log4j_htmllayout.html" target="_blank" rel="external">SimpleLayout</a></li>
-<li>XMLLayout<blockquote>
-<p>使用HTMLLayout和XMLLayout，可以在HTML和XML格式和生成日志。</p>
-</blockquote>
-</li>
-</ul>
-<h2 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h2><ul>
-<li><code>properties</code>相关配置详情请看<a href="http://www.yiibai.com/log4j/log4j_configuration.html" target="_blank" rel="external">log4j配置</a></li>
-<li><code>xml</code>相关配置详情请看<a href="http://www.cnblogs.com/v-weiwang/p/4814050.html" target="_blank" rel="external">springmvc+log4j操作日志记录,详细配置 </a></li>
-</ul>
-<h1 id="log4J配置文件位置"><a href="#log4J配置文件位置" class="headerlink" title="log4J配置文件位置"></a>log4J配置文件位置</h1><h2 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h2><blockquote>
-<p>log4j启动时，<font color="#CF59E0">默认会寻找source folder下的log4j.xml配置文件，<strong>若没有，会寻找log4j.properties文件。</strong></font>然后加载配置。配置文件放置位置正确，不用在程序中手动加载log4j配置文件。</p>
-</blockquote>
-<p><img src="/2017/03/02/log4J的使用/1.png" alt=""></p>
-<h2 id="手动加载配置文件"><a href="#手动加载配置文件" class="headerlink" title="手动加载配置文件"></a>手动加载配置文件</h2><blockquote>
-<p>可以通过<code>PropertyConfigurator.configure(&quot;url&quot;)</code>来手动加载配置文件，示例如下:</p>
-</blockquote>
-<p><img src="/2017/03/02/log4J的使用/2.jpg" alt=""></p>
-<blockquote>
-<p>相应代码如下:<code>PropertyConfigurator.configure(&quot;config/log4j.properties&quot;);</code></p>
-</blockquote>
-<h2 id="log4J报错"><a href="#log4J报错" class="headerlink" title="log4J报错"></a>log4J报错</h2><blockquote>
-<p>如果上述方法报以下错:</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">log4j:ERROR Could not read configuration file [log4j.properties].</div><div class="line">java.io.FileNotFoundException: log4j.properties (系统找不到指定的文件。)</div><div class="line"> at java.io.FileInputStream.open(Native Method)</div><div class="line"> at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:<span class="number">106</span>)</div><div class="line"> at java.io.FileInputStream.&lt;init&gt;(FileInputStream.java:<span class="number">66</span>)</div><div class="line"> at org.apache.log4j.PropertyConfigurator.doConfigure(PropertyConfigurator.java:<span class="number">306</span>)</div><div class="line"> at org.apache.log4j.PropertyConfigurator.configure(PropertyConfigurator.java:<span class="number">324</span>)</div><div class="line"> at snmp.GetSnmpInfo.&lt;clinit&gt;(GetSnmpInfo.java:<span class="number">32</span>)</div><div class="line">log4j:ERROR Ignoring configuration file [log4j.properties].</div></pre></td></tr></table></figure>
-<ul>
-<li>解决方案:<ul>
-<li><code>方案1:</code>将log4j.properties 这个文件从src的根目录 转移到 项目的根目录下面，即可~~~；</li>
-<li><code>方案2:</code>添加以下代码<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// 获得当前目录路径</span></div><div class="line">        String filePath = <span class="keyword">this</span>.getClass().getResource(<span class="string">"/"</span>).getPath();</div><div class="line">        <span class="comment">// 找到log4j.properties配置文件所在的目录(已经创建好)</span></div><div class="line">        filePath = filePath.substring(<span class="number">1</span>).replace(<span class="string">"bin"</span>, <span class="string">"src"</span>);</div><div class="line">        <span class="comment">// 获得日志类loger的实例</span></div><div class="line">        loger = Logger.getLogger(<span class="keyword">this</span>.getClass());</div><div class="line">        <span class="comment">// loger所需的配置文件路径</span></div><div class="line">        PropertyConfigurator.configure(filePath + <span class="string">"log4j.properties"</span>);</div></pre></td></tr></table></figure>
-</li>
-</ul>
-</li>
-</ul>
-<h2 id="参考链接-1"><a href="#参考链接-1" class="headerlink" title="参考链接"></a>参考链接</h2><p>详情请看<a href="http://blog.csdn.net/lifuxiangcaohui/article/details/11042375" target="_blank" rel="external">log4j配置文件位置详解</a><br>详情请看<a href="http://www.cnblogs.com/tv151579/archive/2013/01/20/2868912.html" target="_blank" rel="external">log4j:ERROR Could not read configuration file [log4j.properties]. </a></p>
-<h1 id="扩展内容"><a href="#扩展内容" class="headerlink" title="扩展内容"></a>扩展内容</h1><p><a href="http://www.yiibai.com/log4j/log4j_logging_files.html" target="_blank" rel="external">log4j日志记录到文件</a><br><a href="http://www.yiibai.com/log4j/log4j_logging_database.html" target="_blank" rel="external">log4j日志记录到数据库</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;log4J的安装&quot;&gt;&lt;a href=&quot;#log4J的安装&quot; class=&quot;headerlink&quot; title=&quot;log4J的安装&quot;&gt;&lt;/a&gt;log4J的安装&lt;/h1&gt;&lt;p&gt;进入官网下载即可&lt;a href=&quot;http://logging.apache.org/log
-    
-    </summary>
-    
-      <category term="log4J" scheme="https://super3h.me/categories/log4J/"/>
     
     
   </entry>
