@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-04-22T03:00:57.125Z</updated>
+  <updated>2017-04-22T15:01:26.846Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
     <id>https://super3h.me/2017/04/21/路由器配置/</id>
     <published>2017-04-21T14:30:22.550Z</published>
-    <updated>2017-04-22T03:00:57.125Z</updated>
+    <updated>2017-04-22T15:01:26.846Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
@@ -29,7 +29,7 @@
 <li>完成主机PCD、www、及DNS的配置，以表格的形式提供；</li>
 <li>完成路由器Router2的端口地址及静态路由配置并保存。</li>
 </ol>
-<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>由图知：<strong>共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的网络号都算进去了)</strong></p>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>由图知：<strong>共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的网络号都算进去了)，ps:配置时候不用管点是红色还是绿色，后面会介绍，做什么事都得一步一步！！！</strong></p>
 <table>
 <thead>
 <tr>
@@ -74,12 +74,12 @@
 <ul>
 <li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置/11.png" alt=""></p>
 <blockquote>
-<p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是红色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
+<p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是绿色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
 </blockquote>
 </li>
 <li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置/12.png" alt=""></p>
 <blockquote>
-<p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.100，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
+<p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.250，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
 </blockquote>
 </li>
 </ul>
