@@ -1,0 +1,867 @@
+
+ <!DOCTYPE HTML>
+<html lang="zh-CN">
+<head>
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta charset="UTF-8">
+  
+    <title>路由器配置 | HHH&#39;Blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
+    
+    <meta name="author" content="super3H">
+    
+
+    
+    <meta name="description" content="题目有一个企业网络拓扑结构如上图，回答如下问题：
+
+给出子网划分方案，并给出每个子网主机的地址空间；
+完成网络地址分配，以表格的形式提供；
+完成主机PCD、www、及DNS的配置，以表格的形式提供；
+完成路由器Router2的端口地址及静态路由配置并保存。
+
+分析划分子网由图知：共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="路由器配置">
+<meta property="og:url" content="https://super3h.me/2017/04/21/路由器配置/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="题目有一个企业网络拓扑结构如上图，回答如下问题：
+
+给出子网划分方案，并给出每个子网主机的地址空间；
+完成网络地址分配，以表格的形式提供；
+完成主机PCD、www、及DNS的配置，以表格的形式提供；
+完成路由器Router2的端口地址及静态路由配置并保存。
+
+分析划分子网由图知：共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/1.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/2.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/3.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/4.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/5.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/6.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/7.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/11.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/12.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/13.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/14.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/15.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/16.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/17.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/18.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/19.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/20.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/21.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/22.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/23.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/24.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/25.png">
+<meta property="og:image" content="https://super3h.me/2017/04/21/路由器配置/26.png">
+<meta property="og:updated_time" content="2017-04-22T03:00:57.125Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="路由器配置">
+<meta name="twitter:description" content="题目有一个企业网络拓扑结构如上图，回答如下问题：
+
+给出子网划分方案，并给出每个子网主机的地址空间；
+完成网络地址分配，以表格的形式提供；
+完成主机PCD、www、及DNS的配置，以表格的形式提供；
+完成路由器Router2的端口地址及静态路由配置并保存。
+
+分析划分子网由图知：共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的">
+<meta name="twitter:image" content="https://super3h.me/2017/04/21/路由器配置/1.png">
+
+    
+    <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
+    
+    
+    <link rel="icon" href="/img/hhh_favicon.ico">
+    
+    
+    <link rel="apple-touch-icon" href="/img/hhh_pacman.jpg">
+    <link rel="apple-touch-icon-precomposed" href="/img/hhh_pacman.jpg">
+    
+	<link rel="stylesheet" href="//cdn.bootcss.com/font-awesome/4.6.3/css/font-awesome.min.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="/css/search.css">
+</head>
+
+  <body>
+    <header>
+      
+<div>
+		
+			<div id="imglogo">
+				<a href="/"><img src="/img/hhh_logo.svg" alt="HHH&#39;Blog" title="HHH&#39;Blog"/></a>
+			</div>
+			
+			<div id="textlogo">
+				<h1 class="site-name"><a href="/" title="HHH&#39;Blog">HHH&#39;Blog</a></h1>
+				<h2 class="blog-motto">it&#39;s time to fight for myself</h2>
+			</div>
+			<div class="navbar"><a class="navbutton navmobile" href="#" title="菜单">
+			</a></div>
+			
+			<nav class="animated">
+				<ul>
+					<ul>
+					 
+						<li><a href="/">首页</a></li>
+					
+						<li><a href="/archives">归档</a></li>
+					
+						<li><a href="/categories">分类</a></li>
+					
+					<li>
+ 					
+					<form class="search">
+						<label>Search</label>
+						<input type="text" id="search" class="search form-control" autocomplete="off" maxlength="20" placeholder="搜索" autocorrect="off"/>
+					</form>
+					
+					</li>
+				</ul>
+			</nav>
+			
+</div>
+    </header>
+	<div id="ly" style="width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;
+         z-index: 4; left: 0px; display: none;" onclick="Lock_CheckForm()">
+	</div>
+		<!--浮层框架开始-->
+		<div id="Layer2" align="center" style="width: 950px; position: fixed;left: 200px ;top:10%;z-index: 5;background-color: #fff; display: none;border-radius: 10px;">
+			<div style="background-color: #F8F8F8;border-radius: 10px;">
+				<input type="text" value="" id="local-search-input" placeholder="search this website" autocomplete="off" autocorrect="off" autocapitalize="off" style="outline: none;">
+				<span class="local-search-close" onclick="Lock_Reset()"></span>
+				<!-- 清空/重置搜索框 -->
+				<br><br>
+			</div>
+			<div id="local-search-result"></div> <!-- 搜索结果区 -->
+		</div>
+		<!--  浮层框架结束-->
+    <div id="container">
+      <div id="main" class="post" itemscope itemprop="blogPost">
+  
+	<article itemprop="articleBody"> 
+		<header class="article-info clearfix">
+  <h1 itemprop="name">
+    
+      <a href="/2017/04/21/路由器配置/" title="路由器配置" itemprop="url">路由器配置</a>
+  </h1>
+  <p class="article-author">By
+       
+		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
+		
+  <p class="article-time">
+    <time datetime="2017-04-21T14:30:22.550Z" itemprop="datePublished"> 发表于 2017-04-21</time>
+    
+  </p>
+</header>
+	<div class="article-content">
+		
+		<div id="toc" class="toc-article">
+			<strong class="toc-title">文章目录</strong>
+		
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#划分子网"><span class="toc-number">2.1.</span> <span class="toc-text">划分子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分主机地址"><span class="toc-number">2.2.</span> <span class="toc-text">划分主机地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置4个路由的端口"><span class="toc-number">2.3.</span> <span class="toc-text">配置4个路由的端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+		
+		</div>
+		
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
+<ol>
+<li>给出子网划分方案，并给出每个子网主机的地址空间；</li>
+<li>完成网络地址分配，以表格的形式提供；</li>
+<li>完成主机PCD、www、及DNS的配置，以表格的形式提供；</li>
+<li>完成路由器Router2的端口地址及静态路由配置并保存。</li>
+</ol>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>由图知：<strong>共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的网络号都算进去了)</strong></p>
+<table>
+<thead>
+<tr>
+<th>网络</th>
+<th style="text-align:center">地址空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>net1</td>
+<td style="text-align:center">218.197.15.0~218.197.15.63</td>
+</tr>
+<tr>
+<td>net2</td>
+<td style="text-align:center">218.197.15.64~218.197.15.127</td>
+</tr>
+<tr>
+<td>net3</td>
+<td style="text-align:center">218.197.15.128~218.197.15.191</td>
+</tr>
+<tr>
+<td>net4</td>
+<td style="text-align:center">218.197.15.192~218.197.15.255</td>
+</tr>
+</tbody>
+</table>
+<p>这里我们在图上配置好我们的图:<br><img src="/2017/04/21/路由器配置/2.png" alt=""><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
+<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><img src="/2017/04/21/路由器配置/3.png" alt=""><br>接下来我们给pc机和服务器配置相应的ip:</p>
+<ul>
+<li><p>pc机配置如下：<br><img src="/2017/04/21/路由器配置/4.png" alt=""></p>
+<blockquote>
+<p>另一个pc机操作也同上</p>
+</blockquote>
+</li>
+<li><p>服务器配置如下:<br><img src="/2017/04/21/路由器配置/5.png" alt=""></p>
+<blockquote>
+<p>另一个服务器操作也同上</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><img src="/2017/04/21/路由器配置/6.png" alt=""><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><img src="/2017/04/21/路由器配置/7.png" alt=""><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
+<ul>
+<li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置/11.png" alt=""></p>
+<blockquote>
+<p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是红色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
+</blockquote>
+</li>
+<li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置/12.png" alt=""></p>
+<blockquote>
+<p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.100，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/2017/04/21/路由器配置/13.png" alt=""></p>
+<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><img src="/2017/04/21/路由器配置/14.png" alt=""></p>
+<h2 id="配置4个路由的端口"><a href="#配置4个路由的端口" class="headerlink" title="配置4个路由的端口"></a>配置4个路由的端口</h2><table>
+<thead>
+<tr>
+<th>网络</th>
+<th style="text-align:center">地址空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>net1</td>
+<td style="text-align:center">218.197.15.0~218.197.15.63</td>
+</tr>
+<tr>
+<td>net2</td>
+<td style="text-align:center">218.197.15.64~218.197.15.127</td>
+</tr>
+<tr>
+<td>net3</td>
+<td style="text-align:center">218.197.15.128~218.197.15.191</td>
+</tr>
+<tr>
+<td>net4</td>
+<td style="text-align:center">218.197.15.192~218.197.15.255</td>
+</tr>
+</tbody>
+</table>
+<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><img src="/2017/04/21/路由器配置/15.png" alt=""></p>
+<blockquote>
+<p>操作如下:</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/16.png" alt=""><br>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><img src="/2017/04/21/路由器配置/17.png" alt=""><br>操作完成后，我们来用pc机ping一下来确认:<br><img src="/2017/04/21/路由器配置/18.png" alt=""><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><img src="/2017/04/21/路由器配置/19.png" alt=""><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><img src="/2017/04/21/路由器配置/20.png" alt=""></p>
+<blockquote>
+<p><strong>倘若我们要通过最左边的电脑来访问左右边的电脑咋办？？</strong><br><code>分析：</code>最左边访问最右边，<strong>当然要通过管理最左边的路由器来路由数据</strong>，所以这里我们配置其静态路由：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/21.png" alt=""></p>
+<blockquote>
+<p>这里有两条路可以走，博主选的上面这条路，配置完后就可以访问了么？？我们来试一下：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/22.png" alt=""></p>
+<blockquote>
+<p>发现都没办法到达目的地，**因为这里我们通过最上方的路由器来路由数据，但它不知道到目的网络在哪，我们再来配置他的静态路由</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/23.png" alt=""></p>
+<blockquote>
+<p>这个时候我们来ping一下:</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/24.png" alt=""><br><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><img src="/2017/04/21/路由器配置/25.png" alt=""></p>
+<blockquote>
+<p>在ping一下确认：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/26.png" alt=""></p>
+<blockquote>
+<p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<p>之前博主也一直不知道，知道期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
+</blockquote>
+  
+	</div>
+		<footer class="article-footer clearfix">
+<div class="article-catetags">
+
+<div class="article-categories">
+  <span></span>
+  <a class="article-category-link" href="/categories/计算机网络/">计算机网络</a>
+</div>
+
+
+</div>
+
+
+
+	<div class="article-share" id="share">
+	
+	  <div data-url="https://super3h.me/2017/04/21/路由器配置/" data-title="路由器配置 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  </div>
+	
+	</div>
+
+
+</footer>
+
+   	       
+	</article>
+	
+<nav class="article-nav clearfix">
+ 
+
+<div class="next">
+<a href="/2017/04/17/Java8新特性/"  title="Java8新特性">
+ <strong>下一篇：</strong><br/> 
+ <span>Java8新特性
+</span>
+</a>
+</div>
+
+</nav>
+
+	
+<section id="comments" class="comment">
+	<div class="ds-thread" data-thread-key="2017/04/21/路由器配置/" data-title="路由器配置" data-url="https://super3h.me/2017/04/21/路由器配置/"></div>
+</section>
+
+
+<section id="comments" class="comment">
+  <div id="disqus_thread">
+    <noscript>Please enable JavaScript to view the <a href="//disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+</div>  
+      <div class="openaside"><a class="navbutton" href="#" title="显示侧边栏"></a></div>
+
+  <div id="toc" class="toc-aside">
+  <strong class="toc-title">文章目录</strong>
+ 
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#划分子网"><span class="toc-number">2.1.</span> <span class="toc-text">划分子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#划分主机地址"><span class="toc-number">2.2.</span> <span class="toc-text">划分主机地址</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#配置4个路由的端口"><span class="toc-number">2.3.</span> <span class="toc-text">配置4个路由的端口</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#总结"><span class="toc-number">3.</span> <span class="toc-text">总结</span></a></li></ol>
+ 
+  </div>
+
+<div id="asidepart">
+<div class="closeaside"><a class="closebutton" href="#" title="隐藏侧边栏"></a></div>
+<iframe frameborder="no" border="0" marginwidth="0" marginheight="0" width="300" height="450" src="//music.163.com/outchain/player?type=0&id=602224221&auto=0&height=430" style="margin-top:40px;margin-left:-10px;"></iframe>
+<aside class="clearfix">
+
+  
+<div class="github-card">
+<p class="asidetitle">Github 名片</p>
+<div class="github-card" data-github="super3H" data-width="280" data-height="119" data-theme="medium">
+<script type="text/javascript" src="//cdn.jsdelivr.net/github-cards/latest/widget.js" ></script>
+
+</div>
+  </div>
+
+
+
+  
+<div class="categorieslist">
+	<p class="asidetitle">分类</p>
+		<ul>
+		
+		  
+			<li><a href="/categories/Ajax/" title="Ajax">Ajax<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Crawler/" title="Crawler">Crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Eclipse/" title="Eclipse">Eclipse<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/ElementUI/" title="ElementUI">ElementUI<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Hexo/" title="Hexo">Hexo<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE/" title="J2EE">J2EE<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Hibernate/" title="J2EE-Hibernate">J2EE-Hibernate<sup>5</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/J2EE-Struts2/" title="J2EE-Struts2">J2EE-Struts2<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/JavaSE/" title="JavaSE">JavaSE<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Jquery/" title="Jquery">Jquery<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Nginx/" title="Nginx">Nginx<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python/" title="Python">Python<sup>10</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Python-Web/" title="Python-Web">Python-Web<sup>4</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SQL/" title="SQL">SQL<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/SpringMVC/" title="SpringMVC">SpringMVC<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Vue-js/" title="Vue.js">Vue.js<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/Web/" title="Web">Web<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/WeiXin/" title="WeiXin">WeiXin<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/html/" title="html">html<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/idea/" title="idea">idea<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/javascript/" title="javascript">javascript<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/log4J/" title="log4J">log4J<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/maven/" title="maven">maven<sup>6</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/npm/" title="npm">npm<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/python-crawler/" title="python-crawler">python-crawler<sup>1</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/s2sh/" title="s2sh">s2sh<sup>2</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/spring/" title="spring">spring<sup>11</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/前端/" title="前端">前端<sup>3</sup></a></li>
+		  
+		
+		  
+			<li><a href="/categories/计算机网络/" title="计算机网络">计算机网络<sup>1</sup></a></li>
+		  
+		
+		</ul>
+</div>
+
+
+  
+
+  <div class="linkslist">
+  <p class="asidetitle">友情链接</p>
+    <ul>
+        
+          <li>
+            
+            	<a href="http://ccnnde.github.io" target="_blank" title="ccnn&#39;s Blog">ccnn&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="https://bingcheng0618.github.io/" target="_blank" title="HBC&#39;s Blog">HBC&#39;s Blog</a>
+            
+          </li>
+        
+          <li>
+            
+            	<a href="http://blog.chenmoxuan.com" target="_blank" title="陈俊祥的个人博客">陈俊祥的个人博客</a>
+            
+          </li>
+        
+    </ul>
+</div>
+
+  
+
+
+  <div class="rsspart">
+	<a href="/atom.xml" target="_blank" title="rss">RSS 订阅</a>
+</div>
+
+  <div class="weiboshow">
+  <p class="asidetitle">新浪微博</p>
+    <iframe width="100%" height="119" class="share_self"  frameborder="0" scrolling="no" src="http://widget.weibo.com/weiboshow/index.php?language=&width=0&height=119&fansRow=2&ptype=1&speed=0&skin=9&isTitle=1&noborder=1&isWeibo=0&isFans=0&uid=5390009583&verifier=27f5a76a&dpc=1"></iframe>
+</div>
+
+
+</aside>
+</div>
+    </div>
+    <footer><div id="footer" >
+	
+	<div class="line">
+		<span></span>
+		<div class="author"></div>
+	</div>
+	
+	
+	<section class="info">
+		<p> Hello, I&#39;m student named HHH. <br/>
+			This is my blog, believe it or not.</p>
+	</section>
+	 
+	<div class="social-font" class="clearfix">
+		
+		<a href="http://weibo.com/5390009583" target="_blank" class="icon-weibo" title="微博"></a>
+		
+		
+		<a href="https://github.com/super3H" target="_blank" class="icon-github" title="github"></a>
+		
+		
+		
+		
+		
+		
+		
+		<a href="http://www.zhihu.com/people/shen-qiu-lhua-xie" target="_blank" class="icon-zhihu" title="知乎"></a>
+		
+		
+		
+		<a href="mailto:781176645@qq.com" target="_blank" class="icon-email" title="Email Me"></a>
+		
+	</div>
+			
+		
+
+		<p class="copyright">
+		Powered by <a href="http://hexo.io" target="_blank" title="hexo">hexo</a> and Theme by <a href="https://github.com/super3H/super3H.github.io" target="_blank" title="super3H">super3H</a> © 2017 
+		
+		<a href="/about" target="_blank" title="super3H">super3H</a>
+		
+		
+		</p>
+</div>
+</footer>
+    <script>
+(function(){
+    var bp = document.createElement('script');
+    var curProtocol = window.location.protocol.split(':')[0];
+    if (curProtocol === 'https') {
+        bp.src = 'https://zz.bdstatic.com/linksubmit/push.js';        
+    }
+    else {
+        bp.src = 'http://push.zhanzhang.baidu.com/push.js';
+    }
+    var s = document.getElementsByTagName("script")[0];
+    s.parentNode.insertBefore(bp, s);
+})();
+</script>
+<script src="/js/jquery-2.0.3.min.js"></script>
+<script src="/js/jquery.imagesloaded.min.js"></script>
+<script src="/js/gallery.js"></script>
+<script src="/js/jquery.qrcode-0.12.0.min.js"></script>
+<script src="/js/search.js"></script>
+<script type="text/javascript">
+function locking() {
+	document.all.ly.style.display = "block";
+	document.all.Layer2.style.display = 'block';
+}
+
+function Lock_CheckForm() {
+	document.all.ly.style.display = 'none';
+	document.all.Layer2.style.display = 'none';
+	return false;
+}
+function Lock_Reset() {
+	//拿到搜索结果层
+    var $resultArea = $("#local-search-result");
+	$("#local-search-input").val('');
+	$("#local-search-result").attr("style","height:0px;");
+    $resultArea.html("");
+} 
+var search_path = "search.xml";
+if (search_path.length == 0) {
+		search_path = "search.xml";
+	}
+var path = "/" + search_path;
+var inputArea = document.querySelector("#search");
+inputArea.onkeydown = function(){ if(event.keyCode==13) return false}
+var getSearchFile = function(){
+    searchFunc(path, 'local-search-input', 'local-search-result');
+}
+inputArea.onfocus = function(){ 
+	locking();
+	getSearchFile();
+}
+$("#local-search-input").bind("focus",function(){
+	$("#local-search-result").attr("style","height:400px;overflow-y: auto;");
+})
+getSearchFile();
+</script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.navbar').click(function(){
+    $('header nav').toggleClass('shownav');
+  });
+  var myWidth = 0;
+  function getSize(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+  };
+  var m = $('#main'),
+      a = $('#asidepart'),
+      c = $('.closeaside'),
+      o = $('.openaside');
+  c.click(function(){
+    a.addClass('fadeOut').css('display', 'none');
+    o.css('display', 'block').addClass('fadeIn');
+	$('#toc.toc-aside').css('display', 'block').addClass('fadeIn');
+    m.addClass('moveMain');
+  });
+  o.click(function(){
+    o.css('display', 'none').removeClass('beforeFadeIn');
+    a.css('display', 'block').removeClass('fadeOut').addClass('fadeIn');      
+    m.removeClass('moveMain');
+  });
+  $(window).scroll(function(){
+    o.css("top",Math.max(80,260-$(this).scrollTop()));
+  });
+  
+        getSize();
+        if (myWidth >= 1024) {
+          c.click();
+        }
+  
+  $(window).resize(function(){
+    getSize(); 
+    if (myWidth >= 1024) {
+      $('header nav').removeClass('shownav');
+    }else{
+      m.removeClass('moveMain');
+      a.css('display', 'block').removeClass('fadeOut');
+      o.css('display', 'none');
+      
+      $('#toc.toc-aside').css('display', 'none');
+        
+    }
+  });
+});
+</script>
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var ai = $('.article-content>iframe'),
+      ae = $('.article-content>embed'),
+      t  = $('#toc'),
+      ta = $('#toc.toc-aside'),
+      o  = $('.openaside'),
+      c  = $('.closeaside');
+  if(ai.length>0){
+    ai.wrap('<div class="video-container" />');
+  };
+  if(ae.length>0){
+   ae.wrap('<div class="video-container" />');
+  };
+  c.click(function(){
+    ta.css('display', 'block').addClass('fadeIn');
+  });
+  o.click(function(){
+    ta.css('display', 'none');
+  });
+  $(window).scroll(function(){
+    ta.css("top",Math.max(140,320-$(this).scrollTop()));
+  });
+});
+</script>
+
+
+<script type="text/javascript">
+$(document).ready(function(){ 
+  var $this = $('.share'),
+      url = $this.attr('data-url'),
+      encodedUrl = encodeURIComponent(url),
+      title = $this.attr('data-title'),
+      tsina = $this.attr('data-tsina'),
+      description = $this.attr('description');
+  var html = [
+  '<div class="hoverqrcode clearfix"></div>',
+  '<a class="overlay" id="qrcode"></a>',
+  '<a href="https://www.facebook.com/sharer.php?u=' + encodedUrl + '" class="article-share-facebook" target="_blank" title="Facebook"></a>',
+  '<a href="https://twitter.com/intent/tweet?url=' + encodedUrl + '" class="article-share-twitter" target="_blank" title="Twitter"></a>',
+  '<a href="#qrcode" class="article-share-qrcode" title="微信"></a>',
+  '<a href="http://widget.renren.com/dialog/share?resourceUrl=' + encodedUrl + '&srcUrl=' + encodedUrl + '&title=' + title +'" class="article-share-renren" target="_blank" title="人人"></a>',
+  '<a href="http://service.weibo.com/share/share.php?title='+title+'&url='+encodedUrl +'&ralateUid='+ tsina +'&searchPic=true&style=number' +'" class="article-share-weibo" target="_blank" title="微博"></a>',
+  '<span title="Share to"></span>'
+  ].join('');
+  $this.append(html);
+
+  $('.hoverqrcode').hide();
+
+  var myWidth = 0;
+  function updatehoverqrcode(){
+    if( typeof( window.innerWidth ) == 'number' ) {
+      myWidth = window.innerWidth;
+    } else if( document.documentElement && document.documentElement.clientWidth) {
+      myWidth = document.documentElement.clientWidth;
+    };
+    var qrsize = myWidth > 1024 ? 200:100;
+    var options = {render: 'image', size: qrsize, fill: '#2ca6cb', text: url, radius: 0.5, quiet: 1};
+    var p = $('.article-share-qrcode').position();
+    $('.hoverqrcode').empty().css('width', qrsize).css('height', qrsize)
+                          .css('left', p.left-qrsize/2+20).css('top', p.top-qrsize-10)
+                          .qrcode(options);
+  };
+  $(window).resize(function(){
+    $('.hoverqrcode').hide();
+  });
+  $('.article-share-qrcode').click(function(){
+    updatehoverqrcode();
+    $('.hoverqrcode').toggle();
+  });
+  $('.article-share-qrcode').hover(function(){}, function(){
+      $('.hoverqrcode').hide();
+  });
+});   
+</script>
+
+
+
+<script type="text/javascript">
+  var duoshuoQuery = {short_name:"super3H"};
+  (function() {
+    var ds = document.createElement('script');
+    ds.type = 'text/javascript';ds.async = true;
+    ds.src = 'https://super3h.me/js/embed.js';
+    ds.charset = 'UTF-8';
+    (document.getElementsByTagName('head')[0] 
+    || document.getElementsByTagName('body')[0]).appendChild(ds);
+  })();
+</script> 
+
+
+<script type="text/javascript">
+
+var disqus_shortname = 'super3H';
+
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+(function(){
+  var dsq = document.createElement('script');
+  dsq.type = 'text/javascript';
+  dsq.async = true;
+  dsq.src = '//' + disqus_shortname + '.disqus.com/count.js';
+  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+}());
+</script>
+
+
+
+
+
+
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.css" media="screen" type="text/css">
+<script src="/fancybox/jquery.fancybox.pack.js"></script>
+<script type="text/javascript">
+$(document).ready(function(){ 
+  $('.article-content').each(function(i){
+    $(this).find('img').each(function(){
+      if ($(this).parent().hasClass('fancybox')) return;
+      var alt = this.alt;
+      if (alt) $(this).after('<span class="caption">' + alt + '</span>');
+      $(this).wrap('<a href="' + this.src + '" title="' + alt + '" class="fancybox"></a>');
+    });
+    $(this).find('.fancybox').each(function(){
+      $(this).attr('rel', 'article' + i);
+    });
+  });
+  if($.fancybox){
+    $('.fancybox').fancybox();
+  }
+}); 
+</script>
+
+
+
+<!-- Analytics Begin -->
+
+
+
+<script>
+var _hmt = _hmt || [];
+(function() {
+  var hm = document.createElement("script");
+  hm.src = "//hm.baidu.com/hm.js?063e87220f9f07922b93119b8dc1df3f";
+  var s = document.getElementsByTagName("script")[0]; 
+  s.parentNode.insertBefore(hm, s);
+})();
+</script>
+
+
+
+<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1261172019'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s23.cnzz.com/z_stat.php%3Fid%3D1261172019' type='text/javascript'%3E%3C/script%3E"));</script>
+
+<!-- Analytics End -->
+
+<!-- Totop Begin -->
+
+	<div id="totop">
+	<a title="返回顶部"><img src="/img/scrollup.png"/></a>
+	</div>
+	
+	<script src="/js/totop.js"></script>
+
+<!-- Totop End -->
+
+<!-- MathJax Begin -->
+<!-- mathjax config similar to math.stackexchange -->
+
+
+<!-- MathJax End -->
+
+<!-- Tiny_search Begin -->
+
+<!-- Tiny_search End -->
+
+  </body>
+</html>

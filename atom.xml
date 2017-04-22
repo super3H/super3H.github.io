@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-04-16T01:15:10.166Z</updated>
+  <updated>2017-04-22T03:00:57.125Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,168 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>路由器配置</title>
+    <link href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
+    <id>https://super3h.me/2017/04/21/路由器配置/</id>
+    <published>2017-04-21T14:30:22.550Z</published>
+    <updated>2017-04-22T03:00:57.125Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
+<ol>
+<li>给出子网划分方案，并给出每个子网主机的地址空间；</li>
+<li>完成网络地址分配，以表格的形式提供；</li>
+<li>完成主机PCD、www、及DNS的配置，以表格的形式提供；</li>
+<li>完成路由器Router2的端口地址及静态路由配置并保存。</li>
+</ol>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><h2 id="划分子网"><a href="#划分子网" class="headerlink" title="划分子网"></a>划分子网</h2><p>由图知：<strong>共有四个子网，主机号需提供2位给网络号：所以分别为:00,01,10,11，所以可得以下地址(这里把全1的广播号和全0的网络号都算进去了)</strong></p>
+<table>
+<thead>
+<tr>
+<th>网络</th>
+<th style="text-align:center">地址空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>net1</td>
+<td style="text-align:center">218.197.15.0~218.197.15.63</td>
+</tr>
+<tr>
+<td>net2</td>
+<td style="text-align:center">218.197.15.64~218.197.15.127</td>
+</tr>
+<tr>
+<td>net3</td>
+<td style="text-align:center">218.197.15.128~218.197.15.191</td>
+</tr>
+<tr>
+<td>net4</td>
+<td style="text-align:center">218.197.15.192~218.197.15.255</td>
+</tr>
+</tbody>
+</table>
+<p>这里我们在图上配置好我们的图:<br><img src="/2017/04/21/路由器配置/2.png" alt=""><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
+<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><img src="/2017/04/21/路由器配置/3.png" alt=""><br>接下来我们给pc机和服务器配置相应的ip:</p>
+<ul>
+<li><p>pc机配置如下：<br><img src="/2017/04/21/路由器配置/4.png" alt=""></p>
+<blockquote>
+<p>另一个pc机操作也同上</p>
+</blockquote>
+</li>
+<li><p>服务器配置如下:<br><img src="/2017/04/21/路由器配置/5.png" alt=""></p>
+<blockquote>
+<p>另一个服务器操作也同上</p>
+</blockquote>
+</li>
+</ul>
+<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><img src="/2017/04/21/路由器配置/6.png" alt=""><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><img src="/2017/04/21/路由器配置/7.png" alt=""><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
+<ul>
+<li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置/11.png" alt=""></p>
+<blockquote>
+<p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是红色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
+</blockquote>
+</li>
+<li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置/12.png" alt=""></p>
+<blockquote>
+<p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.100，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
+</blockquote>
+</li>
+</ul>
+<p><img src="/2017/04/21/路由器配置/13.png" alt=""></p>
+<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><img src="/2017/04/21/路由器配置/14.png" alt=""></p>
+<h2 id="配置4个路由的端口"><a href="#配置4个路由的端口" class="headerlink" title="配置4个路由的端口"></a>配置4个路由的端口</h2><table>
+<thead>
+<tr>
+<th>网络</th>
+<th style="text-align:center">地址空间</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>net1</td>
+<td style="text-align:center">218.197.15.0~218.197.15.63</td>
+</tr>
+<tr>
+<td>net2</td>
+<td style="text-align:center">218.197.15.64~218.197.15.127</td>
+</tr>
+<tr>
+<td>net3</td>
+<td style="text-align:center">218.197.15.128~218.197.15.191</td>
+</tr>
+<tr>
+<td>net4</td>
+<td style="text-align:center">218.197.15.192~218.197.15.255</td>
+</tr>
+</tbody>
+</table>
+<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><img src="/2017/04/21/路由器配置/15.png" alt=""></p>
+<blockquote>
+<p>操作如下:</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/16.png" alt=""><br>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><img src="/2017/04/21/路由器配置/17.png" alt=""><br>操作完成后，我们来用pc机ping一下来确认:<br><img src="/2017/04/21/路由器配置/18.png" alt=""><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><img src="/2017/04/21/路由器配置/19.png" alt=""><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><img src="/2017/04/21/路由器配置/20.png" alt=""></p>
+<blockquote>
+<p><strong>倘若我们要通过最左边的电脑来访问左右边的电脑咋办？？</strong><br><code>分析：</code>最左边访问最右边，<strong>当然要通过管理最左边的路由器来路由数据</strong>，所以这里我们配置其静态路由：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/21.png" alt=""></p>
+<blockquote>
+<p>这里有两条路可以走，博主选的上面这条路，配置完后就可以访问了么？？我们来试一下：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/22.png" alt=""></p>
+<blockquote>
+<p>发现都没办法到达目的地，**因为这里我们通过最上方的路由器来路由数据，但它不知道到目的网络在哪，我们再来配置他的静态路由</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/23.png" alt=""></p>
+<blockquote>
+<p>这个时候我们来ping一下:</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/24.png" alt=""><br><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><img src="/2017/04/21/路由器配置/25.png" alt=""></p>
+<blockquote>
+<p>在ping一下确认：</p>
+</blockquote>
+<p><img src="/2017/04/21/路由器配置/26.png" alt=""></p>
+<blockquote>
+<p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
+</blockquote>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<p>之前博主也一直不知道，知道期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
+</blockquote>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2017/04/21/路由器配置/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;有一个企业网络拓扑结构如上图，回答如下问题：&lt;/
+    
+    </summary>
+    
+      <category term="计算机网络" scheme="https://super3h.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
+    
+  </entry>
+  
+  <entry>
+    <title>Java8新特性</title>
+    <link href="https://super3h.me/2017/04/17/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
+    <id>https://super3h.me/2017/04/17/Java8新特性/</id>
+    <published>2017-04-17T11:38:45.160Z</published>
+    <updated>2017-04-17T11:41:04.274Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识</p>
+<h1 id="Lambda表达式和函数式接口"><a href="#Lambda表达式和函数式接口" class="headerlink" title="Lambda表达式和函数式接口"></a>Lambda表达式和函数式接口</h1>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识&lt;/p&gt;
+&lt;h1 id=&quot;Lambda表达式和函数式接口&quot;&gt;&lt;a href=&quot;
+    
+    </summary>
+    
+      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
+    
+    
+  </entry>
   
   <entry>
     <title>Java-Sum练习</title>
@@ -942,91 +1104,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     </summary>
     
       <category term="s2sh" scheme="https://super3h.me/categories/s2sh/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>ElementUI 学习</title>
-    <link href="https://super3h.me/2017/03/10/ElementUI%20%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://super3h.me/2017/03/10/ElementUI 学习/</id>
-    <published>2017-03-10T04:05:37.741Z</published>
-    <updated>2017-03-14T15:09:58.907Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="ElementUI初学"><a href="#ElementUI初学" class="headerlink" title="ElementUI初学"></a>ElementUI初学</h1><h2 id="导航菜单学习"><a href="#导航菜单学习" class="headerlink" title="导航菜单学习"></a>导航菜单学习</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-menu</span> =<span class="string">"1"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"1"</span> &gt;</span></div><div class="line">    	提问</div><div class="line">    <span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-menu</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>default-active：</code>表示默认激活<code>index=1</code>的子项<br>当悬停时默认颜色为灰色，我们这里可以把它是指为浅蓝.</p>
-</blockquote>
-<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.el-menu-item</span><span class="selector-pseudo">:hover</span> &#123;</div><div class="line">	<span class="attribute">background-color</span>: <span class="number">#EFFFFF</span>;</div><div class="line">	<span class="attribute">color</span>: <span class="number">#20A0FF</span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>效果如图</p>
-</blockquote>
-<p><img src="/2017/03/10/ElementUI 学习/3.png" alt=""></p>
-<h2 id="el-row来进行排版"><a href="#el-row来进行排版" class="headerlink" title="el-row来进行排版"></a>el-row来进行排版</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-row</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"4"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"20"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>el-row</code>下包含<code>el-col</code>元素,其中一个占四份，一个占20分，形成效果如图</p>
-</blockquote>
-<p><img src="/2017/03/10/ElementUI 学习/2.png" alt=""></p>
-<h1 id="学习中所遇问题"><a href="#学习中所遇问题" class="headerlink" title="学习中所遇问题"></a>学习中所遇问题</h1><h2 id="el中嵌套问题"><a href="#el中嵌套问题" class="headerlink" title="el中嵌套问题"></a>el中嵌套问题</h2><blockquote>
-<p>el嵌套如果不显示，可以在中间嵌套div元素，如下表示:</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: block;"</span> <span class="attr">id</span>=<span class="string">"add"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">el-card</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-position</span>=<span class="string">"left"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"所在大学"</span>&gt;</span></div><div class="line">					<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></div><div class="line">				<span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">el-card</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="el-form问题"><a href="#el-form问题" class="headerlink" title="el-form问题"></a>el-form问题</h2><blockquote>
-<p><code>label-position</code>必须配合<code>label-width</code>一起才能起作用，例如:</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-form</span> <span class="attr">label-position</span>=<span class="string">"right"</span> <span class="attr">label-width</span>=<span class="string">"80px"</span> <span class="attr">id</span>=<span class="string">"addForm"</span> <span class="attr">action</span>=<span class="string">"#"</span> <span class="attr">method</span>=<span class="string">"post"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"所在大学"</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-form-item</span> <span class="attr">label</span>=<span class="string">"添加课程"</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">el-input</span> <span class="attr">name</span>=<span class="string">"cName"</span>&gt;</span><span class="tag">&lt;/<span class="name">el-input</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-form-item</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">el-button</span> <span class="attr">type</span>=<span class="string">"primary"</span> @<span class="attr">click</span>=<span class="string">"onSubmit('addForm')"</span>&gt;</span>添加<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></div><div class="line">    	<span class="tag">&lt;<span class="name">el-button</span> @<span class="attr">click</span>=<span class="string">"resetForm('addForm')"</span>&gt;</span>重置<span class="tag">&lt;/<span class="name">el-button</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">el-form-item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">el-form</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>效果如下:</p>
-</blockquote>
-<p><img src="/2017/03/10/ElementUI 学习/1.png" alt=""></p>
-<h2 id="el-option问题"><a href="#el-option问题" class="headerlink" title="el-option问题"></a>el-option问题</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-select</span> <span class="attr">palaceholder</span>=<span class="string">"请选择"</span> <span class="attr">v-model</span>=<span class="string">"value"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">el-option</span> <span class="attr">v-for</span>=<span class="string">"item in options"</span> <span class="attr">:value</span>=<span class="string">"item.value"</span> @<span class="attr">click</span>=<span class="string">"confirm(item.id)"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">el-option</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-select</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p><code>el-option</code>中添加点击事件无效！！！</p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;ElementUI初学&quot;&gt;&lt;a href=&quot;#ElementUI初学&quot; class=&quot;headerlink&quot; title=&quot;ElementUI初学&quot;&gt;&lt;/a&gt;ElementUI初学&lt;/h1&gt;&lt;h2 id=&quot;导航菜单学习&quot;&gt;&lt;a href=&quot;#导航菜单学习&quot; cla
-    
-    </summary>
-    
-      <category term="ElementUI" scheme="https://super3h.me/categories/ElementUI/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>java初始化顺序</title>
-    <link href="https://super3h.me/2017/03/09/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
-    <id>https://super3h.me/2017/03/09/java初始化顺序/</id>
-    <published>2017-03-09T06:53:22.326Z</published>
-    <updated>2017-03-09T07:05:32.198Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
-<p>代码示例:</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String p_StaticField = <span class="string">"父类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)</span></div><div class="line">　　</div><div class="line">    <span class="comment">//如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化</span></div><div class="line">    <span class="keyword">public</span> String p_Field = <span class="string">"父类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(p_StaticField);</div><div class="line">        System.out.println(<span class="string">"父类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(p_Field);</div><div class="line">        System.out.println(<span class="string">"父类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"父类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s_StaticField = <span class="string">"子类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量</span></div><div class="line">    <span class="keyword">public</span> String s_Field = <span class="string">"子类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(s_StaticField);</div><div class="line">        System.out.println(<span class="string">"子类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(s_Field);</div><div class="line">        System.out.println(<span class="string">"子类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SubClass</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super();</span></div><div class="line">        System.out.println(<span class="string">"子类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 程序入口</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"*************in main***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">        System.out.println(<span class="string">"*************second subClass***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p>输出结果:</p>
-</blockquote>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
-<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font>
-
-</blockquote>
-<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://blog.csdn.net/ganjing222/article/details/50993282" target="_blank" rel="external"> JAVA基础-子类继承父类实例化对象过程</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;a href=&quot;#子类继承父类实例化对象过程&quot; class=&quot;headerlink&quot; title=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;/a&gt;子类继承父类实例化对象过程&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;代码示例:&lt;/p&gt;
-&lt;/b
-    
-    </summary>
-    
-      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
     
     
   </entry>

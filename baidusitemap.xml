@@ -4,6 +4,60 @@
 
     
   <url>
+    <loc>https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2017-04-22T03:00:57.125Z</lastmod>
+    <data>
+        <display>
+        <title>路由器配置</title>
+        <pubTime>2017-04-21T14:30:22.550Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="计算机网络" url="https://super3h.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://super3h.me/2017/04/17/Java8%E6%96%B0%E7%89%B9%E6%80%A7/</loc>
+    <lastmod>2017-04-17T11:41:04.274Z</lastmod>
+    <data>
+        <display>
+        <title>Java8新特性</title>
+        <pubTime>2017-04-17T11:38:45.160Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="JavaSE" url="https://super3h.me/categories/JavaSE/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
+    <loc>https://super3h.me/2017/02/10/Python-list/</loc>
+    <lastmod>2017-04-16T02:33:17.153Z</lastmod>
+    <data>
+        <display>
+        <title>Python-List添加元素的方法</title>
+        <pubTime>2017-02-10T11:20:25.128Z</pubTime>
+        
+         
+           
+             
+              <breadCrumb title="Python" url="https://super3h.me/categories/Python/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>https://super3h.me/2017/04/15/Java-Sum%E7%BB%83%E4%B9%A0/</loc>
     <lastmod>2017-04-16T01:15:10.166Z</lastmod>
     <data>
@@ -1078,21 +1132,6 @@
              
               <breadCrumb title="Hexo" url="https://super3h.me/categories/Hexo/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://super3h.me/2017/02/10/Python-list/</loc>
-    <lastmod>2017-02-11T01:58:50.706Z</lastmod>
-    <data>
-        <display>
-        <title>Python-List添加元素的方法</title>
-        <pubTime>2017-02-10T11:20:25.128Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
