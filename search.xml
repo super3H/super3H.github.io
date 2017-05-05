@@ -4,6 +4,34 @@
   
     
     <entry>
+      <title><![CDATA[路由器配置(不等长)]]></title>
+      <url>https://super3h.me/2017/05/05/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE(%E4%B8%8D%E7%AD%89%E9%95%BF)/</url>
+      <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
+<li>网络号为：218.197.17.0</li>
+<li>子网数： 4</li>
+<li>每个子网分配数如下：<ul>
+<li>A:70</li>
+<li>B:35</li>
+<li>C:30</li>
+<li>D:20</li>
+</ul>
+</li>
+<li><font color="#CD5555"><strong>问题：写出各个子网的ip范围</strong></font>
+
+</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><font color="#EA6753"><strong>4个子网，按等长划分，需要2位，每个子网主机量为2<sup>6</sup>-2=62&lt;70 ，所以我们使用不等长划分，按主机数量来划分</strong></font>
+
+<h2 id="A子网"><a href="#A子网" class="headerlink" title="A子网"></a>A子网</h2><font color="#CD5555"><strong>70台需要7位(子网掩码:255.255.255.128)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|00 00 00 00|218.197.17.0|218.197.17.1|<br>|10 00 00 00|218.197.17.128|218.197.17.126|<br><br>## B子网<br><font color="#CD5555"><strong>35台需要6位(子网掩码:255.255.255.192)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|10 00 00 00|218.197.17.128|218.197.17.129|<br>|11 00 00 00|218.197.17.192|218.197.17.190|<br><br>&gt; <font color="#CD5555"><strong>注意:00 00 00 00~10 00 00 00之间的已经被A子网占用了</strong></font>
+
+<h2 id="C子网"><a href="#C子网" class="headerlink" title="C子网"></a>C子网</h2><p><font color="#CD5555"><strong>30台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 00 00 00|218.197.17.192|218.197.17.193|<br>|11 10 00 00|218.197.17.224|218.197.17.222|</p>
+<h2 id="D子网"><a href="#D子网" class="headerlink" title="D子网"></a>D子网</h2><p><font color="#CD5555"><strong>20台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 10 00 00|218.197.17.224|218.197.17.225|<br>|11 11 11 10|218.197.17.254|218.197.17.252|</p>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置(不等长)/路由器配置(不等长" alt="">/1.png)</p>
+<p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
+]]></content>
+    </entry>
+    
+    <entry>
       <title><![CDATA[容器深入研究-Map]]></title>
       <url>https://super3h.me/2017/04/23/%E5%AE%B9%E5%99%A8%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6-Map/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><font color="#CD5555"><strong>由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！</strong></font>
@@ -98,7 +126,7 @@
     </entry>
     
     <entry>
-      <title><![CDATA[路由器配置]]></title>
+      <title><![CDATA[路由器配置(等长)]]></title>
       <url>https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/</url>
       <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
@@ -218,7 +246,7 @@
 <p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
 </blockquote>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<p>之前博主也一直不知道，知道期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
+<p>之前博主也一直不知道，直到期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
 </blockquote>
 ]]></content>
     </entry>

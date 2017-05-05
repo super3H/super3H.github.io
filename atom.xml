@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-04-27T14:14:02.365Z</updated>
+  <updated>2017-05-05T01:59:15.382Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,50 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>路由器配置(不等长)</title>
+    <link href="https://super3h.me/2017/05/05/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE(%E4%B8%8D%E7%AD%89%E9%95%BF)/"/>
+    <id>https://super3h.me/2017/05/05/路由器配置(不等长)/</id>
+    <published>2017-05-05T01:51:43.811Z</published>
+    <updated>2017-05-05T01:59:15.382Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
+<li>网络号为：218.197.17.0</li>
+<li>子网数： 4</li>
+<li>每个子网分配数如下：<ul>
+<li>A:70</li>
+<li>B:35</li>
+<li>C:30</li>
+<li>D:20</li>
+</ul>
+</li>
+<li><font color="#CD5555"><strong>问题：写出各个子网的ip范围</strong></font>
+
+</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><font color="#EA6753"><strong>4个子网，按等长划分，需要2位，每个子网主机量为2<sup>6</sup>-2=62&lt;70 ，所以我们使用不等长划分，按主机数量来划分</strong></font>
+
+<h2 id="A子网"><a href="#A子网" class="headerlink" title="A子网"></a>A子网</h2><font color="#CD5555"><strong>70台需要7位(子网掩码:255.255.255.128)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|00 00 00 00|218.197.17.0|218.197.17.1|<br>|10 00 00 00|218.197.17.128|218.197.17.126|<br><br>## B子网<br><font color="#CD5555"><strong>35台需要6位(子网掩码:255.255.255.192)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|10 00 00 00|218.197.17.128|218.197.17.129|<br>|11 00 00 00|218.197.17.192|218.197.17.190|<br><br>&gt; <font color="#CD5555"><strong>注意:00 00 00 00~10 00 00 00之间的已经被A子网占用了</strong></font>
+
+<h2 id="C子网"><a href="#C子网" class="headerlink" title="C子网"></a>C子网</h2><p><font color="#CD5555"><strong>30台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 00 00 00|218.197.17.192|218.197.17.193|<br>|11 10 00 00|218.197.17.224|218.197.17.222|</p>
+<h2 id="D子网"><a href="#D子网" class="headerlink" title="D子网"></a>D子网</h2><p><font color="#CD5555"><strong>20台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 10 00 00|218.197.17.224|218.197.17.225|<br>|11 11 11 10|218.197.17.254|218.197.17.252|</p>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置(不等长)/路由器配置(不等长" alt="">/1.png)</p>
+<p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;ul&gt;
+&lt;li&gt;网络号为：218.197.17.0&lt;/li&gt;
+&lt;li&gt;子网数： 4&lt;/li&gt;
+&lt;li&gt;每个子网分配数如下：&lt;ul&gt;
+&lt;li&gt;A:
+    
+    </summary>
+    
+    
+  </entry>
   
   <entry>
     <title>容器深入研究-Map</title>
@@ -124,11 +168,11 @@
   </entry>
   
   <entry>
-    <title>路由器配置</title>
+    <title>路由器配置(等长)</title>
     <link href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/"/>
     <id>https://super3h.me/2017/04/21/路由器配置/</id>
     <published>2017-04-21T14:30:22.550Z</published>
-    <updated>2017-04-22T15:01:26.846Z</updated>
+    <updated>2017-05-05T01:06:53.979Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
@@ -248,7 +292,7 @@
 <p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
 </blockquote>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
-<p>之前博主也一直不知道，知道期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
+<p>之前博主也一直不知道，直到期中考试考了这个，我才重视起来，多亏同学不停地教我，花了博主一晚上才弄懂！！<br><strong>俗话说:Talk is cheap,show me the code，一定要练习，上面只展示了上半部分的路由，读者有心可以从下面路由数据，当你下面路由成功了，你才算真正的懂！！！</strong></p>
 </blockquote>
 ]]></content>
     
@@ -1080,65 +1124,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     </summary>
     
       <category term="idea" scheme="https://super3h.me/categories/idea/"/>
-    
-    
-  </entry>
-  
-  <entry>
-    <title>在网页中使用markdown</title>
-    <link href="https://super3h.me/2017/03/12/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8markdown/"/>
-    <id>https://super3h.me/2017/03/12/在网页中使用markdown/</id>
-    <published>2017-03-12T13:38:28.061Z</published>
-    <updated>2017-05-03T06:17:27.434Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
-</blockquote>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><p><img src="/2017/03/12/在网页中使用markdown/1.png" alt=""></p>
-<blockquote>
-<p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
-</blockquote>
-<ul>
-<li>可得原代码为:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Simple example - Editor.md examples<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/editormd.css"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test-editormd"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span>### 这里插入内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/editormd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="keyword">var</span> testEditor;</div><div class="line"></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				testEditor = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">    				<span class="comment">//调整宽度</span></div><div class="line">					width: <span class="string">"60%"</span>,</div><div class="line">					<span class="comment">//调整高度</span></div><div class="line">					height: <span class="number">400</span>,</div><div class="line">					<span class="attr">syncScrolling</span>: <span class="string">"single"</span>,</div><div class="line">					<span class="attr">path</span>: <span class="string">"./lib/"</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>这里把目录改了下：</p>
-</blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/2.png" alt=""></p>
-<ul>
-<li><code>lib</code>：为根目录下的文件，直接复制即可</li>
-<li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
-<li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
-<li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
-</ul>
-<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
-<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
-
-</blockquote>
-<h1 id="如何在页面中显示"><a href="#如何在页面中显示" class="headerlink" title="如何在页面中显示"></a>如何在页面中显示</h1><h2 id="提交html代码"><a href="#提交html代码" class="headerlink" title="提交html代码"></a>提交html代码</h2><blockquote>
-<p>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pDescription"</span> <span class="attr">class</span>=<span class="string">"editormd-html-textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>js代码如下:</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ohtml=$(<span class="string">'.editormd-html-textarea'</span>), opreview=$(<span class="string">'.editormd-preview'</span>).clone(); </div><div class="line"> ohtml.val(opreview.html());</div></pre></td></tr></table></figure>
-<blockquote>
-<p>最后form表单提交，后台拿到pDescription的值即可</p>
-</blockquote>
-<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
-<p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
-</blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/4.png" alt=""></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到&lt;a hre
-    
-    </summary>
-    
-      <category term="js" scheme="https://super3h.me/categories/js/"/>
     
     
   </entry>

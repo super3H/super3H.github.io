@@ -5,26 +5,73 @@
   <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
   <meta charset="UTF-8">
   
-    <title>Java8新特性 | HHH&#39;Blog</title>
+    <title>路由器配置(不等长) | HHH&#39;Blog</title>
     <meta name="viewport" content="width=device-width, initial-scale=1,user-scalable=no">
     
     <meta name="author" content="super3H">
     
 
     
-    <meta name="description" content="前言作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识
-Lambda表达式和函数式接口">
+    <meta name="description" content="题目
+网络号为：218.197.17.0
+子网数： 4
+每个子网分配数如下：
+A:70
+B:35
+C:30
+D:20
+
+
+问题：写出各个子网的ip范围
+
+
+
+分析4个子网，按等长划分，需要2位，每个子网主机量为26-2=62&amp;lt;70 ，所以我们使用不等长划分，按主机数量来划分
+
+A子网70台需要7位(子网掩码:255.255.255.128)，划分如下|子网掩码后8位|可选网络号|地址范围||">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Java8新特性">
-<meta property="og:url" content="https://super3h.me/2017/04/17/Java8新特性/index.html">
+<meta property="og:title" content="路由器配置(不等长)">
+<meta property="og:url" content="https://super3h.me/2017/05/05/路由器配置(不等长)/index.html">
 <meta property="og:site_name" content="HHH'Blog">
-<meta property="og:description" content="前言作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识
-Lambda表达式和函数式接口">
-<meta property="og:updated_time" content="2017-04-17T11:41:04.274Z">
+<meta property="og:description" content="题目
+网络号为：218.197.17.0
+子网数： 4
+每个子网分配数如下：
+A:70
+B:35
+C:30
+D:20
+
+
+问题：写出各个子网的ip范围
+
+
+
+分析4个子网，按等长划分，需要2位，每个子网主机量为26-2=62&amp;lt;70 ，所以我们使用不等长划分，按主机数量来划分
+
+A子网70台需要7位(子网掩码:255.255.255.128)，划分如下|子网掩码后8位|可选网络号|地址范围||">
+<meta property="og:image" content="https://super3h.me/2017/05/05/路由器配置(不等长)/路由器配置(不等长">
+<meta property="og:updated_time" content="2017-05-05T01:59:15.382Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Java8新特性">
-<meta name="twitter:description" content="前言作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识
-Lambda表达式和函数式接口">
+<meta name="twitter:title" content="路由器配置(不等长)">
+<meta name="twitter:description" content="题目
+网络号为：218.197.17.0
+子网数： 4
+每个子网分配数如下：
+A:70
+B:35
+C:30
+D:20
+
+
+问题：写出各个子网的ip范围
+
+
+
+分析4个子网，按等长划分，需要2位，每个子网主机量为26-2=62&amp;lt;70 ，所以我们使用不等长划分，按主机数量来划分
+
+A子网70台需要7位(子网掩码:255.255.255.128)，划分如下|子网掩码后8位|可选网络号|地址范围||">
+<meta name="twitter:image" content="https://super3h.me/2017/05/05/路由器配置(不等长)/路由器配置(不等长">
 
     
     <link rel="alternative" href="/atom.xml" title="HHH&#39;Blog" type="application/atom+xml">
@@ -101,14 +148,14 @@ Lambda表达式和函数式接口">
 		<header class="article-info clearfix">
   <h1 itemprop="name">
     
-      <a href="/2017/04/17/Java8新特性/" title="Java8新特性" itemprop="url">Java8新特性</a>
+      <a href="/2017/05/05/路由器配置(不等长)/" title="路由器配置(不等长)" itemprop="url">路由器配置(不等长)</a>
   </h1>
   <p class="article-author">By
        
 		<a href="/about" title="super3H" target="_blank" itemprop="author">super3H</a>
 		
   <p class="article-time">
-    <time datetime="2017-04-17T11:38:45.160Z" itemprop="datePublished"> 发表于 2017-04-17</time>
+    <time datetime="2017-05-05T01:51:43.811Z" itemprop="datePublished"> 发表于 2017-05-05</time>
     
   </p>
 </header>
@@ -117,20 +164,36 @@ Lambda表达式和函数式接口">
 		<div id="toc" class="toc-article">
 			<strong class="toc-title">文章目录</strong>
 		
-			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda表达式和函数式接口"><span class="toc-number">2.</span> <span class="toc-text">Lambda表达式和函数式接口</span></a></li></ol>
+			<ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A子网"><span class="toc-number">2.1.</span> <span class="toc-text">A子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C子网"><span class="toc-number">2.2.</span> <span class="toc-text">C子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D子网"><span class="toc-number">2.3.</span> <span class="toc-text">D子网</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络拓扑图"><span class="toc-number">3.</span> <span class="toc-text">网络拓扑图</span></a></li></ol>
 		
 		</div>
 		
-		<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识</p>
-<h1 id="Lambda表达式和函数式接口"><a href="#Lambda表达式和函数式接口" class="headerlink" title="Lambda表达式和函数式接口"></a>Lambda表达式和函数式接口</h1>  
+		<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
+<li>网络号为：218.197.17.0</li>
+<li>子网数： 4</li>
+<li>每个子网分配数如下：<ul>
+<li>A:70</li>
+<li>B:35</li>
+<li>C:30</li>
+<li>D:20</li>
+</ul>
+</li>
+<li><font color="#CD5555"><strong>问题：写出各个子网的ip范围</strong></font>
+
+</li>
+</ul>
+<h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><font color="#EA6753"><strong>4个子网，按等长划分，需要2位，每个子网主机量为2<sup>6</sup>-2=62&lt;70 ，所以我们使用不等长划分，按主机数量来划分</strong></font>
+
+<h2 id="A子网"><a href="#A子网" class="headerlink" title="A子网"></a>A子网</h2><font color="#CD5555"><strong>70台需要7位(子网掩码:255.255.255.128)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|00 00 00 00|218.197.17.0|218.197.17.1|<br>|10 00 00 00|218.197.17.128|218.197.17.126|<br><br>## B子网<br><font color="#CD5555"><strong>35台需要6位(子网掩码:255.255.255.192)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|10 00 00 00|218.197.17.128|218.197.17.129|<br>|11 00 00 00|218.197.17.192|218.197.17.190|<br><br>&gt; <font color="#CD5555"><strong>注意:00 00 00 00~10 00 00 00之间的已经被A子网占用了</strong></font>
+
+<h2 id="C子网"><a href="#C子网" class="headerlink" title="C子网"></a>C子网</h2><p><font color="#CD5555"><strong>30台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 00 00 00|218.197.17.192|218.197.17.193|<br>|11 10 00 00|218.197.17.224|218.197.17.222|</p>
+<h2 id="D子网"><a href="#D子网" class="headerlink" title="D子网"></a>D子网</h2><p><font color="#CD5555"><strong>20台需要5位(子网掩码:255.255.255.224)，划分如下</strong></font><br>|子网掩码后8位|可选网络号|地址范围|<br>|:————:|:————:|:———:|<br>|11 10 00 00|218.197.17.224|218.197.17.225|<br>|11 11 11 10|218.197.17.254|218.197.17.252|</p>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置(不等长)/路由器配置(不等长" alt="">/1.png)</p>
+<p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
+  
 	</div>
 		<footer class="article-footer clearfix">
 <div class="article-catetags">
-
-<div class="article-categories">
-  <span></span>
-  <a class="article-category-link" href="/categories/JavaSE/">JavaSE</a>
-</div>
 
 
 </div>
@@ -139,7 +202,7 @@ Lambda表达式和函数式接口">
 
 	<div class="article-share" id="share">
 	
-	  <div data-url="https://super3h.me/2017/04/17/Java8新特性/" data-title="Java8新特性 | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
+	  <div data-url="https://super3h.me/2017/05/05/路由器配置(不等长)/" data-title="路由器配置(不等长) | HHH&#39;Blog" data-tsina="5390009583" class="share clearfix">
 	  </div>
 	
 	</div>
@@ -152,19 +215,11 @@ Lambda表达式和函数式接口">
 	
 <nav class="article-nav clearfix">
  
- <div class="prev" >
- <a href="/2017/04/21/路由器配置/" title="路由器配置(等长)">
-  <strong>上一篇：</strong><br/>
-  <span>
-  路由器配置(等长)</span>
-</a>
-</div>
-
 
 <div class="next">
-<a href="/2017/04/15/Java-Sum练习/"  title="Java-Sum练习">
+<a href="/2017/04/23/容器深入研究-Map/"  title="容器深入研究-Map">
  <strong>下一篇：</strong><br/> 
- <span>Java-Sum练习
+ <span>容器深入研究-Map
 </span>
 </a>
 </div>
@@ -190,7 +245,7 @@ Lambda表达式和函数式接口">
   <div id="toc" class="toc-aside">
   <strong class="toc-title">文章目录</strong>
  
- <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#前言"><span class="toc-number">1.</span> <span class="toc-text">前言</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#Lambda表达式和函数式接口"><span class="toc-number">2.</span> <span class="toc-text">Lambda表达式和函数式接口</span></a></li></ol>
+ <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#题目"><span class="toc-number">1.</span> <span class="toc-text">题目</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#分析"><span class="toc-number">2.</span> <span class="toc-text">分析</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#A子网"><span class="toc-number">2.1.</span> <span class="toc-text">A子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#C子网"><span class="toc-number">2.2.</span> <span class="toc-text">C子网</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#D子网"><span class="toc-number">2.3.</span> <span class="toc-text">D子网</span></a></li></ol></li><li class="toc-item toc-level-1"><a class="toc-link" href="#网络拓扑图"><span class="toc-number">3.</span> <span class="toc-text">网络拓扑图</span></a></li></ol>
  
   </div>
 
