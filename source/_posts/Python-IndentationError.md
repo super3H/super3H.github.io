@@ -1,0 +1,18 @@
+---
+title: python2.7 IndentationError
+categories: Python
+---
+
+# 错误
+<font color=red>
+- IndentationError: unexpected indent
+</font>
+
+## 原因
+<font color=green>
+- 你的文件里格式不对了，可能是tab和空格没对齐的问题，你需要检查下tab和空格了
+</font>
+
+# 解决方案
+- 重新调整空格(4个空格)
+- [方案二](http://dikar.iteye.com/blog/308934)

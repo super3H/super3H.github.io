@@ -1,0 +1,263 @@
+---
+title: Spring AOP+AspectJ
+categories: spring
+---
+
+# 简介
+* 常见AspectJ的注解：
+    * `@Before:`方法执行前运行
+    * `@After:`运行在方法返回结果后
+    * `@AfterReturning:`运行在方法返回一个结果后，在拦截器返回结果
+    * `@AfterThrowing:`运行方法在抛出异常后
+    * `@Around:`围绕方法执行运行，结合以上这三个通知
+> `注意:`Spring AOP 中没有 AspectJ 支持
+
+# 目录结构
+![](Spring AOP+AspectJ/1.png)
+
+# Spring Beans
+> 普通 bean 中有几个方法，后来通过 AspectJ 注解拦截
+
+``` java
+package com.yiibai.customer.bo;
+
+public interface CustomerBo {
+
+	void addCustomer();
+	
+	String addCustomerReturnValue();
+	
+	void addCustomerThrowException() throws Exception;
+	
+	void addCustomerAround(String name);
+}
+```
+``` java
+package com.yiibai.customer.bo.impl;
+
+import com.yiibai.customer.bo.CustomerBo;
+
+public class CustomerBoImpl implements CustomerBo {
+
+	public void addCustomer(){
+		System.out.println("addCustomer() is running ");
+	}
+	
+	public String addCustomerReturnValue(){
+		System.out.println("addCustomerReturnValue() is running ");
+		return "abc";
+	}
+	
+	public void addCustomerThrowException() throws Exception {
+		System.out.println("addCustomerThrowException() is running ");
+		throw new Exception("Generic Error");
+	}
+	
+	public void addCustomerAround(String name){
+		System.out.println("addCustomerAround() is running, args : " + name);
+	}
+}
+```
+
+# 启用AspectJ
+> 在 Spring 配置文件，把`“<aop:aspectj-autoproxy />”`，并定义Aspect(拦截)和普通的bean。
+File : applicationContext.xml
+
+``` xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd 
+	http://www.springframework.org/schema/aop 
+	http://www.springframework.org/schema/aop/spring-aop-3.0.xsd ">
+
+	<aop:aspectj-autoproxy />
+
+	<bean id="customerBo" class="com.yiibai.customer.bo.impl.CustomerBoImpl" />
+
+	<!-- Aspect -->
+	<bean id="logAspect" class="com.yiibai.aspect.LoggingAspect" />
+
+</beans>
+```
+
+# AspectJ @Before
+> 在下面例子中，logBefore()方法将在 customerBo接口的 addCustomer()方法的执行之前被执行。
+**AspectJ的“切入点”是用来声明哪种方法将被拦截**
+
+- File : LoggingAspect.java
+``` java
+package com.yiibai.aspect;
+
+import org.aspectj.lang.JoinYiibai;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Before;
+
+@Aspect
+public class LoggingAspect {
+
+	@Before("execution(* com.yiibai.customer.bo.CustomerBo.addCustomer(..))")
+	public void logBefore(JoinYiibai joinYiibai) {
+
+		System.out.println("logBefore() is running!");
+		System.out.println("hijacked : " + joinYiibai.getSignature().getName());
+		System.out.println("******");
+	}
+
+}
+```
+- 运行
+``` java
+CustomerBo customer = (CustomerBo) appContext.getBean("customerBo");
+customer.addCustomer();
+```
+- 结果
+``` java
+logBefore() is running!
+hijacked : addCustomer
+******
+addCustomer() is running
+```
+
+# AspectJ @After
+> 在下面例子中，logAfter()方法将在 customerBo 接口的 addCustomer()方法的执行之后执行。
+
+- File : LoggingAspect.java
+``` java
+package com.yiibai.aspect;
+
+import org.aspectj.lang.JoinYiibai;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.After;
+
+@Aspect
+public class LoggingAspect {
+
+	@After("execution(* com.yiibai.customer.bo.CustomerBo.addCustomer(..))")
+	public void logAfter(JoinYiibai joinYiibai) {
+
+		System.out.println("logAfter() is running!");
+		System.out.println("hijacked : " + joinYiibai.getSignature().getName());
+		System.out.println("******");
+
+	}
+
+}
+```
+
+# AspectJ @AfterReturning
+> 在下面例子中，logAfterReturning()方法将在 customerBo 接口的addCustomerReturnValue()方法执行之后执行。此外，*还可以截取返回的值使用“returning”属性。*
+> <font color='red'>要截取返回的值，对“returning”属性(结果)的值必须用相同的方法参数(结果)</font>
+
+- File : LoggingAspect.java
+``` java
+package com.yiibai.aspect;
+
+import org.aspectj.lang.JoinYiibai;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.AfterReturning;
+
+@Aspect
+public class LoggingAspect {
+
+   @AfterReturning(
+      pointcut = "execution(* com.yiibai.customer.bo.CustomerBo.addCustomerReturnValue(..))",
+      returning= "result")
+   public void logAfterReturning(JoinYiibai joinYiibai, Object result) {
+
+	System.out.println("logAfterReturning() is running!");
+	System.out.println("hijacked : " + joinYiibai.getSignature().getName());
+	System.out.println("Method returned value is : " + result);
+	System.out.println("******");
+   }
+}
+```
+- 结果
+``` java
+addCustomerReturnValue() is running 
+logAfterReturning() is running!
+hijacked : addCustomerReturnValue
+Method returned value is : abc
+******
+```
+
+# AspectJ @AfterReturning
+> 在下面的例子中，如果 customerBo 接口的addCustomerThrowException()方法抛出异常logAfterThrowing()方法将被执行。
+
+- File : LoggingAspect.java
+``` java
+package com.yiibai.aspect;
+
+import org.aspectj.lang.JoinYiibai;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.AfterThrowing;
+
+@Aspect
+public class LoggingAspect {
+
+   @AfterThrowing(
+      pointcut = "execution(* com.yiibai.customer.bo.CustomerBo.addCustomerThrowException(..))",
+      throwing= "error")
+    public void logAfterThrowing(JoinYiibai joinYiibai, Throwable error) {
+
+	System.out.println("logAfterThrowing() is running!");
+	System.out.println("hijacked : " + joinYiibai.getSignature().getName());
+	System.out.println("Exception : " + error);
+	System.out.println("******");
+
+    }
+}
+```
+- 结果
+``` java
+addCustomerThrowException() is running 
+logAfterThrowing() is running!
+hijacked : addCustomerThrowException
+Exception : java.lang.Exception: Generic Error
+******
+Exception in thread "main" java.lang.Exception: Generic Error
+	//...
+```
+
+# AspectJ @Around
+> 在下面例子中，logAround()方法将在customerBo接口的addCustomerAround()方法执行之前执行， **必须定义“joinYiibai.proceed();” 控制何时拦截器返回控制到原来的addCustomerAround()方法。**
+
+- File : LoggingAspect.java
+``` java
+package com.yiibai.aspect;
+
+import org.aspectj.lang.ProceedingJoinYiibai;
+import org.aspectj.lang.annotation.Aspect;
+import org.aspectj.lang.annotation.Around;
+
+@Aspect
+public class LoggingAspect {
+
+   @Around("execution(* com.yiibai.customer.bo.CustomerBo.addCustomerAround(..))")
+   public void logAround(ProceedingJoinYiibai joinYiibai) throws Throwable {
+
+	System.out.println("logAround() is running!");
+	System.out.println("hijacked method : " + joinYiibai.getSignature().getName());
+	System.out.println("hijacked arguments : " + Arrays.toString(joinYiibai.getArgs()));
+		
+	System.out.println("Around before is running!");
+	joinYiibai.proceed(); //continue on the intercepted method
+	System.out.println("Around after is running!");
+		
+	System.out.println("******");
+
+   }
+	
+}
+```
+- 结果
+``` java
+logAround() is running!
+hijacked method : addCustomerAround
+hijacked arguments : [yiibai]
+Around before is running!
+addCustomerAround() is running, args : yiibai
+Around after is running!
+******
+```

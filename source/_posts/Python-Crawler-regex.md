@@ -1,0 +1,39 @@
+---
+title: Crawler学习之Regex
+categories: Python
+---
+# re.compile(strPattern[, flag])
+> 这个方法是Pattern类的工厂方法，用于将字符串形式的正则表达式编译为Pattern对象。
+> `flag:`匹配模式，取值可以使用按位或运算符'|'表示同时生效，比如re.I | re.M。
+> 另外，你也可以在regex字符串中指定模式，
+*比如re.compile('pattern', re.I | re.M)与re.compile('(?im)pattern')是等价的。*
+可选值有：
+- `re.I(全拼：IGNORECASE)`: 忽略大小写（括号内是完整写法，下同）
+- `re.M(全拼：MULTILINE)`: 多行模式，改变'^'和'$'的行为
+- `re.S(全拼：DOTALL):` 点任意匹配模式，改变'.'的行为
+- `re.L(全拼：LOCALE):` 使预定字符类 \w \W \b \B \s \S 取决于当前区域设定
+- `re.U(全拼：UNICODE):` 使预定字符类 \w \W \b \B \s \S \d \D 取决于unicode定义的字符属性
+- `re.X(全拼：VERBOSE):` 详细模式。这个模式下正则表达式可以是多行，忽略空白字符，并可以加入注释。
+
+# findall
+- 当给出的正则表达式中带有多个括号时，**列表的元素为多个字符串组成的tuple，tuple中字符串个数与括号对数相同**，字符串内容与每个括号内的正则表达式相对应，并且排放顺序是按括号出现的顺序
+- 当给出的正则表达式中带有一个括号时，**列表的元素为字符串，此字符串的内容与括号中的正则表达式相对应（不是整个正则表达式的匹配内容）**
+- 当给出的正则表达式中不带括号时，**列表的元素为字符串，此字符串为整个正则表达式匹配的内容。**
+> 例子如下:
+``` python
+    >>> import re  
+    >>> s = "adfad asdfasdf asdfas asdfawef asd adsfas "  
+      
+    >>> reObj1 = re.compile('((\w+)\s+\w+)')  
+    >>> reObj1.findall(s)  
+    [('adfad asdfasdf', 'adfad'), ('asdfas asdfawef', 'asdfas'), ('asd adsfas', 'asd')]  
+      
+    >>> reObj2 = re.compile('(\w+)\s+\w+')  
+    >>> reObj2.findall(s)  
+    ['adfad', 'asdfas', 'asd']  
+      
+    >>> reObj3 = re.compile('\w+\s+\w+')  
+    >>> reObj3.findall(s)  
+    ['adfad asdfasdf', 'asdfas asdfawef', 'asd adsfas']  
+```
+> 详情参考[python re 模块 findall 函数用法简述 ](http://blog.csdn.net/cashey1991/article/details/8875213)

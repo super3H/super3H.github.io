@@ -1,0 +1,16 @@
+---
+title: idea学习
+categories: idea
+---
+
+# 软件安装
+> 直接进入官网下载即可[IntelliJ IDEA](https://www.jetbrains.com/idea/)
+
+## 破解方案
+1. [IntelliJ IDEA 注册码](http://idea.lanyus.com/)
+2. [IntelliJ IDEA 永久破解的方法](http://blog.csdn.net/high2011/article/details/55005286)
+> 方案二中由于github下载超慢，这里把云盘地址贴出来[注册机](http://pan.baidu.com/s/1qYGuM1e):`密码:5jz1`
+
+# 软件快捷键设置
+[Intellij IDEA 快捷键整理（TonyCody）](https://www.cnblogs.com/tonycody/p/3257601.html)
+[IntelliJ Idea 快捷键映射](http://myoss.github.io/2016/IntelliJ-Idea-%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%98%A0%E5%B0%84/)

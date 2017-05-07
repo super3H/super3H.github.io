@@ -1,0 +1,259 @@
+---
+title: Spring自动扫描组件
+categories: spring
+---
+
+# 自动组件扫描
+> 启用Spring组件扫描功能。
+> 使用@Component注释来表示这是类是一个自动扫描组件。
+
+``` java
+package com.yiibai.customer.dao;
+
+import org.springframework.stereotype.Component;
+
+@Component
+public class CustomerDAO 
+{
+	@Override
+	public String toString() {
+		return "Hello , This is CustomerDAO";
+	}	
+}
+//DAO层，添加@Component，表明这也是一个自动扫描组件。
+package com.yiibai.customer.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+import com.yiibai.customer.dao.CustomerDAO;
+
+@Component
+public class CustomerService 
+{
+	@Autowired
+	CustomerDAO customerDAO;
+
+	@Override
+	public String toString() {
+		return "CustomerService [customerDAO=" + customerDAO + "]";
+	}
+} 
+```
+> 将这个`“context:component”`在bean配置文件，这意味着，在 Spring 中启用自动扫描功能。`base-package` 是指明存储组件，Spring将扫描该文件夹，并找出Bean(注解为@Component)并注册到 Spring 容器。
+
+``` xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:component-scan base-package="com.yiibai.customer" />
+
+</beans>
+```
+> 执行:
+``` java
+package com.yiibai.common;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.yiibai.customer.services.CustomerService;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = 
+    	   new ClassPathXmlApplicationContext(new String[] {"Spring-AutoScan.xml"});
+
+    	CustomerService cust = (CustomerService)context.getBean("customerService");
+    	System.out.println(cust);
+    	
+    }
+}
+```
+> 输出结果
+``` java
+CustomerService [customerDAO=Hello , This is CustomerDAO]
+```
+
+# 自定义自动扫描组件名称
+- 默认情况下，Spring 将小写部件的第一字符 从'CustomerService'到'customerService'。可以检索该组件名称为“customerService”。
+``` java
+CustomerService cust = (CustomerService)context.getBean("customerService");
+```
+- 要创建组件的自定义名称，你可以这样自定义名称：
+``` java
+@Service("AAA")
+public class CustomerService 
+...
+```
+> 现在，可以用'AAA'这个名称进行检索。
+``` java
+CustomerService cust = (CustomerService)context.getBean("AAA");
+```
+
+# 自动组件扫描注释类型
+* 在Spring2.5中，有4种类型的组件自动扫描注释类型
+    * `@Component` – 指示自动扫描组件。
+    * `@Repository` – 表示在持久层DAO组件。
+    * `@Service` – 表示在业务层服务组件。
+    * `@Controller` – 表示在表示层控制器组件。
+> 因此，使用哪一个？其实并不那么重要。参见 @Repository，@Service 或 @Controller 源代码。
+``` java
+@Target({ElementType.TYPE})
+@Retention(RetentionPolicy.RUNTIME)
+@Documented
+@Component
+public @interface Repository {
+
+	String value() default "";
+
+} 
+```
+> 你可能会发现，*所有的 @Repository, @Service 或 @Controller 被注解为 @Component。*因此<font color='#008AE2'>，我们可以只使用 @Component 对所有组件进行自动扫描？是的，Spring会自动扫描所有组件的 @Component 注解。</font>
+> 它工作正常，但不是一个好的做法，为便于阅读，应该始终声明`@Repository，@ Service 或 @Controller` 在指定的层，使你的代码更易于阅读，如下：
+- DAO 层
+``` java
+package com.yiibai.customer.dao;
+
+import org.springframework.stereotype.Repository;
+
+@Repository
+public class CustomerDAO 
+{
+	@Override
+	public String toString() {
+		return "Hello , This is CustomerDAO";
+	}	
+}
+```
+- Service 层
+``` java
+package com.yiibai.customer.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.yiibai.customer.dao.CustomerDAO;
+
+@Service
+public class CustomerService 
+{
+	@Autowired
+	CustomerDAO customerDAO;
+
+	@Override
+	public String toString() {
+		return "CustomerService [customerDAO=" + customerDAO + "]";
+	}
+		
+}
+```
+
+# Spring过滤器组件自动扫描
+## 过滤组件 - 包含
+> 参见下面的例子中使用Spring “过滤” 扫描并注册匹配定义`“regex”`，*即使该类组件的名称未标注 @Component 。*
+- DAO 层
+``` java
+package com.yiibai.customer.dao;
+
+public class CustomerDAO 
+{
+	@Override
+	public String toString() {
+		return "Hello , This is CustomerDAO";
+	}	
+}
+```
+- Service 层
+``` java
+package com.yiibai.customer.services;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import com.yiibai.customer.dao.CustomerDAO;
+
+public class CustomerService 
+{
+	@Autowired
+	CustomerDAO customerDAO;
+
+	@Override
+	public String toString() {
+		return "CustomerService [customerDAO=" + customerDAO + "]";
+	}
+		
+}
+```
+- Spring 过滤
+``` xml
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+	http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
+	http://www.springframework.org/schema/context
+	http://www.springframework.org/schema/context/spring-context-2.5.xsd">
+
+	<context:component-scan base-package="com.yiibai" >
+
+		<context:include-filter type="regex" 
+                       expression="com.yiibai.customer.dao.*DAO.*" />
+
+		<context:include-filter type="regex" 
+                       expression="com.yiibai.customer.services.*Service.*" />
+
+	</context:component-scan>
+
+</beans>
+
+```
+- 执行
+``` java
+package com.yiibai.common;
+
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import com.yiibai.customer.services.CustomerService;
+
+public class App 
+{
+    public static void main( String[] args )
+    {
+    	ApplicationContext context = 
+		new ClassPathXmlApplicationContext(new String[] {"Spring-AutoScan.xml"});
+
+    	CustomerService cust = (CustomerService)context.getBean("customerService");
+    	System.out.println(cust);
+    	
+    }
+}
+//输出
+CustomerService [customerDAO=Hello , This is CustomerDAO]
+```
+> 在这个XML过滤中，所有文件的名称中包含 DAO 或 Service(*DAO.*, *Services.*) 单词将被检测并在 Spring 容器中注册。
+
+## 过滤组件 - 不包含
+> 另外，*您还可以排除指定组件，以避免 Spring 检测和 Spring 容器注册。*<font color='red'>不包括在这些文件中标注有 @Service 。</font>
+``` xml
+<context:component-scan base-package="com.yiibai.customer" >
+		<context:exclude-filter type="annotation" 
+			expression="org.springframework.stereotype.Service" />		
+	</context:component-scan>
+```
+> 不包括那些包含DAO这个词组文件名。
+``` xml
+<context:component-scan base-package="com.yiibai" >
+		<context:exclude-filter type="regex" 
+			expression="com.yiibai.customer.dao.*DAO.*" />		
+	</context:component-scan>
+```
+# 原文链接
+[Spring自动扫描组件](http://www.yiibai.com/spring/spring-auto-scanning-components.html)
+[Spring过滤器组件自动扫描](http://www.yiibai.com/spring/spring-filtering-components-in-auto-scanning.html)

@@ -1,0 +1,20 @@
+---
+title: python2.7 升级pip失败的原因
+categories: Python
+---
+
+# 错误
+
+<font color=red>UnicodeDecodeError: 'ascii' codec can't decode byte 0xbb in position 7: ordinal not in range(128)</font>
+
+## 错误原因
+- <font color=bule>原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码</font>
+
+
+# 解决方案
+<font color=green>python目录 Python27\Lib\site-packages 建一个文件sitecustomize.py 
+
+内容写： 
+import sys 
+sys.setdefaultencoding('gb2312') 
+python会自动运行这个文件。</font>

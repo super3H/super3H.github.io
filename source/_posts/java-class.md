@@ -1,0 +1,9 @@
+---
+title: Java中反射机制
+categories: JavaSE
+---
+# Java学习参考
+
+[Java中反射机制和Class.forName、实例对象.class(属性)、实例对象getClass()的区别](http://blog.sina.com.cn/s/blog_7ffb8dd5010127ix.html)
+
+[博客参考地址](http://blog.sina.com.cn/s/articlelist_2147192277_0_2.html)

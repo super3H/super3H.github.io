@@ -1,0 +1,77 @@
+---
+title: flask学习
+categories: Python
+---
+
+# 虚拟环境配置
+## 虚拟环境操作
+``` shell
+#创建虚拟环境
+virtualenv env
+cd env\Scripts
+#激活
+activate
+#退出
+deactivate
+```
+# 调试模式
+> 有两种途径来启用调试模式。一种是直接在应用对象上设置:
+``` python
+app.debug = True
+app.run()
+```
+> 另一种是作为 run 方法的一个参数传入:
+``` python
+app.run(debug=True)
+```
+
+# 静态文件相对路径问题
+## 问题引入
+``` python
+@app.route('/regist',methods=['POST'])
+def regist():
+    return render_template('signAndregist.html'）
+```
+> `regist`映射到`html`时，导致相对路径发生变化，致使`html`里的`css`等文件路径出错
+
+## 解决方案
+> 在如下图的对应位置新建一个`static`文件夹，将对应的文件移入`static`文件夹的里
+![](data:image/png;base64,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)
+> 并在`html`里加入以下配置
+``` python
+<link href="{{url_for('static',filename='css/style.css')}}" rel='stylesheet' type='text/css' />
+```
+
+# 唯一` URL /` 重定向行为
+``` python
+@app.route('/projects/')
+def projects():
+    return 'The project page'
+
+@app.route('/about')
+def about():
+    return 'The about page'
+```
+> 虽然它们看起来着实相似，但它们结尾斜线的使用在 URL 定义 中不同。 第一种情况中，指向 projects 的规范 URL 尾端有一个斜线。这种感觉很像在文件系统中的文件夹。访问一个结尾不带斜线的 URL 会被 Flask 重定向到带斜线的规范 URL 去。
+
+> 然而，第二种情况的 URL 结尾不带斜线，类似 UNIX-like 系统下的文件的路径名。访问结尾带斜线的 URL 会产生一个 404 “Not Found” 错误。
+
+> 这个行为使得在遗忘尾斜线时，允许关联的 URL 接任工作，与 Apache 和其它的服务器的行为并无二异。此外，也保证了 URL 的唯一，有助于避免搜索引擎索引同一个页面两次。
+
+# 目录错误
+`app.py`没和`templates`同一目录
+``` python
+raise TemplateNotFound(template)
+TemplateNotFound: home.html
+```
+
+## 解决方案
+![](http://www.liaoxuefeng.com/files/attachments/001400341074577704e1ff7d52246dab80eb4992d12fcd1000)
+
+# 编码问题
+``` python
+'gbk' codec can't decode bytes in position 52-53: illegal multibyte sequence
+```
+
+## 解决方案
+> 编码的问题,最好都转化为`unicode`编码

@@ -1,0 +1,60 @@
+---
+title: python2.7 安装配置虚拟环境出错
+categories: Python
+---
+
+# 错误
+<font color=red>
+- virtualenv test_env
+- UnicodeDecodeError: 'ascii' codec can't decode byte 0xbb in position 7: ordinal not in range(128)
+</font>
+
+## 解决方案
+<font color=green>
+修改编码为gbk，修改D:\Python27\Lib\ntpath.py(位置由个人python安装目录决定)文件中的def join(path, *paths)函数，在函数内第一行加入
+</font>
+
+``` python
+# Join two (or more) paths.  
+def join(path, *paths):  
+    """Join two or more pathname components, inserting "\\" as needed."""  
+    import sys
+    reload(sys) 
+    sys.setdefaultencoding('gbk')
+    result_drive, result_path = splitdrive(path)  
+    for p in paths:  
+        p_drive, p_path = splitdrive(p)  
+        if p_path and p_path[0] in '\\/':  
+            # Second path is absolute  
+            if p_drive or not result_drive:  
+                result_drive = p_drive  
+            result_path = p_path  
+            continue  
+        elif p_drive and p_drive != result_drive:  
+            if p_drive.lower() != result_drive.lower():  
+                # Different drives => ignore the first path entirely  
+                result_drive = p_drive  
+                result_path = p_path  
+                continue  
+            # Same drive in different case  
+            result_drive = p_drive  
+        # Second path is relative to the first  
+        if result_path and result_path[-1] not in '\\/':  
+            result_path = result_path + '\\'  
+        result_path = result_path + p_path  
+    ## add separator between UNC and non-absolute path  
+    if (result_path and result_path[0] not in '\\/' and  
+        result_drive and result_drive[-1:] != ':'):  
+        return result_drive + sep + result_path  
+    return result_drive + result_path
+```
+
+<font color=red>
+- 加了以下几行（注意缩进问题-->4个空格）
+</font>
+
+``` python
+    import sys
+    reload(sys) 
+    sys.setdefaultencoding('gbk')
+```
