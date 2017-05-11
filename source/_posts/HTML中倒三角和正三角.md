@@ -1,0 +1,95 @@
+---
+title: HTML中倒三角和正三角
+categories: html
+---
+
+# 前言
+经常看到网站有这种符号▽的出现，刚好作业碰到这个问题，于是认真的学了下
+
+# 分析
+看似容易的，其实真的很容易。。
+
+- 效果如下:
+![](HTML中倒三角和正三角/1.gif)
+- 分析代码如下：
+``` css
+b{
+    border-style:dashed ;
+    border-color:#bbb transparent transparent;
+}
+b:hover{
+    border-style:dashed ;
+	border-color:transparent transparent #bbb transparent;
+}
+```
+
+先看下面解释
+<font color='#658B66'>`border-color:red green blue pink;`
+
+- 上边框是红色
+- 右边框是绿色
+- 下边框是蓝色
+- 左边框是粉色
+看完后，解释源代码:
+`border-color:#bbb transparent transparent;`
+- 上边框是灰色
+- 右边框和左边框是透明色
+- 下边框是透明色
+> 正三角
+
+border-color:transparent transparent #bbb transparent;
+
+- 上边框是透明色
+- 右边框是透明色
+- 左边框是透明色
+- 下边框是灰色
+
+> 倒三角
+
+</font>
+
+<font color='#CD5555'>注意：这里一定要设置边框样式,即`border-style:dashed ;`，否则显示不了!!!</font>
+# 详细代码
+
+``` html
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<style type="text/css">
+		div{
+			width: 960px;
+			margin-left: auto;
+			margin-right: auto;
+			font-size: 45px;
+		}
+		b{
+			position: relative;
+			top: 43px;
+			left: 3px;
+			border-width:20px ;
+			border-style:dashed ;
+			border-color:#bbb transparent transparent;
+		}
+		div:hover b{
+			position: relative;
+			top: -43px;
+			left: 3px;
+			border-style:dashed ;
+			border-color:transparent transparent #bbb transparent;
+		}
+	</style>
+	<body>
+		<div>
+			点我<b></b>
+		</div>
+	</body>
+</html>
+
+```
+
+
+
+
