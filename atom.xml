@@ -755,7 +755,7 @@
     <link href="https://super3h.me/2017/03/29/SpringMVC%20%E6%B3%A8%E8%A7%A3/"/>
     <id>https://super3h.me/2017/03/29/SpringMVC 注解/</id>
     <published>2017-03-29T08:24:45.565Z</published>
-    <updated>2017-05-28T10:10:49.263Z</updated>
+    <updated>2017-05-28T10:51:14.990Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>初学SpringMVC，发现有些注解功能有些类似，都为获取前台数据，这里主要讲这些注解的分别！</p>
 <h1 id="SpringMVC-注解"><a href="#SpringMVC-注解" class="headerlink" title="SpringMVC 注解"></a>SpringMVC 注解</h1><h2 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h2><p><strong>用来映射RESTful风格的url</strong>，例如<code>@RequestMapping(/getCourse/{id})</code>，获取id则可以通过这个<code>@PathVariable(&quot;id&quot;) Integer courseId</code>来拿到.</p>
@@ -801,7 +801,9 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
-      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+      <category term="Annotation" scheme="https://super3h.me/tags/Annotation/"/>
+    
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
     
   </entry>
   
@@ -845,7 +847,7 @@
     <link href="https://super3h.me/2017/03/27/Spring%20MVC%E5%A4%9A%E8%A7%A3%E6%9E%90%E5%99%A8%E6%98%A0%E5%B0%84/"/>
     <id>https://super3h.me/2017/03/27/Spring MVC多解析器映射/</id>
     <published>2017-03-27T14:41:17.492Z</published>
-    <updated>2017-05-28T10:10:24.507Z</updated>
+    <updated>2017-05-28T10:50:00.064Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC多解析器映射"><a href="#Spring-MVC多解析器映射" class="headerlink" title="Spring MVC多解析器映射"></a>Spring MVC多解析器映射</h1><ul>
 <li><p>MultipleResolver-servlet.xml</p>
@@ -879,7 +881,7 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
-      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
     
   </entry>
   
@@ -936,7 +938,7 @@
     <link href="https://super3h.me/2017/03/25/Spring%20MVC%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     <id>https://super3h.me/2017/03/25/Spring MVC错误处理/</id>
     <published>2017-03-25T11:28:11.259Z</published>
-    <updated>2017-05-28T10:10:30.170Z</updated>
+    <updated>2017-05-28T10:50:05.823Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC错误处理"><a href="#Spring-MVC错误处理" class="headerlink" title="Spring MVC错误处理"></a>Spring MVC错误处理</h1><p>以下示例将如何在使用Spring Web MVC框架的表单中使用错误处理和验证器</p>
 <h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><figure class="image-bubble">
@@ -1081,7 +1083,7 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
-      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
     
   </entry>
   
@@ -1365,7 +1367,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/19/%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%AD%A6%E6%A0%A1%E5%AE%98%E7%BD%91/"/>
     <id>https://super3h.me/2017/03/19/爬虫-爬取学校官网/</id>
     <published>2017-03-19T14:40:10.986Z</published>
-    <updated>2017-05-28T10:16:48.970Z</updated>
+    <updated>2017-05-28T10:52:53.071Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！</p>
@@ -1458,7 +1460,9 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="Python" scheme="https://super3h.me/categories/Python/"/>
     
     
-      <category term="Python 爬虫" scheme="https://super3h.me/tags/Python-%E7%88%AC%E8%99%AB/"/>
+      <category term="Python" scheme="https://super3h.me/tags/Python/"/>
+    
+      <category term="爬虫" scheme="https://super3h.me/tags/%E7%88%AC%E8%99%AB/"/>
     
   </entry>
   
