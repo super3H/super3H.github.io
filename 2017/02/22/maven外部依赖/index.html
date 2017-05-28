@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/22/maven外部依赖/">
+    
+    
+    <title>maven外部依赖 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="maven外部依赖
+正如大家所了解的那样，Maven确实使用 Maven 库的概念作依赖管理。但是，如果依赖是在远程存储库和中央存储库不提供那会怎么样？ Maven 提供为使用外部依赖的概念，就是应用在这样的场景中的。举一个例子，让我们在Maven创建项目这一章节中创建的项目做以下的修改
+- 添加 lib 文件夹到 src 文件夹
+- 复制任何的 jar 到 lib 文件夹。这里使用的是 ldap">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven外部依赖">
+<meta property="og:url" content="https://super3h.me/2017/02/22/maven外部依赖/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="maven外部依赖
+正如大家所了解的那样，Maven确实使用 Maven 库的概念作依赖管理。但是，如果依赖是在远程存储库和中央存储库不提供那会怎么样？ Maven 提供为使用外部依赖的概念，就是应用在这样的场景中的。举一个例子，让我们在Maven创建项目这一章节中创建的项目做以下的修改
+- 添加 lib 文件夹到 src 文件夹
+- 复制任何的 jar 到 lib 文件夹。这里使用的是 ldap">
+<meta property="og:image" content="https://super3h.me/2017/02/22/maven外部依赖/1.jpg">
+<meta property="og:updated_time" content="2017-02-22T02:26:57.422Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="maven外部依赖">
+<meta name="twitter:description" content="maven外部依赖
+正如大家所了解的那样，Maven确实使用 Maven 库的概念作依赖管理。但是，如果依赖是在远程存储库和中央存储库不提供那会怎么样？ Maven 提供为使用外部依赖的概念，就是应用在这样的场景中的。举一个例子，让我们在Maven创建项目这一章节中创建的项目做以下的修改
+- 添加 lib 文件夹到 src 文件夹
+- 复制任何的 jar 到 lib 文件夹。这里使用的是 ldap">
+<meta name="twitter:image" content="https://super3h.me/2017/02/22/maven外部依赖/1.jpg">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">maven外部依赖</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">maven外部依赖</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-22T02:18:33.817Z" itemprop="datePublished" class="page-time">
+  2017-02-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/maven/">maven</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven外部依赖"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven外部依赖</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文链接"><span class="post-toc-number">2.</span> <span class="post-toc-text">原文链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-maven外部依赖"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">maven外部依赖</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-22 10:18:33" datetime="2017-02-22T02:18:33.817Z"  itemprop="datePublished">2017-02-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/maven/">maven</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="maven外部依赖"><a href="#maven外部依赖" class="headerlink" title="maven外部依赖"></a>maven外部依赖</h1><blockquote>
+<p>正如大家所了解的那样，Maven确实使用 Maven 库的概念作依赖管理。但是，如果依赖是在远程存储库和中央存储库不提供那会怎么样？ Maven 提供为使用外部依赖的概念，就是应用在这样的场景中的。<br>举一个例子，让我们在<a href="http://www.yiibai.com/maven/maven_creating_project.html" target="_blank" rel="external">Maven创建项目</a>这一章节中创建的项目做以下的修改</p>
+<pre><code>- 添加 lib 文件夹到 src 文件夹
+- 复制任何的 jar 到 lib 文件夹。这里使用的是 ldapjdk.jar，这是 LDAP 操作的辅助库
+</code></pre><p>目录结构如下:<br><img src="/2017/02/22/maven外部依赖/1.jpg" alt=""><br>在这里，在项目中指定自己所用的库，它可以包含 jar 文件，但是可能无法在任何 Maven 存储库找到，那么需要从外部下载。如果代码使用这个 Maven 库但没有办法找到，那么 Maven 构建将会失败，因为它在编译阶段使用指这个库无法下载或无法找到。<br>要处理这种情况，<em>需要添加外部依赖项</em>，如使用下列方式在 Maven 的 pom.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> </span></div><div class="line">   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 </span></div><div class="line">   http://maven.apache.org/maven-v4_0_0.xsd"&gt;</div><div class="line">   </div><div class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.companyname.bank<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;basedir&#125;\src\lib\ldapjdk.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>再看上面例子中的第二个依赖元素（dependency），它清除以下有关外部依赖的重要概念。</p>
+<pre><code>- 外部依赖（JAR库的位置）可以在 pom.xml 中配置为与其他依赖的方式相同；
+- 指定 groupId 同样作为库的名称；
+- 指定 artifactId 同样作为库的名称
+- 指定范围的系统；
+- 指定相系统项目的位置；
+</code></pre></blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p>详情请参考<a href="http://www.yiibai.com/maven/maven_external_dependencies.html" target="_blank" rel="external">Maven外部依赖</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-22T02:26:57.422Z" itemprop="dateUpdated">2017-02-22 10:26:57</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/22/maven外部依赖/" target="_blank" rel="external">https://super3h.me/2017/02/22/maven外部依赖/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/22/maven外部依赖/&title=《maven外部依赖》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/22/maven外部依赖/&title=《maven外部依赖》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/22/maven外部依赖/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven外部依赖》 — HHH'Blog&url=https://super3h.me/2017/02/22/maven外部依赖/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/22/maven外部依赖/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/22/Spring自动装配Beans/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spring自动装配Beans</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/22/maven-Eclipse里导入MavenWeb工程/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">maven-Eclipse里导入MavenWeb工程</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/22/maven外部依赖/index.html',
+        sourceId: 'maven外部依赖',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/22/maven外部依赖/&title=《maven外部依赖》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/22/maven外部依赖/&title=《maven外部依赖》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/22/maven外部依赖/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven外部依赖》 — HHH'Blog&url=https://super3h.me/2017/02/22/maven外部依赖/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/22/maven外部依赖/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3aQY6DMAwF0N7/0sx2FgP9tmEkkpdV1VLSR6WvxM7nE4/jZPz+9OzK62vO5vo8MTAwMF7LOC5Hwri+c8LLH8rp7BgYGBswkh+RhOP1ZMkP6s2LgYGBkUTk9X2SEMfAwMD4z8CdgzEwMDB6m9h8CXhXcD+yF8fAwHghI6+6///rR/obGBgYr2IcxZFvUKtxeQwGBgbG2ow84KoLx2pwJ1vcL1diYGAszZhsIHvhWD0ulryDgYGxKqP6tUmxLJmx2s78Y4WLgYGxHCNZuiVNyuvv3guOFqMYGBgLMSbB90QENxuiGBgYSzOqJbBeuW2ylS20MzEwMBZl9ApkkwNe954QKXRiMTAwXsvI2wP5AYt8Mzxpan6JYwwMjIUY1ZpcXoAbHZioPj4MDIwNGJN47eV6dZkYdTMwMDCWZvSisFrVe/BwGAYGxtKMfEFWDd8J77ZyGwYGxnKMaoGs2gaYNEcLDU4MDIxFGb2y171HN6r3P/0fMDAwNmD0il95UzO/f35kFgMDYx9GvlyrFtTyxV/SYIj6sRgYGEszCo3DWxui1ceEgYGxD+Mojnxbe1fIRscyMDAwlmbcFabVhV0e9NXHh4GBsSqjGrK9rWZvM5w3ITAwMHZg9JqRyWKu+s5tJ9owMDA2ZiSkfFOaNzKbPgwMjC0ZkwietBy+IDEwMDZg5KX8JI7n7cn8IAgGBsYOjHnkVSfoNS97DwgDA+PljB+dtImHFSpLnwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

@@ -1,0 +1,527 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/01/20/Python-Base/">
+    
+    
+    <title>python基础学习 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="format函数运用通过位置映射123456In [1]: &apos;&amp;#123;0&amp;#125;,&amp;#123;1&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[1]: &apos;kzc,18&apos;  In [2]: &apos;&amp;#123;&amp;#125;,&amp;#123;&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[2]: &apos;kzc,18&apos;  In [3]: &apos;&amp;#123;1&amp;#125;,&amp;#123;0&amp;#">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python基础学习">
+<meta property="og:url" content="https://super3h.me/2017/01/20/Python-Base/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="format函数运用通过位置映射123456In [1]: &apos;&amp;#123;0&amp;#125;,&amp;#123;1&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[1]: &apos;kzc,18&apos;  In [2]: &apos;&amp;#123;&amp;#125;,&amp;#123;&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[2]: &apos;kzc,18&apos;  In [3]: &apos;&amp;#123;1&amp;#125;,&amp;#123;0&amp;#">
+<meta property="og:updated_time" content="2017-01-24T08:08:49.716Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python基础学习">
+<meta name="twitter:description" content="format函数运用通过位置映射123456In [1]: &apos;&amp;#123;0&amp;#125;,&amp;#123;1&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[1]: &apos;kzc,18&apos;  In [2]: &apos;&amp;#123;&amp;#125;,&amp;#123;&amp;#125;&apos;.format(&apos;kzc&apos;,18)  Out[2]: &apos;kzc,18&apos;  In [3]: &apos;&amp;#123;1&amp;#125;,&amp;#123;0&amp;#">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python基础学习</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python基础学习</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-20T07:15:59.489Z" itemprop="datePublished" class="page-time">
+  2017-01-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#format函数运用"><span class="post-toc-number">1.</span> <span class="post-toc-text">format函数运用</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过位置映射"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">通过位置映射</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过关键字参数"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">通过关键字参数</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过对象属性"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">通过对象属性</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过下标"><span class="post-toc-number">1.4.</span> <span class="post-toc-text">通过下标</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#格式限定符"><span class="post-toc-number">1.5.</span> <span class="post-toc-text">格式限定符</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#填充与对齐"><span class="post-toc-number">1.5.1.</span> <span class="post-toc-text">填充与对齐</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#精度与类型f"><span class="post-toc-number">1.5.2.</span> <span class="post-toc-text">精度与类型f</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#其他类型"><span class="post-toc-number">1.5.3.</span> <span class="post-toc-text">其他类型</span></a></li></ol></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Python-Base"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python基础学习</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-20 15:15:59" datetime="2017-01-20T07:15:59.489Z"  itemprop="datePublished">2017-01-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="format函数运用"><a href="#format函数运用" class="headerlink" title="format函数运用"></a><code>format</code>函数运用</h1><h2 id="通过位置映射"><a href="#通过位置映射" class="headerlink" title="通过位置映射"></a>通过位置映射</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">1</span>]: <span class="string">'&#123;0&#125;,&#123;1&#125;'</span>.format(<span class="string">'kzc'</span>,<span class="number">18</span>)  </div><div class="line">Out[<span class="number">1</span>]: <span class="string">'kzc,18'</span>  </div><div class="line">In [<span class="number">2</span>]: <span class="string">'&#123;&#125;,&#123;&#125;'</span>.format(<span class="string">'kzc'</span>,<span class="number">18</span>)  </div><div class="line">Out[<span class="number">2</span>]: <span class="string">'kzc,18'</span>  </div><div class="line">In [<span class="number">3</span>]: <span class="string">'&#123;1&#125;,&#123;0&#125;,&#123;1&#125;'</span>.format(<span class="string">'kzc'</span>,<span class="number">18</span>)  </div><div class="line">Out[<span class="number">3</span>]: <span class="string">'18,kzc,18'</span></div></pre></td></tr></table></figure>
+<h2 id="通过关键字参数"><a href="#通过关键字参数" class="headerlink" title="通过关键字参数"></a>通过关键字参数</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">5</span>]: <span class="string">'&#123;name&#125;,&#123;age&#125;'</span>.format(age=<span class="number">18</span>,name=<span class="string">'kzc'</span>)  </div><div class="line">Out[<span class="number">5</span>]: <span class="string">'kzc,18'</span></div></pre></td></tr></table></figure>
+<h2 id="通过对象属性"><a href="#通过对象属性" class="headerlink" title="通过对象属性"></a>通过对象属性</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Person</span>:</span>  </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self,name,age)</span>:</span>  </div><div class="line">        self.name,self.age = name,age  </div><div class="line">        <span class="function"><span class="keyword">def</span> <span class="title">__str__</span><span class="params">(self)</span>:</span>  </div><div class="line">            <span class="keyword">return</span> <span class="string">'This guy is &#123;self.name&#125;,is &#123;self.age&#125; old'</span>.format(self=self)</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">2</span>]: str(Person(<span class="string">'kzc'</span>,<span class="number">18</span>))  </div><div class="line">Out[<span class="number">2</span>]: <span class="string">'This guy is kzc,is 18 old'</span></div></pre></td></tr></table></figure>
+<h2 id="通过下标"><a href="#通过下标" class="headerlink" title="通过下标"></a>通过下标</h2><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">7</span>]: p=[<span class="string">'kzc'</span>,<span class="number">18</span>]</div><div class="line">In [<span class="number">8</span>]: <span class="string">'&#123;0[0]&#125;,&#123;0[1]&#125;'</span>.format(p)</div><div class="line">Out[<span class="number">8</span>]: <span class="string">'kzc,18'</span></div></pre></td></tr></table></figure>
+<h2 id="格式限定符"><a href="#格式限定符" class="headerlink" title="格式限定符"></a>格式限定符</h2><h3 id="填充与对齐"><a href="#填充与对齐" class="headerlink" title="填充与对齐"></a>填充与对齐</h3><blockquote>
+<p>填充常跟对齐一起使用<br>^、&lt;、&gt;分别是居中、左对齐、右对齐，后面带宽度<br>:号后面带填充的字符，只能是一个字符，不指定的话默认是用空格填充<br>比如:<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">15</span>]: <span class="string">'&#123;:&gt;8&#125;'</span>.format(<span class="string">'189'</span>)</div><div class="line">Out[<span class="number">15</span>]: <span class="string">'     189'</span></div><div class="line">In [<span class="number">16</span>]: <span class="string">'&#123;:0&gt;8&#125;'</span>.format(<span class="string">'189'</span>)</div><div class="line">Out[<span class="number">16</span>]: <span class="string">'00000189'</span></div><div class="line">In [<span class="number">17</span>]: <span class="string">'&#123;:a&gt;8&#125;'</span>.format(<span class="string">'189'</span>)</div><div class="line">Out[<span class="number">17</span>]: <span class="string">'aaaaa189'</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="精度与类型f"><a href="#精度与类型f" class="headerlink" title="精度与类型f"></a>精度与类型f</h3><blockquote>
+<p>精度常跟类型f一起使用<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">44</span>]: <span class="string">'&#123;:.2f&#125;'</span>.format(<span class="number">321.33345</span>)</div><div class="line">Out[<span class="number">44</span>]: <span class="string">'321.33'</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="其他类型"><a href="#其他类型" class="headerlink" title="其他类型"></a>其他类型</h3><blockquote>
+<p>主要就是进制了，b、d、o、x分别是二进制、十进制、八进制、十六进制。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">54</span>]: <span class="string">'&#123;:b&#125;'</span>.format(<span class="number">17</span>)</div><div class="line">Out[<span class="number">54</span>]: <span class="string">'10001'</span></div><div class="line">In [<span class="number">55</span>]: <span class="string">'&#123;:d&#125;'</span>.format(<span class="number">17</span>)</div><div class="line">Out[<span class="number">55</span>]: <span class="string">'17'</span></div><div class="line">In [<span class="number">56</span>]: <span class="string">'&#123;:o&#125;'</span>.format(<span class="number">17</span>)</div><div class="line">Out[<span class="number">56</span>]: <span class="string">'21'</span></div><div class="line">In [<span class="number">57</span>]: <span class="string">'&#123;:x&#125;'</span>.format(<span class="number">17</span>)</div><div class="line">Out[<span class="number">57</span>]: <span class="string">'11'</span></div></pre></td></tr></table></figure></p>
+<p>用逗号还能用来做金额的千位分隔符<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">47</span>]: <span class="string">'&#123;:,&#125;'</span>.format(<span class="number">1234567890</span>)</div><div class="line">Out[<span class="number">47</span>]: <span class="string">'1,234,567,890'</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-01-24T08:08:49.716Z" itemprop="dateUpdated">2017-01-24 16:08:49</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/01/20/Python-Base/" target="_blank" rel="external">https://super3h.me/2017/01/20/Python-Base/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/20/Python-Base/&title=《python基础学习》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/20/Python-Base/&title=《python基础学习》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/20/Python-Base/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python基础学习》 — HHH'Blog&url=https://super3h.me/2017/01/20/Python-Base/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/20/Python-Base/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/21/Python-Project/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Python-web_project学习</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/20/Python-jinja/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python-jinja 学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/01/20/Python-Base/index.html',
+        sourceId: 'Python-Base',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/20/Python-Base/&title=《python基础学习》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/20/Python-Base/&title=《python基础学习》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/20/Python-Base/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python基础学习》 — HHH'Blog&url=https://super3h.me/2017/01/20/Python-Base/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/20/Python-Base/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB2UlEQVR42u3awW7EIAxF0fz/T0+lrkaaQu6zCWWkm9UopXDCwrIN14Wf1+/z/vv9zefI0UNmWPDIlSu3zeUL8P8i0Pn74SfJlSt3I5cHLx6ARuPJdgzfy5Ur9zAuT3rmUDK/XLlyv4U7X4yUQ3w75MqVewI3LVrSsoekOItrNbly5Ta4tYbp2t+P93flypW76FRiHlBqRyOd4ChXrtw9XNLymEcSzq01VuKJ5MqV2+by0EOItZF8Rbly5e7hogZlGIw4sZZOyZUr92kunzRNidIiZz7ySvdArly5bW4xvQivXtVW/KOLI1eu3Ie5PK2pXdHonJK0Ch65cuW2ubVrWCSVSS9myZUr9wQuSSmKhUqY7qDNkitX7hZuGvPSYiY9OCEfI1eu3Ke5r/ZDUiV+cHIzp1y5crdw09YGL4rS9krQapErV+7DXHKAsbYcSkOkXLly/4vLL17whdMwh8KfXLlyN3JbwQW3O/n7q7ZDcuXKXcRNAwovh3i6Q1qx8cfIlSu3ze20MvliaSAb/lWuXLkbubWrWrzZyiPozRi5cuUexq1dnuClFzp6kStX7pHcNKil7ZWbbZIrV+5Gbmfq2oEKb4UUazW5cuU2uLWGKX/D0yC5cuUewP0B8fLTasDrlp4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

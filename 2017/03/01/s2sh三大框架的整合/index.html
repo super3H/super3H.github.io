@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/03/01/s2sh三大框架的整合/">
+    
+    
+    <title>s2sh三大框架的整合 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="前言
+断断续续的学完了三大框架，自己也想尝试整合三大框架，这里记录我碰到的问题，以及学习的过程。
+
+问题struts有关错误
+使用modelDriven遇到的错误,报错如下：
+
+1234ERROR ParametersInterceptor Developer Notification (set struts.devMode to false to disable this message):Un">
+<meta property="og:type" content="article">
+<meta property="og:title" content="s2sh三大框架的整合">
+<meta property="og:url" content="https://super3h.me/2017/03/01/s2sh三大框架的整合/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="前言
+断断续续的学完了三大框架，自己也想尝试整合三大框架，这里记录我碰到的问题，以及学习的过程。
+
+问题struts有关错误
+使用modelDriven遇到的错误,报错如下：
+
+1234ERROR ParametersInterceptor Developer Notification (set struts.devMode to false to disable this message):Un">
+<meta property="og:image" content="https://super3h.me/2017/03/01/s2sh三大框架的整合/1.png">
+<meta property="og:updated_time" content="2017-04-27T14:11:07.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="s2sh三大框架的整合">
+<meta name="twitter:description" content="前言
+断断续续的学完了三大框架，自己也想尝试整合三大框架，这里记录我碰到的问题，以及学习的过程。
+
+问题struts有关错误
+使用modelDriven遇到的错误,报错如下：
+
+1234ERROR ParametersInterceptor Developer Notification (set struts.devMode to false to disable this message):Un">
+<meta name="twitter:image" content="https://super3h.me/2017/03/01/s2sh三大框架的整合/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">s2sh三大框架的整合</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">s2sh三大框架的整合</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-01T00:32:37.142Z" itemprop="datePublished" class="page-time">
+  2017-03-01
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">问题</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#struts有关错误"><span class="post-toc-number">3.</span> <span class="post-toc-text">struts有关错误</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#hibernate有关错误"><span class="post-toc-number">4.</span> <span class="post-toc-text">hibernate有关错误</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#s2sh整合时遇到错误"><span class="post-toc-number">5.</span> <span class="post-toc-text">s2sh整合时遇到错误</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Log4J日志配置"><span class="post-toc-number">6.</span> <span class="post-toc-text">Log4J日志配置</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#所需jar包"><span class="post-toc-number">6.1.</span> <span class="post-toc-text">所需jar包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#web-xml配置如下"><span class="post-toc-number">6.2.</span> <span class="post-toc-text">web.xml配置如下</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#log4J-properties配置"><span class="post-toc-number">6.3.</span> <span class="post-toc-text">log4J.properties配置</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-s2sh三大框架的整合"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">s2sh三大框架的整合</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-01 08:32:37" datetime="2017-03-01T00:32:37.142Z"  itemprop="datePublished">2017-03-01</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>断断续续的学完了三大框架，自己也想尝试整合三大框架，这里记录我碰到的问题，以及学习的过程。</p>
+</blockquote>
+<h1 id="问题"><a href="#问题" class="headerlink" title="问题"></a>问题</h1><h1 id="struts有关错误"><a href="#struts有关错误" class="headerlink" title="struts有关错误"></a>struts有关错误</h1><ul>
+<li>使用<code>modelDriven</code>遇到的错误,报错如下：</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function">ERROR ParametersInterceptor Developer <span class="title">Notification</span> <span class="params">(set struts.devMode to <span class="keyword">false</span> to disable <span class="keyword">this</span> message)</span>:</span></div><div class="line">Unexpected Exception caught setting 'age' on 'class test.hhh.action.PersonAction: Error setting expression 'age' with value '20'</div><div class="line">ERROR ParametersInterceptor Developer <span class="title">Notification</span> <span class="params">(set struts.devMode to <span class="keyword">false</span> to disable <span class="keyword">this</span> message)</span>:</div><div class="line">Unexpected Exception caught setting 'name' on 'class test.hhh.action.PersonAction: Error setting expression 'name' with value 'hhh'</div></pre></td></tr></table></figure>
+<blockquote>
+<p>原因如下:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//action中如下写</span></div><div class="line"><span class="keyword">private</span> Person model;</div><div class="line"><span class="comment">//由于model对象还没new，其内部为空，所以导致获取的model为null，改法如下</span></div><div class="line"><span class="keyword">private</span> Person model = <span class="keyword">new</span> Person();</div></pre></td></tr></table></figure>
+<ul>
+<li>spring和struts整合报错如下:<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">ERROR Dispatcher Dispatcher initialization failed</div><div class="line"> Unable to load configuration. - [unknown location]</div><div class="line">	at com.opensymphony.xwork2.config.ConfigurationManager.getConfiguration(ConfigurationManager.java:<span class="number">70</span>)</div><div class="line">	at org.apache.struts2.dispatcher.Dispatcher.getContainer(Dispatcher.java:<span class="number">906</span>)</div><div class="line">	at org.apache.struts2.dispatcher.Dispatcher.init_PreloadConfiguration(Dispatcher.java:<span class="number">445</span>)</div><div class="line">	at org.apache.struts2.dispatcher.Dispatcher.init(Dispatcher.java:<span class="number">486</span>)</div><div class="line">	at org.apache.struts2.dispatcher.InitOperations.initDispatcher(InitOperations.java:<span class="number">75</span>)</div><div class="line">	at org.apache.struts2.dispatcher.filter.StrutsPrepareAndExecuteFilter.init(StrutsPrepareAndExecuteFilter.java:<span class="number">63</span>)</div><div class="line">	at org.apache.catalina.core.ApplicationFilterConfig.initFilter(ApplicationFilterConfig.java:<span class="number">279</span>)</div><div class="line">	at org.apache.catalina.core.ApplicationFilterConfig.getFilter(ApplicationFilterConfig.java:<span class="number">260</span>)</div><div class="line">	at org.apache.catalina.core.ApplicationFilterConfig.&lt;init&gt;(ApplicationFilterConfig.java:<span class="number">105</span>)</div><div class="line">	at org.apache.catalina.core.StandardContext.filterStart(StandardContext.java:<span class="number">4572</span>)</div><div class="line">	at org.apache.catalina.core.StandardContext.startInternal(StandardContext.java:<span class="number">5215</span>)</div><div class="line">	at org.apache.catalina.util.LifecycleBase.start(LifecycleBase.java:<span class="number">150</span>)</div><div class="line">	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1419</span>)</div><div class="line">	at org.apache.catalina.core.ContainerBase$StartChild.call(ContainerBase.java:<span class="number">1409</span>)</div><div class="line">	at java.util.concurrent.FutureTask.run(Unknown Source)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor.runWorker(Unknown Source)</div><div class="line">	at java.util.concurrent.ThreadPoolExecutor$Worker.run(Unknown Source)</div><div class="line">	at java.lang.Thread.run(Unknown Source)</div><div class="line">Caused by: Cannot locate the chosen ObjectFactory implementation: spring - [unknown location]</div><div class="line">	at org.apache.struts2.config.AbstractBeanSelectionProvider.alias(AbstractBeanSelectionProvider.java:<span class="number">64</span>)</div><div class="line">	at org.apache.struts2.config.AbstractBeanSelectionProvider.alias(AbstractBeanSelectionProvider.java:<span class="number">41</span>)</div><div class="line">	at org.apache.struts2.config.DefaultBeanSelectionProvider.register(DefaultBeanSelectionProvider.java:<span class="number">366</span>)</div><div class="line">	at com.opensymphony.xwork2.config.impl.DefaultConfiguration.reloadContainer(DefaultConfiguration.java:<span class="number">163</span>)</div><div class="line">	at com.opensymphony.xwork2.config.ConfigurationManager.getConfiguration(ConfigurationManager.java:<span class="number">67</span>)</div><div class="line">	... <span class="number">17</span> more</div><div class="line">三月 <span class="number">01</span>, <span class="number">2017</span> <span class="number">9</span>:<span class="number">48</span>:<span class="number">48</span> 下午 org.apache.catalina.core.StandardContext filterStart</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>解释:<font color="#ED8F76">struts没有交给spring管理或者你根本没导入<code>struts2-spring-plugin-2.5.5.jar</code>。和以下配置</font><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">constant</span> <span class="attr">name</span>=<span class="string">"struts.objectFactory"</span> <span class="attr">value</span>=<span class="string">"spring"</span>&gt;</span><span class="tag">&lt;/<span class="name">constant</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="hibernate有关错误"><a href="#hibernate有关错误" class="headerlink" title="hibernate有关错误"></a>hibernate有关错误</h1><ul>
+<li><p>错误如下</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Already value [org.springframework.orm.hibernate5.SessionHolder@<span class="number">43826</span>ec] <span class="keyword">for</span> key [org.hibernate.internal.SessionFactoryImpl@<span class="number">304</span>a3655] bound to thread [main]</div></pre></td></tr></table></figure>
+</li>
+<li><p>解决方案:<font color="#FF0000">由于spring配置问题，类<code>LocalSessionFactoryBean</code>应该来自于<code>org.springframework.orm.hibernate5</code>而不是<code>org.springframework.orm.hibernate4</code></font></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--注意:PersonDaoImpl和LocalSessionFactoryBean都要来自于hibernate5的包下--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.LocalSessionFactoryBean"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:hibernate.cfg.xml<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"personDao"</span> <span class="attr">class</span>=<span class="string">"test.hhh.dao.Impl.PersonDaoImpl"</span> &gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"factory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"transactionManager"</span>/&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"transactionManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><code>PersonDaoImpl和LocalSessionFactoryBean</code>来自的包必须相同，不能一个来自于<code>hibernate5</code>一个<code>hibernate4</code></p>
+</blockquote>
+<h1 id="s2sh整合时遇到错误"><a href="#s2sh整合时遇到错误" class="headerlink" title="s2sh整合时遇到错误"></a>s2sh整合时遇到错误</h1><ul>
+<li>web.xml中spring的配置如下:<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>contextConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">  	<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>WEB-INF/classes/applicationContext.xml<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>读取时从创建时候设置的文件目录读取，所以此处要加<code>WEB-INF/classes/</code>或者从src下读取，即添加以下配置<code>classpath:applicationContext.xml</code>否者会报错</p>
+</blockquote>
+<ul>
+<li>applicationContext.xml中导入数据源配置文件:<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"location"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:dataSource.properties<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>注意：<font color="#ED8F76"><strong>加上classpath是让spring从src中读取</strong></font></p>
+</blockquote>
+<h1 id="Log4J日志配置"><a href="#Log4J日志配置" class="headerlink" title="Log4J日志配置"></a>Log4J日志配置</h1><h2 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h2><ul>
+<li>如下图<br><img src="/2017/03/01/s2sh三大框架的整合/1.png" alt=""></li>
+</ul>
+<h2 id="web-xml配置如下"><a href="#web-xml配置如下" class="headerlink" title="web.xml配置如下"></a>web.xml配置如下</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- log4j配置，文件路径，因为是跟随项目启动 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>loggingLevel<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>info<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 加载log4j配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="log4J-properties配置"><a href="#log4J-properties配置" class="headerlink" title="log4J.properties配置"></a>log4J.properties配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># Define the root logger with appender file</div><div class="line">log4j.rootLogger = DEBUG, FILE</div><div class="line"></div><div class="line"># Define the file appender</div><div class="line">log4j.appender.FILE=org.apache.log4j.FileAppender</div><div class="line"># Set the name of the file</div><div class="line">log4j.appender.FILE.File=G:\\log4J\u65E5\u5FD7\\s2sh_test01\\htmlLayout.html</div><div class="line"></div><div class="line"># Set the immediate flush to true (default)</div><div class="line">log4j.appender.FILE.ImmediateFlush=true</div><div class="line"></div><div class="line"># Set the threshold to debug mode</div><div class="line">log4j.appender.FILE.Threshold=debug</div><div class="line"></div><div class="line"># Define the layout for file appender</div><div class="line">log4j.appender.FILE.layout=org.apache.log4j.HTMLLayout</div><div class="line">log4j.appender.FILE.layout.Title=HTML Layout Example</div><div class="line">log4j.appender.FILE.layout.LocationInfo=true</div></pre></td></tr></table></figure>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="http://www.cnblogs.com/S-E-P/archive/2012/01/18/2325253.html" target="_blank" rel="external">Struts2学习笔记——Struts2与Spring整合</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-27T14:11:07.194Z" itemprop="dateUpdated">2017-04-27 22:11:07</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/03/01/s2sh三大框架的整合/" target="_blank" rel="external">https://super3h.me/2017/03/01/s2sh三大框架的整合/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&title=《s2sh三大框架的整合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&title=《s2sh三大框架的整合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/01/s2sh三大框架的整合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《s2sh三大框架的整合》 — HHH'Blog&url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/02/log4J的使用/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">log4J的使用</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/26/Spring-hibernate整合/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Spring-hibernate整合</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/03/01/s2sh三大框架的整合/index.html',
+        sourceId: 's2sh三大框架的整合',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&title=《s2sh三大框架的整合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&title=《s2sh三大框架的整合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/01/s2sh三大框架的整合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《s2sh三大框架的整合》 — HHH'Blog&url=https://super3h.me/2017/03/01/s2sh三大框架的整合/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/01/s2sh三大框架的整合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3au3KAMAxEUf7/p0mbIpjdlciM5UuVgoAOmVH08HXJ1/1w6Xf+vl95wvXFBQMGjG0Z2YvXoWTPf/pZ+ogwYMA4gLFOfOtwewNS3gsDBgwYekBuqXfLFwwYMGB0MZQiTykilZQNAwYMGG7i04diT7+rl4bNvTgMGDA2ZLih/OfPn+w3YMCAsRXjNq9scOYWiHZUMGDAGM3QE1xDWWY2xno8MGDAOIGRNZxZUnZXDmELDQMGjKEM/XEZtXKngYEBA8ZQhn6r+23WC0i7Tc2qThgwYGzOyIo2Jbjs+Ur1+jI1hAEDxlCGHorC6GqMjREbDBgwRjOy8wx6cEoatdOrPjuEAQPGOEYWVr2s1D+NVKTCgAFjKCMbnGUZPeOV/g4wYMAYwchGZnpJ5x4Oc8tHGDBgnMCoDP31oxhfLET/KA1hwIAxjtHQ+y4LPrdMdP8xlPYbMGDA2JBRaSP10OuLyZfDFjBgwBjHyNKl/mL3Q5TaWhgwYBzMyNKxWz6ul6ZSVDBgwDiAkS0p9RVC/VjqCwwGDBhHMtwFZ70NLjW9MGDAGMq4zUsvAZU21U30j1QYMGCMZrgrwy5e1+GM0qk3GDBgbMXQQ8yWBy5baX1LXxoGDBjbMtxjW/rgXh/JtR22gAEDxvGM9SuVoVtvKQkDBgwY7og/WxhUFhIwYMA4h+E2nJUxWRaocdgCBgwY4xiVWVY2+8oObdQTNwwYMDZk/ABjQyLgkT8XowAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

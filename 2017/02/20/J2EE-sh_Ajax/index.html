@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/20/J2EE-sh_Ajax/">
+    
+    
+    <title>struts和ajax结合 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包
+
+
+
+这里列出我所用的所有包
+
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_sh">
+<meta property="og:type" content="article">
+<meta property="og:title" content="struts和ajax结合">
+<meta property="og:url" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包
+
+
+
+这里列出我所用的所有包
+
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_sh">
+<meta property="og:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/2.png">
+<meta property="og:updated_time" content="2017-03-12T01:44:52.339Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="struts和ajax结合">
+<meta name="twitter:description" content="项目想法
+这里接着上回用servlet和ajax结合，换成用struts2和hibernate框架生成。
+
+项目过程
+这里介绍点我用框架所遇到的问题
+
+导入包的问题
+除了struts基本包，hibernate必须包之外，还需加以下包
+
+
+
+这里列出我所用的所有包
+
+
+相对绝对路径问题解决1234&amp;lt;!--采用struts标签来替代--&amp;gt;&amp;lt;s:url action=&apos;weibo_sh">
+<meta name="twitter:image" content="https://super3h.me/2017/02/20/J2EE-sh_Ajax/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">struts和ajax结合</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">struts和ajax结合</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-20T04:41:03.991Z" itemprop="datePublished" class="page-time">
+  2017-02-20
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目想法"><span class="post-toc-number">1.</span> <span class="post-toc-text">项目想法</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#项目过程"><span class="post-toc-number">2.</span> <span class="post-toc-text">项目过程</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#导入包的问题"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">导入包的问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#相对绝对路径问题解决"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">相对绝对路径问题解决</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#struts配置问题"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">struts配置问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#调试所报的异常"><span class="post-toc-number">3.</span> <span class="post-toc-text">调试所报的异常</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#hibernate分页"><span class="post-toc-number">3.1.</span> <span class="post-toc-text">hibernate分页</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源码"><span class="post-toc-number">4.</span> <span class="post-toc-text">源码</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-J2EE-sh_Ajax"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">struts和ajax结合</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-20 12:41:03" datetime="2017-02-20T04:41:03.991Z"  itemprop="datePublished">2017-02-20</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Ajax/">Ajax</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="项目想法"><a href="#项目想法" class="headerlink" title="项目想法"></a>项目想法</h1><blockquote>
+<p>这里接着上回用servlet和ajax结合，换成用<code>struts2和hibernate</code>框架生成。</p>
+</blockquote>
+<h1 id="项目过程"><a href="#项目过程" class="headerlink" title="项目过程"></a>项目过程</h1><blockquote>
+<p>这里介绍点我用框架所遇到的问题</p>
+</blockquote>
+<h2 id="导入包的问题"><a href="#导入包的问题" class="headerlink" title="导入包的问题"></a>导入包的问题</h2><blockquote>
+<p>除了struts基本包，hibernate必须包之外，还需加以下包</p>
+</blockquote>
+<p><img src="/2017/02/20/J2EE-sh_Ajax/1.png" alt=""></p>
+<blockquote>
+<p>这里列出我所用的所有包</p>
+</blockquote>
+<p><img src="/2017/02/20/J2EE-sh_Ajax/2.png" alt=""></p>
+<h2 id="相对绝对路径问题解决"><a href="#相对绝对路径问题解决" class="headerlink" title="相对绝对路径问题解决"></a>相对绝对路径问题解决</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--采用struts标签来替代--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">s:url</span> <span class="attr">action</span>=<span class="string">'weibo_showImg'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">'id'</span> <span class="attr">value</span>=<span class="string">'#weibo.id'</span>&gt;</span><span class="tag">&lt;/<span class="name">s:param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">s:url</span>&gt;</span></div></pre></td></tr></table></figure>
+<h2 id="struts配置问题"><a href="#struts配置问题" class="headerlink" title="struts配置问题"></a>struts配置问题</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"weibo"</span> <span class="attr">extends</span>=<span class="string">"json-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"weibo_*"</span> <span class="attr">class</span>=<span class="string">"hhh.controller.WeiboAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toIndex"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"publish"</span>&gt;</span>/WEB-INF/jsp/publish.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toList"</span>&gt;</span>/WEB-INF/jsp/list.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"json"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!--必须加这一句--&gt;</span></div><div class="line">            	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"root"</span>&gt;</span>postData<span class="tag">&lt;/<span class="name">param</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">allowed-methods</span>&gt;</span>success,publishUI,listAirticle,publish,showImg<span class="tag">&lt;/<span class="name">allowed-methods</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>博主一开始没有加这一句<code>&lt;param name=&quot;root&quot;&gt;postData&lt;/param&gt;</code>，导致各种找，终于不负辛苦，找到了，这里贴出<code>action</code>中的代码：<br>注意:<font color="red"><strong>postData为发送的数据，必须要含有getter和setter方法</strong></font></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//postData的setter和getter方法(其实只含有getter方法即可，因为页面需要获取值只需要getter方法，二后台获取前台来的值则需要色setter方法，需要什么添加什么，不要一股脑吧所有东西全加进去)</span></div><div class="line"><span class="keyword">private</span> String postData;</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">getPostData</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> postData;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPostData</span><span class="params">(String postData)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.postData = postData;</div><div class="line">	&#125;</div><div class="line"><span class="function"><span class="keyword">public</span> String <span class="title">listAirticle</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">"post"</span>.equals(way))&#123;</div><div class="line">			currentPage += postTime;</div><div class="line">			Page page = service.listAirticle(currentPage);</div><div class="line">			postData = JSONArray.fromObject(page.getRecords()).toString();</div><div class="line">			setPostData(postData);</div><div class="line">			System.out.println(postData);<span class="comment">//打印转换成json的数据</span></div><div class="line">			<span class="keyword">return</span> SUCCESS;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			Page page = service.listAirticle(currentPage);</div><div class="line">			ActionContext.getContext().put(<span class="string">"weibos"</span>, page.getRecords());</div><div class="line">			<span class="keyword">return</span> <span class="string">"toList"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>本来想在这</p>
+<h1 id="调试所报的异常"><a href="#调试所报的异常" class="headerlink" title="调试所报的异常"></a>调试所报的异常</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">commons-beanutils-1.8.0.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/beanutils/DynaBean </div><div class="line">commons-collections.jar 不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/collections/map/ListOrderedMap</div><div class="line">commons-lang-2.4.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/lang/exception/NestableRuntimeException</div><div class="line">commons-logging-1.1.1.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: org/apache/commons/logging/LogFactory </div><div class="line">ezmorph-1.0.4.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: net/sf/ezmorph/Morpher </div><div class="line">json-lib-2.3-jdk15.jar不加这个包 </div><div class="line">java.lang.NoClassDefFoundError: net/sf/json/JSONObject</div></pre></td></tr></table></figure>
+<p>更详细请参考原文<a href="http://blog.csdn.net/zenson_g/article/details/8491436" target="_blank" rel="external">java转换json需要导入的jar包，org/apache/commons/lang/exception/NestableRuntimeException</a><br>报异常:<code>There is no result type defined for type &#39;json&#39; mapped with name &#39;success&#39;.</code><br>首先要检查 是否有<code>json-lib-2.3-jdk15.jar</code>和<code>struts2-json-plugin-2.3.4.1.jar</code>两个包<br>如果还报错，那就是<code>struts.xml</code>配置问题，将<code>&lt;package中的 extends=&quot;struts-default&quot;</code>为 <code>extends=&quot;json-default&quot;</code><br>更详细内容请参考<a href="http://blog.csdn.net/zzq900503/article/details/34946691" target="_blank" rel="external">SSH搭建遇到的问题—There is no result type defined for type ‘json’ mapped with name ‘success’.</a></p>
+</blockquote>
+<h2 id="hibernate分页"><a href="#hibernate分页" class="headerlink" title="hibernate分页"></a>hibernate分页</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">String hql=<span class="string">"select eage from Emp order by eage"</span>;                          </div><div class="line">Query query= session. createQuery(hql). setFirstResult(<span class="number">0</span>). setMaxResults(<span class="number">5</span>);  <span class="comment">//从0开始，现实5条数据</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>更详细请参考原文<a href="http://blog.csdn.net/pkgk2013/article/details/51922872" target="_blank" rel="external">web开发（九）之Hibernate分页查询</a></p>
+</blockquote>
+<h1 id="源码"><a href="#源码" class="headerlink" title="源码"></a>源码</h1><blockquote>
+<p>源码请参考<a href="https://github.com/super3H/AjaxTest/tree/master/Struts-hibernate-test" target="_blank" rel="external">AjaxTest/Struts-hibernate-test/</a>，欢迎订阅。</p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-12T01:44:52.339Z" itemprop="dateUpdated">2017-03-12 09:44:52</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/20/J2EE-sh_Ajax/" target="_blank" rel="external">https://super3h.me/2017/02/20/J2EE-sh_Ajax/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&title=《struts和ajax结合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&title=《struts和ajax结合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/20/J2EE-sh_Ajax/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《struts和ajax结合》 — HHH'Blog&url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/20/Python-Crawler-regex/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Crawler学习之Regex</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/19/js相关问题/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">js相关问题</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/20/J2EE-sh_Ajax/index.html',
+        sourceId: 'J2EE-sh_Ajax',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&title=《struts和ajax结合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&title=《struts和ajax结合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/20/J2EE-sh_Ajax/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《struts和ajax结合》 — HHH'Blog&url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/20/J2EE-sh_Ajax/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACNElEQVR42u3aQW7DMAwF0dz/0inQVYvC1nxSKWBqtArs1NbLgqVIvl54vb/X3ys/r7/Bunra/bu2LRkyZDyW0Xnx1XfukbUrV3uTIUPGOQyyxatH3F+5D9aEgYKyDBkyZOBH7wqyMmTIkLEr4JLDLQm1PFjLkCHjZAY5xBIAr4OlIXvbWVyGDBkPZKSNgf/8/MH+hgwZMh7CeIerVozjgbW4KxkyZIxm1JK89Mh6/03+Ay3CsQwZMkYzOmMT5G5avOPURe1QhgwZgxhpOtj5Dk8c47syZMgYzagFwU7Rv5MOxl0OGTJkPJyRltg6wxP8uBu3EGTIkDGawVMxXpIjR9/a8Nki0ZQhQ8ZQRnrg3JUmpsMWxdRQhgwZIxh8uCEdnuCFvBRQbAzIkCHj4Yy0KFZL4NK/ImMfMmTIOIHRGarYG3ZJkF1UDWXIkHEk43MDqaQwFzQPZMiQcRhj7wjFrtC8uCtDhoxjGPzoWEvmilsEP4cMGTJmM2pb52X9fgrIhzZkyJAxlUFStD64kzKiQCxDhowDGLWeJ3kBH60gKeMi4MqQIWMooza8lYbIeOKjVKqTIUPGVMY7XDxopm3R2qDYr6qhDBkyhjLSMJc2A/Y+mf8bkCFDxjxGP8imx9r0eBw0L2XIkDGawVuJxdfgLZLQvKgdypAh42BGrdFYK96lJTwZMmTI6AxStE7PuNkpQ4aMExhp0OwPSZDPQVopQ4aM0Yxa+Z4E4r0Fu7Q5KkOGjBGMLw5b8C6Y8e3kAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

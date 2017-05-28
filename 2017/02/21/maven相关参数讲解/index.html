@@ -1,0 +1,530 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/21/maven相关参数讲解/">
+    
+    
+    <title>maven相关参数讲解 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="maven相关参数
+groupId:代表组织和整个项目的唯一标志。比如说所有的Maven组件的groupId都是org.apache.maven
+artifactId:具体项目的名称，它于groupId共同确定一个项目在maven repo中的位置，例如，groupId=org.codehaus.mojo, artifactId=my-project的项目，在maven repo中的位置为：$M2">
+<meta property="og:type" content="article">
+<meta property="og:title" content="maven相关参数讲解">
+<meta property="og:url" content="https://super3h.me/2017/02/21/maven相关参数讲解/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="maven相关参数
+groupId:代表组织和整个项目的唯一标志。比如说所有的Maven组件的groupId都是org.apache.maven
+artifactId:具体项目的名称，它于groupId共同确定一个项目在maven repo中的位置，例如，groupId=org.codehaus.mojo, artifactId=my-project的项目，在maven repo中的位置为：$M2">
+<meta property="og:updated_time" content="2017-02-21T14:27:59.194Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="maven相关参数讲解">
+<meta name="twitter:description" content="maven相关参数
+groupId:代表组织和整个项目的唯一标志。比如说所有的Maven组件的groupId都是org.apache.maven
+artifactId:具体项目的名称，它于groupId共同确定一个项目在maven repo中的位置，例如，groupId=org.codehaus.mojo, artifactId=my-project的项目，在maven repo中的位置为：$M2">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">maven相关参数讲解</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">maven相关参数讲解</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-21T14:16:56.887Z" itemprop="datePublished" class="page-time">
+  2017-02-21
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/maven/">maven</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#maven相关参数"><span class="post-toc-number">1.</span> <span class="post-toc-text">maven相关参数</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#例子说明"><span class="post-toc-number">2.</span> <span class="post-toc-text">例子说明</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">原文参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-maven相关参数讲解"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">maven相关参数讲解</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-21 22:16:56" datetime="2017-02-21T14:16:56.887Z"  itemprop="datePublished">2017-02-21</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/maven/">maven</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="maven相关参数"><a href="#maven相关参数" class="headerlink" title="maven相关参数"></a>maven相关参数</h1><ul>
+<li><code>groupId:</code>代表组织和整个项目的唯一标志。比如说所有的Maven组件的groupId都是org.apache.maven</li>
+<li><code>artifactId:</code>具体项目的名称，它于groupId共同确定一个项目在maven repo中的位置，例如，<em>groupId=org.codehaus.mojo, artifactId=my-project的项目，在maven repo中的位置为：$M2_REPO/org/codehaus/mojo/my-project</em></li>
+<li><code>version:</code>用于说明目前项目的版本，在引用依赖的时候确定具体依赖的版本号。</li>
+<li><code>packaging:</code> 规定项目的输出格式，包括<code>jar、war、pom、apk</code>等，根据实际需要确定。例如，<em>开发一般的java库，可以使用jar packaging；开发android则是apk packaging。</em></li>
+</ul>
+<h1 id="例子说明"><a href="#例子说明" class="headerlink" title="例子说明"></a>例子说明</h1><blockquote>
+<p>一般来说，Maven肯定要用到pom文件，全名叫<code>Project Object Model</code>。简单的说，就是这个pom.xml文件含有project的相关信息。以下面的pom文件为例，举个简单的例子：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven,apache.org/POM/4.0.0"</span></span></div><div class="line">　　<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3c.org/2001/XMLSchema-instance"</span></div><div class="line">　　<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0http://maven.apache.org/xsd/maven-4.0.0.xsd"</span>&gt;</div><div class="line">　　<span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">groupId</span>&gt;</span>org.apache.maven<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>my-project<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">version</span>&gt;</span>1.2.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">packaging</span>&gt;</span>war<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>其中，groupId代表的是<code>唯一的一个标识</code>，比如一个组织或者一个项目的名字，基本上是唯一的，以这个maven为例就是org.apache.maven。<br><code>artifactId:</code>代表的是名字，如果刚刚那个有点像身份证，这个就是类似姓名的东西。<br><code>version:</code>比较好理解，就是版本号，比如1.2.1版本这样的。<br>最后的<code>packaging</code>是我们提供组件的类型，比如使用时打包成一个jar或者是一个war之类的，默认为打成jar包。<br><strong>还要注意不得不提到maven的一个插件<code>maven-archetype-plugin</code>。这个插件是为了方便我们弄一些模板或者原型直接生成会更加方便。通过cmd指令，我们可以确定我们需要的是哪个原型</strong><br>cmd的命令的例子:<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">mvn archetype:generate -DarchetypeArtifactId=jersey-quickstart-grizzly2 -DarchetypeGroupId=org.glassfish.jersey.archetypes -DinteractiveMode=false -DgroupId=com.example -DartifactId=simple-service -Dpackage=com.example -DarchetypeVersion=2.17</div></pre></td></tr></table></figure></p>
+<p><code>archetypeGroupId:</code>这个和刚刚那个很像，指的是原型唯一的标识archetypeArtifactId：原型的名字。<br><code>interactiveMode:</code>交互模式，默认为true。<em>我上面的cmd命令是一次性把该输入的都输入进去了，免去了交互所以是false。如果你选择交互的话，就是有一步一步的选项指引你去选择和填写相关的标识之类的。</em><br><code>archetypeCatalog:</code>这个例子里面没有，指的是查找规则<br>至于后面那些groupId之类的，前面已经说过的就是生成的项目的一些标识名字之类的相关信息，<strong>不过要注意这个package是生成项目的包结构而不是提供组件的类型了</strong></p>
+</blockquote>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="https://zhidao.baidu.com/question/263104967434409685.html" target="_blank" rel="external">Maven中的参数分别是什么意思？</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-21T14:27:59.194Z" itemprop="dateUpdated">2017-02-21 22:27:59</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/21/maven相关参数讲解/" target="_blank" rel="external">https://super3h.me/2017/02/21/maven相关参数讲解/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/21/maven相关参数讲解/&title=《maven相关参数讲解》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/21/maven相关参数讲解/&title=《maven相关参数讲解》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/21/maven相关参数讲解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven相关参数讲解》 — HHH'Blog&url=https://super3h.me/2017/02/21/maven相关参数讲解/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/21/maven相关参数讲解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/22/maven-Eclipse里导入MavenWeb工程/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">maven-Eclipse里导入MavenWeb工程</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/21/maven依赖机制/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">maven依赖机制</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/21/maven相关参数讲解/index.html',
+        sourceId: 'maven相关参数讲解',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/21/maven相关参数讲解/&title=《maven相关参数讲解》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/21/maven相关参数讲解/&title=《maven相关参数讲解》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/21/maven相关参数讲解/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《maven相关参数讲解》 — HHH'Blog&url=https://super3h.me/2017/02/21/maven相关参数讲解/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/21/maven相关参数讲解/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJklEQVR42u3a3WrDMAwG0L7/S3ewq8Fo+klyN2KfXJWwJj4eqPrx4xFfz++r9/nnneT+779ZdmFgYNyW8by88mW9+u58m67XhoGBcQ4jf3Tyshxcfe/L+xgYGBhBOE7C4jzFxMDAwJika9HL4goUAwMDo1fEVgFVxh/V4hgYGDdkfHowsCod/Of5BgYGxj8xnq1r7TMXPAEDA2NrxiSNu26lJaEzT0ajQIyBgbEpI/9yMp5MFp3cKRfJGBgYBzDyR8yRc2pUYWNgYGzEmA8X8wx03oBb3JLDwMC4CSMpIz83f6iyo0YbBgbGpozqy3rp4/Ubq1vzsojFwMDYjjFJ4KrLXXuYDAMD4xxGPhL4REp3/eQkrD/yehcDA+O2jEmYm7ThegfO3vAwMDAOYPQGA722Wi+4R6fbMDAwNmVU86s8aettwfxoLAYGxn6MPI3rLaIaapuDBAwMjK0Z1TDXC8rJlbOj/wkGBsZGjHn46yF7Wxa12zAwMDZlJEFwfsxiXu6+SQoxMDAOYOQNtfxQRRLWq8PO6LAFBgbGRozJTHDSGustCAMD4zTGpB2WB9D8Oc00EQMDY2tGNcxVS9Dey5LyuPnrgYGBcVtGEmQnu1ItQZvFKgYGxgGMPPCtGhJUF/omWcTAwMAoBtwer1okjwIuBgbGpozeUYy8uVbdGgwMjNMYSRFbHR7kjblqcYuBgXEaY9KszzciCdz5QhfMNzAwMO7B+AI/kiy6OHOU2wAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

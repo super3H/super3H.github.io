@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/03/28/div覆盖/">
+    
+    
+    <title>div覆盖 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="前言后端工程师也有一个前台梦  哈哈!!!!
+div覆盖目的：通过点击按钮，弹出小方框背景为灰色，效果如下：再次点击灰色，样式恢复源码如下:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta property="og:type" content="article">
+<meta property="og:title" content="div覆盖">
+<meta property="og:url" content="https://super3h.me/2017/03/28/div覆盖/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="前言后端工程师也有一个前台梦  哈哈!!!!
+div覆盖目的：通过点击按钮，弹出小方框背景为灰色，效果如下：再次点击灰色，样式恢复源码如下:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta property="og:image" content="https://super3h.me/2017/03/28/div覆盖/./div覆盖/1.png">
+<meta property="og:updated_time" content="2017-05-03T06:14:43.664Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="div覆盖">
+<meta name="twitter:description" content="前言后端工程师也有一个前台梦  哈哈!!!!
+div覆盖目的：通过点击按钮，弹出小方框背景为灰色，效果如下：再次点击灰色，样式恢复源码如下:1234567891011121314151617181920212223242526272829303132333435363738394041424344454647484950515253545556575859606162636465666768697">
+<meta name="twitter:image" content="https://super3h.me/2017/03/28/div覆盖/./div覆盖/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">div覆盖</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">div覆盖</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-28T01:05:47.053Z" itemprop="datePublished" class="page-time">
+  2017-03-28
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/js/">js</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#前言"><span class="post-toc-number">1.</span> <span class="post-toc-text">前言</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#div覆盖"><span class="post-toc-number">2.</span> <span class="post-toc-text">div覆盖</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-div覆盖"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">div覆盖</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-28 09:05:47" datetime="2017-03-28T01:05:47.053Z"  itemprop="datePublished">2017-03-28</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/js/">js</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>后端工程师也有一个前台梦  哈哈!!!!</p>
+<h1 id="div覆盖"><a href="#div覆盖" class="headerlink" title="div覆盖"></a>div覆盖</h1><p><code>目的</code>：通过点击按钮，弹出小方框背景为灰色，效果如下：<br><img src="/2017/03/28/div覆盖/./div覆盖/1.png" alt=""><br>再次点击灰色，样式恢复<br>源码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-class">.main</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">960px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">800px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#FF9966</span>;</div><div class="line">				<span class="attribute">margin</span>: <span class="number">0px</span> auto;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.mask</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">900</span>;</div><div class="line">				<span class="comment">/*以下设置覆盖整个窗口*/</span></div><div class="line">				<span class="attribute">position</span>: fixed;</div><div class="line">				<span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#000</span>;<span class="comment">/*灰色背景*/</span></div><div class="line">				<span class="attribute">opacity</span>: <span class="number">0.45</span>;<span class="comment">/*透明度*/</span></div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.opendiv</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">920</span>;</div><div class="line">				<span class="comment">/*设置div位置*/</span></div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">margin-left</span>: -<span class="number">175px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: -<span class="number">125px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">334px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">180px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#6699FF</span>;</div><div class="line">				<span class="attribute">text-align</span>: center;</div><div class="line">				<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">topmargin</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">			网页主体内容，包含网页其他栏目</div><div class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"on()"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--蒙板--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mask"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">onclick</span>=<span class="string">"off()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"opendiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></div><div class="line">			最上层DIV覆盖下面的全部DIV</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为inline-block</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">if</span>(mask.style.display==<span class="string">"none"</span>)&#123;</div><div class="line">				mask.style.display=<span class="string">"inline-block"</span>;</div><div class="line">				opendiv.style.display=<span class="string">"inline-block"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">off</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为none</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			mask.style.display=<span class="string">"none"</span>;</div><div class="line">			opendiv.style.display=<span class="string">"none"</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>解释见代码！！</p>
+<blockquote>
+<p>详情请参考<a href="http://www.91ctc.com/article/article-129.html" target="_blank" rel="external">DIV块的覆盖，DIV层遮盖其他DIV</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-03T06:14:43.664Z" itemprop="dateUpdated">2017-05-03 14:14:43</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/03/28/div覆盖/" target="_blank" rel="external">https://super3h.me/2017/03/28/div覆盖/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/28/div覆盖/&title=《div覆盖》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/28/div覆盖/&title=《div覆盖》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/28/div覆盖/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《div覆盖》 — HHH'Blog&url=https://super3h.me/2017/03/28/div覆盖/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/28/div覆盖/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/29/SpringMVC 注解/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SpringMVC 注解</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/27/Spring MVC多解析器映射/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Spring MVC多解析器映射</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/03/28/div覆盖/index.html',
+        sourceId: 'div覆盖',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/28/div覆盖/&title=《div覆盖》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/28/div覆盖/&title=《div覆盖》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/28/div覆盖/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《div覆盖》 — HHH'Blog&url=https://super3h.me/2017/03/28/div覆盖/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/28/div覆盖/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAAB0klEQVR42u3ay2rDMBAFUP//T7vQVaDIuTN6YMrRKqSNdOzFIN3RdcXj/h2fnz/H6P9Hv/o75+KBi4s7zb0fx2ix0cM8fz/iJgZcXNzz3KR45aUtKVtJUcPFxX0/t4dOtji4uLj/iZschxIiLi7uO7n5BmWmPCVlbtlZDRcXd4LbC0zXft6e7+Li4i7qSuTF5XnhvGB9WREXF/cIt9pA7W0+ehud6KyGi4t7hJtMVw1E8sIXvQ5cXNzN3F70kF+h6M05/B4XF/cItxdizhxsZlq2uLi4J7l5GaqCkitZyfxXeTeEi4vb5/YuXlSDjMWHH1xc3M3c6jWsPEjtFbJmloOLi7uNW22C5klmEpFUV8TFxd3NzZ+m8Nzx9ijhNhG4uLgtbh6VVq9WrN1C4eLinuT2AtNqgFINVqbeNC4u7jS3Wqqqy/fC1uEMuLi4R7jVC1hJuUkC05nrX7i4uLu5d3Hk0UbynsqbKlxc3CPcmbKST5Q/arnJiouLu42bF6/qMal6aSNq2ODi4h7k7mt+LD6r4eLivpKbN1ZnOqTDmXFxcV/G7YWnvYD1SzcYFxf3CLd3+MmLUS9MWXxWw8XFXfOr67kkVf+abI8W57u4uLg17g/tRAYc4IcpLwAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

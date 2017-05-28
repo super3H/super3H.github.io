@@ -1,0 +1,550 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/01/29/J2EE-Hibernate关系配置/">
+    
+    
+    <title>J2EE-Hibernate关系配置 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="cascade 、inverse详解
+cascade有以下四种值：all: 所有情况下均进行关联操作。none: 所有情况下均不进行关联操作。这是默认值。save-update: 在执行save/update/saveOrUpdate时进行关联操作。delete: 在执行delete时进行关联操作。
+ inverse    `详情请点：cascade 、inverse详解 
+
+一对多（多对一）班级">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J2EE-Hibernate关系配置">
+<meta property="og:url" content="https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="cascade 、inverse详解
+cascade有以下四种值：all: 所有情况下均进行关联操作。none: 所有情况下均不进行关联操作。这是默认值。save-update: 在执行save/update/saveOrUpdate时进行关联操作。delete: 在执行delete时进行关联操作。
+ inverse    `详情请点：cascade 、inverse详解 
+
+一对多（多对一）班级">
+<meta property="og:image" content="https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/inverse.png">
+<meta property="og:updated_time" content="2017-04-27T14:07:24.195Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="J2EE-Hibernate关系配置">
+<meta name="twitter:description" content="cascade 、inverse详解
+cascade有以下四种值：all: 所有情况下均进行关联操作。none: 所有情况下均不进行关联操作。这是默认值。save-update: 在执行save/update/saveOrUpdate时进行关联操作。delete: 在执行delete时进行关联操作。
+ inverse    `详情请点：cascade 、inverse详解 
+
+一对多（多对一）班级">
+<meta name="twitter:image" content="https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/inverse.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">J2EE-Hibernate关系配置</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">J2EE-Hibernate关系配置</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-29T12:29:11.873Z" itemprop="datePublished" class="page-time">
+  2017-01-29
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#cascade-、inverse详解"><span class="post-toc-number">1.</span> <span class="post-toc-text">cascade 、inverse详解</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一对多（多对一）"><span class="post-toc-number">2.</span> <span class="post-toc-text">一对多（多对一）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多对多"><span class="post-toc-number">3.</span> <span class="post-toc-text">多对多</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#一对一"><span class="post-toc-number">4.</span> <span class="post-toc-text">一对一</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一对一外键关联："><span class="post-toc-number">4.1.</span> <span class="post-toc-text">一对一外键关联：</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#一对一主键关联在hbm文件中的配置信息："><span class="post-toc-number">4.2.</span> <span class="post-toc-text">一对一主键关联在hbm文件中的配置信息：</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#详情请看"><span class="post-toc-number">5.</span> <span class="post-toc-text">详情请看</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-J2EE-Hibernate关系配置"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">J2EE-Hibernate关系配置</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-29 20:29:11" datetime="2017-01-29T12:29:11.873Z"  itemprop="datePublished">2017-01-29</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="cascade-、inverse详解"><a href="#cascade-、inverse详解" class="headerlink" title="cascade 、inverse详解"></a>cascade 、inverse详解</h1><blockquote>
+<p><code>cascade</code>有以下四种值：<br><code>all</code>: 所有情况下均进行关联操作。<br><code>none</code>: 所有情况下均不进行关联操作。这是默认值。<br><code>save-update</code>: 在执行save/update/saveOrUpdate时进行关联操作。<br><code>delete</code>: 在执行delete时进行关联操作。</p>
+<p> <code>inverse</code><br>    `<img src="/2017/01/29/J2EE-Hibernate关系配置/inverse.png" alt=""><br>详情请点：<a href="http://blog.sina.com.cn/s/blog_7ffb8dd50101450c.html" target="_blank" rel="external">cascade 、inverse详解 </a></p>
+</blockquote>
+<h1 id="一对多（多对一）"><a href="#一对多（多对一）" class="headerlink" title="一对多（多对一）"></a>一对多（多对一）</h1><p><code>班级</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"cn.itcast.hiberate.sh.domain.Classes"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"cid"</span> <span class="attr">length</span>=<span class="string">"5"</span> <span class="attr">type</span>=<span class="string">"java.lang.Long"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"cname"</span> <span class="attr">length</span>=<span class="string">"20"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		</div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">length</span>=<span class="string">"100"</span> <span class="attr">type</span>=<span class="string">"java.lang.String"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!-- </span></div><div class="line">			set元素对应类中的set集合</div><div class="line">			通过set元素使classes表与student表建立关联</div><div class="line">			   key是通过外键的形式让两张表建立关联</div><div class="line">			   one-to-many是通过类的形式让两个类建立关联</div><div class="line">			</div><div class="line">			cascade 级联</div><div class="line">			   save-update</div><div class="line">			   	1、当 保存班级的时候，对学生进行怎么样的操作</div><div class="line">			   	     如果学生对象在数据库中没有对应的值，这个时候会执行save操作</div><div class="line">			   	     如果学生对象在数据库中有对应的值，这个时候会执行update操作</div><div class="line">			   delete</div><div class="line">			   all</div><div class="line">			inverse  维护关系</div><div class="line">			   true      不维护关系     </div><div class="line">			   false     维护关系</div><div class="line">			   default   false</div><div class="line">		 --&gt;</div><div class="line">		<span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"students"</span> <span class="attr">cascade</span>=<span class="string">"all"</span> <span class="attr">inverse</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">			<span class="comment">&lt;!-- </span></div><div class="line">				key是用来描述外键</div><div class="line">			 --&gt;</div><div class="line">			<span class="tag">&lt;<span class="name">key</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"cid"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"cn.itcast.hiberate.sh.domain.Student"</span>/&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>学生</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"</span></div><div class="line">"http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"cn.itcast.hiberate.sh.domain.Student"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"sid"</span> <span class="attr">length</span>=<span class="string">"5"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sname"</span> <span class="attr">length</span>=<span class="string">"20"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"description"</span> <span class="attr">length</span>=<span class="string">"100"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="多对多"><a href="#多对多" class="headerlink" title="多对多"></a>多对多</h1><p>多对多关系也很常见，例如学生与选修课之间的关系，一个学生可以选择多门选修课，而每个选修课又可以被多名学生选择。<code>数据库</code>中的多对多关联关系一般需采用中间表的方式处理，将多对多转化为两个一对多。<br><code>学生：</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Student"</span> <span class="attr">table</span>=<span class="string">"student"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"courses"</span> <span class="attr">inverse</span>=<span class="string">"false"</span> <span class="attr">cascade</span>=<span class="string">"save-update"</span> <span class="attr">table</span>=<span class="string">"student_course"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"student_id"</span>&gt;</span><span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">many-to-many</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Course"</span></span></div><div class="line">                <span class="attr">column</span>=<span class="string">"course_id"</span>&gt;<span class="tag">&lt;/<span class="name">many-to-many</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>课程：</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Course"</span> <span class="attr">table</span>=<span class="string">"course"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"students"</span> <span class="attr">inverse</span>=<span class="string">"true"</span> <span class="attr">cascade</span>=<span class="string">"save-update"</span> <span class="attr">table</span>=<span class="string">"student_course"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">key</span> <span class="attr">column</span>=<span class="string">"course_id"</span>&gt;</span><span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">many-to-many</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Student"</span></span></div><div class="line">                <span class="attr">column</span>=<span class="string">"student_id"</span>&gt;<span class="tag">&lt;/<span class="name">many-to-many</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="一对一"><a href="#一对一" class="headerlink" title="一对一"></a>一对一</h1><blockquote>
+<p>一对一关系就球队与球队所在地之间的关系，一支球队仅有一个地址，而一个地区也仅有一支球队（貌似有点勉强，将就下吧）。数据表间一对一关系的表现有两种，一种是外键关联，一种是主键关联。图示如下：</p>
+</blockquote>
+<h2 id="一对一外键关联："><a href="#一对一外键关联：" class="headerlink" title="一对一外键关联："></a>一对一外键关联：</h2><p><code>地址：</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Adress"</span> <span class="attr">table</span>=<span class="string">"adress"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"city"</span> <span class="attr">column</span>=<span class="string">"city"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">one-to-one</span> <span class="attr">name</span>=<span class="string">"team"</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Team"</span> <span class="attr">cascade</span>=<span class="string">"all"</span>&gt;</span><span class="tag">&lt;/<span class="name">one-to-one</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>球队：</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN" "http://hibernate.sourceforge.net/hibernate-mapping-3.0.dtd"&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Team"</span> <span class="attr">table</span>=<span class="string">"team"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">many-to-one</span> <span class="attr">name</span>=<span class="string">"adress"</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Adress"</span> <span class="attr">column</span>=<span class="string">"adress_id"</span> <span class="attr">unique</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">many-to-one</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>一对一外键关联，其实可以看做是一对多的一种特殊形式，多方退化成一。多方退化成一只需要在<many-to-one>标签中设置”unique”=”true”。</many-to-one></p>
+</blockquote>
+<h2 id="一对一主键关联在hbm文件中的配置信息："><a href="#一对一主键关联在hbm文件中的配置信息：" class="headerlink" title="一对一主键关联在hbm文件中的配置信息："></a>一对一主键关联在hbm文件中的配置信息：</h2><p><code>地址</code>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Adress"</span> <span class="attr">table</span>=<span class="string">"adress"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"increment"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"city"</span> <span class="attr">column</span>=<span class="string">"city"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">one-to-one</span> <span class="attr">name</span>=<span class="string">"team"</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Team"</span> <span class="attr">cascade</span>=<span class="string">"all"</span>&gt;</span><span class="tag">&lt;/<span class="name">one-to-one</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>球队</code>:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">hibernate-mapping</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Team"</span> <span class="attr">table</span>=<span class="string">"team"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"id"</span> <span class="attr">type</span>=<span class="string">"integer"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"id"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"foreign"</span>&gt;</span></div><div class="line">                <span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"property"</span>&gt;</span>adress<span class="tag">&lt;/<span class="name">param</span>&gt;</span></div><div class="line">            <span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line"></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"name"</span> <span class="attr">column</span>=<span class="string">"name"</span> <span class="attr">type</span>=<span class="string">"string"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        </div><div class="line">        <span class="tag">&lt;<span class="name">one-to-one</span> <span class="attr">name</span>=<span class="string">"adress"</span> <span class="attr">class</span>=<span class="string">"com.suxiaolei.hibernate.pojos.Adress"</span> <span class="attr">cascade</span>=<span class="string">"all"</span>&gt;</span><span class="tag">&lt;/<span class="name">one-to-one</span>&gt;</span></div><div class="line"></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-mapping</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>一对一主键关联，是让两张的主键值一样。要使两表的主键相同，只能一张表生成主键，另一张表参考主键。</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"foreign"</span>&gt;</span></div><div class="line">　　<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"property"</span>&gt;</span>adress<span class="tag">&lt;/<span class="name">param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div></pre></td></tr></table></figure>
+<p><code>&quot;class&quot;=&quot;foreign&quot;</code>就是设置team表的主键参照adress属性的主键值。</p>
+<h1 id="详情请看"><a href="#详情请看" class="headerlink" title="详情请看"></a>详情请看</h1><p><a href="http://blog.csdn.net/xrt95050/article/details/7322222" target="_blank" rel="external">Hibernate关联关系配置</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-27T14:07:24.195Z" itemprop="dateUpdated">2017-04-27 22:07:24</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/01/29/J2EE-Hibernate关系配置/" target="_blank" rel="external">https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&title=《J2EE-Hibernate关系配置》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&title=《J2EE-Hibernate关系配置》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《J2EE-Hibernate关系配置》 — HHH'Blog&url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/30/J2EE-Hibernate的Session获取/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">hibernate中openSession()跟getCurrentSession()的区别</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/25/J2EE-Hibernate-Session/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">J2EE-Hibernate-Session的缓存及对象的状态</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/index.html',
+        sourceId: 'J2EE-Hibernate关系配置',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&title=《J2EE-Hibernate关系配置》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&title=《J2EE-Hibernate关系配置》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《J2EE-Hibernate关系配置》 — HHH'Blog&url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/29/J2EE-Hibernate关系配置/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACJ0lEQVR42u3aQW4CMQwFUO5/aSp12zLzbQe1JC+rkYDBLwsrtvN4xOv5vZLnn+v6V9f/tXhhYGB8LON5uV69+hXgOpTkncnW/PJ+DAyMAxjJX17/TZ40k5Sdx4aBgYGx9miYbAQGBgbGPOFOUnD+BgwMDIxeETs5xr0sPotH0gW1OAYGxgcy1g4G1j7/2XwDAwPj3zCexVVN073kW44KAwNja0YynqyOCvKBZd5ui9IxBgbG1ozJdYdeIs6Dzq9lYGBgnMPIE3GVsarmbpa4GBgYH87IS8p5EpyPHG6KWAwMjAMYvXHj5Pv5Nt2kbAwMjE0ZvWte1XCrweVJFgMD4wRGNYhqsZoE19vEKMVjYGBszcjDzceTSaDVMScGBsYJjLyJPz/A5SPM6gZhYGCcw5hk6/lRMuoLXrfbMDAwDmAkP64GkSfiyeUwDAyMExj55YlJqp0UvTefYmBgHMDopdFqm37S+r+JCgMDY2vGvK0/WVXSTYrHwMDYlNFr2b+jHO2VwRgYGOcwqoVr9RJGFVzeMgwMjK0ZSTLNC9q8DZdvVj7axMDA2JXxLK5JK7/XgGtetsDAwNiIUW2N5aVv3pjLA+2laQwMjD0YSZLtHRbzdl51LHrTO8TAwNiUsSrJ5nVlNfdHg0wMDIzjGdVCNC90e+OBZsLFwMA4klEtU99xgQwDA+MERrXFv+qyV/X70R03DAyM7RiTAjJvqFWfq0MCDAyMTRlfcCPRP/Q9ZMcAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

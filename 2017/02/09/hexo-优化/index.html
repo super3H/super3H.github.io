@@ -1,0 +1,544 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/09/hexo-优化/">
+    
+    
+    <title>hexo-优化 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Hexo优化静态文件压缩1、 cd到根目录下npm install xxx --save，xxx为一下工具123&quot;gulp&quot;: &quot;^3.9.1&quot;,&quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,&quot;gulp-uglify&quot;: &quot;^1.5.3&quot;,
+2、在根目录下建立gulpfile.js 文件123456789101112131415161718192021222324252627282930">
+<meta property="og:type" content="article">
+<meta property="og:title" content="hexo-优化">
+<meta property="og:url" content="https://super3h.me/2017/02/09/hexo-优化/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="Hexo优化静态文件压缩1、 cd到根目录下npm install xxx --save，xxx为一下工具123&quot;gulp&quot;: &quot;^3.9.1&quot;,&quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,&quot;gulp-uglify&quot;: &quot;^1.5.3&quot;,
+2、在根目录下建立gulpfile.js 文件123456789101112131415161718192021222324252627282930">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/2.png">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/3.png">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/4.png">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/5.png">
+<meta property="og:image" content="https://super3h.me/2017/02/09/hexo-优化/6.png">
+<meta property="og:updated_time" content="2017-02-14T15:03:54.163Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="hexo-优化">
+<meta name="twitter:description" content="Hexo优化静态文件压缩1、 cd到根目录下npm install xxx --save，xxx为一下工具123&quot;gulp&quot;: &quot;^3.9.1&quot;,&quot;gulp-minify-css&quot;: &quot;^1.2.4&quot;,&quot;gulp-uglify&quot;: &quot;^1.5.3&quot;,
+2、在根目录下建立gulpfile.js 文件123456789101112131415161718192021222324252627282930">
+<meta name="twitter:image" content="https://super3h.me/2017/02/09/hexo-优化/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">hexo-优化</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">hexo-优化</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-09T09:50:13.041Z" itemprop="datePublished" class="page-time">
+  2017-02-09
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hexo优化"><span class="post-toc-number">1.</span> <span class="post-toc-text">Hexo优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态文件压缩"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">静态文件压缩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他优化"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">其他优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网易云添加"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">网易云添加</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多说评论修改"><span class="post-toc-number">2.</span> <span class="post-toc-text">多说评论修改</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-hexo-优化"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">hexo-优化</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-09 17:50:13" datetime="2017-02-09T09:50:13.041Z"  itemprop="datePublished">2017-02-09</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Hexo优化"><a href="#Hexo优化" class="headerlink" title="Hexo优化"></a>Hexo优化</h1><h2 id="静态文件压缩"><a href="#静态文件压缩" class="headerlink" title="静态文件压缩"></a>静态文件压缩</h2><p>1、 <code>cd</code>到根目录下<code>npm install xxx --save</code>，xxx为一下工具<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="string">"gulp"</span>: <span class="string">"^3.9.1"</span>,</div><div class="line"><span class="string">"gulp-minify-css"</span>: <span class="string">"^1.2.4"</span>,</div><div class="line"><span class="string">"gulp-uglify"</span>: <span class="string">"^1.5.3"</span>,</div></pre></td></tr></table></figure></p>
+<p>2、在根目录下建立<code>gulpfile.js</code> 文件<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> gulp = <span class="built_in">require</span>(<span class="string">'gulp'</span>);</div><div class="line"></div><div class="line">    <span class="comment">//Plugins模块获取</span></div><div class="line">    <span class="keyword">var</span> minifycss = <span class="built_in">require</span>(<span class="string">'gulp-minify-css'</span>);</div><div class="line">    <span class="keyword">var</span> uglify = <span class="built_in">require</span>(<span class="string">'gulp-uglify'</span>);</div><div class="line">    <span class="comment">// 压缩 public 目录 css文件</span></div><div class="line">    gulp.task(<span class="string">'minify-css'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.css'</span>)</div><div class="line">            .pipe(minifycss())</div><div class="line">            .pipe(gulp.dest(<span class="string">'./public'</span>));</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 压缩 public 目录 html文件</span></div><div class="line">    gulp.task(<span class="string">'minify-html'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">      <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.html'</span>)</div><div class="line">        .pipe(htmlclean())</div><div class="line">        .pipe(htmlmin(&#123;</div><div class="line">             <span class="attr">removeComments</span>: <span class="literal">true</span>,</div><div class="line">             <span class="attr">minifyJS</span>: <span class="literal">true</span>,</div><div class="line">             <span class="attr">minifyCSS</span>: <span class="literal">true</span>,</div><div class="line">             <span class="attr">minifyURLs</span>: <span class="literal">true</span>,</div><div class="line">        &#125;))</div><div class="line">        .pipe(gulp.dest(<span class="string">'./public'</span>))</div><div class="line">    &#125;);</div><div class="line"></div><div class="line">    <span class="comment">// 压缩 public/js 目录 js文件</span></div><div class="line">    gulp.task(<span class="string">'minify-js'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        <span class="keyword">return</span> gulp.src(<span class="string">'./public/**/*.js'</span>)</div><div class="line">            .pipe(uglify())</div><div class="line">            .pipe(gulp.dest(<span class="string">'./public'</span>));</div><div class="line">    &#125;);</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">// 执行 gulp 命令时执行的任务</span></div><div class="line">    gulp.task(<span class="string">'default'</span>, [</div><div class="line">        <span class="string">'minify-css'</span>,<span class="string">'minify-js'</span></div><div class="line">    ]);</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>由于压缩<code>html</code>和<code>img</code>报错 ，所以只压缩了<code>js</code>和<code>css</code></p>
+<h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>请参考：<a href="https://yq.aliyun.com/articles/8608" target="_blank" rel="external">Hexo折腾记——性能优化篇</a><br><a href="http://www.jianshu.com/p/3884e5cb63e5" target="_blank" rel="external">hexo定制&amp;优化</a></p>
+</blockquote>
+<h2 id="网易云添加"><a href="#网易云添加" class="headerlink" title="网易云添加"></a>网易云添加</h2><p>第一步：<br><img src="/2017/02/09/hexo-优化/1.png" alt=""><br>第二步：<br><img src="/2017/02/09/hexo-优化/2.png" alt=""><br>第三步：<br> <img src="/2017/02/09/hexo-优化/3.png" alt=""><br>第四步：<br><img src="/2017/02/09/hexo-优化/4.png" alt=""></p>
+<blockquote>
+<p>笔者放在<code>themes\jacman\layout\_partial\sidebar.ejs</code>具体代码如下:</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;div id=<span class="string">"asidepart"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"closeaside"</span>&gt;</span><span class="tag">&lt;<span class="name">a</span> <span class="attr">class</span>=<span class="string">"closebutton"</span> <span class="attr">href</span>=<span class="string">"#"</span> <span class="attr">title</span>=<span class="string">"&lt;%= __('hidesidebar') %&gt;"</span>&gt;</span><span class="tag">&lt;/<span class="name">a</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></span></div><div class="line">&lt;iframe frameborder=<span class="string">"no"</span> border=<span class="string">"0"</span> marginwidth=<span class="string">"0"</span> marginheight=<span class="string">"0"</span> width=<span class="number">300</span> height=<span class="number">450</span> src=<span class="string">"//music.163.com/outchain/player?type=0&amp;id=485228675&amp;auto=1&amp;height=430"</span> style=<span class="string">"margin-top:40px;margin-left:-10px;"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">iframe</span>&gt;</span></span></div><div class="line">&lt;aside <span class="class"><span class="keyword">class</span></span>=<span class="string">"clearfix"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">%</span> <span class="attr">theme.widgets.forEach</span>(<span class="attr">function</span>(<span class="attr">widget</span>)&#123; %&gt;</span></span></div><div class="line">  <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">..</span>/<span class="attr">_widget</span>/' + <span class="attr">widget</span>) %&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">%</span> &#125;); %&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">aside</span>&gt;</span></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>样式也做了相应的修改：</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//themes\jacman\source\css\_partial\aside.styl</div><div class="line">//sidebar</div><div class="line">#asidepart</div><div class="line">  background color-section</div><div class="line">  margin 1em 0 0</div><div class="line">  padding 0.5em 2% 1em</div><div class="line">  @media tablet</div><div class="line">    position relative</div><div class="line">    float left</div><div class="line">    width 23%</div><div class="line">    margin 2em 0 0 3%</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//themes\jacman\source\css\_partial\index.styl</div><div class="line">#main</div><div class="line">  margin 1em 0 0</div><div class="line">  line-height line-height+0.3</div><div class="line">  @media tablet</div><div class="line">    margin 2em 0 0</div><div class="line">    width 70%</div><div class="line">    float left</div><div class="line">    transition margin 0.5s ease-out</div></pre></td></tr></table></figure>
+<p><code>github名片修改：</code><br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//E:\Hexo\blog\themes\jacman\layout\_widget\github-card.ejs</span></div><div class="line">&lt;div <span class="class"><span class="keyword">class</span></span>=<span class="string">"github-card"</span> data-github=<span class="string">"&lt;%= theme.author.github %&gt;"</span> data-width=<span class="string">"280"</span> data-height=<span class="string">"119"</span> data-theme=<span class="string">"medium"</span>&gt;</div><div class="line"><span class="xml"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span> <span class="attr">src</span>=<span class="string">"//cdn.jsdelivr.net/github-cards/latest/widget.js"</span> &gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"></div><div class="line">&lt;<span class="regexp">/div&gt;</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>注意:</code>谷歌和火狐无法播放音乐。<font color="green">原因如下：</font></p>
+</blockquote>
+<p><img src="/2017/02/09/hexo-优化/5.png" alt=""><br><img src="/2017/02/09/hexo-优化/6.png" alt=""></p>
+<h1 id="多说评论修改"><a href="#多说评论修改" class="headerlink" title="多说评论修改"></a>多说评论修改</h1><p>原博主是大神，写的很清楚，完全不用动脑子，全程复制粘贴即可，感谢原博主，请点击此处<a href="http://moxfive.xyz/2015/09/29/duoshuo-style/" target="_blank" rel="external">多说样式折腾记录 — 添加 UA 浏览器标识、旋转头像等</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-14T15:03:54.163Z" itemprop="dateUpdated">2017-02-14 23:03:54</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/09/hexo-优化/" target="_blank" rel="external">https://super3h.me/2017/02/09/hexo-优化/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/09/hexo-优化/&title=《hexo-优化》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/09/hexo-优化/&title=《hexo-优化》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/09/hexo-优化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo-优化》 — HHH'Blog&url=https://super3h.me/2017/02/09/hexo-优化/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/09/hexo-优化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/09/npm-命令/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">npm相关命令</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/08/Nginx/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Nginx学习</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/09/hexo-优化/index.html',
+        sourceId: 'hexo-优化',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/09/hexo-优化/&title=《hexo-优化》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/09/hexo-优化/&title=《hexo-优化》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/09/hexo-优化/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《hexo-优化》 — HHH'Blog&url=https://super3h.me/2017/02/09/hexo-优化/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/09/hexo-优化/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3azaqDMBAG0L7/S3u3F4rxm4mJFk5WhYZ4dDHMTz6feB1f6/vf8f7/e87OuW3h4uJOc4/hOnvAzP7vl0wMuLi4+7lnEWN89Hhn9XOMDbi4uG/mjvck9N75uLi4b+YmpUvyLy4u7vu51RQkL4SqxdJttRouLu4EN+9Srvu9pL+Li4vb4h7FlYekmaecno+Li7uFmweU6rg0GcdWn4uLi/sUNwlD1RFp9fpFYciKi4u7mDsOOvmL3TVuuUhxcHFxH+LODE56LxadgIuLu5GbpBe9FCd5sUIRhYuLu5hbbW72LmfcVvzg4uJu5+ZJTD40rQayiwQLFxf3IW71Sla1CTITCnFxcXdyq6PTvPjpjWwvAhkuLu5ibq9hMX+1opdO4eLi7uTmAagXtvKRTJQk4eLibuT2xqUJaGa4Eg1ZcXFxl3HzJGYmQakGsuir4OLi3so9iitJcZL9vdQKFxd3DzdfSXOzWvAkpzVfBhcXd5qbB6/qMLV3Aevii+Li4m7kVq9H9Bqpt9VquLi4L+P2cqjepU9cXNzf4vagM10OXFzc/dxqGzRvmswUVLi4uE9xq6Gkel07yVKW9HdxcXE73D9XFDPSuova1QAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

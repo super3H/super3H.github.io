@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/11/Hexo-search/">
+    
+    
+    <title>Hexo-本地搜索 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Hexo-本地搜索">
+<meta property="og:url" content="https://super3h.me/2017/02/11/Hexo-search/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/2.png">
+<meta property="og:image" content="https://super3h.me/2017/02/11/Hexo-search/3.png">
+<meta property="og:updated_time" content="2017-03-28T00:43:40.315Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Hexo-本地搜索">
+<meta name="twitter:description" content="安装和配置插件1、 cd到根目录下1$ npm install --save hexo-generator-search
+2、 在__config.yml最后添加一下设置项(注意:缩进问题，建议直接copy)123search:  path: search.xml  field: all
+说明:
+
+path:指定生成的索引数据的文件名。默认为 search.xml 。
+field 指定索引数据的生">
+<meta name="twitter:image" content="https://super3h.me/2017/02/11/Hexo-search/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Hexo-本地搜索</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Hexo-本地搜索</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-11T01:12:19.675Z" itemprop="datePublished" class="page-time">
+  2017-02-11
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#安装和配置插件"><span class="post-toc-number">1.</span> <span class="post-toc-text">安装和配置插件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搜索函数的创建"><span class="post-toc-number">2.</span> <span class="post-toc-text">搜索函数的创建</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#搜索函数文件的引入"><span class="post-toc-number">3.</span> <span class="post-toc-text">搜索函数文件的引入</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#输入框的整改"><span class="post-toc-number">4.</span> <span class="post-toc-text">输入框的整改</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#浮层样式的添加"><span class="post-toc-number">5.</span> <span class="post-toc-text">浮层样式的添加</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#函数调用和事件添加"><span class="post-toc-number">6.</span> <span class="post-toc-text">函数调用和事件添加</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#参考链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">参考链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Hexo-search"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Hexo-本地搜索</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-11 09:12:19" datetime="2017-02-11T01:12:19.675Z"  itemprop="datePublished">2017-02-11</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Hexo/">Hexo</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="安装和配置插件"><a href="#安装和配置插件" class="headerlink" title="安装和配置插件"></a>安装和配置插件</h1><p><code>1、</code> <code>cd</code>到根目录下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ npm install --save hexo-generator-search</div></pre></td></tr></table></figure></p>
+<p><code>2、</code> 在<code>__config.yml</code>最后添加一下设置项(<code>注意:</code>缩进问题，建议直接<code>copy</code>)<br><figure class="highlight yml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="attr">search:</span></div><div class="line"><span class="attr">  path:</span> search.xml</div><div class="line"><span class="attr">  field:</span> all</div></pre></td></tr></table></figure></p>
+<p>说明:</p>
+<ul>
+<li><code>path:</code>指定生成的索引数据的文件名。默认为 <code>search.xml</code> 。</li>
+<li><p><code>field</code> 指定索引数据的生成范围。可选值包括：</p>
+<ul>
+<li><code>post</code> - 只生成博客文章（post）的索引（默认）；</li>
+<li><code>page:</code>只生成其他页面（page）的索引；</li>
+<li><code>all:</code>生成所有文章和页面的索引。<h1 id="搜索函数的创建"><a href="#搜索函数的创建" class="headerlink" title="搜索函数的创建"></a>搜索函数的创建</h1>新建search.js在<code>themes\jacman\source\js</code>目录中，部署后将位于<code>public\js</code><br>此函数参考于<a href="http://hahack.com/codes/local-search-engine-for-hexo/#实现本地搜索函数" target="_blank" rel="external">实现本地搜索函数</a><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> searchFunc = <span class="function"><span class="keyword">function</span>(<span class="params">path, search_id, content_id</span>) </span>&#123;</div><div class="line"><span class="meta">    'use strict'</span>;</div><div class="line">    $.ajax(&#123;</div><div class="line">        <span class="attr">url</span>: path,</div><div class="line">        <span class="attr">dataType</span>: <span class="string">"xml"</span>,</div><div class="line">        <span class="attr">success</span>: <span class="function"><span class="keyword">function</span>(<span class="params"> xmlResponse </span>) </span>&#123;</div><div class="line">            <span class="comment">// get the contents from search data</span></div><div class="line">            <span class="keyword">var</span> datas = $( <span class="string">"entry"</span>, xmlResponse ).map(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> &#123;</div><div class="line">                    <span class="attr">title</span>: $( <span class="string">"title"</span>, <span class="keyword">this</span> ).text(),</div><div class="line">                    <span class="attr">content</span>: $(<span class="string">"content"</span>,<span class="keyword">this</span>).text(),</div><div class="line">                    <span class="attr">url</span>: $( <span class="string">"url"</span> , <span class="keyword">this</span>).text()</div><div class="line">                &#125;;</div><div class="line">            &#125;).get();</div><div class="line">            <span class="keyword">var</span> $input = <span class="built_in">document</span>.getElementById(search_id);</div><div class="line">            <span class="keyword">var</span> $resultContent = <span class="built_in">document</span>.getElementById(content_id);</div><div class="line">            $input.addEventListener(<span class="string">'input'</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">                <span class="keyword">var</span> str=<span class="string">'&lt;ul class=\"search-result-list\"&gt;'</span>;                </div><div class="line">                <span class="keyword">var</span> keywords = <span class="keyword">this</span>.value.trim().toLowerCase().split(<span class="regexp">/[\s\-]+/</span>);</div><div class="line">                $resultContent.innerHTML = <span class="string">""</span>;</div><div class="line">                <span class="keyword">if</span> (<span class="keyword">this</span>.value.trim().length &lt;= <span class="number">0</span>) &#123;</div><div class="line">                    <span class="keyword">return</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="comment">// perform local searching</span></div><div class="line">                datas.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">data</span>) </span>&#123;</div><div class="line">                    <span class="keyword">var</span> isMatch = <span class="literal">true</span>;</div><div class="line">                    <span class="keyword">var</span> content_index = [];</div><div class="line">                    <span class="keyword">var</span> data_title = data.title.trim().toLowerCase();</div><div class="line">                    <span class="keyword">var</span> data_content = data.content.trim().replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">""</span>).toLowerCase();</div><div class="line">                    <span class="keyword">var</span> data_url = data.url;</div><div class="line">                    <span class="keyword">var</span> index_title = <span class="number">-1</span>;</div><div class="line">                    <span class="keyword">var</span> index_content = <span class="number">-1</span>;</div><div class="line">                    <span class="keyword">var</span> first_occur = <span class="number">-1</span>;</div><div class="line">                    <span class="comment">// only match artiles with not empty titles and contents</span></div><div class="line">                    <span class="keyword">if</span>(data_title != <span class="string">''</span> &amp;&amp; data_content != <span class="string">''</span>) &#123;</div><div class="line">                        keywords.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">keyword, i</span>) </span>&#123;</div><div class="line">                            index_title = data_title.indexOf(keyword);</div><div class="line">                            index_content = data_content.indexOf(keyword);</div><div class="line">                            <span class="keyword">if</span>( index_title &lt; <span class="number">0</span> &amp;&amp; index_content &lt; <span class="number">0</span> )&#123;</div><div class="line">                                isMatch = <span class="literal">false</span>;</div><div class="line">                            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                                <span class="keyword">if</span> (index_content &lt; <span class="number">0</span>) &#123;</div><div class="line">                                    index_content = <span class="number">0</span>;</div><div class="line">                                &#125;</div><div class="line">                                <span class="keyword">if</span> (i == <span class="number">0</span>) &#123;</div><div class="line">                                    first_occur = index_content;</div><div class="line">                                &#125;</div><div class="line">                            &#125;</div><div class="line">                        &#125;);</div><div class="line">                    &#125;</div><div class="line">                    <span class="comment">// show search results</span></div><div class="line">                    <span class="keyword">if</span> (isMatch) &#123;</div><div class="line">                        str += <span class="string">"&lt;li&gt;&lt;a href='"</span>+ data_url +<span class="string">"' class='search-result-title'&gt;"</span>+ data_title +<span class="string">"&lt;/a&gt;"</span>;</div><div class="line">                        <span class="keyword">var</span> content = data.content.trim().replace(<span class="regexp">/&lt;[^&gt;]+&gt;/g</span>,<span class="string">""</span>);</div><div class="line">                        <span class="keyword">if</span> (first_occur &gt;= <span class="number">0</span>) &#123;</div><div class="line">                            <span class="comment">// cut out 100 characters</span></div><div class="line">                            <span class="keyword">var</span> start = first_occur - <span class="number">20</span>;</div><div class="line">                            <span class="keyword">var</span> end = first_occur + <span class="number">80</span>;</div><div class="line">                            <span class="keyword">if</span>(start &lt; <span class="number">0</span>)&#123;</div><div class="line">                                start = <span class="number">0</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">if</span>(start == <span class="number">0</span>)&#123;</div><div class="line">                                end = <span class="number">100</span>;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">if</span>(end &gt; content.length)&#123;</div><div class="line">                                end = content.length;</div><div class="line">                            &#125;</div><div class="line">                            <span class="keyword">var</span> match_content = content.substr(start, end); </div><div class="line">                            <span class="comment">// highlight all keywords</span></div><div class="line">                            keywords.forEach(<span class="function"><span class="keyword">function</span>(<span class="params">keyword</span>)</span>&#123;</div><div class="line">                                <span class="keyword">var</span> regS = <span class="keyword">new</span> <span class="built_in">RegExp</span>(keyword, <span class="string">"gi"</span>);</div><div class="line">                                match_content = match_content.replace(regS, <span class="string">"&lt;em class=\"search-keyword\"&gt;"</span>+keyword+<span class="string">"&lt;/em&gt;"</span>);</div><div class="line">                            &#125;);</div><div class="line">                            </div><div class="line">                            str += <span class="string">"&lt;p class=\"search-result\"&gt;"</span> + match_content +<span class="string">"...&lt;/p&gt;"</span></div><div class="line">                        &#125;</div><div class="line">                        str += <span class="string">"&lt;/li&gt;"</span>;</div><div class="line">                    &#125;</div><div class="line">                &#125;);</div><div class="line">                str += <span class="string">"&lt;/ul&gt;"</span>;</div><div class="line">                $resultContent.innerHTML = str;</div><div class="line">            &#125;);</div><div class="line">        &#125;</div><div class="line">    &#125;);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+</li>
+<li><p><code>searchFunc(path, search_id, content_id)</code>包含三个参数：</p>
+</li>
+<li><p><code>path:</code>用 hexo-generator-search 生成的搜索索引文件的路径。注意这个 path 和前面 hexo-generator-search 的 path 选项有所不同。这里的 path 才是指这个文件的路径，而前面的 path 指的是生成的文件名</p>
+</li>
+<li><code>search_id:</code>搜索框的 id 。对于我们的例子，就是 local-search-input;</li>
+<li><code>content_id:</code> 结果框的 id 。对于我们的例子，就是 local-search-result</li>
+</ul>
+<h1 id="搜索函数文件的引入"><a href="#搜索函数文件的引入" class="headerlink" title="搜索函数文件的引入"></a>搜索函数文件的引入</h1><p>既然搜索函数已创建，接下来就是调用了。</p>
+<blockquote>
+<p>调用之前有必要明白<code>themes\jacman\layout\_partial\header.ejs</code>中最后一个<code>form</code>表单即为页面中的<code>search</code>框</p>
+</blockquote>
+<p><img src="/2017/02/11/Hexo-search/1.png" alt=""></p>
+<blockquote>
+<p>对应代码如下:</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">form</span> <span class="attr">class</span>=<span class="string">"search"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">label</span>&gt;</span>Search<span class="tag">&lt;/<span class="name">label</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">id</span>=<span class="string">"search"</span> <span class="attr">class</span>=<span class="string">"search form-control"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">maxlength</span>=<span class="string">"20"</span> <span class="attr">placeholder</span>=<span class="string">"&lt;%= __('search') %&gt;"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">form</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在目录<code>themes\jacman\layout\_partial\after_footer.ejs</code>中，添加一下内容:<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="keyword">var</span> bp = <span class="built_in">document</span>.createElement(<span class="string">'script'</span>);</div><div class="line">    <span class="keyword">var</span> curProtocol = <span class="built_in">window</span>.location.protocol.split(<span class="string">':'</span>)[<span class="number">0</span>];</div><div class="line">    <span class="keyword">if</span> (curProtocol === <span class="string">'https'</span>) &#123;</div><div class="line">        bp.src = <span class="string">'https://zz.bdstatic.com/linksubmit/push.js'</span>;        </div><div class="line">    &#125;</div><div class="line">    <span class="keyword">else</span> &#123;</div><div class="line">        bp.src = <span class="string">'http://push.zhanzhang.baidu.com/push.js'</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">var</span> s = <span class="built_in">document</span>.getElementsByTagName(<span class="string">"script"</span>)[<span class="number">0</span>];</div><div class="line">    s.parentNode.insertBefore(bp, s);</div><div class="line">&#125;)();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery-2.0.3.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery.imagesloaded.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/gallery.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/jquery.qrcode-0.12.0.min.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line"><span class="comment">//以下是引入我们创建的js文件</span></div><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/search.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p><code>after_footer.ejs</code>专门存放各种<code>js</code>文件，从此处引入我们创建的<code>search.js</code>文件</p>
+</blockquote>
+<h1 id="输入框的整改"><a href="#输入框的整改" class="headerlink" title="输入框的整改"></a>输入框的整改</h1><blockquote>
+<p><code>思考:</code>由于主题原因，我们有两条路走：<br>1.写一个html页面用于显示搜索后的结果<br>2.用div叠加在原页面上，在进行搜索和结果展示<br>博主走的第二条路，样式如下:</p>
+</blockquote>
+<p><img src="/2017/02/11/Hexo-search/2.png" alt=""></p>
+<blockquote>
+<p>由于博主前台很渣，能做成这样就不错了。虽然后台也好不到哪去，哈哈<br>要添加此样式就得找到添加的位置，<code>themes\jacman\layout\layout.ejs</code>，此文件用于页面的排布,分别对应了文章，分类，归档等的排布，我们分别在每个<code>&lt;header&gt;</code>后加入以下代码</p>
+</blockquote>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">%-</span> <span class="attr">partial</span>('<span class="attr">_partial</span>/<span class="attr">header</span>') %&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line"><span class="comment">&lt;!--添加以下代码--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"ly"</span> <span class="attr">style</span>=<span class="string">"width:100%;height:100%;position: fixed; top: 0px; opacity:0.5; background-color: #6F6F6F;</span></span></div><div class="line">         z-index: 2; left: 0px; display: none;" <span class="attr">onclick</span>=<span class="string">"Lock_CheckForm()"</span>&gt;</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--浮层框架开始--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"Layer2"</span> <span class="attr">align</span>=<span class="string">"center"</span> <span class="attr">style</span>=<span class="string">"width: 950px; position: absolute;left: 200px ;top:10%;z-index: 3;background-color: #fff; display: none;border-radius: 10px;"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"background-color: #F8F8F8;border-radius: 10px;"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">value</span>=<span class="string">""</span> <span class="attr">id</span>=<span class="string">"local-search-input"</span> <span class="attr">placeholder</span>=<span class="string">"search this website"</span> <span class="attr">autocomplete</span>=<span class="string">"off"</span> <span class="attr">autocorrect</span>=<span class="string">"off"</span> <span class="attr">autocapitalize</span>=<span class="string">"off"</span> <span class="attr">style</span>=<span class="string">"outline: none;"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">span</span> <span class="attr">class</span>=<span class="string">"local-search-close"</span> <span class="attr">onclick</span>=<span class="string">"Lock_Reset()"</span>&gt;</span><span class="tag">&lt;/<span class="name">span</span>&gt;</span></div><div class="line">				<span class="comment">&lt;!-- 清空/重置搜索框 --&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">br</span>&gt;</span><span class="tag">&lt;<span class="name">br</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"local-search-result"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span> <span class="comment">&lt;!-- 搜索结果区 --&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--  浮层框架结束--&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>说明:<br><code>#ly</code>:用于暗色背景<br><code>#Layer2</code>:用于搜索和结果展示<br><code>div #local-search-input</code>:搜索框<br><code>div #local-search-close</code>:用于清空搜索框内容<br><code>div #local-search-result</code>:用于结果展示</p>
+</blockquote>
+<h1 id="浮层样式的添加"><a href="#浮层样式的添加" class="headerlink" title="浮层样式的添加"></a>浮层样式的添加</h1><blockquote>
+<p><code>html</code>写完后,改写css了，博主把所有的样式写在一个文件中了，以免乱套<br>在<code>themes\jacman\source\css</code>新建<code>search.styl</code>，此文件夹用于页面所有样式的展示，对应的代码如下:</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div></pre></td><td class="code"><pre><div class="line">ul.search-result-list &#123;</div><div class="line">  padding-left: 10px;</div><div class="line">&#125;</div><div class="line">a.search-result-title &#123;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line">p.search-result &#123;</div><div class="line">  color=#555;</div><div class="line">&#125;</div><div class="line">em.search-keyword &#123;</div><div class="line">  border-bottom: 1px dashed #4088b8;</div><div class="line">  font-weight: bold;</div><div class="line">&#125;</div><div class="line">/*搜索框样式*/</div><div class="line">#local-search-input &#123;</div><div class="line">	font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;</div><div class="line">&#125;</div><div class="line">#local-search-input &#123;</div><div class="line">	font-size: 13px;</div><div class="line">	min-height: 32px;</div><div class="line">	margin: 0;</div><div class="line">	padding: 7px 8px;</div><div class="line">	outline: none;</div><div class="line">	color: #333;</div><div class="line">	background-color: #fff;</div><div class="line">	background-repeat: no-repeat;</div><div class="line">	background-position: right center;</div><div class="line">	border: 1px solid #ccc;</div><div class="line">	border-radius: 3px;</div><div class="line">	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.075);</div><div class="line">	-moz-box-sizing: border-box;</div><div class="line">	box-sizing: border-box;</div><div class="line">	transition: all 0.15s ease-in;</div><div class="line">	-webkit-transition: all 0.15s ease-in 0;</div><div class="line">	vertical-align: middle;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-input:focus &#123;</div><div class="line">	outline: none;</div><div class="line">	border-color: #51a7e8;</div><div class="line">	box-shadow: inset 0 1px 2px rgba(0, 0, 0, .075), 0 0 5px rgba(81, 167, 232, .5);</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-input &#123;</div><div class="line">	margin-top: 20px;</div><div class="line">	margin-left: -46px;</div><div class="line">	font-size: 18px;</div><div class="line">	width: 850px;</div><div class="line">	height: 30px;</div><div class="line">&#125;</div><div class="line">/*搜索重置按钮*/</div><div class="line">.local-search-close:hover &#123;</div><div class="line">	zoom: 1.0;</div><div class="line">	padding: 1px 0.6em;</div><div class="line">	border: 1px solid #d3d3d3;</div><div class="line">	box-shadow: 0 0 6px rgba(0, 0, 0, 0.25);</div><div class="line">	background: #FAF7F4;</div><div class="line">&#125;</div><div class="line">.local-search-close:active &#123;</div><div class="line">	background: #d3d3d3;</div><div class="line">&#125;</div><div class="line">.local-search-close &#123;</div><div class="line">	padding: 1px 0.7em;</div><div class="line">	box-shadow: 0 0 3px rgba(0, 0, 0, 0.15);</div><div class="line">	cursor: pointer;</div><div class="line">	color: #808080;</div><div class="line">&#125;</div><div class="line">.local-search-close::before &#123;</div><div class="line">	content: "\2716";</div><div class="line">&#125;</div><div class="line">/* place the button on top-right */</div><div class="line">.local-search-close &#123;</div><div class="line">	top: 22px;</div><div class="line">	right: 28px;</div><div class="line">	position: absolute;</div><div class="line">&#125;</div><div class="line">/*搜索结果区*/</div><div class="line">#local-search-result &#123;</div><div class="line">  font-size: 0.9em;</div><div class="line">  text-align: left;</div><div class="line">  word-break: break-all;</div><div class="line">&#125;</div><div class="line"></div><div class="line">#local-search-result ul.search-result-list li:hover &#123;</div><div class="line">  font-weight: normal;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*搜索预览段落*/</div><div class="line">#local-search-result p.search-result &#123;</div><div class="line">  margin: 0.4em auto;</div><div class="line">  max-height: 3.6em;</div><div class="line">  overflow: hidden;</div><div class="line">  font-size: 0.8em;</div><div class="line">  text-align: justify;</div><div class="line">  color: #808080;</div><div class="line">&#125;</div><div class="line"></div><div class="line">/*匹配的关键词*/</div><div class="line">#local-search-result em.search-keyword &#123;</div><div class="line">  color: #f58e90;</div><div class="line">  border-bottom: 1px dashed #f58e90;</div><div class="line">  font-weight: bold;</div><div class="line">  font-size: 0.85em;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>之后就要添加样式文件了，我们到<code>themes\jacman\layout\_partial\head.ejs</code>文件中的最后几行中添加以下代码:</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;%- css('css/style') %&gt;</div><div class="line">/*以下为添加的内容*/</div><div class="line">&lt;%- css('css/search') %&gt;</div></pre></td></tr></table></figure>
+<h1 id="函数调用和事件添加"><a href="#函数调用和事件添加" class="headerlink" title="函数调用和事件添加"></a>函数调用和事件添加</h1><blockquote>
+<p>样式也添加完了，接下来就是函数调用和事件添加，到<code>themes\jacman\layout\_partial\after_footer.ejs</code>目录下，在刚才引入search.js的下面添加以下代码:</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line">&lt;script src=<span class="string">"&lt;%- config.root %&gt;js/search.js"</span>&gt;<span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div><div class="line">&lt;script type=<span class="string">"text/javascript"</span>&gt;</div><div class="line"><span class="comment">//div层的显示</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">locking</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">document</span>.all.ly.style.display = <span class="string">"block"</span>;</div><div class="line">	<span class="built_in">document</span>.all.Layer2.style.display = <span class="string">'block'</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//div层的隐藏</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lock_CheckForm</span>(<span class="params"></span>) </span>&#123;</div><div class="line">	<span class="built_in">document</span>.all.ly.style.display = <span class="string">'none'</span>;</div><div class="line">	<span class="built_in">document</span>.all.Layer2.style.display = <span class="string">'none'</span>;</div><div class="line">	<span class="keyword">return</span> <span class="literal">false</span>;</div><div class="line">&#125;</div><div class="line"><span class="comment">//重置搜索框</span></div><div class="line"><span class="function"><span class="keyword">function</span> <span class="title">Lock_Reset</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//拿到搜索结果层</span></div><div class="line">    <span class="keyword">var</span> $resultArea = $(<span class="string">"#local-search-result"</span>);</div><div class="line">    $resultArea.html(<span class="string">""</span>);</div><div class="line">	$(<span class="string">"#local-search-input"</span>).val(<span class="string">''</span>);</div><div class="line">&#125; </div><div class="line"><span class="comment">//拿到文件路径</span></div><div class="line"><span class="keyword">var</span> search_path = <span class="string">"&lt;%= config.search.path %&gt;"</span>;</div><div class="line"><span class="keyword">if</span> (search_path.length == <span class="number">0</span>) &#123;</div><div class="line">		search_path = <span class="string">"search.xml"</span>;</div><div class="line">	&#125;</div><div class="line"><span class="keyword">var</span> path = <span class="string">"&lt;%= config.root %&gt;"</span> + search_path;</div><div class="line"><span class="comment">//拿到页面自带的搜索框元素</span></div><div class="line"><span class="keyword">var</span> inputArea = <span class="built_in">document</span>.querySelector(<span class="string">"#search"</span>);</div><div class="line"><span class="comment">//禁止回车的输入</span></div><div class="line">inputArea.onkeydown = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; <span class="keyword">if</span>(event.keyCode==<span class="number">13</span>) <span class="keyword">return</span> <span class="literal">false</span>&#125;</div><div class="line"><span class="keyword">var</span> getSearchFile = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    <span class="comment">//调用搜索函数</span></div><div class="line">    searchFunc(path, <span class="string">'local-search-input'</span>, <span class="string">'local-search-result'</span>);</div><div class="line">&#125;</div><div class="line"><span class="comment">//给页面自带的搜索框元素添加聚焦时间</span></div><div class="line">inputArea.onfocus = <span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123; </div><div class="line">	locking();</div><div class="line">	getSearchFile();</div><div class="line">&#125;</div><div class="line">getSearchFile();</div><div class="line"><span class="xml"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>到此也就结束了，花了博主一个多小时，下回发个治颈椎的博文，哈哈！<br>大家可以按照自己的样式修改，最后贴出我的成果</p>
+</blockquote>
+<p><img src="/2017/02/11/Hexo-search/3.png" alt=""></p>
+<h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>在此谢谢这两位博主的文章<br><a href="http://moxfive.xyz/2016/05/31/hexo-local-search/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">让 Hexo 博客支持本地站内搜索</a><br><a href="http://hahack.com/codes/local-search-engine-for-hexo/#实现本地搜索函数" target="_blank" rel="external">jQuery-based Local Search Engine for Hexo</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-28T00:43:40.315Z" itemprop="dateUpdated">2017-03-28 08:43:40</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/11/Hexo-search/" target="_blank" rel="external">https://super3h.me/2017/02/11/Hexo-search/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/11/Hexo-search/&title=《Hexo-本地搜索》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/11/Hexo-search/&title=《Hexo-本地搜索》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/11/Hexo-search/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo-本地搜索》 — HHH'Blog&url=https://super3h.me/2017/02/11/Hexo-search/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/11/Hexo-search/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/13/J2EE-tomcat/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">tomcat的部署</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/10/Python-list/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Python-List添加元素的方法</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/11/Hexo-search/index.html',
+        sourceId: 'Hexo-search',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/11/Hexo-search/&title=《Hexo-本地搜索》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/11/Hexo-search/&title=《Hexo-本地搜索》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/11/Hexo-search/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Hexo-本地搜索》 — HHH'Blog&url=https://super3h.me/2017/02/11/Hexo-search/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/11/Hexo-search/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABvUlEQVR42u3aQY7DMAgF0N7/0pntSDOpPmC7UfW8qprIfu0CAeb1itd1s6pP775ZvHBxccfc6+1KQL/fSU75+35iwMXFPc+9O2DyOVm5ARcX98ncaNPgTVxc3G/iNlOTON3BxcV9DjdPQd5vnTzNiytcXNxPcVelJpPPW/q7uLi4Le5VXMkO81NuT8fFxT3CzQNK9RIlebN6Li4u7kluktBMRi6q4xfl4gcXF3czNwlY1fCUDGnlDRRcXNzd3Lx0mYe86qXsPzvg4uIe4faOWVX8NEMnLi7uZm4+KpEnK0mp0yx+cHFxj3AXdFDy1KQY8qI/FBcXdxs3GcPKw1OVUm6d4OLibub2kptqOMvDZVT84OLibua+f1C4gSkOTCz4m3BxcTdzq5cf86GK3vAHLi7ueW5vXiPhzsc9cXFxn8adDFvMBy+ix7i4uEu5V3FVE6A8JYraLri4uEe41QZo/gMmVym9kgkXF3ctd0fwysueansFFxf3JHcyHpE3U7bUari4uI/hVon5bs3JDlxc3I9yk/ZHNXgVhLi4uAe5SfFTLYfyS5dCgMPFxT3CLYeScWsjD3aj/i4uLm6H+wMPSTPSFdx2GgAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

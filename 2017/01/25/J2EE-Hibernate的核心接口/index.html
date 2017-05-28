@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/">
+    
+    
+    <title>J2EE-Hibernate的核心接口 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+<meta property="og:type" content="article">
+<meta property="og:title" content="J2EE-Hibernate的核心接口">
+<meta property="og:url" content="https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+<meta property="og:updated_time" content="2017-04-27T14:07:37.735Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="J2EE-Hibernate的核心接口">
+<meta name="twitter:description" content="简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configuration">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">J2EE-Hibernate的核心接口</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">J2EE-Hibernate的核心接口</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-01-25T09:02:35.871Z" itemprop="datePublished" class="page-time">
+  2017-01-25
+</time>
+
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#简介"><span class="post-toc-number">1.</span> <span class="post-toc-text">简介</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Configuration接口"><span class="post-toc-number">2.</span> <span class="post-toc-text">Configuration接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#SessionFactory接口"><span class="post-toc-number">3.</span> <span class="post-toc-text">SessionFactory接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Session接口"><span class="post-toc-number">4.</span> <span class="post-toc-text">Session接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Transaction接口"><span class="post-toc-number">5.</span> <span class="post-toc-text">Transaction接口</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Query和Criteria接口（也叫条件查询接口）"><span class="post-toc-number">6.</span> <span class="post-toc-text">Query和Criteria接口（也叫条件查询接口）</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文链接"><span class="post-toc-number">7.</span> <span class="post-toc-text">原文链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-J2EE-Hibernate的核心接口"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">J2EE-Hibernate的核心接口</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-01-25 17:02:35" datetime="2017-01-25T09:02:35.871Z"  itemprop="datePublished">2017-01-25</time>
+
+            
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><blockquote>
+<p>Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。</p>
+</blockquote>
+<p>所有的Hibernate应用都会访问它的5个核心接口，分别如下：</p>
+<ul>
+<li>Configuration接口：</li>
+<li>SessionFactory接口：</li>
+<li>Session接口：</li>
+<li>Transaction接口：</li>
+</ul>
+<h1 id="Configuration接口"><a href="#Configuration接口" class="headerlink" title="Configuration接口"></a>Configuration接口</h1><blockquote>
+<p><strong>Configuration用于配置并启动Hibernate。Hibernate应用通过Configuration的实例来指定对象-关系映射文件</strong> ,或通过Configuration动态配置Hibernate的属性，然后通过Configuration来创建相应的SessionFactory实例。Configuration实例是什么时候指定ORM文件的地址的呢？我们可以查看Configuration的源代码，它的configure()方法是这样实现的：</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> Configuration <span class="title">configure</span><span class="params">()</span> <span class="keyword">throws</span> HibernateException </span>&#123;</div><div class="line">       configure( <span class="string">"/hibernate.cfg.xml"</span> );<span class="comment">//此处指定了ORM文件的位置</span></div><div class="line">       <span class="keyword">return</span> <span class="keyword">this</span>;</div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<p>原来它是在这里指定了ORM文件的位置，<strong>这就是为什么Hibernate总是默认到classpath下去寻找hibernate.cfg.xml 文件的原因了。</strong>  <font color="red">实际上我们还可以通过configure(String resource)来动态的指定配置文件</font>，只不过通常我们都是采用的默认设置罢了。这样的话我们的配置文件就都被读取了，同时配置文件中通 过<mapping>元素引入的映射文件也被读取了。</mapping></p>
+<h1 id="SessionFactory接口"><a href="#SessionFactory接口" class="headerlink" title="SessionFactory接口"></a>SessionFactory接口</h1><p>一个SessionFactory对应一个数据源，它是个重量级对象，不可随意生成多个实例。对于一般的单数据库应用来说，只需要一个 SessionFactory就足够了。当然如果有多个数据库的话，还是需要为每个数据库生成对应的SessionFactory？一般而言，<strong>一个SessionFactory对象就代表一个数据库存储源</strong>。它是线程安全的，同一 个实例可以被应用中的多个线程共享。由此我们看出SessionFactory具备如下两个特点：</p>
+<ol>
+<li>线程安全。整个应用共用一个SessionFactory实例。</li>
+<li>重量级。在SessionFactory中存放了Hibernate配置信息以及映射元素据信息，这些都需要很大的缓存。<br><strong>一般来说，SessionFactory的主要作用就是创建Session对象，所有的线程都是从SessionFactory中获取Session对象来处理客户请求的。</strong></li>
+</ol>
+<blockquote>
+<p>也许你会很好奇，SessionFactory为什么是重量级对象呢？我也同样好奇，通过查看Hibernate的源码，发现 SessionFactory存放了大量预定义的SQL语句以及映射元数据，所以自然需要很大的缓存了，同时需要一定的CPU时间来计算生成。想想 Hibernate的这个设计是很有意义的，因为有了Mapping文件，很多SQL语句就已经确定了，只需要动态生成一次就可以了，这个设计也是为了提 高持久化的效率。</p>
+</blockquote>
+<h1 id="Session接口"><a href="#Session接口" class="headerlink" title="Session接口"></a>Session接口</h1><p>从SessionFactory中可以获得Session实例。<br>Session接口是Hibernate应用中使用最广泛的接口了，<strong>它是持久化管理器，提供添加、更新、删除、加载、查询对象</strong>。Session的每个方法都值得我们去研究和探讨，不过最常用的还是save、saveOrUpdate、update、delete、createQuery等方法了，关于Session是如何作用的以及它的工作原理在以后的实践中再一步一步的进行学习和探讨！！<strong>Session不是线程安 全的，所以应避免多个线程共享同一个Session实例。</strong>Session是轻量级对象，它的创建和销毁不需要太多资源，这意味着在应用中可以经常创建和销 毁Session对象。<br>Session有一个缓存，称之为Hibernate的一级缓存，它存放当前工作单元加载的持久化对象，每个Session都有自己的缓存，缓存中的对象只能被当前工作单元访问。</p>
+<h1 id="Transaction接口"><a href="#Transaction接口" class="headerlink" title="Transaction接口"></a>Transaction接口</h1><p>Transaction是Hibernate的数据库事务接口，它对底层的事务接口进行了封装，底层事务接口包括:</p>
+<ul>
+<li>JDBC API</li>
+<li>JTA(Java Transaction API)</li>
+<li>CORBA(Common Object Requet Broker Architecture) API<br>Hibernate应用可以通过一致Transaction接口来声明事务边界，这有助于应用可以在不同的环境或容器中移植。具体的事务实现使用在Hibernate.properties中进行指定。</li>
+</ul>
+<h1 id="Query和Criteria接口（也叫条件查询接口）"><a href="#Query和Criteria接口（也叫条件查询接口）" class="headerlink" title="Query和Criteria接口（也叫条件查询接口）"></a>Query和Criteria接口（也叫条件查询接口）</h1><p><strong>这两个是Hibernate的查询接口，用于向数据库查询对象，以及控制执行查询的过程。</strong>Query实例包装了一个HQL(Hibernate Query Language)来查询。Criteria接口完全封装了基于字符串形式的查询语句，比Query更面向对象，Criteria更擅长执行动态查询。</p>
+<ul>
+<li>标准化对象查询(Criteria Query)：以对象的方式进行查询，将查询语句封装为对象操作。优点：可读性好，符合Java 程序员的编码习惯。缺点：不够成熟，不支持投影（projection）或统计函数（aggregation）</li>
+<li>Hibernate语言查询（Hibernate Query Language，HQL）：它是完全面向对象的查询语句，查询功能非常强大，具备继承、多态和关联等特性 。Hibernate官方推荐使用HQL进行查询。</li>
+</ul>
+<blockquote>
+<p>以上为5个核心接口，当然Hibernate不仅仅只有这5个接口了，还有回调接口、映射类型接口、可扩展的接口等等，但这些接口不同于以上的5个核心接口，因为这些接口在一般的Hibernate中不一定能用到，所以暂不提及，在以后的高级应用中再做详述吧。</p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p>请参考  <a href="http://blog.sina.com.cn/s/blog_7ffb8dd501014372.html" target="_blank" rel="external">Hibernate的核心接口</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-27T14:07:37.735Z" itemprop="dateUpdated">2017-04-27 22:07:37</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/01/25/J2EE-Hibernate的核心接口/" target="_blank" rel="external">https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&title=《J2EE-Hibernate的核心接口》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&title=《J2EE-Hibernate的核心接口》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《J2EE-Hibernate的核心接口》 — HHH'Blog&url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/01/25/J2EE-Hibernate-Session/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">J2EE-Hibernate-Session的缓存及对象的状态</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/25/J2EE-Hibernate数据源配置/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">J2EE-Hibernate数据源配置</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/index.html',
+        sourceId: 'J2EE-Hibernate的核心接口',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&title=《J2EE-Hibernate的核心接口》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&title=《J2EE-Hibernate的核心接口》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《J2EE-Hibernate的核心接口》 — HHH'Blog&url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/01/25/J2EE-Hibernate的核心接口/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACOUlEQVR42u3aS27DMAxF0ex/0y6QueT7SKeAqetRkDqWjwoI/H0++Lq+F79zdZGn8bXiS4YMGa9ldBZe3bn6hgD2v10+R4YMGQcw9gffnhcstnjynoEOZRkyZMjYLrZ6TroR+3VlyJAhIz1w94t1XleGDBkyOkls53uSxPLtkyFDxmmMtDHwn59/2N+QIUPGSxhXeKXpKG8AtN5KhgwZoxmkTMaX50EeSXfTVoEMGTKmMkiJn5fVfndk3+BlyJAxmpEW4nl7IG0h1NJplGfLkCHj5Yy0DRnsDdgIHkTebJAMGTJGM/ghmLYqeQrKw8Gb01WGDBlDGbVyGA/+0qCTj1zIkCHjNAYv1ncGxQiyuK4MGTIOYHQKcOSFCIyPXyz7GzJkyBjKqI1t1QK4NJR8YOxDhgwZIxj8sEsxvAmaPu0miZUhQ8ZQRvADHMylh3hnOEyGDBmzGekCvDHJ7681RJfDFjJkyBjH4K/CwTw05KX/my2WIUPGaEat4FUbjKiV+4OWgAwZMoYyOmV63lDkiS4JRpf/BxkyZIxm1A7TDq82ZIYaAzJkyBjHIE1H3oZMk89aCh3/WYYMGS9nXOGVJq48ieVpMJoZkSFDxiBGJ7FMz7o0ZSWBpgwZMs5hkOXTz/wl4uLaaltlyJBxAGN/61OjEp2zHzUyZciQcTyD39Mvw8V4GTJkyMCvmIaM/Kh9+MCVIUPGCxm1kI4MUtSCwtaMmwwZMsYxagnkU+NcacFuv1kyZMgYx/gDL2qodldGvKwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

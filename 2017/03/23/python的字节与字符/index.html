@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/03/23/python的字节与字符/">
+    
+    
+    <title>python的字节与字符 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
+
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python的字节与字符">
+<meta property="og:url" content="https://super3h.me/2017/03/23/python的字节与字符/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
+
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
+<meta property="og:updated_time" content="2017-03-25T05:02:50.231Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python的字节与字符">
+<meta name="twitter:description" content="str与unicode
+Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。
+
+12345&amp;gt;&amp;gt;&amp;gt; s = &apos;禅&apos;&amp;gt;&amp;gt;&amp;gt; s&apos;\xec\xf8&apos;&amp;gt;&amp;g">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python的字节与字符</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python的字节与字符</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-03-23T01:05:55.623Z" itemprop="datePublished" class="page-time">
+  2017-03-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#str与unicode"><span class="post-toc-number">1.</span> <span class="post-toc-text">str与unicode</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#encode与decode"><span class="post-toc-number">2.</span> <span class="post-toc-text">encode与decode</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UnicodeEncodeError"><span class="post-toc-number">3.</span> <span class="post-toc-text">UnicodeEncodeError</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#UnicodeDecodeError"><span class="post-toc-number">4.</span> <span class="post-toc-text">UnicodeDecodeError</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文参考"><span class="post-toc-number">5.</span> <span class="post-toc-text">原文参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-python的字节与字符"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python的字节与字符</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-03-23 09:05:55" datetime="2017-03-23T01:05:55.623Z"  itemprop="datePublished">2017-03-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="str与unicode"><a href="#str与unicode" class="headerlink" title="str与unicode"></a>str与unicode</h1><blockquote>
+<p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">'禅'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s</div><div class="line"><span class="string">'\xec\xf8'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(s)</div><div class="line">&lt;type <span class="string">'str'</span>&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>而 unicode 类型的 u”禅” 对应的 unicode 符号是 u’\u7985’</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>type(u)</div><div class="line">&lt;type <span class="string">'unicode'</span>&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>我们要把 unicode 符号保存到文件或者传输到网络就需要经过编码处理转换成 str 类型，于是 python 提供了 encode 方法，从 unicode 转换到 str，反之亦然。</p>
+</blockquote>
+<h1 id="encode与decode"><a href="#encode与decode" class="headerlink" title="encode与decode"></a>encode与decode</h1><ul>
+<li><p>encode</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>u = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>u.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">'\xe7\xa6\x85'</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>decode</p>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>s = <span class="string">"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>s.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>unicode 到 str 的转换要用 encode 方法，反过来就是用 decode 方法</p>
+</blockquote>
+<h1 id="UnicodeEncodeError"><a href="#UnicodeEncodeError" class="headerlink" title="UnicodeEncodeError"></a>UnicodeEncodeError</h1><blockquote>
+<p>UnicodeEncodeError 发生在 unicode 字符串转换成 str 字节序列的时候，来看一个例子，把一串 unicode 字符串保存到文件</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    name = <span class="string">u'Python之禅'</span></div><div class="line">    f = open(<span class="string">"output.txt"</span>, <span class="string">"w"</span>)</div><div class="line">    f.write(name)</div><div class="line"></div><div class="line"><span class="comment"># 错误如下</span></div><div class="line">UnicodeEncodeError: <span class="string">'ascii'</span> codec can<span class="string">'t encode characters in position 6-7: ordinal not in range(128)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>原因:</code><font color="#E7C800">因为调用 write 方法时，Python 会先判断字符串是什么类型，如果是 str，就直接写入文件，不需要编码，因为 str 类型的字符串本身就是一串二进制的字节序列了。</font></p>
+<p><font color="#008AE2">如果字符串是 unicode 类型，那么它会先调用 encode 方法把 unicode 字符串转换成二进制形式的 str 类型，才保存到文件，而 encode 方法会使用 python 默认的 ascii 码来编码</font><br>相当于：</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"ascii"</span>)</div></pre></td></tr></table></figure>
+<blockquote>
+<p>但是，<strong>我们知道 ASCII 字符集中只包含了128个拉丁字母，不包括中文字符</strong>，因此 出现了 ‘ascii’ codec can’t encode characters 的错误。要正确地使用 encode ，就必须指定一个包含了中文字符的字符集，比如：UTF-8、GBK。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="string">'Python\xe4\xb9\x8b\xe7\xa6\x85'</span></div><div class="line"></div><div class="line"><span class="meta">&gt;&gt;&gt; </span><span class="string">u"Python之禅"</span>.encode(<span class="string">"gbk"</span>)</div><div class="line"><span class="string">'Python\xd6\xae\xec\xf8'</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>所以要把 unicode 字符串正确地写入文件，就应该预先把字符串进行 UTF-8 或 GBK 编码转换。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">main</span><span class="params">()</span>:</span></div><div class="line">    name = <span class="string">u'Python之禅'</span></div><div class="line">    name = name.encode(<span class="string">'utf-8'</span>)</div><div class="line">    <span class="keyword">with</span> open(<span class="string">"output.txt"</span>, <span class="string">"w"</span>) <span class="keyword">as</span> f:</div><div class="line">        f.write(name)</div></pre></td></tr></table></figure>
+<h1 id="UnicodeDecodeError"><a href="#UnicodeDecodeError" class="headerlink" title="UnicodeDecodeError"></a>UnicodeDecodeError</h1><blockquote>
+<p>UnicodeDecodeError 发生在 str 类型的字节序列解码成 unicode 类型的字符串时</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>a = <span class="string">u"禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>a</div><div class="line"><span class="string">u'\u7985'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b = a.encode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b</div><div class="line"><span class="string">'\xe7\xa6\x85'</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>b.decode(<span class="string">"gbk"</span>)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">UnicodeDecodeError: <span class="string">'gbk'</span> codec can<span class="string">'t decode byte 0x85 in position 2: incomplete multibyte sequence</span></div></pre></td></tr></table></figure>
+<blockquote>
+<font color="#E77575">把一个经过 UTF-8 编码后生成的字节序列 ‘\xe7\xa6\x85’ 再用 GBK 解码转换成 unicode 字符串时，出现 UnicodeDecodeError，因为 （对于中文字符）GBK 编码只占用两个字节，而 UTF-8 占用3个字节，用 GBK 转换时，还多出一个字节，因此它没法解析。避免 UnicodeDecodeError 的关键是保持 编码和解码时用的编码类型一致。</font>
+
+<p>再举一个 UnicodeDecodeError 的例子</p>
+</blockquote>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&gt;&gt;&gt; x = u"Python"</div><div class="line">&gt;&gt;&gt; y = "之禅"</div><div class="line">&gt;&gt;&gt; x + y</div><div class="line">Traceback (most recent call last):</div><div class="line">  File "&lt;stdin&gt;", line 1, in &lt;module&gt;</div><div class="line">UnicodeDecodeError: 'ascii' codec can't decode byte 0xe4 in position 0: ordinal not in range(128)</div><div class="line">&gt;&gt;&gt;</div></pre></td></tr></table></figure>
+<blockquote>
+<font color="#8AB475">str 与 unicode 字符串 执行 + 操作是，Python 会把 str 类型的字节序列隐式地转换成（解码）成 和 x 一样的 unicode 类型，但Python是使用默认的 ascii 编码来转换的，而 ASCII 中不包含中文，所以报错了。</font>
+
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>y.decode(<span class="string">'ascii'</span>)</div><div class="line">Traceback (most recent call last):</div><div class="line">  File <span class="string">"&lt;stdin&gt;"</span>, line <span class="number">1</span>, <span class="keyword">in</span> &lt;module&gt;</div><div class="line">UnicodeDecodeError: <span class="string">'ascii'</span> codec can<span class="string">'t decode byte 0xe4 in position 0: ordinal not in range(128)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>正确地方式应该是显示地把 y 用 UTF-8 或者 GBK 进行解码。</p>
+</blockquote>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&gt;&gt;&gt; </span>x = <span class="string">u"Python"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = <span class="string">"之禅"</span></div><div class="line"><span class="meta">&gt;&gt;&gt; </span>y = y.decode(<span class="string">"utf-8"</span>)</div><div class="line"><span class="meta">&gt;&gt;&gt; </span>x + y</div><div class="line"><span class="string">u'Python\u4e4b\u7985'</span></div></pre></td></tr></table></figure>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><blockquote>
+<p><a href="https://zhuanlan.zhihu.com/p/25924333" target="_blank" rel="external">Python 编码为什么那么蛋疼？</a>，感谢作者让我理解了一直困惑我的问题！！！<br><a href="https://my.oschina.net/leejun2005/blog/74430" target="_blank" rel="external">详解 python 中文编码与处理</a></p>
+</blockquote>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-03-25T05:02:50.231Z" itemprop="dateUpdated">2017-03-25 13:02:50</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/03/23/python的字节与字符/" target="_blank" rel="external">https://super3h.me/2017/03/23/python的字节与字符/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/23/python的字节与字符/&title=《python的字节与字符》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/23/python的字节与字符/&title=《python的字节与字符》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/23/python的字节与字符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python的字节与字符》 — HHH'Blog&url=https://super3h.me/2017/03/23/python的字节与字符/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/23/python的字节与字符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/24/SpringMVC初学/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">SpringMVC初学</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/03/19/爬虫-爬取学校官网/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">爬虫-爬取学校官网</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/03/23/python的字节与字符/index.html',
+        sourceId: 'python的字节与字符',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/03/23/python的字节与字符/&title=《python的字节与字符》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/03/23/python的字节与字符/&title=《python的字节与字符》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/03/23/python的字节与字符/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python的字节与字符》 — HHH'Blog&url=https://super3h.me/2017/03/23/python的字节与字符/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/03/23/python的字节与字符/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACLUlEQVR42u3aW46DQAwFUfa/aWYBUUNdG0bCXXxFmST0yUiOX8eBr3NxXf/19zW/j1f3Ot64ZMiQ8VkGP0T6DPl8Ar5+vQwZMvZhXAc+fpsaidz35swyZMiQUTo6YfCvTIYMGTI4Iy01SUiVIUOGDMLghSVvmS0LTpA+vliLy5Ah44OMNGj+5+NX5hsyZMj4FOMMr35L7pVTyZAhYzSDB7i01OwUxrXzyJAhYyojXXGoHSgdA5AvZfl/kCFDxgYM3hrjYZE04DoDURkyZMxmpAPFdCTZX2kNhgoyZMgYyiimYuGoMh2Xxk09GTJkbMBoFZA4HawNFVAzToYMGRsw0uWG2qgyfZ688uZ3Q4YMGSMYPIDylI632PrRUoYMGTswnmqTvZ043nwpMmTIGM3oN8JS5PWB+umjDBkydmDwkEfKWv7eWpvvpoMoQ4aMEQwSZNMbkwUvkuoFa2cyZMjYgEGCZr/c5f0/sqZ2U4vLkCFjEKOfzHUa+sER+cqFDBkyNmDwBtn1IXiK2Rk8oF8PGTJkDGKQ2/Pilq9c1ArmYiyXIUPGxxm14rOzSEECffAuGTJkDGWc4cWPy9+VBu54T0SGDBkfZzzVJns2yNbGFTJkyJjNqAVZHrLT9JGkp8t5rAwZMkYz0sCXBtB0bMBDvwwZMmR0GA+HVFKRy5AhQ0a6qvVQmwylnjJkyNiAka588YZap7kfBGsZMmSMZtQ+joRaXoLWRp4yZMjYgPEHKPeTYQjbbv4AAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

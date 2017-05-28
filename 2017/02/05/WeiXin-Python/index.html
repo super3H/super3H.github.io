@@ -1,0 +1,566 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/05/WeiXin-Python/">
+    
+    
+    <title>python开发公众号 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="原文参考从零开始 Python 微信公众号开发使用python一步一步搭建微信公众平台添加用户关注后的欢迎信息与听音乐功能Python快速搭建自动回复微信公众号未认证订阅号自定义菜单与开发者兼得
+所遇问题git push sae master:1时候报如下错误:12G:\Web_python\xyPyTest&amp;gt;git push sae master:1fatal: Authenticatio">
+<meta property="og:type" content="article">
+<meta property="og:title" content="python开发公众号">
+<meta property="og:url" content="https://super3h.me/2017/02/05/WeiXin-Python/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="原文参考从零开始 Python 微信公众号开发使用python一步一步搭建微信公众平台添加用户关注后的欢迎信息与听音乐功能Python快速搭建自动回复微信公众号未认证订阅号自定义菜单与开发者兼得
+所遇问题git push sae master:1时候报如下错误:12G:\Web_python\xyPyTest&amp;gt;git push sae master:1fatal: Authenticatio">
+<meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/1.png">
+<meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/2.png">
+<meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/3.png">
+<meta property="og:updated_time" content="2017-04-27T14:13:43.486Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="python开发公众号">
+<meta name="twitter:description" content="原文参考从零开始 Python 微信公众号开发使用python一步一步搭建微信公众平台添加用户关注后的欢迎信息与听音乐功能Python快速搭建自动回复微信公众号未认证订阅号自定义菜单与开发者兼得
+所遇问题git push sae master:1时候报如下错误:12G:\Web_python\xyPyTest&amp;gt;git push sae master:1fatal: Authenticatio">
+<meta name="twitter:image" content="https://super3h.me/2017/02/05/WeiXin-Python/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">python开发公众号</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">python开发公众号</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-05T10:41:51.548Z" itemprop="datePublished" class="page-time">
+  2017-02-05
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文参考"><span class="post-toc-number">1.</span> <span class="post-toc-text">原文参考</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#所遇问题"><span class="post-toc-number">2.</span> <span class="post-toc-text">所遇问题</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#git-push-sae-master-1时候报如下错误"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">git push sae master:1时候报如下错误:</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#lxml安装问题"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">lxml安装问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#‘not-found’页面"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">‘not found’页面</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#自动回复无反应问题"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">自动回复无反应问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#添加第三方依赖包"><span class="post-toc-number">2.5.</span> <span class="post-toc-text">添加第三方依赖包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#编码问题"><span class="post-toc-number">2.6.</span> <span class="post-toc-text">编码问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#输入-lt-gt-会被转义问题"><span class="post-toc-number">2.7.</span> <span class="post-toc-text">输入<>会被转义问题</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#音乐问题"><span class="post-toc-number">2.8.</span> <span class="post-toc-text">音乐问题</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#新闻列表"><span class="post-toc-number">3.</span> <span class="post-toc-text">新闻列表</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#微信图文信息直接跳转至外部链接"><span class="post-toc-number">4.</span> <span class="post-toc-text">微信图文信息直接跳转至外部链接</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#源码链接"><span class="post-toc-number">5.</span> <span class="post-toc-text">源码链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-WeiXin-Python"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">python开发公众号</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-05 18:41:51" datetime="2017-02-05T10:41:51.548Z"  itemprop="datePublished">2017-02-05</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.tuicool.com/articles/36nyU3b" target="_blank" rel="external">从零开始 Python 微信公众号开发</a><br><a href="https://my.oschina.net/yangyanxing/blog/159215" target="_blank" rel="external">使用python一步一步搭建微信公众平台</a><br><a href="https://my.oschina.net/yangyanxing/blog/196956?p=2&amp;temp=1486389579131#blog-comments-list" target="_blank" rel="external">添加用户关注后的欢迎信息与听音乐功能</a><br><a href="http://python.jobbole.com/84904/" target="_blank" rel="external">Python快速搭建自动回复微信公众号</a><br><a href="http://jingyan.baidu.com/article/1e5468f97c3472484961b7dd.html?qq-pf-to=pcqq.c2c" target="_blank" rel="external">未认证订阅号自定义菜单与开发者兼得</a></p>
+<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="git-push-sae-master-1时候报如下错误"><a href="#git-push-sae-master-1时候报如下错误" class="headerlink" title="git push sae master:1时候报如下错误:"></a><code>git push sae master:1</code>时候报如下错误:</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">G:\Web_python\xyPyTest&gt;git push sae master:1</div><div class="line">fatal: Authentication failed for &apos;https://git.sinacloud.com/super3h/&apos;</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>解决方案:</code>用户名密码就是你的github账户邮箱和密码，输入密码不是没反应，是你输入了但是不会显示，你输入完直接enter就ok了，sshkey是另外一种提交方式罢了！</p>
+</blockquote>
+<h2 id="lxml安装问题"><a href="#lxml安装问题" class="headerlink" title="lxml安装问题"></a><code>lxml</code>安装问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">E:\&gt;easy_install lxml</div><div class="line">Searching <span class="keyword">for</span> lxml</div><div class="line">Reading https://pypi.python.org/simple/lxml/</div><div class="line">Best match: lxml 3.7.2</div><div class="line">Downloading https://pypi.python.org/packages/66/45/f11<span class="built_in">fc</span>376f784c6f2e77ffc7a9d02374ff3ceb07ede8c56f918939409577c/lxml-3.7.2.tar.gz<span class="comment">#md5=8dcf8d6c692b7aed9370f7462ff09935</span></div><div class="line">error: (<span class="string">'The read operation timed out'</span>,)</div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>解决方案:</code><br>从官方网站下载与系统，Python版本匹配的lxml文件：<a href="http://pypi.python.org/pypi/lxml/2.3/" target="_blank" rel="external">lxml 2.3</a><br>执行 <code>easy_install lxml-2.3-py2.7-win-amd64.egg</code>即可<br>详细解决方案请参考<a href="http://www.jb51.net/article/67125.htm" target="_blank" rel="external">Python lxml模块安装教程</a></p>
+</blockquote>
+<h2 id="‘not-found’页面"><a href="#‘not-found’页面" class="headerlink" title="‘not found’页面"></a>‘not found’页面</h2><p><img src="/2017/02/05/WeiXin-Python/1.png" alt=""></p>
+<blockquote>
+<p>这个属于正常页面，因为index.wsgi只会接受<code>http://6.super3h.applinzi.com/weixin</code>的入口才会响应，对应微信配置如下：</p>
+</blockquote>
+<p><img src="/2017/02/05/WeiXin-Python/2.png" alt=""></p>
+<blockquote>
+<p>具体详情请参考<a href="http://www.cnblogs.com/yym2013/p/5962208.html" target="_blank" rel="external">新浪云SAE搭建python环境</a>和<a href="http://blog.csdn.net/u011659379/article/details/48314317" target="_blank" rel="external">SAE部署Python-让云端自动运行Python代码</a></p>
+</blockquote>
+<h2 id="自动回复无反应问题"><a href="#自动回复无反应问题" class="headerlink" title="自动回复无反应问题"></a>自动回复无反应问题</h2><blockquote>
+<p>原文参考代码有错<code>index.wsgi</code>中将<code>import lxml</code>改为<code>import lxml.etree as etree</code>，可进入sae日志中心查看代码错误原因，具体过程如下:</p>
+</blockquote>
+<p><img src="/2017/02/05/WeiXin-Python/3.png" alt=""></p>
+<h2 id="添加第三方依赖包"><a href="#添加第三方依赖包" class="headerlink" title="添加第三方依赖包"></a>添加第三方依赖包</h2><p>除了使用新浪云上已经预装的模块之外，您还可以通过以下方式给自己的应用添加第三方依赖包。</p>
+<p>首先，在应用的根目录下创建一个第三方依赖包目录 <code>vendor</code> 。<br>调用<code>pip</code>命令安装依赖包，使用其<code>-t</code>选项指定第三方包的安装目录。3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install -t vendor PACKAGE ...</div></pre></td></tr></table></figure></p>
+<p>将 <code>vendor</code> 目录和应用的代码一起提交，即可在应用代码里使用安装的第三方依赖包了。</p>
+<p>如果依赖包安装的目录名不为 <code>vendor</code> ，你需要在 <code>index.wsgi</code> 文件的最开始，添加以下代码，将目录加入到 <code>sys.path</code> 中。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> sae</div><div class="line">sae.add_vendor_dir(<span class="string">'路径'</span>)</div><div class="line"><span class="comment"># 注意：以上代码得放在 index.wsgi 的最前面，所有其它代码之前。</span></div></pre></td></tr></table></figure></p>
+<p><code>详情参考:</code><a href="https://www.sinacloud.com/doc/sae/python/tools.html#tian-jia-di-san-fang-yi-lai-bao" target="_blank" rel="external">添加第三方依赖包</a></p>
+<h2 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">(unicode error) <span class="string">'utf8'</span> codec can<span class="string">'t decode byte 0xd6 in position 2: invalid continuation byte  yq26</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p><code>具体原因：</code>编码不一致，微信为gbk编码，本地为utf-8编码二导致编码不一致<br><code>解决方案：</code>将本地用gbk解码，具体操作如下：<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">return</span> self.render.reply_text(fromUser, toUser, int(time.time()), (<span class="string">'图中人物性别为:'</span>+datas[<span class="number">0</span>]+<span class="string">'\n'</span>+<span class="string">'年龄为:'</span>+datas[<span class="number">1</span>]).decode(<span class="string">'gbk'</span>))</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="输入-lt-gt-会被转义问题"><a href="#输入-lt-gt-会被转义问题" class="headerlink" title="输入&lt;&gt;会被转义问题"></a>输入&lt;&gt;会被转义问题</h2><blockquote>
+<p>由于<code>![CDATA[$content]]</code>而发生转义问题，改成如下模式即可:<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">$def with (toUser,fromUser,createTime,content)</div><div class="line"><span class="tag">&lt;<span class="name">xml</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ToUserName</span>&gt;</span>&lt;![CDATA[$toUser]]&gt;<span class="tag">&lt;/<span class="name">ToUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">FromUserName</span>&gt;</span>&lt;![CDATA[$fromUser]]&gt;<span class="tag">&lt;/<span class="name">FromUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">CreateTime</span>&gt;</span>$createTime<span class="tag">&lt;/<span class="name">CreateTime</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">MsgType</span>&gt;</span>&lt;![CDATA[text]]&gt;<span class="tag">&lt;/<span class="name">MsgType</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Content</span>&gt;</span>$content<span class="tag">&lt;/<span class="name">Content</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">xml</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="音乐问题"><a href="#音乐问题" class="headerlink" title="音乐问题"></a>音乐问题</h2><blockquote>
+<p>由于百度云存储要钱的缘故。。。所以我选择了新浪云。<br><code>问题：</code>苹果手机中不能听<br><code>解决方案：</code>还没解决。。能力有限。<br><code>后续:</code>那天闲来无事，进公众号点了首歌，发现不能放了，<code>原来</code>是新浪云把歌的链接给改了。。没办法存在了qq邮箱的中转站，原文点击此<a href="http://jingyan.baidu.com/article/ed2a5d1f3d91dd09f6be17e8.html" target="_blank" rel="external">教你快速添加qq空间背景音乐免费网络歌曲链接</a></p>
+</blockquote>
+<h1 id="新闻列表"><a href="#新闻列表" class="headerlink" title="新闻列表"></a>新闻列表</h1><p><code>templates\reply_url.xml</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$def with (toUser,fromUser,createTime,content,title,description,picUrl,url)</div><div class="line"><span class="tag">&lt;<span class="name">xml</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ToUserName</span>&gt;</span>&lt;![CDATA[$toUser]]&gt;<span class="tag">&lt;/<span class="name">ToUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">FromUserName</span>&gt;</span>&lt;![CDATA[$fromUser]]&gt;<span class="tag">&lt;/<span class="name">FromUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">CreateTime</span>&gt;</span>$createTime<span class="tag">&lt;/<span class="name">CreateTime</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">MsgType</span>&gt;</span>&lt;![CDATA[news]]&gt;<span class="tag">&lt;/<span class="name">MsgType</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Content</span>&gt;</span>&lt;![CDATA[$content]]&gt;<span class="tag">&lt;/<span class="name">Content</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ArticleCount</span>&gt;</span>1<span class="tag">&lt;/<span class="name">ArticleCount</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Articles</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Title</span>&gt;</span>&lt;![CDATA[$title]]&gt;<span class="tag">&lt;/<span class="name">Title</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Description</span>&gt;</span>&lt;![CDATA[$description]]&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">PicUrl</span>&gt;</span>&lt;![CDATA[$picUrl]]&gt;<span class="tag">&lt;/<span class="name">PicUrl</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Url</span>&gt;</span>&lt;![CDATA[$url]]&gt;<span class="tag">&lt;/<span class="name">Url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Articles</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">FuncFlag</span>&gt;</span>0<span class="tag">&lt;/<span class="name">FuncFlag</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">xml</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p><code>weixinInterface.py添加这一句:</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">POST</span><span class="params">(self)</span>:</span> </div><div class="line">		<span class="keyword">if</span> msgType == <span class="string">'text'</span>:</div><div class="line">			content = xml.find(<span class="string">"Content"</span>).text</div><div class="line">			<span class="comment">#添加这一句</span></div><div class="line">			<span class="keyword">if</span> isinstance(replayText,list):</div><div class="line">				articleList = [article[<span class="string">'article'</span>]+<span class="string">'\n详情'</span>.decode(<span class="string">'gbk'</span>)+article[<span class="string">'detailurl'</span>] <span class="keyword">for</span> article <span class="keyword">in</span> replayText]<span class="comment"># 一定要写在此文件里，写在tulingAutoReply.py会报缩进问题</span></div><div class="line">				reply = random.choice(articleList)</div><div class="line">				<span class="keyword">return</span> self.render.reply_text(fromUser,toUser,int(time.time()),reply)</div></pre></td></tr></table></figure></p>
+<p><code>tulingAutoReply.py</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># coding:utf-8</span></div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> requests</div><div class="line"><span class="keyword">import</span> traceback</div><div class="line"><span class="keyword">from</span> random <span class="keyword">import</span> choice </div><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">TulingAutoReply</span>:</span></div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">__init__</span><span class="params">(self, tuling_key, tuling_url)</span>:</span></div><div class="line">        self.key = tuling_key</div><div class="line">        self.url = tuling_url</div><div class="line"> </div><div class="line">    <span class="function"><span class="keyword">def</span> <span class="title">reply</span><span class="params">(self, reply)</span>:</span></div><div class="line">        body = &#123;<span class="string">'key'</span>: self.key, <span class="string">'info'</span>: reply&#125;</div><div class="line">        r = requests.post(self.url, data=body)</div><div class="line">        <span class="comment">#设置编码</span></div><div class="line">        r.encoding = <span class="string">'utf-8'</span></div><div class="line">        resp = r.text</div><div class="line">        <span class="keyword">if</span> resp <span class="keyword">is</span> <span class="keyword">None</span> <span class="keyword">or</span> len(resp) == <span class="number">0</span>:</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="keyword">try</span>:</div><div class="line">            js = json.loads(resp)</div><div class="line">			<span class="comment"># 回复为文本类</span></div><div class="line">            <span class="keyword">if</span> js[<span class="string">'code'</span>] == <span class="number">100000</span>:</div><div class="line">                <span class="keyword">return</span> js[<span class="string">'text'</span>]</div><div class="line">			<span class="comment"># 回复为链接类</span></div><div class="line">            <span class="keyword">elif</span> js[<span class="string">'code'</span>] == <span class="number">200000</span>:</div><div class="line">                <span class="keyword">return</span> js[<span class="string">'url'</span>]</div><div class="line">			<span class="comment"># 回复为新闻类</span></div><div class="line">            <span class="keyword">elif</span> js[<span class="string">'code'</span>] == <span class="number">302000</span>:</div><div class="line">			    <span class="keyword">return</span> js[<span class="string">'list'</span>]</div><div class="line">			<span class="comment"># 其他</span></div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                <span class="keyword">return</span> <span class="keyword">None</span></div><div class="line">        <span class="keyword">except</span> Exception:</div><div class="line">            traceback.print_exc()</div><div class="line">            <span class="keyword">return</span> <span class="keyword">None</span></div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>博主本来准备做语音识别，结果好像认证后才提供此接口，这里把原文贴出来，供大家参考<a href="https://zhuanlan.zhihu.com/p/21390250" target="_blank" rel="external">听得懂语音消息的聊天机器人</a></p>
+</blockquote>
+<h1 id="微信图文信息直接跳转至外部链接"><a href="#微信图文信息直接跳转至外部链接" class="headerlink" title="微信图文信息直接跳转至外部链接"></a>微信图文信息直接跳转至外部链接</h1><blockquote>
+<p>点击菜单跳转到网页必须要认证才行，我们可以用关键字回复来实现跳转至外部链接<br><code>在templates下添加reply_url.xml，内容为:</code><br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">$def with (toUser,fromUser,createTime,content,title,description,picUrl,url)</div><div class="line"><span class="tag">&lt;<span class="name">xml</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ToUserName</span>&gt;</span>&lt;![CDATA[$toUser]]&gt;<span class="tag">&lt;/<span class="name">ToUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">FromUserName</span>&gt;</span>&lt;![CDATA[$fromUser]]&gt;<span class="tag">&lt;/<span class="name">FromUserName</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">CreateTime</span>&gt;</span>$createTime<span class="tag">&lt;/<span class="name">CreateTime</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">MsgType</span>&gt;</span>&lt;![CDATA[news]]&gt;<span class="tag">&lt;/<span class="name">MsgType</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Content</span>&gt;</span>&lt;![CDATA[$content]]&gt;<span class="tag">&lt;/<span class="name">Content</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ArticleCount</span>&gt;</span>1<span class="tag">&lt;/<span class="name">ArticleCount</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">Articles</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">item</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Title</span>&gt;</span>&lt;![CDATA[$title]]&gt;<span class="tag">&lt;/<span class="name">Title</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Description</span>&gt;</span>&lt;![CDATA[$description]]&gt;</div><div class="line">    <span class="tag">&lt;/<span class="name">Description</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">PicUrl</span>&gt;</span>&lt;![CDATA[$picUrl]]&gt;<span class="tag">&lt;/<span class="name">PicUrl</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">Url</span>&gt;</span>&lt;![CDATA[$url]]&gt;<span class="tag">&lt;/<span class="name">Url</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">item</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">Articles</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">FuncFlag</span>&gt;</span>0<span class="tag">&lt;/<span class="name">FuncFlag</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">xml</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<p><code>weixinInterface.py添加这一句:</code><br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> msgType == <span class="string">'text'</span>:</div><div class="line">			content = xml.find(<span class="string">"Content"</span>).text</div><div class="line">			<span class="keyword">if</span> content == <span class="string">'博客'</span>.decode(<span class="string">'gbk'</span>):</div><div class="line">				<span class="keyword">return</span> self.render.reply_url(fromUser,toUser,int(time.time()),content,<span class="string">'个人博客'</span>.decode(<span class="string">'gbk'</span>),<span class="string">'HHH的个人博客'</span>.decode(<span class="string">'gbk'</span>),<span class="string">r'https://mmbiz.qlogo.cn/mmbiz_jpg/z67Nqg3yAzRNVazozLUD7icuibRJdnCDaJd1dTfQ9673IDS6ttA5cFQwQCic7IrjPhbTcX1ycQDGibJhlGaFbwzyyg/0?wx_fmt=jpeg'</span>,<span class="string">r'http://super3h.github.io'</span>)</div></pre></td></tr></table></figure></p>
+<h1 id="源码链接"><a href="#源码链接" class="headerlink" title="源码链接"></a>源码链接</h1><p>欢迎订阅 <a href="https://github.com/super3H/sae/tree/master" target="_blank" rel="external">ProgrammerBy3H</a> <code>求star star star！！</code></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-04-27T14:13:43.486Z" itemprop="dateUpdated">2017-04-27 22:13:43</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/05/WeiXin-Python/" target="_blank" rel="external">https://super3h.me/2017/02/05/WeiXin-Python/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/05/WeiXin-Python/&title=《python开发公众号》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/05/WeiXin-Python/&title=《python开发公众号》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/05/WeiXin-Python/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python开发公众号》 — HHH'Blog&url=https://super3h.me/2017/02/05/WeiXin-Python/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/05/WeiXin-Python/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/07/Python-is_==/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">python is和==的区别</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/01/30/J2EE-Hibernate的Session获取/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">hibernate中openSession()跟getCurrentSession()的区别</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/05/WeiXin-Python/index.html',
+        sourceId: 'WeiXin-Python',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/05/WeiXin-Python/&title=《python开发公众号》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/05/WeiXin-Python/&title=《python开发公众号》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/05/WeiXin-Python/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《python开发公众号》 — HHH'Blog&url=https://super3h.me/2017/02/05/WeiXin-Python/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/05/WeiXin-Python/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMUlEQVR42u3aO27EMAwFwNz/0hsgVYq195FUAlgaVUHgtTUqCPHz9RWv18+6+v/vdfWrq2fyby1YGBgYj2W8btf9Mz3S/daT7755GwYGxgGM5NX3vOom8vdHQRkDAwMj2HoSZKvXRwwMDIwJ4+pSmFwT8yCLgYGBUU1iq/WuapDNk2cMDIzTGNXGwH/+/Yf9DQwMjIcwXsVVTVnvv5hfKz/sCgMDY2tGryifYPKG5fwgMDAw9mbkYxPVcFxNUPOm6RswBgbGMYx5Kb/323zI4zLdxcDA2JoxL7T1ivV5k3LersDAwHg6o5ey5k3K+bBFdAQYGBhbM/Ly2apC//ydhckRDAyMAxhJSO2FxXljoBBwMTAwHs7IWwJ5UWye1pavpxgYGAcwelvPRyvysJ4X+Bb0NzAwMB7CWFVcy8NosunJsWJgYOzKyMPoZAhjMkgRpdYYGBjHMO4/k5fSkqCZNz6j0I+BgXEMo5dYVsPxpAnxoXmJgYGxKaM64rDgY60DitJpDAyM7Rj3l7YeaZLENlNiDAyMIxmThmLytkkh78OwBQYGxnaMvKtZLatVhzCqgxoYGBjnMF7Ftfb8elfDN4eLgYGxNaO6oVXhsld0y1sRGBgY+zHyFmM11axeMavltmanFAMD47GMXqEth/WeKQRuDAwMjFYIThqZ1Wvoh6shBgYGRmvYax6+o7CLgYFxAGNVElsNsgk4YmNgYGzNqDYGegNhvQbD4jEODAyM5zG+ASi/RrwuLalLAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

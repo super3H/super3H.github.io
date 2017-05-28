@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/13/J2EE-tomcat/">
+    
+    
+    <title>tomcat的部署 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="静态部署
+直接将web项目文件件拷贝到webapps 目录中
+
+Tomcat的Webapps目录是Tomcat默认的应用目录，当服务器启动时，会加载所有这个目录下的应用。 所以可以将JSP程序打包成一个 war包放在目录下，服务器会自动解开这个war包，并在这个目录下生成一个同名的文件夹。
+说明: 一个war包就是有特性格式的jar包，它是将一个web程序的所有内容进行压缩得到。
+方式:可以使用许">
+<meta property="og:type" content="article">
+<meta property="og:title" content="tomcat的部署">
+<meta property="og:url" content="https://super3h.me/2017/02/13/J2EE-tomcat/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="静态部署
+直接将web项目文件件拷贝到webapps 目录中
+
+Tomcat的Webapps目录是Tomcat默认的应用目录，当服务器启动时，会加载所有这个目录下的应用。 所以可以将JSP程序打包成一个 war包放在目录下，服务器会自动解开这个war包，并在这个目录下生成一个同名的文件夹。
+说明: 一个war包就是有特性格式的jar包，它是将一个web程序的所有内容进行压缩得到。
+方式:可以使用许">
+<meta property="og:updated_time" content="2017-02-13T04:15:30.310Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="tomcat的部署">
+<meta name="twitter:description" content="静态部署
+直接将web项目文件件拷贝到webapps 目录中
+
+Tomcat的Webapps目录是Tomcat默认的应用目录，当服务器启动时，会加载所有这个目录下的应用。 所以可以将JSP程序打包成一个 war包放在目录下，服务器会自动解开这个war包，并在这个目录下生成一个同名的文件夹。
+说明: 一个war包就是有特性格式的jar包，它是将一个web程序的所有内容进行压缩得到。
+方式:可以使用许">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">tomcat的部署</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">tomcat的部署</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-13T03:43:56.946Z" itemprop="datePublished" class="page-time">
+  2017-02-13
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#静态部署"><span class="post-toc-number">1.</span> <span class="post-toc-text">静态部署</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#动态部署"><span class="post-toc-number">2.</span> <span class="post-toc-text">动态部署</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文参考"><span class="post-toc-number">3.</span> <span class="post-toc-text">原文参考</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-J2EE-tomcat"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">tomcat的部署</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-13 11:43:56" datetime="2017-02-13T03:43:56.946Z"  itemprop="datePublished">2017-02-13</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="静态部署"><a href="#静态部署" class="headerlink" title="静态部署"></a>静态部署</h1><ul>
+<li><p>直接将<code>web</code>项目文件件拷贝到<code>webapps</code> 目录中</p>
+<ol>
+<li><code>Tomcat</code>的<code>Webapps</code>目录是Tomcat默认的应用目录，当服务器启动时，会加载所有这个目录下的应用。<strong> 所以可以将<code>JSP</code>程序打包成一个 <code>war</code>包放在目录下，服务器会自动解开这个war包，并在这个目录下生成一个同名的文件夹。</strong></li>
+<li><code>说明:</code> 一个<code>war</code>包就是有特性格式的jar包，它是将一个web程序的所有内容进行压缩得到。</li>
+<li><code>方式:</code>可以使用许多开发工具的<code>IDE</code>环境，如<code>Eclipse</code>等。也可以用 <code>cmd</code> 命令：<code>jar -cvf mywar.war  myweb</code></li>
+<li><code>webapps</code>这个默认的应用目录也是可以改变。打开<code>Tomcat</code>的<code>conf</code>目录下的<code>server.xml</code>文件，找到下面内容：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Host</span> <span class="attr">name</span>=<span class="string">"localhost"</span> <span class="attr">appBase</span>=<span class="string">"webapps"</span></span></div><div class="line">   <span class="attr">unpackWARs</span>=<span class="string">"true"</span> <span class="attr">autoDeploy</span>=<span class="string">"true"</span></div><div class="line">   <span class="attr">xmlValidation</span>=<span class="string">"false"</span> <span class="attr">xmlNamespaceAware</span>=<span class="string">"false"</span>&gt;</div><div class="line">   <span class="comment">&lt;!-- 将appBase修改即可--&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+<li><p>在<code>server.xml</code>中指定:</p>
+<ol>
+<li>在<code>Tomcat</code>的配置文件中，一个<code>Web</code>应用就是一个特定的<code>Context</code>，可以通过在<code>server.xml</code>中新建<code>Context</code>里部署一个<code>JSP</code>应用程序。打开<code>server.xml</code>文件，在<code>Host</code>标签内建一个<code>Context</code>，内容如下。</li>
+<li>在<code>tomcat</code>中的<code>conf</code>目录中，在<code>server.xml</code>中的，<code>&lt;host/&gt;</code>节点中添加： <figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/hello"</span> <span class="attr">docBase</span>=<span class="string">"D:\ workspace\hello\WebRoot"</span> <span class="attr">debug</span>=<span class="string">"0"</span> <span class="attr">privileged</span>=<span class="string">"true"</span>&gt;</span> </div><div class="line"><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/myapp"</span> <span class="attr">reloadable</span>=<span class="string">"true"</span> <span class="attr">docBase</span>=<span class="string">"D:\myapp"</span> <span class="attr">workDir</span>=<span class="string">"D:\myapp\work"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>或者<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/sms4"</span> <span class="attr">docBase</span>=<span class="string">"D:\workspace\sms4\WebRoot"</span>/&gt;</span></div></pre></td></tr></table></figure></p>
+<p>说明：<br><code>path:</code>是虚拟路径；<br><code>docBase:</code> 是应用程序的物理路径；<br><code>workDir:</code> 是这个应用的工作目录，存放运行时生成的与这个应用相关的文件；</p>
+<p><code>debug:</code> 则是设定debug level,  0表示提供最少的信息，9表示提供最多的信息<br><code>privileged:</code>设置为true的时候，才允许Tomcat的Web应用使用容器内的Servlet<br><code>reloadable:</code> 如果为true，则tomcat会自动检测应用程序的/WEB-INF/lib 和/WEB-INF/classes目录的变化，自动装载新的应用程序，可以在不重起tomcat的情况下改变应用程序，实现热部署<br><code>antiResourceLocking</code>和<code>antiJARLocking</code>  热部署是需要配置的参数，默认false避免更新了某个webapp，<strong>有时候Tomcat并不能把旧的webapp完全删除，通常会留下WEB-INF/lib下的某个jar包，必须关闭Tomcat才能删除，这就导致自动部署失败。</strong>设置为true，Tomcat在运行对应的webapp时，会把相应的源文件和jar文件复制到一个临时目录里。</p>
+<ul>
+<li>创建一个Context文件<ol>
+<li>在<code>conf</code>目录中，新建 <code>Catalina＼localhost</code>目录(<code>自带的就不用建了</code>)，在该目录中新建一个xml文件，名字不可以随意取，要和path后的那个名字一致，按照下边这个path的配置，xml的名字应该就应该是hello（hello.xml），该xml文件的内容为：<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">path</span>=<span class="string">"/hello"</span> <span class="attr">docBase</span>=<span class="string">"E:\workspace\hello\WebRoot"</span> <span class="attr">debug</span>=<span class="string">"0"</span> <span class="attr">privileged</span>=<span class="string">"true"</span>&gt;</span><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ol>
+</li>
+</ul>
+<p>tomcat自带例子如下：<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">Context</span> <span class="attr">docBase</span>=<span class="string">"$&#123;catalina.home&#125;/server/webapps/host-manager"</span></span></div><div class="line">         <span class="attr">privileged</span>=<span class="string">"true"</span> <span class="attr">antiResourceLocking</span>=<span class="string">"false"</span> <span class="attr">antiJARLocking</span>=<span class="string">"false"</span>&gt;</div><div class="line"><span class="tag">&lt;/<span class="name">Context</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<ul>
+<li>这个例子是tomcat自带的，编辑的内容实际上和第二种方式是一样的，其中这xml文件名字就是访问路径，这样可以隐藏应用的真实名字。</li>
+<li>删除一个Web应用同时<strong>也要删除webapps下相应的文件夹和server.xml中相应的Context，还要将Tomcat的conf\catalina\localhost目录下相应的xml文件删除</strong>，否则Tomcat仍会去配置并加载。。。</li>
+</ul>
+<h1 id="动态部署"><a href="#动态部署" class="headerlink" title="动态部署"></a>动态部署</h1><ul>
+<li><code>登陆tomcat管理控制台：</code><a href="http://localhost:8080/" target="_blank" rel="external">http://localhost:8080/</a>，输入用户名和密码后便可管理应用并动态发布。</li>
+<li><code>在Context Path(option):</code>中输入/yourwebname ，这代表你的应用的访问地址。</li>
+<li><code>XML Configration file URL</code>中要指定一个xml文件，比如我们在F:\下建立一个<code>hmcx.xml</code>文件，内容如下：<code>&lt;Context reloadable=&quot;false&quot; /&gt;</code>其中docBase不用写了，因为在下一个文本框中填入。或者更简单点，这个文本框什么都不填，在<code>WAR or Directory URL</code>:中键入F:\hmcx即可，然后点击Deploy按钮，上面就可以看到了web应用程序，名字就<code>Context Path(option)</code>:中的名字。</li>
+<li>如果部署.war文件还有更加简单的方式，下面还有个<code>Select WAR file uploae</code>点击浏览选择.war文件，然后点击Deploy也可以。</li>
+</ul>
+<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="https://zhidao.baidu.com/question/2203404153241837988.html" target="_blank" rel="external">tomcat部署项目的几种方式</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-02-13T04:15:30.310Z" itemprop="dateUpdated">2017-02-13 12:15:30</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/13/J2EE-tomcat/" target="_blank" rel="external">https://super3h.me/2017/02/13/J2EE-tomcat/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/13/J2EE-tomcat/&title=《tomcat的部署》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/13/J2EE-tomcat/&title=《tomcat的部署》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/13/J2EE-tomcat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tomcat的部署》 — HHH'Blog&url=https://super3h.me/2017/02/13/J2EE-tomcat/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/13/J2EE-tomcat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/13/J2EE-Struts2_xml/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">struts2.xml报There is no Action mapped</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/11/Hexo-search/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Hexo-本地搜索</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/13/J2EE-tomcat/index.html',
+        sourceId: 'J2EE-tomcat',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/13/J2EE-tomcat/&title=《tomcat的部署》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/13/J2EE-tomcat/&title=《tomcat的部署》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/13/J2EE-tomcat/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《tomcat的部署》 — HHH'Blog&url=https://super3h.me/2017/02/13/J2EE-tomcat/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/13/J2EE-tomcat/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAK4AAACuCAAAAACKZ2kyAAABxklEQVR42u3aQQ6DMAxE0d7/0nRbqSX8scFQ6WdVQRUeLKyMk9cLj+1jfF/Zu86vnDzkypXb5m7Lsf7P5929mddobpArV+48lzyMlLBO5Vkb5MqV+2Quubten/AZ5MqV+y9cQl+/wA11V65cuSVuugTpEHm4kitX7l3cs5Ymnd+X9HflypVb4m7hWC8+am2R4Oly5cod4fKCUnuZfjNFrly581zysE6w4Uc01rOhbyBXrtzLuLww8RYnP4Rx8LHkypU7zuVFrRZ+yD8PFkNy5cod4aJs1Njq4M2UNETJlSv3Xm7aMOXLozj8yJUrd5CbRh1ybCItbYQuV67cGS6JK3yrlYcf/gl+ZDW5cuUOcknx4suU9EAGKnNy5cod4fISlh6t4M3QYqtUrly5F3NJyOFBJX35+JPJlSt3kFs7VkVaJDw+oSMacuXKHeem0SVdQ6WFLN4HlitXbpu7hYMHm05BbE0tV67cNpeP2qQ8LAV7wnLlyh3h8qLDN0J47Ik3aeTKlTvIrR2PqBFPyGpy5cp9GLd/hKLWUpErV+6TuUOtjT2hXLlyB7lpc7MWZkjJOyhwcuXKHeHGpaTd2uhs6MqVK/di7htO4cNCxmirWQAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

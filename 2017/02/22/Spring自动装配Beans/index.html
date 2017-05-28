@@ -1,0 +1,556 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/22/Spring自动装配Beans/">
+    
+    
+    <title>Spring自动装配Beans | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="Spring自动装配Beans的5中模式
+在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+
+
+在Spring中，支持 5 自动装配模式。
+no – 缺省情况">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring自动装配Beans">
+<meta property="og:url" content="https://super3h.me/2017/02/22/Spring自动装配Beans/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="Spring自动装配Beans的5中模式
+在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+
+
+在Spring中，支持 5 自动装配模式。
+no – 缺省情况">
+<meta property="og:updated_time" content="2017-05-03T06:17:13.580Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring自动装配Beans">
+<meta name="twitter:description" content="Spring自动装配Beans的5中模式
+在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 定义“autowire”属性。1&amp;lt;bean id=&quot;customer&quot; class=&quot;com.yiibai.common.Customer&quot; autowire=&quot;byName&quot; /&amp;gt;
+
+
+在Spring中，支持 5 自动装配模式。
+no – 缺省情况">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spring自动装配Beans</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spring自动装配Beans</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-22T05:31:48.467Z" itemprop="datePublished" class="page-time">
+  2017-02-22
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Spring自动装配Beans的5中模式"><span class="post-toc-number">1.</span> <span class="post-toc-text">Spring自动装配Beans的5中模式</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#示例"><span class="post-toc-number">2.</span> <span class="post-toc-text">示例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Wiring-‘no’"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">Auto-Wiring ‘no’</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Wiring-‘byName’"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">Auto-Wiring ‘byName’</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Wiring-‘byType’"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">Auto-Wiring ‘byType’</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#Auto-Wiring-‘constructor’"><span class="post-toc-number">2.4.</span> <span class="post-toc-text">Auto-Wiring ‘constructor’</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文链接"><span class="post-toc-number">3.</span> <span class="post-toc-text">原文链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Spring自动装配Beans"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spring自动装配Beans</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-22 13:31:48" datetime="2017-02-22T05:31:48.467Z"  itemprop="datePublished">2017-02-22</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="Spring自动装配Beans的5中模式"><a href="#Spring自动装配Beans的5中模式" class="headerlink" title="Spring自动装配Beans的5中模式"></a>Spring自动装配Beans的5中模式</h1><blockquote>
+<p>在Spring框架，可以用 auto-wiring 功能会自动装配Bean。要启用它，只需要在 <bean>定义<code>“autowire”</code>属性。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span></div></pre></td></tr></table></figure></bean></p>
+</blockquote>
+<ul>
+<li>在Spring中，支持 5 自动装配模式。<ul>
+<li><code>no</code> – 缺省情况下，自动配置是通过“ref”属性手动设定</li>
+<li><code>byName</code> – 根据属性名称自动装配。如果一个bean的名称和其他bean属性的名称是一样的，将会自装配它。</li>
+<li><code>byType</code> – 按数据类型自动装配。如果一个bean的数据类型是用其它bean属性的数据类型，兼容并自动装配它。</li>
+<li><code>constructor</code> – 在构造函数参数的byType方式。</li>
+<li><code>autodetect</code> – 如果找到默认的构造函数，使用“自动装配用构造”; 否则，使用“按类型自动装配”。</li>
+</ul>
+</li>
+</ul>
+<h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><blockquote>
+<p><code>Customer</code> 和 <code>Person</code> 对象自动装配示范。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Customer</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="keyword">private</span> Person person;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Customer</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setPerson</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.person = person;</div><div class="line">	&#125;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span></div><div class="line">&#123;</div><div class="line">	<span class="comment">//...</span></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Auto-Wiring-‘no’"><a href="#Auto-Wiring-‘no’" class="headerlink" title="Auto-Wiring ‘no’"></a>Auto-Wiring ‘no’</h2><blockquote>
+<p>这是默认的模式，你需要通过 ‘ref’ 属性来连接 bean。<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span>&gt;</span></div><div class="line">                  <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"person"</span> <span class="attr">ref</span>=<span class="string">"person"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Auto-Wiring-‘byName’"><a href="#Auto-Wiring-‘byName’" class="headerlink" title="Auto-Wiring ‘byName’"></a>Auto-Wiring ‘byName’</h2><blockquote>
+<p>按属性名称自动装配。在这种情况下，由于<strong>对“person” bean的名称是相同于“customer” bean 的属性(“person”)名称</strong>，所以，Spring会自动通过setter方法将其装配 – “setPerson(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byName"</span> /&gt;</span>	</div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Auto-Wiring-‘byType’"><a href="#Auto-Wiring-‘byType’" class="headerlink" title="Auto-Wiring ‘byType’"></a>Auto-Wiring ‘byType’</h2><blockquote>
+<p>通过按属性的数据类型自动装配Bean。在这种情况下，<strong>由于“Person” bean中的数据类型是与“customer” bean的属性(Person对象)的数据类型一样的</strong>，所以，Spring会自动通过setter方法将其自动装配。– “setPerson(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"byType"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="Auto-Wiring-‘constructor’"><a href="#Auto-Wiring-‘constructor’" class="headerlink" title="Auto-Wiring ‘constructor’"></a>Auto-Wiring ‘constructor’</h2><blockquote>
+<p>通过构造函数参数的数据类型按属性自动装配Bean。在这种情况下，<strong>由于“person” bean的数据类型与“customer” bean的属性(Person对象)的构造函数参数的数据类型是一样的</strong>，所以，Spring通过构造方法自动装配 – “public Customer(Person person)“.<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"customer"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Customer"</span> <span class="attr">autowire</span>=<span class="string">"constructor"</span> /&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"person"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.common.Person"</span> /&gt;</span></div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.yiibai.com/spring/spring-auto-wiring-beans-in-xml.html" target="_blank" rel="external">Spring自动装配Beans</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-03T06:17:13.580Z" itemprop="dateUpdated">2017-05-03 14:17:13</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/22/Spring自动装配Beans/" target="_blank" rel="external">https://super3h.me/2017/02/22/Spring自动装配Beans/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/22/Spring自动装配Beans/&title=《Spring自动装配Beans》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/22/Spring自动装配Beans/&title=《Spring自动装配Beans》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/22/Spring自动装配Beans/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring自动装配Beans》 — HHH'Blog&url=https://super3h.me/2017/02/22/Spring自动装配Beans/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/22/Spring自动装配Beans/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/23/Spring JavaConfig/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">Spring JavaConfig</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/22/maven外部依赖/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">maven外部依赖</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/22/Spring自动装配Beans/index.html',
+        sourceId: 'Spring自动装配Beans',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/22/Spring自动装配Beans/&title=《Spring自动装配Beans》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/22/Spring自动装配Beans/&title=《Spring自动装配Beans》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/22/Spring自动装配Beans/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring自动装配Beans》 — HHH'Blog&url=https://super3h.me/2017/02/22/Spring自动装配Beans/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/22/Spring自动装配Beans/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACPElEQVR42u3aQW7DMAwFUd//0uk2QCJ7PqUUEDVeFXFq6XnBUCSvC1+vt2v0yefnn9f7d+7Xun5xyZAhY1sGX3j0yWjhe+Tom/erDFeUIUPGAYz7TZBHk4VTPH9BMmTIkFF8dOmZMmTIkDHPSP+LHFllyJAhgzDSAhlJ8mbSyh+exWXIkLEhg1fd///vn/Q3ZMiQsRWjVhpLy/1piIx3JUOGjNaMtExWO9bWUsZ0PzJkyDiNMXNA5UW0dNQsrhrKkCGjBYOEUQJYtfW0SfAlw5UhQ0Y7BrnNG5BrGwALOrEyZMhowbhPAdOkLd0uH8h4eHEyZMhozSBBrRjFwV1+ZEVgGTJkHMmYaSvOlNKKd2XIkNGUwUcoSKjlhTaeGpIxDhkyZPRmkGVq6SNn83Tz4bXKkCGjNSOezsDthJkwnZ5PZciQ0ZVRO1KiRC0sltUm2r5kuDJkyGjHIOGyNqrFS3hrY6YMGTK6MtIleduAtEJJo5QMkMmQIeM0Rhpe5/FpK2JqDleGDBnbMtLGwKoWwgxvQQtThgwZGzJmDrHpc9JDLyq0yZAhozWDlMPItniYrm39IeDKkCGjHeMVXqTQlhbgOHXIliFDRmtGLdilDYB0K6uKfTJkyOjE4Fusle/TdLCYPsqQIeMARhr4SGOAhOD0FyCeGZEhQ8aRDHKXNzvjoYpVAVeGDBmtGXwMggfc9Fi77HdDhgwZWzHSUlraJKi1NoMmqAwZMlozaiEvPabWAvTipqYMGTL2Y/wBS0YsuveNzjwAAAAASUVORK5CYII=" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

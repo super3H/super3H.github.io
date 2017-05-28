@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/26/Spring-hibernate整合/">
+    
+    
+    <title>Spring-hibernate整合 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#3F51B5">
+    
+    
+    <meta name="keywords" content="">
+    <meta name="description" content="所需jar包
+
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring-hibernate整合">
+<meta property="og:url" content="https://super3h.me/2017/02/26/Spring-hibernate整合/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="所需jar包
+
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
+<meta property="og:image" content="https://super3h.me/2017/02/26/Spring-hibernate整合/1.png">
+<meta property="og:updated_time" content="2017-05-03T06:16:43.869Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring-hibernate整合">
+<meta name="twitter:description" content="所需jar包
+
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
+<meta name="twitter:image" content="https://super3h.me/2017/02/26/Spring-hibernate整合/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spring-hibernate整合</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spring-hibernate整合</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-26T07:42:36.485Z" itemprop="datePublished" class="page-time">
+  2017-02-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#所需jar包"><span class="post-toc-number">1.</span> <span class="post-toc-text">所需jar包</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#配置文件"><span class="post-toc-number">2.</span> <span class="post-toc-text">配置文件</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码详情"><span class="post-toc-number">3.</span> <span class="post-toc-text">代码详情</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#代码详情-1"><span class="post-toc-number">4.</span> <span class="post-toc-text">代码详情</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Spring-hibernate整合"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spring-hibernate整合</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-26 15:42:36" datetime="2017-02-26T07:42:36.485Z"  itemprop="datePublished">2017-02-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h1><p><img src="/2017/02/26/Spring-hibernate整合/1.png" alt=""></p>
+<blockquote>
+<p>导入<code>hibernate-release-5.2.5.Final\lib\required</code>下面的包以及spring中事务<code>spring-tx</code>包和对象关系映射<code>spring-orm</code>，jdbc<code>spring-jdbc</code>，注解所需的<code>spring-aop</code>，和<code>beans，core，context，expression</code>以及<code>commons-logging</code>依赖包，还有<code>mysql的驱动包：mysql-connector</code></p>
+</blockquote>
+<h1 id="配置文件"><a href="#配置文件" class="headerlink" title="配置文件"></a>配置文件</h1><ul>
+<li><code>applicationContext.xml</code><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</div><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xmlns:tx</span>=<span class="string">"http://www.springframework.org/schema/tx"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-4.2.xsd</div><div class="line">	http://www.springframework.org/schema/jdbc</div><div class="line">	http://www.springframework.org/schema/jdbc/spring-jdbc.xsd</div><div class="line">	http://www.springframework.org/schema/tx</div><div class="line">	http://www.springframework.org/schema/tx/spring-tx.xsd</div><div class="line">	"&gt;</div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"org.springframework.beans.factory.config.PropertyPlaceholderConfigurer"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"location"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>dataSource.properties<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"dataSource"</span> <span class="attr">class</span>=<span class="string">"org.springframework.jdbc.datasource.DriverManagerDataSource"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"driverClassName"</span> <span class="attr">value</span>=<span class="string">"$&#123;driverClassName&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"url"</span> <span class="attr">value</span>=<span class="string">"$&#123;url&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"username"</span> <span class="attr">value</span>=<span class="string">"$&#123;username&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"password"</span> <span class="attr">value</span>=<span class="string">"$&#123;password&#125;"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"sessionFactory"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.LocalSessionFactoryBean"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dataSource"</span> <span class="attr">ref</span>=<span class="string">"dataSource"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--加入hibernate.cfg.xml配置--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"configLocation"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">value</span>&gt;</span>classpath:hibernate.cfg.xml<span class="tag">&lt;/<span class="name">value</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"personDao"</span> <span class="attr">class</span>=<span class="string">"com.hhh.dao.impl.PersonDaoImpl"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"factory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!--配置事务--&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"txManager"</span> <span class="attr">class</span>=<span class="string">"org.springframework.orm.hibernate5.HibernateTransactionManager"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sessionFactory"</span> <span class="attr">ref</span>=<span class="string">"sessionFactory"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">bean</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">tx:annotation-driven</span> <span class="attr">transaction-manager</span>=<span class="string">"txManager"</span> /&gt;</span></div><div class="line">	</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p><code>注意:</code>有关<code>txManager</code>的必须加上，否则<font color="red">dao中<code>sessionFactory.getCurrentSession()</code>会报错:<code>Could not obtain transaction-synchronized Session for current thread</code></font><br><code>原因:</code><font color="#658B00">在Spring事务管理中,current Session是绑定到SpringSessionContext中的,而不是ThreadLocalSessionContext中的，切勿在<strong>hibernate中配置:hibernate.current_session_context_class=thread</strong></font><br>详情请看<a href="http://blog.csdn.net/irelandken/article/details/7193123" target="_blank" rel="external">@Transactional声明式事务管理  getCurrentSession</a></p>
+</blockquote>
+<ul>
+<li><p><code>hibernate.cfg.xml</code></p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE hibernate-configuration PUBLIC</span></div><div class="line">        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"</div><div class="line">        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd"&gt;</div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">hibernate-configuration</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">session-factory</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"dialect"</span>&gt;</span>org.hibernate.dialect.MySQL5InnoDBDialect<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"hbm2ddl.auto"</span>&gt;</span>update<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"show_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"format_sql"</span>&gt;</span>true<span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">       	<span class="tag">&lt;<span class="name">mapping</span> <span class="attr">resource</span>=<span class="string">"com/hhh/bean/person.hbm.xml"</span>/&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">session-factory</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">hibernate-configuration</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+<li><p>数据库配置:<code>dataSource.properties</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">driverClassName=com.mysql.jdbc.Driver</div><div class="line">url=jdbc:mysql://localhost:3306/shtest</div><div class="line">username=****</div><div class="line">password=****</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="代码详情"><a href="#代码详情" class="headerlink" title="代码详情"></a>代码详情</h1><ul>
+<li><p><code>com.hhh.bean.Person</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.bean;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> Long id;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> <span class="keyword">int</span> age;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">()</span></span>&#123;&#125;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="title">Person</span><span class="params">(String name, <span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">super</span>();</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(<span class="keyword">int</span> age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="string">"Person [id="</span> + id + <span class="string">", name="</span> + name + <span class="string">", age="</span> + age + <span class="string">"]"</span>;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>com.hhh.dao.PersonDao</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.dao;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.bean.Person;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">PersonDao</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">addPerson</span><span class="params">(Person person)</span></span>;</div><div class="line">	</div><div class="line">	<span class="function">List&lt;Person&gt; <span class="title">listAllPerson</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p><code>com.hhh.dao.impl.PersonDaoImpl</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.dao.impl;</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.annotation.Resource;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.hibernate.Session;</div><div class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</div><div class="line"><span class="keyword">import</span> org.hibernate.Transaction;</div><div class="line"><span class="keyword">import</span> org.springframework.orm.hibernate5.support.HibernateDaoSupport;</div><div class="line"><span class="keyword">import</span> org.springframework.transaction.annotation.Transactional;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.bean.Person;</div><div class="line"><span class="keyword">import</span> com.hhh.dao.PersonDao;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PersonDaoImpl</span> <span class="keyword">implements</span> <span class="title">PersonDao</span></span>&#123;</div><div class="line">	</div><div class="line">	<span class="keyword">private</span> SessionFactory factory;</div><div class="line">	</div><div class="line">	<span class="meta">@Transactional</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">addPerson</span><span class="params">(Person person)</span> </span>&#123;</div><div class="line">		Session session = factory.getCurrentSession();</div><div class="line">		session.save(person);</div><div class="line">		</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@Transactional</span></div><div class="line">	<span class="function"><span class="keyword">public</span> List&lt;Person&gt; <span class="title">listAllPerson</span><span class="params">()</span> </span>&#123;</div><div class="line">		Session session = factory.getCurrentSession();</div><div class="line">		List&lt;Person&gt; persons = session.createQuery(<span class="string">"FROM Person"</span>).getResultList();</div><div class="line">		<span class="keyword">return</span> persons;</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setFactory</span><span class="params">(SessionFactory factory)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.factory = factory;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+<li><p>测试类:<code>com.hhh.test.TestApp</code></p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.util.List;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.hibernate.SessionFactory;</div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.context.support.ClassPathXmlApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.bean.Person;</div><div class="line"><span class="keyword">import</span> com.hhh.dao.PersonDao;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestApp</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHB</span><span class="params">()</span></span>&#123;</div><div class="line">		ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line">		SessionFactory factory = (SessionFactory) context.getBean(<span class="string">"sessionFactory"</span>);</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testAddPerson</span><span class="params">()</span></span>&#123;</div><div class="line">		ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line">		PersonDao dao = (PersonDao) context.getBean(<span class="string">"personDao"</span>);</div><div class="line">		Person person = <span class="keyword">new</span> Person(<span class="string">"hhh"</span>,<span class="number">20</span>);</div><div class="line">		dao.addPerson(person);</div><div class="line">	&#125;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testListPerson</span><span class="params">()</span></span>&#123;</div><div class="line">		ApplicationContext context = <span class="keyword">new</span> ClassPathXmlApplicationContext(<span class="string">"applicationContext.xml"</span>);</div><div class="line">		PersonDao dao = (PersonDao) context.getBean(<span class="string">"personDao"</span>);</div><div class="line">		List&lt;Person&gt; persons = dao.listAllPerson();</div><div class="line">		<span class="keyword">for</span>(Person p:persons)&#123;</div><div class="line">			System.out.println(p);</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h1 id="代码详情-1"><a href="#代码详情-1" class="headerlink" title="代码详情"></a>代码详情</h1><p>请点此处：<a href="https://github.com/super3H/j2EE/tree/master/Spring-Hibernate" target="_blank" rel="external">Spring-Hibernate</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-03T06:16:43.869Z" itemprop="dateUpdated">2017-05-03 14:16:43</time>
+</span><br>
+
+
+        
+        一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<a href="/2017/02/26/Spring-hibernate整合/" target="_blank" rel="external">https://super3h.me/2017/02/26/Spring-hibernate整合/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/26/Spring-hibernate整合/&title=《Spring-hibernate整合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/26/Spring-hibernate整合/&title=《Spring-hibernate整合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/26/Spring-hibernate整合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring-hibernate整合》 — HHH'Blog&url=https://super3h.me/2017/02/26/Spring-hibernate整合/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/26/Spring-hibernate整合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/03/01/s2sh三大框架的整合/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">s2sh三大框架的整合</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/25/Spring AOP+AspectJ/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Spring AOP+AspectJ</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/26/Spring-hibernate整合/index.html',
+        sourceId: 'Spring-hibernate整合',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        谢谢大爷~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/26/Spring-hibernate整合/&title=《Spring-hibernate整合》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/26/Spring-hibernate整合/&title=《Spring-hibernate整合》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/26/Spring-hibernate整合/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring-hibernate整合》 — HHH'Blog&url=https://super3h.me/2017/02/26/Spring-hibernate整合/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/26/Spring-hibernate整合/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACKUlEQVR42u3aS24CMRAFQO5/abKNFGb0XhsiYZdXEQGPaxat/vjxiNfz17r6/Gr9/ubfv6+e9fjEwsDA+FpGfoj8v1dHv38dya+udsDAwDiBcR/48lCbH+V+5/xsGBgYGLOAeJVQroRsDAwMjJaRl5qzRBADAwNjVsTmjLYYnn0fAwPjHEYbNP/z74/MNzAwML6K8SxXPuDMC912GPBiHwwMjK0ZeYBrr1DkeyYDzujyBwYGxtaMlSsO9+2wWVKYPOWSioGBsSmjaL4nIW8UUtuA/uITDAyMAxjvas2338k/GY4wMTAwvpyRX3Roi9KVEWm7GwYGxgmM9trErMXfBvd8qICBgbE3o318Xo621zXyYrhoumFgYGzBaJO2+zbZelKYJKAvnouBgbE1o55zLgwS2lCbDw8wMDD2ZsyKxjxlnO1QvyAMDIytGbONorZXeeg3XA7DwMA4gJE31JKH5cdKxplFEYuBgbE1Iz9im1bmI9LhZQsMDIzjGW3obC9ttMG67hpiYGBsxMhHlXl5mezZtu0u98TAwDiS0aZ6SZh+17gUAwPjTEZbOs6ui723xYaBgXEC41muhN3+6g1UDAyMrRn5ahPElSsaLRgDA+MExizItgPOlTR06U1jYGBsxMgDX7tbm3q2Lx0DAwMjGTG2Tbe86f/BgIuBgbE1Y4ZZqaGjgSgGBsYBjKSIbYvbtrmf/xYDA+M0xizkzYJpXrjOklEMDIztGD8TS4mHJSAjAAAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '死鬼去哪里了！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '(つェ⊂)咦!又好了!';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>
