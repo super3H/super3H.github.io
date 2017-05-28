@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-05-11T01:34:54.990Z</updated>
+  <updated>2017-05-28T09:55:00.682Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -20,12 +20,18 @@
     <link href="https://super3h.me/2017/05/09/HTML%E4%B8%AD%E5%80%92%E4%B8%89%E8%A7%92%E5%92%8C%E6%AD%A3%E4%B8%89%E8%A7%92/"/>
     <id>https://super3h.me/2017/05/09/HTML中倒三角和正三角/</id>
     <published>2017-05-09T15:09:52.066Z</published>
-    <updated>2017-05-11T01:34:54.990Z</updated>
+    <updated>2017-05-28T09:55:00.682Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常看到网站有这种符号▽的出现，刚好作业碰到这个问题，于是认真的学了下</p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>看似容易的，其实真的很容易。。</p>
 <ul>
-<li>效果如下:<br><img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt=""></li>
+<li>效果如下:<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>分析代码如下：<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">    <span class="attribute">border-color</span>:<span class="number">#bbb</span> transparent transparent;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">b</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">	<span class="attribute">border-color</span>:transparent transparent <span class="number">#bbb</span> transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -60,6 +66,8 @@
       <category term="html" scheme="https://super3h.me/categories/html/"/>
     
     
+      <category term="html" scheme="https://super3h.me/tags/html/"/>
+    
   </entry>
   
   <entry>
@@ -67,7 +75,7 @@
     <link href="https://super3h.me/2017/05/05/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE-%E4%B8%8D%E7%AD%89%E9%95%BF/"/>
     <id>https://super3h.me/2017/05/05/路由器配置-不等长/</id>
     <published>2017-05-05T01:51:43.811Z</published>
-    <updated>2017-05-05T02:08:53.681Z</updated>
+    <updated>2017-05-28T10:17:01.501Z</updated>
     
     <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><ul>
 <li>网络号为：218.197.17.0</li>
@@ -181,7 +189,13 @@
 </tr>
 </tbody>
 </table>
-<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置-不等长/1.png" alt=""></p>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/05/路由器配置-不等长/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
 ]]></content>
     
@@ -196,6 +210,8 @@
     </summary>
     
     
+      <category term="计算机网络" scheme="https://super3h.me/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
+    
   </entry>
   
   <entry>
@@ -203,11 +219,17 @@
     <link href="https://super3h.me/2017/04/23/%E5%AE%B9%E5%99%A8%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6-Map/"/>
     <id>https://super3h.me/2017/04/23/容器深入研究-Map/</id>
     <published>2017-04-23T15:10:15.136Z</published>
-    <updated>2017-04-27T14:14:02.365Z</updated>
+    <updated>2017-05-28T10:16:34.217Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><font color="#CD5555"><strong>由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！</strong></font>
 
-<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><p><img src="/2017/04/23/容器深入研究-Map/1.png" alt=""></p>
+<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <table>
 <thead>
 <tr>
@@ -243,7 +265,13 @@
 </tbody>
 </table>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
-<li><strong>HashMap的存储结构</strong><br><img src="/2017/04/23/容器深入研究-Map/2.png" alt=""></li>
+<li><strong>HashMap的存储结构</strong><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li><p><strong>HashMap有四个构造方法，方法中有两个很重要的参数：初始容量和加载因子</strong></p>
 <ul>
 <li>这两个参数是影响HashMap性能的重要参数，其中容量表示哈希表中槽的数量（即哈希数组的长度），<strong><font color="#0077BB">初始容量</font>是创建哈希表时的容量（默认为16），<font color="#0077BB">加载因子</font>是哈希表当前key的数量和容量的比值，<font color="#CD5555">当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表提前进行 resize 操作（即扩容）。</font></strong>如果加载因子越大，对空间的利用更充分，但是查找效率会降低（链表长度会越来越长）；如果加载因子太小，那么表中的数据将过于稀疏（很多空间还没用，就开始扩容了），严重浪费。</li>
@@ -304,6 +332,8 @@
       <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
     
     
+      <category term="JavaSE Map" scheme="https://super3h.me/tags/JavaSE-Map/"/>
+    
   </entry>
   
   <entry>
@@ -311,9 +341,16 @@
     <link href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE-%E7%AD%89%E9%95%BF/"/>
     <id>https://super3h.me/2017/04/21/路由器配置-等长/</id>
     <published>2017-04-21T14:30:22.550Z</published>
-    <updated>2017-05-11T01:08:05.103Z</updated>
+    <updated>2017-05-28T10:17:24.985Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置-等长/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
 <li>给出子网划分方案，并给出每个子网主机的地址空间；</li>
 <li>完成网络地址分配，以表格的形式提供；</li>
@@ -347,35 +384,99 @@
 </tr>
 </tbody>
 </table>
-<p>这里我们在图上配置好我们的图:<br><img src="/2017/04/21/路由器配置-等长/2.png" alt=""><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
-<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/3.png" alt=""><br>接下来我们给pc机和服务器配置相应的ip:</p>
+<p>这里我们在图上配置好我们的图:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
+<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>接下来我们给pc机和服务器配置相应的ip:</p>
 <ul>
-<li><p>pc机配置如下：<br><img src="/2017/04/21/路由器配置-等长/4.png" alt=""></p>
+<li><p>pc机配置如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>另一个pc机操作也同上</p>
 </blockquote>
 </li>
-<li><p>服务器配置如下:<br><img src="/2017/04/21/路由器配置-等长/5.png" alt=""></p>
+<li><p>服务器配置如下:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>另一个服务器操作也同上</p>
 </blockquote>
 </li>
 </ul>
-<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><img src="/2017/04/21/路由器配置-等长/6.png" alt=""><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><img src="/2017/04/21/路由器配置-等长/7.png" alt=""><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
+<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
 <ul>
-<li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置-等长/11.png" alt=""></p>
+<li><p>配置链接左边那块的路由器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是绿色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
 </blockquote>
 </li>
-<li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置-等长/12.png" alt=""></p>
+<li><p>配置各个pc、服务器的默认网关、和dns服务器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.250，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/2017/04/21/路由器配置-等长/13.png" alt=""></p>
-<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><img src="/2017/04/21/路由器配置-等长/14.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="配置4个路由的端口"><a href="#配置4个路由的端口" class="headerlink" title="配置4个路由的端口"></a>配置4个路由的端口</h2><table>
 <thead>
 <tr>
@@ -402,31 +503,105 @@
 </tr>
 </tbody>
 </table>
-<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><img src="/2017/04/21/路由器配置-等长/15.png" alt=""></p>
+<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p>操作如下:</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/16.png" alt=""><br>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><img src="/2017/04/21/路由器配置-等长/17.png" alt=""><br>操作完成后，我们来用pc机ping一下来确认:<br><img src="/2017/04/21/路由器配置-等长/18.png" alt=""><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/19.png" alt=""><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><img src="/2017/04/21/路由器配置-等长/20.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>操作完成后，我们来用pc机ping一下来确认:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p><strong>倘若我们要通过最左边的电脑来访问左右边的电脑咋办？？</strong><br><code>分析：</code>最左边访问最右边，<strong>当然要通过管理最左边的路由器来路由数据</strong>，所以这里我们配置其静态路由：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/21.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>这里有两条路可以走，博主选的上面这条路，配置完后就可以访问了么？？我们来试一下：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/22.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>发现都没办法到达目的地，**因为这里我们通过最上方的路由器来路由数据，但它不知道到目的网络在哪，我们再来配置他的静态路由</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/23.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>这个时候我们来ping一下:</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/24.png" alt=""><br><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><img src="/2017/04/21/路由器配置-等长/25.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p>在ping一下确认：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/26.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
 </blockquote>
@@ -437,12 +612,16 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2017/04/21/路由器配置-等长/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;有一个企业网络拓扑结构如上图，回答如下问题
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+
     
     </summary>
     
       <category term="计算机网络" scheme="https://super3h.me/categories/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
+    
+      <category term="计算机网络" scheme="https://super3h.me/tags/%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C/"/>
     
   </entry>
   
@@ -451,7 +630,7 @@
     <link href="https://super3h.me/2017/04/17/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
     <id>https://super3h.me/2017/04/17/Java8新特性/</id>
     <published>2017-04-17T11:38:45.160Z</published>
-    <updated>2017-04-17T11:41:04.274Z</updated>
+    <updated>2017-05-28T10:00:39.447Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识</p>
 <h1 id="Lambda表达式和函数式接口"><a href="#Lambda表达式和函数式接口" class="headerlink" title="Lambda表达式和函数式接口"></a>Lambda表达式和函数式接口</h1>]]></content>
@@ -466,6 +645,8 @@
       <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
     
     
+      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
+    
   </entry>
   
   <entry>
@@ -473,26 +654,50 @@
     <link href="https://super3h.me/2017/04/15/Java-Sum%E7%BB%83%E4%B9%A0/"/>
     <id>https://super3h.me/2017/04/15/Java-Sum练习/</id>
     <published>2017-04-15T11:45:24.098Z</published>
-    <updated>2017-04-16T01:15:10.166Z</updated>
+    <updated>2017-05-28T10:00:05.890Z</updated>
     
     <content type="html"><![CDATA[<h1 id="有关算法数字求和总结"><a href="#有关算法数字求和总结" class="headerlink" title="有关算法数字求和总结"></a>有关算法数字求和总结</h1><p><strong>题目设置数字个数设置不大时，可以添加判断来减少算法的时间复杂度，但是当个数过多时，添加过多的判断则会导致处理时间增大！！！</strong></p>
 <h2 id="TowSum"><a href="#TowSum" class="headerlink" title="TowSum"></a>TowSum</h2><ul>
-<li>题目<br><img src="/2017/04/15/Java-Sum练习/2.png" alt=""></li>
+<li>题目<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/15/Java-Sum练习/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</div><div class="line">	    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</div><div class="line">	        <span class="keyword">if</span> (map.containsKey(target - numbers[i])) &#123;</div><div class="line">	            result[<span class="number">1</span>] = i + <span class="number">1</span>;</div><div class="line">	            result[<span class="number">0</span>] = map.get(target - numbers[i]);</div><div class="line">	            <span class="keyword">return</span> result;</div><div class="line">	        &#125;</div><div class="line">	        map.put(numbers[i], i + <span class="number">1</span>);</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> result;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="ThreeSum"><a href="#ThreeSum" class="headerlink" title="ThreeSum"></a>ThreeSum</h2><ul>
-<li>题目<br><img src="/2017/04/15/Java-Sum练习/3.png" alt=""></li>
+<li>题目<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/15/Java-Sum练习/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i + <span class="number">2</span> &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;              <span class="comment">// skip same result</span></div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> j = i + <span class="number">1</span>, k = nums.length - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">int</span> target = -nums[i];</div><div class="line">        <span class="keyword">while</span> (j &lt; k) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[j] + nums[k] == target) &#123;</div><div class="line">                res.add(Arrays.asList(nums[i], nums[j], nums[k]));</div><div class="line">                j++;</div><div class="line">                k--;</div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) j++;  <span class="comment">// skip same result</span></div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[k] == nums[k + <span class="number">1</span>]) k--;  <span class="comment">// skip same result</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[j] + nums[k] &gt; target) &#123;</div><div class="line">                k--;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="FourSum"><a href="#FourSum" class="headerlink" title="FourSum"></a>FourSum</h2><ul>
-<li>题目<br><img src="/2017/04/15/Java-Sum练习/1.png" alt=""></li>
+<li>题目<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/15/Java-Sum练习/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">if</span>(nums.length&lt;<span class="number">4</span>)</div><div class="line">			<span class="keyword">return</span> results;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">3</span>;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>])</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;nums.length-<span class="number">2</span>;j++)&#123;</div><div class="line">				<span class="keyword">if</span>((j-<span class="number">1</span>)!=i&amp;&amp;nums[j]==nums[j-<span class="number">1</span>])</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">int</span> k = j+<span class="number">1</span>,l = nums.length-<span class="number">1</span>;</div><div class="line">				<span class="keyword">int</span> subTarget = target-nums[i]-nums[j];</div><div class="line">				<span class="keyword">while</span>(l&gt;k)&#123;</div><div class="line">					<span class="keyword">if</span>(nums[l]+nums[k] == subTarget)&#123;</div><div class="line">						results.add(Arrays.asList(nums[i],nums[j],nums[k],nums[l]));</div><div class="line">						l--;</div><div class="line">						k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp; nums[k] == nums[k-<span class="number">1</span>]) k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp;nums[l] == nums[l+<span class="number">1</span>]) l--;</div><div class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[l]+nums[k] &gt; subTarget)&#123;</div><div class="line">						l--;</div><div class="line">					&#125;<span class="keyword">else</span>&#123;</div><div class="line">						k++;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> results;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
 <h2 id="FourSum2"><a href="#FourSum2" class="headerlink" title="FourSum2"></a>FourSum2</h2><ul>
-<li>题目<br><img src="/2017/04/15/Java-Sum练习/4.png" alt=""></li>
+<li>题目<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/15/Java-Sum练习/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B, <span class="keyword">int</span>[] C, <span class="keyword">int</span>[] D)</span> </span>&#123;</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">	    </div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;C.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;D.length; j++) &#123;</div><div class="line">	            <span class="keyword">int</span> sum = C[i] + D[j];</div><div class="line">	            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;B.length; j++) &#123;</div><div class="line">	            res += map.getOrDefault(-<span class="number">1</span> * (A[i]+B[j]), <span class="number">0</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">return</span> res;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></li>
 </ul>
 ]]></content>
@@ -506,6 +711,8 @@
       <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
     
     
+      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
+    
   </entry>
   
   <entry>
@@ -513,7 +720,7 @@
     <link href="https://super3h.me/2017/04/15/Java-ValueOf/"/>
     <id>https://super3h.me/2017/04/15/Java-ValueOf/</id>
     <published>2017-04-15T05:57:14.156Z</published>
-    <updated>2017-04-15T06:06:52.492Z</updated>
+    <updated>2017-05-28T10:00:14.785Z</updated>
     
     <content type="html"><![CDATA[<h1 id="value-of"><a href="#value-of" class="headerlink" title="value of"></a>value of</h1><ul>
 <li>Integer valueOf(int i)：返回一个表示指定的 int 值的 Integer 实例。</li>
@@ -537,6 +744,8 @@
       <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
     
     
+      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
+    
   </entry>
   
   <entry>
@@ -544,7 +753,7 @@
     <link href="https://super3h.me/2017/03/29/SpringMVC%20%E6%B3%A8%E8%A7%A3/"/>
     <id>https://super3h.me/2017/03/29/SpringMVC 注解/</id>
     <published>2017-03-29T08:24:45.565Z</published>
-    <updated>2017-05-03T06:16:49.223Z</updated>
+    <updated>2017-05-28T10:10:49.263Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>初学SpringMVC，发现有些注解功能有些类似，都为获取前台数据，这里主要讲这些注解的分别！</p>
 <h1 id="SpringMVC-注解"><a href="#SpringMVC-注解" class="headerlink" title="SpringMVC 注解"></a>SpringMVC 注解</h1><h2 id="PathVariable"><a href="#PathVariable" class="headerlink" title="@PathVariable"></a>@PathVariable</h2><p><strong>用来映射RESTful风格的url</strong>，例如<code>@RequestMapping(/getCourse/{id})</code>，获取id则可以通过这个<code>@PathVariable(&quot;id&quot;) Integer courseId</code>来拿到.</p>
@@ -590,6 +799,8 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+    
   </entry>
   
   <entry>
@@ -597,10 +808,16 @@
     <link href="https://super3h.me/2017/03/28/div%E8%A6%86%E7%9B%96/"/>
     <id>https://super3h.me/2017/03/28/div覆盖/</id>
     <published>2017-03-28T01:05:47.053Z</published>
-    <updated>2017-05-03T06:14:43.664Z</updated>
+    <updated>2017-05-28T09:50:25.863Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>后端工程师也有一个前台梦  哈哈!!!!</p>
-<h1 id="div覆盖"><a href="#div覆盖" class="headerlink" title="div覆盖"></a>div覆盖</h1><p><code>目的</code>：通过点击按钮，弹出小方框背景为灰色，效果如下：<br><img src="/2017/03/28/div覆盖/./div覆盖/1.png" alt=""><br>再次点击灰色，样式恢复<br>源码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-class">.main</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">960px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">800px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#FF9966</span>;</div><div class="line">				<span class="attribute">margin</span>: <span class="number">0px</span> auto;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.mask</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">900</span>;</div><div class="line">				<span class="comment">/*以下设置覆盖整个窗口*/</span></div><div class="line">				<span class="attribute">position</span>: fixed;</div><div class="line">				<span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#000</span>;<span class="comment">/*灰色背景*/</span></div><div class="line">				<span class="attribute">opacity</span>: <span class="number">0.45</span>;<span class="comment">/*透明度*/</span></div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.opendiv</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">920</span>;</div><div class="line">				<span class="comment">/*设置div位置*/</span></div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">margin-left</span>: -<span class="number">175px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: -<span class="number">125px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">334px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">180px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#6699FF</span>;</div><div class="line">				<span class="attribute">text-align</span>: center;</div><div class="line">				<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">topmargin</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">			网页主体内容，包含网页其他栏目</div><div class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"on()"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--蒙板--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mask"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">onclick</span>=<span class="string">"off()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"opendiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></div><div class="line">			最上层DIV覆盖下面的全部DIV</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为inline-block</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">if</span>(mask.style.display==<span class="string">"none"</span>)&#123;</div><div class="line">				mask.style.display=<span class="string">"inline-block"</span>;</div><div class="line">				opendiv.style.display=<span class="string">"inline-block"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">off</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为none</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			mask.style.display=<span class="string">"none"</span>;</div><div class="line">			opendiv.style.display=<span class="string">"none"</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<h1 id="div覆盖"><a href="#div覆盖" class="headerlink" title="div覆盖"></a>div覆盖</h1><p><code>目的</code>：通过点击按钮，弹出小方框背景为灰色，效果如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/28/div覆盖/./div覆盖/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>再次点击灰色，样式恢复<br>源码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-class">.main</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">960px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">800px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#FF9966</span>;</div><div class="line">				<span class="attribute">margin</span>: <span class="number">0px</span> auto;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.mask</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">900</span>;</div><div class="line">				<span class="comment">/*以下设置覆盖整个窗口*/</span></div><div class="line">				<span class="attribute">position</span>: fixed;</div><div class="line">				<span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#000</span>;<span class="comment">/*灰色背景*/</span></div><div class="line">				<span class="attribute">opacity</span>: <span class="number">0.45</span>;<span class="comment">/*透明度*/</span></div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.opendiv</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">920</span>;</div><div class="line">				<span class="comment">/*设置div位置*/</span></div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">margin-left</span>: -<span class="number">175px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: -<span class="number">125px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">334px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">180px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#6699FF</span>;</div><div class="line">				<span class="attribute">text-align</span>: center;</div><div class="line">				<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">topmargin</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">			网页主体内容，包含网页其他栏目</div><div class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"on()"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--蒙板--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mask"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">onclick</span>=<span class="string">"off()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"opendiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></div><div class="line">			最上层DIV覆盖下面的全部DIV</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为inline-block</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">if</span>(mask.style.display==<span class="string">"none"</span>)&#123;</div><div class="line">				mask.style.display=<span class="string">"inline-block"</span>;</div><div class="line">				opendiv.style.display=<span class="string">"inline-block"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">off</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为none</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			mask.style.display=<span class="string">"none"</span>;</div><div class="line">			opendiv.style.display=<span class="string">"none"</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>解释见代码！！</p>
 <blockquote>
 <p>详情请参考<a href="http://www.91ctc.com/article/article-129.html" target="_blank" rel="external">DIV块的覆盖，DIV层遮盖其他DIV</a></p>
@@ -617,6 +834,8 @@
       <category term="js" scheme="https://super3h.me/categories/js/"/>
     
     
+      <category term="js" scheme="https://super3h.me/tags/js/"/>
+    
   </entry>
   
   <entry>
@@ -624,7 +843,7 @@
     <link href="https://super3h.me/2017/03/27/Spring%20MVC%E5%A4%9A%E8%A7%A3%E6%9E%90%E5%99%A8%E6%98%A0%E5%B0%84/"/>
     <id>https://super3h.me/2017/03/27/Spring MVC多解析器映射/</id>
     <published>2017-03-27T14:41:17.492Z</published>
-    <updated>2017-05-03T06:16:34.904Z</updated>
+    <updated>2017-05-28T10:10:24.507Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC多解析器映射"><a href="#Spring-MVC多解析器映射" class="headerlink" title="Spring MVC多解析器映射"></a>Spring MVC多解析器映射</h1><ul>
 <li><p>MultipleResolver-servlet.xml</p>
@@ -658,6 +877,8 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+    
   </entry>
   
   <entry>
@@ -665,7 +886,7 @@
     <link href="https://super3h.me/2017/03/26/SpringMVC%E6%96%87%E4%BB%B6%E4%B8%8A%E4%BC%A0/"/>
     <id>https://super3h.me/2017/03/26/SpringMVC文件上传/</id>
     <published>2017-03-26T13:35:24.388Z</published>
-    <updated>2017-05-03T06:16:54.280Z</updated>
+    <updated>2017-05-28T10:10:59.314Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SpringMVC文件上传"><a href="#SpringMVC文件上传" class="headerlink" title="SpringMVC文件上传"></a>SpringMVC文件上传</h1><p>这里直接上代码：</p>
 <ul>
@@ -677,7 +898,13 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NullPointerException</div></pre></td></tr></table></figure>
 <p>定位到这一段:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div></pre></td></tr></table></figure></p>
-<p>debug调试可知，前端文件传不进来:<br><img src="/2017/03/26/SpringMVC文件上传/1.png" alt=""></p>
+<p>debug调试可知，前端文件传不进来:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/26/SpringMVC文件上传/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <ul>
 <li>FileUploadController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.ModelMap;</div><div class="line"><span class="keyword">import</span> org.springframework.util.FileCopyUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.annotation.Validated;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.domain.FIleUpload;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	ServletContext context;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/fileupload"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">fileUpload</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">"fileupload"</span>,<span class="string">"command"</span>,<span class="keyword">new</span> FIleUpload());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/success"</span>,method=RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">fileUploadPage</span><span class="params">(FIleUpload upload,BindingResult result,ModelMap model)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		String realPath = context.getRealPath(<span class="string">""</span>);</div><div class="line">		String basePath = realPath.substring(<span class="number">0</span>,realPath.indexOf(<span class="string">"\\."</span>));</div><div class="line">		String storePath = basePath+File.separator+context.getContextPath().substring(context.getContextPath().indexOf(<span class="string">"/"</span>)+<span class="number">1</span>)+<span class="string">"\\upload"</span>;</div><div class="line">		<span class="keyword">if</span>(result.hasErrors())&#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">"fileupload"</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			MultipartFile file = upload.getFile();</div><div class="line">            <span class="comment">//文件写入</span></div><div class="line">    	   FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div><div class="line">			String filename = file.getOriginalFilename();</div><div class="line">			model.addAttribute(<span class="string">"filename"</span>, filename);</div><div class="line">			<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -698,6 +925,8 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
+    
   </entry>
   
   <entry>
@@ -705,10 +934,16 @@
     <link href="https://super3h.me/2017/03/25/Spring%20MVC%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
     <id>https://super3h.me/2017/03/25/Spring MVC错误处理/</id>
     <published>2017-03-25T11:28:11.259Z</published>
-    <updated>2017-05-03T06:16:38.294Z</updated>
+    <updated>2017-05-28T10:10:30.170Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC错误处理"><a href="#Spring-MVC错误处理" class="headerlink" title="Spring MVC错误处理"></a>Spring MVC错误处理</h1><p>以下示例将如何在使用Spring Web MVC框架的表单中使用错误处理和验证器</p>
-<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><p><img src="/2017/03/25/Spring MVC错误处理/1.png" alt=""></p>
+<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/1.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/1.png</div>
+            </figure>
 <h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><ul>
 <li><p>Person.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.domain;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Integer age;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> Integer id;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -779,9 +1014,59 @@
 <blockquote>
 <p>这里想看hibernate验证器可点击<a href="http://www.yiibai.com/spring_mvc/springmvc_hibernate_validator.html" target="_blank" rel="external">Spring MVC Hibernate验证器</a></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><p>springmvc中控制器，即我们的<code>PersonController</code>为单例</p>
-<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><img src="/2017/03/25/Spring MVC错误处理/2.png" alt=""><br>先跳转到<br><img src="/2017/03/25/Spring MVC错误处理/3.png" alt=""><br>在之后<br><img src="/2017/03/25/Spring MVC错误处理/4.png" alt=""><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
+<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/2.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/2.png</div>
+            </figure><br>先跳转到<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/3.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/3.png</div>
+            </figure><br>在之后<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/4.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/4.png</div>
+            </figure><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
 </blockquote>
-<p><img src="/2017/03/25/Spring MVC错误处理/5.png" alt=""><br><img src="/2017/03/25/Spring MVC错误处理/6.png" alt=""><br>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><img src="/2017/03/25/Spring MVC错误处理/7.png" alt=""><br>可以看出我们的错误:<br><img src="/2017/03/25/Spring MVC错误处理/8.png" alt=""><br>之后报错:<br><img src="/2017/03/25/Spring MVC错误处理/9.png" alt=""><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/5.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/5.png</div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/6.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/6.png</div>
+            </figure>
+<p>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/7.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/7.png</div>
+            </figure><br>可以看出我们的错误:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/8.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/8.png</div>
+            </figure><br>之后报错:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/9.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/9.png</div>
+            </figure><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
 <p>返回的<code>person</code>，跳到<code>person.jsp</code>，并显示错误!!</p>
 ]]></content>
     
@@ -794,6 +1079,8 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="Spring" scheme="https://super3h.me/tags/Spring/"/>
+    
   </entry>
   
   <entry>
@@ -801,7 +1088,7 @@
     <link href="https://super3h.me/2017/03/25/Python%E7%9A%84with%20%E8%AF%AD%E5%8F%A5/"/>
     <id>https://super3h.me/2017/03/25/Python的with 语句/</id>
     <published>2017-03-25T04:47:09.357Z</published>
-    <updated>2017-03-25T04:53:35.037Z</updated>
+    <updated>2017-05-28T10:05:59.880Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p><strong>with 语句是被设计用来简化“try / finally”语句的。</strong>通常的用处在于共享资源的获取和释放，比如文件、数据库和线程资源。它的用法如下：<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">with</span> context_exp [<span class="keyword">as</span> var]:</div><div class="line">    with_suit</div></pre></td></tr></table></figure></p>
 <h1 id="with-语句解释"><a href="#with-语句解释" class="headerlink" title="with 语句解释"></a>with 语句解释</h1><p>with 语句也是复合语句的一种，就像 if、try 一样，它的后面也有个“：”，并且紧跟一个缩进的代码块 <code>with_suit</code>。 <code>context_exp</code> 表达式的作用是提供一个上下文管理器（Context Manager），整个 with_suit 代码块都是在这个上下文管理器的运行环境下执行的。<strong>context_exp 可以直接是一个上下文管理器的引用，也可以是一句可执行的表达式，with 语句会自动执行这个表达式以获得上下文管理对象。</strong>with 语句的实际执行流程是这样的：</p>
@@ -826,6 +1113,8 @@
       <category term="Python" scheme="https://super3h.me/categories/Python/"/>
     
     
+      <category term="Python2" scheme="https://super3h.me/tags/Python2/"/>
+    
   </entry>
   
   <entry>
@@ -833,7 +1122,7 @@
     <link href="https://super3h.me/2017/03/24/SpringMVC%E8%A1%A8%E5%8D%95/"/>
     <id>https://super3h.me/2017/03/24/SpringMVC表单/</id>
     <published>2017-03-24T13:05:56.716Z</published>
-    <updated>2017-05-03T06:16:57.122Z</updated>
+    <updated>2017-05-28T10:11:04.996Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SpringMVC表单"><a href="#SpringMVC表单" class="headerlink" title="SpringMVC表单"></a>SpringMVC表单</h1><h2 id="过程中所遇问题"><a href="#过程中所遇问题" class="headerlink" title="过程中所遇问题"></a>过程中所遇问题</h2><blockquote>
 <p>报错如下</p>
@@ -876,6 +1165,8 @@
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
+    
   </entry>
   
   <entry>
@@ -883,12 +1174,18 @@
     <link href="https://super3h.me/2017/03/24/SpringMVC%E5%88%9D%E5%AD%A6/"/>
     <id>https://super3h.me/2017/03/24/SpringMVC初学/</id>
     <published>2017-03-24T06:24:22.452Z</published>
-    <updated>2017-05-03T06:16:51.620Z</updated>
+    <updated>2017-05-28T10:10:55.078Z</updated>
     
     <content type="html"><![CDATA[<h1 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h1><blockquote>
 <p>Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。</p>
 </blockquote>
-<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><p><img src="/2017/03/24/SpringMVC初学/1.jpg" alt=""></p>
+<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/24/SpringMVC初学/1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li><code>1.Http请求：</code> 客户端请求提交到DispatcherServlet。 </li>
 <li><code>2.寻找处理器：</code>由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
@@ -973,6 +1270,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="spring" scheme="https://super3h.me/categories/spring/"/>
     
     
+      <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
+    
   </entry>
   
   <entry>
@@ -980,7 +1279,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/23/python%E7%9A%84%E5%AD%97%E8%8A%82%E4%B8%8E%E5%AD%97%E7%AC%A6/"/>
     <id>https://super3h.me/2017/03/23/python的字节与字符/</id>
     <published>2017-03-23T01:05:55.623Z</published>
-    <updated>2017-03-25T05:02:50.231Z</updated>
+    <updated>2017-05-28T10:06:08.296Z</updated>
     
     <content type="html"><![CDATA[<h1 id="str与unicode"><a href="#str与unicode" class="headerlink" title="str与unicode"></a>str与unicode</h1><blockquote>
 <p>Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一串二进制字节序列，下面的示例代码可以看出 str 类型的 “禅” 打印出来是十六进制的 \xec\xf8 ，对应的二进制字节序列就是 ‘11101100 11111000’。</p>
@@ -1055,6 +1354,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="Python" scheme="https://super3h.me/categories/Python/"/>
     
     
+      <category term="Python2" scheme="https://super3h.me/tags/Python2/"/>
+    
   </entry>
   
   <entry>
@@ -1062,12 +1363,18 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/19/%E7%88%AC%E8%99%AB-%E7%88%AC%E5%8F%96%E5%AD%A6%E6%A0%A1%E5%AE%98%E7%BD%91/"/>
     <id>https://super3h.me/2017/03/19/爬虫-爬取学校官网/</id>
     <published>2017-03-19T14:40:10.986Z</published>
-    <updated>2017-04-27T14:14:28.686Z</updated>
+    <updated>2017-05-28T10:16:48.970Z</updated>
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！</p>
 </blockquote>
-<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><p><img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt=""></p>
+<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>正常的登录界面，可以写出以下代码:</p>
 </blockquote>
@@ -1079,7 +1386,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>拿到图片，并下载到本地</p>
 </blockquote>
-<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt=""></p>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>由图可知所需发送的数据:</p>
 </blockquote>
@@ -1087,11 +1400,24 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><blockquote>
 <p>登录并拿到登陆者的姓名</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt=""><br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure>
 <blockquote>
 <p>登录，并拿到登录者姓名</p>
 </blockquote>
-<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt=""></p>
+<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>可知queryString为tjkbcx.aspx?xh=2014115010127&amp;xm=黄辉辉&amp;gnmkdm=N121601，代码如下:</p>
 </blockquote>
@@ -1107,7 +1433,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>由于请求头还缺少<code>referer</code>，导致跳转到登录页面，最后截图成了登录页面。。。。我也是醉了，找了我一下午，还没找到，有网友找到后，请告知，谢啦！！</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><blockquote>
 <p>解决中文编码<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sel.xpath(<span class="string">u"//h2[text()= 'xx']"</span>)</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -1124,6 +1456,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="Python" scheme="https://super3h.me/categories/Python/"/>
     
     
+      <category term="Python 爬虫" scheme="https://super3h.me/tags/Python-%E7%88%AC%E8%99%AB/"/>
+    
   </entry>
   
   <entry>
@@ -1131,7 +1465,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/17/%E9%A1%B5%E9%9D%A2%E7%82%B9%E8%B5%9E/"/>
     <id>https://super3h.me/2017/03/17/页面点赞/</id>
     <published>2017-03-17T12:54:38.828Z</published>
-    <updated>2017-04-27T14:14:37.731Z</updated>
+    <updated>2017-05-28T10:17:35.827Z</updated>
     
     <content type="html"><![CDATA[<h1 id="页面点赞"><a href="#页面点赞" class="headerlink" title="页面点赞"></a>页面点赞</h1><h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.zan</span>,<span class="selector-class">.zan1</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">position</span>: relative;</div><div class="line">				<span class="attribute">float</span>: right;</div><div class="line">				<span class="attribute">padding-left</span>: <span class="number">40px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">				<span class="comment">/* relative(相对定位) 对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级 */</span></div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之前添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="comment">/* 正方形的内切圆的半径等于正方形边长的一半 */</span></div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="comment">/* 长方形 */</span></div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="comment">/* 逆时针旋转45°*/</span></div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="comment">/* absolute(绝对定位) 脱离文档流，通过 top,bottom,left,right 定位 */</span></div><div class="line">				<span class="attribute">left</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之后添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:after</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">28px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#4C9ED9</span>;</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
 <h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"zan"</span> <span class="attr">style</span>=<span class="string">"cursor: pointer;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
@@ -1143,7 +1477,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>这里贴一张效果图</p>
 </blockquote>
-<p><img src="/2017/03/17/页面点赞/1.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/17/页面点赞/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.qdfuns.com/notes/14388/6c55f67462c70fc1e5042cf1d5417bf9.html" target="_blank" rel="external">点赞效果实现——点击♥后边的数量+1，再次点击♥后边的数量-1</a></p>
 ]]></content>
     
@@ -1156,6 +1496,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="html" scheme="https://super3h.me/categories/html/"/>
     
     
+      <category term="html" scheme="https://super3h.me/tags/html/"/>
+    
   </entry>
   
   <entry>
@@ -1163,7 +1505,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/14/%E5%89%8D%E5%8F%B0%E5%AD%A6%E4%B9%A0/"/>
     <id>https://super3h.me/2017/03/14/前台学习/</id>
     <published>2017-03-14T08:50:57.405Z</published>
-    <updated>2017-04-27T14:13:50.575Z</updated>
+    <updated>2017-05-28T10:15:57.288Z</updated>
     
     <content type="html"><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="position-relative定位"><a href="#position-relative定位" class="headerlink" title="position:relative定位"></a>position:relative定位</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position:absolute"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -1184,6 +1526,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="html" scheme="https://super3h.me/categories/html/"/>
     
     
+      <category term="html" scheme="https://super3h.me/tags/html/"/>
+    
   </entry>
   
   <entry>
@@ -1191,7 +1535,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <link href="https://super3h.me/2017/03/14/Js%E6%8A%80%E5%B7%A7/"/>
     <id>https://super3h.me/2017/03/14/Js技巧/</id>
     <published>2017-03-14T06:07:29.548Z</published>
-    <updated>2017-05-03T06:15:37.756Z</updated>
+    <updated>2017-05-28T10:01:22.345Z</updated>
     
     <content type="html"><![CDATA[<h1 id="导航菜单div的切换"><a href="#导航菜单div的切换" class="headerlink" title="导航菜单div的切换"></a>导航菜单div的切换</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
 <p>通过点击事件将div属性由<code>display:none;</code>变为<code>display:block</code></p>
@@ -1232,6 +1576,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     
       <category term="js" scheme="https://super3h.me/categories/js/"/>
     
+    
+      <category term="js" scheme="https://super3h.me/tags/js/"/>
     
   </entry>
   

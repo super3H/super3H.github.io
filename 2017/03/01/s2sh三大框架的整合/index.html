@@ -18,10 +18,10 @@
     <title>s2sh三大框架的整合 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#20A0FF">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Project">
     <meta name="description" content="前言
 断断续续的学完了三大框架，自己也想尝试整合三大框架，这里记录我碰到的问题，以及学习的过程。
 
@@ -41,7 +41,7 @@
 
 1234ERROR ParametersInterceptor Developer Notification (set struts.devMode to false to disable this message):Un">
 <meta property="og:image" content="https://super3h.me/2017/03/01/s2sh三大框架的整合/1.png">
-<meta property="og:updated_time" content="2017-04-27T14:11:07.194Z">
+<meta property="og:updated_time" content="2017-05-28T10:08:56.927Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="s2sh三大框架的整合">
 <meta name="twitter:description" content="前言
@@ -260,7 +260,14 @@
 <p>注意：<font color="#ED8F76"><strong>加上classpath是让spring从src中读取</strong></font></p>
 </blockquote>
 <h1 id="Log4J日志配置"><a href="#Log4J日志配置" class="headerlink" title="Log4J日志配置"></a>Log4J日志配置</h1><h2 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h2><ul>
-<li>如下图<br><img src="/2017/03/01/s2sh三大框架的整合/1.png" alt=""></li>
+<li>如下图<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/01/s2sh三大框架的整合/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+</li>
 </ul>
 <h2 id="web-xml配置如下"><a href="#web-xml配置如下" class="headerlink" title="web.xml配置如下"></a>web.xml配置如下</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- log4j配置，文件路径，因为是跟随项目启动 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>loggingLevel<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>info<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 加载log4j配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="log4J-properties配置"><a href="#log4J-properties配置" class="headerlink" title="log4J.properties配置"></a>log4J.properties配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># Define the root logger with appender file</div><div class="line">log4j.rootLogger = DEBUG, FILE</div><div class="line"></div><div class="line"># Define the file appender</div><div class="line">log4j.appender.FILE=org.apache.log4j.FileAppender</div><div class="line"># Set the name of the file</div><div class="line">log4j.appender.FILE.File=G:\\log4J\u65E5\u5FD7\\s2sh_test01\\htmlLayout.html</div><div class="line"></div><div class="line"># Set the immediate flush to true (default)</div><div class="line">log4j.appender.FILE.ImmediateFlush=true</div><div class="line"></div><div class="line"># Set the threshold to debug mode</div><div class="line">log4j.appender.FILE.Threshold=debug</div><div class="line"></div><div class="line"># Define the layout for file appender</div><div class="line">log4j.appender.FILE.layout=org.apache.log4j.HTMLLayout</div><div class="line">log4j.appender.FILE.layout.Title=HTML Layout Example</div><div class="line">log4j.appender.FILE.layout.LocationInfo=true</div></pre></td></tr></table></figure>
@@ -272,7 +279,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-27T14:11:07.194Z" itemprop="dateUpdated">2017-04-27 22:11:07</time>
+    最后更新时间：<time datetime="2017-05-28T10:08:56.927Z" itemprop="dateUpdated">2017-05-28 18:08:56</time>
 </span><br>
 
 
@@ -297,6 +304,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Project/">Project</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -420,7 +429,7 @@
     <ul class="reward-items">
         
         <li>
-            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
             <p>微信</p>
         </li>
         

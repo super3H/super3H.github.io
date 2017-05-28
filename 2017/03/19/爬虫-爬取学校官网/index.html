@@ -18,18 +18,24 @@
     <title>爬虫-爬取学校官网 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#20A0FF">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Python 爬虫">
     <meta name="description" content="前言
 之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！
 
 结构分析
+                
+                    
+                    
+                
+                
+            
 
 正常的登录界面，可以写出以下代码:
 
-初始化1234567# 传入对应用户名(studentnumber),密码(password),学校官网(schoolURL)def __init__(self,studentnumber,password,sch">
+初">
 <meta property="og:type" content="article">
 <meta property="og:title" content="爬虫-爬取学校官网">
 <meta property="og:url" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/index.html">
@@ -38,26 +44,38 @@
 之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！
 
 结构分析
+                
+                    
+                    
+                
+                
+            
 
 正常的登录界面，可以写出以下代码:
 
-初始化1234567# 传入对应用户名(studentnumber),密码(password),学校官网(schoolURL)def __init__(self,studentnumber,password,sch">
+初">
 <meta property="og:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/1.png">
 <meta property="og:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/2.png">
 <meta property="og:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/3.png">
 <meta property="og:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/4.png">
 <meta property="og:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/course.jpg">
-<meta property="og:updated_time" content="2017-04-27T14:14:28.686Z">
+<meta property="og:updated_time" content="2017-05-28T10:16:48.970Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="爬虫-爬取学校官网">
 <meta name="twitter:description" content="前言
 之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！
 
 结构分析
+                
+                    
+                    
+                
+                
+            
 
 正常的登录界面，可以写出以下代码:
 
-初始化1234567# 传入对应用户名(studentnumber),密码(password),学校官网(schoolURL)def __init__(self,studentnumber,password,sch">
+初">
 <meta name="twitter:image" content="https://super3h.me/2017/03/19/爬虫-爬取学校官网/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -226,7 +244,13 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！</p>
 </blockquote>
-<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><p><img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt=""></p>
+<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>正常的登录界面，可以写出以下代码:</p>
 </blockquote>
@@ -238,7 +262,13 @@
 <blockquote>
 <p>拿到图片，并下载到本地</p>
 </blockquote>
-<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt=""></p>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>由图可知所需发送的数据:</p>
 </blockquote>
@@ -246,11 +276,24 @@
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><blockquote>
 <p>登录并拿到登陆者的姓名</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt=""><br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure>
 <blockquote>
 <p>登录，并拿到登录者姓名</p>
 </blockquote>
-<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt=""></p>
+<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>可知queryString为tjkbcx.aspx?xh=2014115010127&amp;xm=黄辉辉&amp;gnmkdm=N121601，代码如下:</p>
 </blockquote>
@@ -266,7 +309,13 @@
 <blockquote>
 <p>由于请求头还缺少<code>referer</code>，导致跳转到登录页面，最后截图成了登录页面。。。。我也是醉了，找了我一下午，还没找到，有网友找到后，请告知，谢啦！！</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><blockquote>
 <p>解决中文编码<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sel.xpath(<span class="string">u"//h2[text()= 'xx']"</span>)</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -278,7 +327,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-27T14:14:28.686Z" itemprop="dateUpdated">2017-04-27 22:14:28</time>
+    最后更新时间：<time datetime="2017-05-28T10:16:48.970Z" itemprop="dateUpdated">2017-05-28 18:16:48</time>
 </span><br>
 
 
@@ -303,6 +352,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-爬虫/">Python 爬虫</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -426,7 +477,7 @@
     <ul class="reward-items">
         
         <li>
-            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
             <p>微信</p>
         </li>
         

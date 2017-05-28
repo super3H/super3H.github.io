@@ -18,10 +18,10 @@
     <title>python开发公众号 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
     
-    <meta name="theme-color" content="#3F51B5">
+    <meta name="theme-color" content="#20A0FF">
     
     
-    <meta name="keywords" content="">
+    <meta name="keywords" content="Python 公众号">
     <meta name="description" content="原文参考从零开始 Python 微信公众号开发使用python一步一步搭建微信公众平台添加用户关注后的欢迎信息与听音乐功能Python快速搭建自动回复微信公众号未认证订阅号自定义菜单与开发者兼得
 所遇问题git push sae master:1时候报如下错误:12G:\Web_python\xyPyTest&amp;gt;git push sae master:1fatal: Authenticatio">
 <meta property="og:type" content="article">
@@ -33,7 +33,7 @@
 <meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/1.png">
 <meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/2.png">
 <meta property="og:image" content="https://super3h.me/2017/02/05/WeiXin-Python/3.png">
-<meta property="og:updated_time" content="2017-04-27T14:13:43.486Z">
+<meta property="og:updated_time" content="2017-05-28T10:15:44.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python开发公众号">
 <meta name="twitter:description" content="原文参考从零开始 Python 微信公众号开发使用python一步一步搭建微信公众平台添加用户关注后的欢迎信息与听音乐功能Python快速搭建自动回复微信公众号未认证订阅号自定义菜单与开发者兼得
@@ -212,18 +212,36 @@
 <blockquote>
 <p><code>解决方案:</code><br>从官方网站下载与系统，Python版本匹配的lxml文件：<a href="http://pypi.python.org/pypi/lxml/2.3/" target="_blank" rel="external">lxml 2.3</a><br>执行 <code>easy_install lxml-2.3-py2.7-win-amd64.egg</code>即可<br>详细解决方案请参考<a href="http://www.jb51.net/article/67125.htm" target="_blank" rel="external">Python lxml模块安装教程</a></p>
 </blockquote>
-<h2 id="‘not-found’页面"><a href="#‘not-found’页面" class="headerlink" title="‘not found’页面"></a>‘not found’页面</h2><p><img src="/2017/02/05/WeiXin-Python/1.png" alt=""></p>
+<h2 id="‘not-found’页面"><a href="#‘not-found’页面" class="headerlink" title="‘not found’页面"></a>‘not found’页面</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/02/05/WeiXin-Python/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>这个属于正常页面，因为index.wsgi只会接受<code>http://6.super3h.applinzi.com/weixin</code>的入口才会响应，对应微信配置如下：</p>
 </blockquote>
-<p><img src="/2017/02/05/WeiXin-Python/2.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/02/05/WeiXin-Python/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>具体详情请参考<a href="http://www.cnblogs.com/yym2013/p/5962208.html" target="_blank" rel="external">新浪云SAE搭建python环境</a>和<a href="http://blog.csdn.net/u011659379/article/details/48314317" target="_blank" rel="external">SAE部署Python-让云端自动运行Python代码</a></p>
 </blockquote>
 <h2 id="自动回复无反应问题"><a href="#自动回复无反应问题" class="headerlink" title="自动回复无反应问题"></a>自动回复无反应问题</h2><blockquote>
 <p>原文参考代码有错<code>index.wsgi</code>中将<code>import lxml</code>改为<code>import lxml.etree as etree</code>，可进入sae日志中心查看代码错误原因，具体过程如下:</p>
 </blockquote>
-<p><img src="/2017/02/05/WeiXin-Python/3.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/02/05/WeiXin-Python/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="添加第三方依赖包"><a href="#添加第三方依赖包" class="headerlink" title="添加第三方依赖包"></a>添加第三方依赖包</h2><p>除了使用新浪云上已经预装的模块之外，您还可以通过以下方式给自己的应用添加第三方依赖包。</p>
 <p>首先，在应用的根目录下创建一个第三方依赖包目录 <code>vendor</code> 。<br>调用<code>pip</code>命令安装依赖包，使用其<code>-t</code>选项指定第三方包的安装目录。3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install -t vendor PACKAGE ...</div></pre></td></tr></table></figure></p>
 <p>将 <code>vendor</code> 目录和应用的代码一起提交，即可在应用代码里使用安装的第三方依赖包了。</p>
@@ -257,7 +275,7 @@
     <div class="content">
         
 <span class="post-time">
-    最后更新时间：<time datetime="2017-04-27T14:13:43.486Z" itemprop="dateUpdated">2017-04-27 22:13:43</time>
+    最后更新时间：<time datetime="2017-05-28T10:15:44.789Z" itemprop="dateUpdated">2017-05-28 18:15:44</time>
 </span><br>
 
 
@@ -282,6 +300,8 @@
 
         <div class="post-footer">
             
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-公众号/">Python 公众号</a></li></ul>
+
 
             
 <div class="page-share-wrap">
@@ -405,7 +425,7 @@
     <ul class="reward-items">
         
         <li>
-            <img src="/img/hhh_wechat.jpg" title="微信打赏二维码" alt="微信打赏二维码">
+            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
             <p>微信</p>
         </li>
         
