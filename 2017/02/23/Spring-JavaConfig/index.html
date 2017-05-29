@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/02/23/Spring-JavaConfig/">
+    
+    
+    <title>Spring JavaConfig | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#20A0FF">
+    
+    
+    <meta name="keywords" content="Spring,Annotation">
+    <meta name="description" content="注解替代
+从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义和在Spring配置XML文件到Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。看来看经典的XML定义和JavaConfig的不同，如下定义在Spring容器中的bean12345678&amp;lt;beans xmlns=&quot;h">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Spring JavaConfig">
+<meta property="og:url" content="https://super3h.me/2017/02/23/Spring-JavaConfig/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="注解替代
+从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义和在Spring配置XML文件到Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。看来看经典的XML定义和JavaConfig的不同，如下定义在Spring容器中的bean12345678&amp;lt;beans xmlns=&quot;h">
+<meta property="og:image" content="https://super3h.me/2017/02/23/Spring-JavaConfig/1.png">
+<meta property="og:updated_time" content="2017-05-29T00:39:46.184Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Spring JavaConfig">
+<meta name="twitter:description" content="注解替代
+从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义和在Spring配置XML文件到Java类中。但是，仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。看来看经典的XML定义和JavaConfig的不同，如下定义在Spring容器中的bean12345678&amp;lt;beans xmlns=&quot;h">
+<meta name="twitter:image" content="https://super3h.me/2017/02/23/Spring-JavaConfig/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/hhh_favicon.ico">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">Spring JavaConfig</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">Spring JavaConfig</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-02-23T12:54:19.177Z" itemprop="datePublished" class="page-time">
+  2017-02-23
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#注解替代"><span class="post-toc-number">1.</span> <span class="post-toc-text">注解替代</span></a></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#举例"><span class="post-toc-number">2.</span> <span class="post-toc-text">举例</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#目录及所需jar包"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">目录及所需jar包</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#单个加载"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">单个加载</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring-Beans"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">Spring Beans</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Configuration示例"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">@Configuration示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行程序"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">执行程序</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#通过import加载多个"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">通过import加载多个</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Spring-Beans-1"><span class="post-toc-number">2.3.1.</span> <span class="post-toc-text">Spring Beans</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Configuration示例-1"><span class="post-toc-number">2.3.2.</span> <span class="post-toc-text">@Configuration示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#Import示例"><span class="post-toc-number">2.3.3.</span> <span class="post-toc-text">@Import示例</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#执行程序-1"><span class="post-toc-number">2.3.4.</span> <span class="post-toc-text">执行程序</span></a></li></ol></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#原文链接"><span class="post-toc-number">3.</span> <span class="post-toc-text">原文链接</span></a></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-Spring-JavaConfig"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">Spring JavaConfig</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-02-23 20:54:19" datetime="2017-02-23T12:54:19.177Z"  itemprop="datePublished">2017-02-23</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="注解替代"><a href="#注解替代" class="headerlink" title="注解替代"></a>注解替代</h1><blockquote>
+<p>从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义和在Spring配置XML文件到Java类中。<br>但是，<em>仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。</em><br>看来看经典的XML定义和JavaConfig的不同，如下定义在Spring容器中的bean<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;</div><div class="line"> </div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.hello.impl.HelloWorldImpl"</span>&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>等效于以下JavaConfig的配置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"><span class="keyword">import</span> com.yiibai.hello.HelloWorld;</div><div class="line"><span class="keyword">import</span> com.yiibai.hello.impl.HelloWorldImpl;</div><div class="line"></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</div><div class="line">	</div><div class="line">    <span class="meta">@Bean</span>(name=<span class="string">"helloBean"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> HelloWorld <span class="title">helloWorld</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HelloWorldImpl();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="目录及所需jar包"><a href="#目录及所需jar包" class="headerlink" title="目录及所需jar包"></a>目录及所需jar包</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/02/23/Spring-JavaConfig/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h2 id="单个加载"><a href="#单个加载" class="headerlink" title="单个加载"></a>单个加载</h2><h3 id="Spring-Beans"><a href="#Spring-Beans" class="headerlink" title="Spring Beans"></a>Spring Beans</h3><blockquote>
+<p>一个简单的Bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.helloWorld;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.helloWorld.impl;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.helloWorld.HelloWorld;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HelloWorldImpl</span> <span class="keyword">implements</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span> </span>&#123;</div><div class="line">		System.out.println(<span class="string">"hello world"</span>);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="Configuration示例"><a href="#Configuration示例" class="headerlink" title="@Configuration示例"></a>@Configuration示例</h3><blockquote>
+<p>使用 <code>@Configuration</code> 注释告诉 Spring，这是核心的 Spring 配置文件，并通过 <code>@Bean</code> 定义 bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.appconfig;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.helloWorld.HelloWorld;</div><div class="line"><span class="keyword">import</span> com.hhh.helloWorld.impl.HelloWorldImpl;</div><div class="line"></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Bean</span>(name=<span class="string">"helloWorld"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> HelloWorld <span class="title">helloWorld</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> HelloWorldImpl();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="执行程序"><a href="#执行程序" class="headerlink" title="执行程序"></a>执行程序</h3><blockquote>
+<p>使用<code>AnnotationConfigApplicationContext</code> 加载您的JavaConfig类<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.AnnotationConfigApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.appconfig.AppConfig;</div><div class="line"><span class="keyword">import</span> com.hhh.appconfig.AppConfig2;</div><div class="line"><span class="keyword">import</span> com.hhh.core.CustomerBo;</div><div class="line"><span class="keyword">import</span> com.hhh.core.SchedulerBo;</div><div class="line"><span class="keyword">import</span> com.hhh.helloWorld.HelloWorld;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnnotation</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testHello</span><span class="params">()</span></span>&#123;</div><div class="line">    	<span class="comment">//spring通过注解拿到HelloWorld对象</span></div><div class="line">		ApplicationContext context = <span class="keyword">new</span> AnnotationConfigApplicationContext(AppConfig.class);</div><div class="line">		HelloWorld hello = (HelloWorld) context.getBean(<span class="string">"helloWorld"</span>);</div><div class="line">		hello.sayHello();</div><div class="line">		<span class="comment">//通过new而得到的对象</span></div><div class="line">		AppConfig config = <span class="keyword">new</span> AppConfig();</div><div class="line">		HelloWorld world = config.helloWorld();</div><div class="line">		world.sayHello();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h2 id="通过import加载多个"><a href="#通过import加载多个" class="headerlink" title="通过import加载多个"></a>通过<code>import</code>加载多个</h2><h3 id="Spring-Beans-1"><a href="#Spring-Beans-1" class="headerlink" title="Spring Beans"></a>Spring Beans</h3><blockquote>
+<p>两个简单的Spring bean。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//File : CustomerBo.java</span></div><div class="line"><span class="keyword">package</span> com.hhh.core;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerBo</span> </span>&#123;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMsg</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"CustomerBo : "</span> + msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/***************************************************/</span></div><div class="line"><span class="comment">//File : SchedulerBo.java</span></div><div class="line"><span class="keyword">package</span> com.hhh.core;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchedulerBo</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">printMsg</span><span class="params">(String msg)</span> </span>&#123;</div><div class="line"></div><div class="line">		System.out.println(<span class="string">"SchedulerBo : "</span> + msg);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Configuration示例-1"><a href="#Configuration示例-1" class="headerlink" title="@Configuration示例"></a>@Configuration示例</h3><blockquote>
+<p>现在，使用JavaConfig @Configuration声明上述Bean类。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//File : CustomerConfig.java</span></div><div class="line"><span class="keyword">package</span> com.hhh.config;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.core.CustomerBo;</div><div class="line"></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">CustomerConfig</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Bean</span>(name=<span class="string">"customer"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> CustomerBo <span class="title">customerBo</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> CustomerBo();</div><div class="line">	&#125;</div><div class="line">&#125;</div><div class="line"><span class="comment">/*****************************************************/</span></div><div class="line"><span class="comment">//File : SchedulerConfig.java</span></div><div class="line"><span class="keyword">package</span> com.hhh.config;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.core.SchedulerBo;</div><div class="line"></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SchedulerConfig</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Bean</span>(name=<span class="string">"scheduler"</span>)</div><div class="line">	<span class="function"><span class="keyword">public</span> SchedulerBo <span class="title">schedulerBo</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> SchedulerBo();</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="Import示例"><a href="#Import示例" class="headerlink" title="@Import示例"></a>@Import示例</h3><blockquote>
+<p>加载主配置文件，并进行测试<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.appconfig;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Import;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.config.CustomerConfig;</div><div class="line"><span class="keyword">import</span> com.hhh.config.SchedulerConfig;</div><div class="line"></div><div class="line"><span class="meta">@Import</span>(&#123;CustomerConfig.class,SchedulerConfig.class&#125;)</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig2</span> </span>&#123;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h3 id="执行程序-1"><a href="#执行程序-1" class="headerlink" title="执行程序"></a>执行程序</h3><blockquote>
+<p>加载主配置文件，并进行测试。<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.test;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.junit.Test;</div><div class="line"><span class="keyword">import</span> org.springframework.context.ApplicationContext;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.AnnotationConfigApplicationContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.appconfig.AppConfig;</div><div class="line"><span class="keyword">import</span> com.hhh.appconfig.AppConfig2;</div><div class="line"><span class="keyword">import</span> com.hhh.core.CustomerBo;</div><div class="line"><span class="keyword">import</span> com.hhh.core.SchedulerBo;</div><div class="line"><span class="keyword">import</span> com.hhh.helloWorld.HelloWorld;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestAnnotation</span> </span>&#123;</div><div class="line">	<span class="meta">@Test</span></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">testConfig</span><span class="params">()</span></span>&#123;</div><div class="line">		ApplicationContext context = <span class="keyword">new</span> AnnotationConfigApplicationContext(AppConfig2.class);</div><div class="line">		CustomerBo cb =  (CustomerBo) context.getBean(<span class="string">"customer"</span>);</div><div class="line">		cb.printMsg(<span class="string">"hahaha"</span>);</div><div class="line">		</div><div class="line">		SchedulerBo sb = (SchedulerBo) context.getBean(<span class="string">"scheduler"</span>);</div><div class="line">		sb.printMsg(<span class="string">"heiheihei"</span>);</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://www.yiibai.com/spring/spring-3-javaconfig-import-example.html" target="_blank" rel="external">Spring JavaConfig @Import实例</a></p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-05-29T00:39:46.184Z" itemprop="dateUpdated">2017-05-29 08:39:46</time>
+</span><br>
+
+
+        
+        <font color='#D15585'>自我描述</font>：一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<br/><font color='#D15585'>转载请注明</font>：<a href="/2017/02/23/Spring-JavaConfig/" target="_blank" rel="external">https://super3h.me/2017/02/23/Spring-JavaConfig/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Annotation/">Annotation</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/23/Spring-JavaConfig/&title=《Spring JavaConfig》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/23/Spring-JavaConfig/&title=《Spring JavaConfig》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/23/Spring-JavaConfig/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring JavaConfig》 — HHH'Blog&url=https://super3h.me/2017/02/23/Spring-JavaConfig/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/23/Spring-JavaConfig/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/02/23/spring所遇问题/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">spring所遇问题</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/02/22/Spring自动装配Beans/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">Spring自动装配Beans</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+    <script>
+    var cloudTieConfig = {
+        url: 'https://super3h.me/2017/02/23/Spring-JavaConfig/index.html',
+        sourceId: 'Spring-JavaConfig',
+        productKey: '815bf09474284adb80a3014f2d228f0c',
+        target: 'cloud-tie-wrapper',
+        pcFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/pc.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/pc.min.js',
+        ],
+        mobileFiles: [
+            '//unpkg.com/hexo-theme-material-indigo@latest/css/cloudTie/mobile.css',
+            '//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/mobile.min.js'
+        ]
+    };
+    </script>
+    <script src="//unpkg.com/hexo-theme-material-indigo@latest/js/cloudTie/loader.min.js"></script>
+
+
+
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        官人,给包辣条呗~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/02/23/Spring-JavaConfig/&title=《Spring JavaConfig》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/02/23/Spring-JavaConfig/&title=《Spring JavaConfig》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/02/23/Spring-JavaConfig/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《Spring JavaConfig》 — HHH'Blog&url=https://super3h.me/2017/02/23/Spring-JavaConfig/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/02/23/Spring-JavaConfig/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACMklEQVR42u3aS46DMBBFUfa/aXoaicbcV8YDypdRhNI4Jy1V6ncc+Dp/rrs71/vX919f3511rLhkyJDxWcY5vMbv4QfzJ5Bz/zlRhgwZGzDGge8usJKDSeDm597elyFDhgyQzI2fkwZZGTJkyFjBGAdfEnB50ilDhow9GWmZyptiaRK5vBaXIUPGBxnzH2Xd6yXzDRkyZHyKcYZXrSWXPi3+VDJkyGjNmBlA1gIlZ6fLHzJkyOjNICNGUsSmyxlvnSVDhozejLQpX1uk4HeKLT8ZMmRsw0ib8rUPx5NCXjzLkCGjN4OUmjNJZJoU8hUQVO7KkCGjEaMWTDl7/snoPyBDhoymDJIa8lBbGyEEvwN3PwwyZMhozUgXIzi7Vo5yxkPwlSFDRjtGLdilQ8d0YSIdS8iQIWMfRm0lIl3wShfLgjGADBky2jHStOzEV6305T20h50RGTJktGPUQidfrUgbZ3FaKUOGjA0YvEE/j+RFaTBIkCFDRmtGraHGk8J0eaJ2R4YMGTsw+PCSJ23zKxrxSFWGDBkbMNKSsrbyRcrm2pciQ4aMHRjpo/mwk49La2MJGTJk9GbMJGS1VI832gKqDBkyWjPearqld+aTziJMhgwZn2XMl5q18pWngPE3LUOGjKaMdFWLJ4vvTlYfanEZMmTIIN07fPD4b5cHXBkyZGzAKE4hSjU0atXJkCFjA0bayp8ZZNY+6EOwliFDRmvGayEPH8Df8/JQU4YMGd9j/AF4EkHPFYbU4AAAAABJRU5ErkJggg==" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '人呢！！';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '专心点行么！！';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

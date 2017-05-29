@@ -935,18 +935,18 @@
   
   <entry>
     <title>Spring MVC错误处理</title>
-    <link href="https://super3h.me/2017/03/25/Spring%20MVC%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
-    <id>https://super3h.me/2017/03/25/Spring MVC错误处理/</id>
+    <link href="https://super3h.me/2017/03/25/Spring-MVC%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/"/>
+    <id>https://super3h.me/2017/03/25/Spring-MVC错误处理/</id>
     <published>2017-03-25T11:28:11.259Z</published>
-    <updated>2017-05-28T10:50:05.823Z</updated>
+    <updated>2017-05-29T00:49:41.682Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC错误处理"><a href="#Spring-MVC错误处理" class="headerlink" title="Spring MVC错误处理"></a>Spring MVC错误处理</h1><p>以下示例将如何在使用Spring Web MVC框架的表单中使用错误处理和验证器</p>
 <h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/1.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/1.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/1.png</div>
+                <div class="image-caption"></div>
             </figure>
 <h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><ul>
 <li><p>Person.java</p>
@@ -1021,55 +1021,55 @@
 <h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/2.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/Spring" alt="MVC错误处理/2.png" title="">
                 </div>
                 <div class="image-caption">MVC错误处理/2.png</div>
             </figure><br>先跳转到<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/3.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/3.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/3.png</div>
+                <div class="image-caption"></div>
             </figure><br>在之后<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/4.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/4.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/4.png</div>
+                <div class="image-caption"></div>
             </figure><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
 </blockquote>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/5.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/5.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/5.png</div>
+                <div class="image-caption"></div>
             </figure>
 <figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/6.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/6.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/6.png</div>
+                <div class="image-caption"></div>
             </figure>
 <p>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/7.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/7.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/7.png</div>
+                <div class="image-caption"></div>
             </figure><br>可以看出我们的错误:<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/8.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/8.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/8.png</div>
+                <div class="image-caption"></div>
             </figure><br>之后报错:<br><figure class="image-bubble">
                 <div class="img-lightbox">
                     <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring MVC错误处理/Spring" alt="MVC错误处理/9.png" title="">
+                    <img src="/2017/03/25/Spring-MVC错误处理/9.png" alt="" title="">
                 </div>
-                <div class="image-caption">MVC错误处理/9.png</div>
+                <div class="image-caption"></div>
             </figure><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
 <p>返回的<code>person</code>，跳到<code>person.jsp</code>，并显示错误!!</p>
 ]]></content>
