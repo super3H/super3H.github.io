@@ -628,96 +628,6 @@
   </entry>
   
   <entry>
-    <title>Java8新特性</title>
-    <link href="https://super3h.me/2017/04/17/Java8%E6%96%B0%E7%89%B9%E6%80%A7/"/>
-    <id>https://super3h.me/2017/04/17/Java8新特性/</id>
-    <published>2017-04-17T11:38:45.160Z</published>
-    <updated>2017-05-28T10:00:39.447Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识</p>
-<h1 id="Lambda表达式和函数式接口"><a href="#Lambda表达式和函数式接口" class="headerlink" title="Lambda表达式和函数式接口"></a>Lambda表达式和函数式接口</h1>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;作为一个程序员必须与时俱进，所以本文介绍有关Java8相关知识&lt;/p&gt;
-&lt;h1 id=&quot;Lambda表达式和函数式接口&quot;&gt;&lt;a href=&quot;
-    
-    </summary>
-    
-      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
-    
-    
-      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Java-Sum练习</title>
-    <link href="https://super3h.me/2017/04/15/Java-Sum%E7%BB%83%E4%B9%A0/"/>
-    <id>https://super3h.me/2017/04/15/Java-Sum练习/</id>
-    <published>2017-04-15T11:45:24.098Z</published>
-    <updated>2017-05-28T10:00:05.890Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="有关算法数字求和总结"><a href="#有关算法数字求和总结" class="headerlink" title="有关算法数字求和总结"></a>有关算法数字求和总结</h1><p><strong>题目设置数字个数设置不大时，可以添加判断来减少算法的时间复杂度，但是当个数过多时，添加过多的判断则会导致处理时间增大！！！</strong></p>
-<h2 id="TowSum"><a href="#TowSum" class="headerlink" title="TowSum"></a>TowSum</h2><ul>
-<li>题目<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/15/Java-Sum练习/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
-<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="keyword">int</span>[] twoSum(<span class="keyword">int</span>[] numbers, <span class="keyword">int</span> target) &#123;</div><div class="line">	    <span class="keyword">int</span>[] result = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">2</span>];</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;Integer, Integer&gt;();</div><div class="line">	    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; numbers.length; i++) &#123;</div><div class="line">	        <span class="keyword">if</span> (map.containsKey(target - numbers[i])) &#123;</div><div class="line">	            result[<span class="number">1</span>] = i + <span class="number">1</span>;</div><div class="line">	            result[<span class="number">0</span>] = map.get(target - numbers[i]);</div><div class="line">	            <span class="keyword">return</span> result;</div><div class="line">	        &#125;</div><div class="line">	        map.put(numbers[i], i + <span class="number">1</span>);</div><div class="line">	    &#125;</div><div class="line">	    <span class="keyword">return</span> result;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="ThreeSum"><a href="#ThreeSum" class="headerlink" title="ThreeSum"></a>ThreeSum</h2><ul>
-<li>题目<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/15/Java-Sum练习/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
-<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; threeSum(<span class="keyword">int</span>[] nums) &#123;</div><div class="line">    List&lt;List&lt;Integer&gt;&gt; res = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">    Arrays.sort(nums);</div><div class="line">    <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i + <span class="number">2</span> &lt; nums.length; i++) &#123;</div><div class="line">        <span class="keyword">if</span> (i &gt; <span class="number">0</span> &amp;&amp; nums[i] == nums[i - <span class="number">1</span>]) &#123;              <span class="comment">// skip same result</span></div><div class="line">            <span class="keyword">continue</span>;</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">int</span> j = i + <span class="number">1</span>, k = nums.length - <span class="number">1</span>;  </div><div class="line">        <span class="keyword">int</span> target = -nums[i];</div><div class="line">        <span class="keyword">while</span> (j &lt; k) &#123;</div><div class="line">            <span class="keyword">if</span> (nums[j] + nums[k] == target) &#123;</div><div class="line">                res.add(Arrays.asList(nums[i], nums[j], nums[k]));</div><div class="line">                j++;</div><div class="line">                k--;</div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[j] == nums[j - <span class="number">1</span>]) j++;  <span class="comment">// skip same result</span></div><div class="line">                <span class="keyword">while</span> (j &lt; k &amp;&amp; nums[k] == nums[k + <span class="number">1</span>]) k--;  <span class="comment">// skip same result</span></div><div class="line">            &#125; <span class="keyword">else</span> <span class="keyword">if</span> (nums[j] + nums[k] &gt; target) &#123;</div><div class="line">                k--;</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                j++;</div><div class="line">            &#125;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> res;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="FourSum"><a href="#FourSum" class="headerlink" title="FourSum"></a>FourSum</h2><ul>
-<li>题目<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/15/Java-Sum练习/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
-<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> List&lt;List&lt;Integer&gt;&gt; fourSum(<span class="keyword">int</span>[] nums,<span class="keyword">int</span> target)&#123;</div><div class="line">		List&lt;List&lt;Integer&gt;&gt; results = <span class="keyword">new</span> ArrayList&lt;List&lt;Integer&gt;&gt;();</div><div class="line">		Arrays.sort(nums);</div><div class="line">		<span class="keyword">if</span>(nums.length&lt;<span class="number">4</span>)</div><div class="line">			<span class="keyword">return</span> results;</div><div class="line">		<span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>;i&lt;nums.length-<span class="number">3</span>;i++)&#123;</div><div class="line">			<span class="keyword">if</span>(i&gt;<span class="number">0</span> &amp;&amp; nums[i] == nums[i-<span class="number">1</span>])</div><div class="line">				<span class="keyword">continue</span>;</div><div class="line">			<span class="keyword">for</span>(<span class="keyword">int</span> j=i+<span class="number">1</span>;j&lt;nums.length-<span class="number">2</span>;j++)&#123;</div><div class="line">				<span class="keyword">if</span>((j-<span class="number">1</span>)!=i&amp;&amp;nums[j]==nums[j-<span class="number">1</span>])</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				<span class="keyword">int</span> k = j+<span class="number">1</span>,l = nums.length-<span class="number">1</span>;</div><div class="line">				<span class="keyword">int</span> subTarget = target-nums[i]-nums[j];</div><div class="line">				<span class="keyword">while</span>(l&gt;k)&#123;</div><div class="line">					<span class="keyword">if</span>(nums[l]+nums[k] == subTarget)&#123;</div><div class="line">						results.add(Arrays.asList(nums[i],nums[j],nums[k],nums[l]));</div><div class="line">						l--;</div><div class="line">						k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp; nums[k] == nums[k-<span class="number">1</span>]) k++;</div><div class="line">						<span class="keyword">while</span>(k&lt;l &amp;&amp;nums[l] == nums[l+<span class="number">1</span>]) l--;</div><div class="line">					&#125;<span class="keyword">else</span> <span class="keyword">if</span>(nums[l]+nums[k] &gt; subTarget)&#123;</div><div class="line">						l--;</div><div class="line">					&#125;<span class="keyword">else</span>&#123;</div><div class="line">						k++;</div><div class="line">					&#125;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> results;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<h2 id="FourSum2"><a href="#FourSum2" class="headerlink" title="FourSum2"></a>FourSum2</h2><ul>
-<li>题目<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/15/Java-Sum练习/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
-<li>解决<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">fourSumCount</span><span class="params">(<span class="keyword">int</span>[] A, <span class="keyword">int</span>[] B, <span class="keyword">int</span>[] C, <span class="keyword">int</span>[] D)</span> </span>&#123;</div><div class="line">	    Map&lt;Integer, Integer&gt; map = <span class="keyword">new</span> HashMap&lt;&gt;();</div><div class="line">	    </div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;C.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;D.length; j++) &#123;</div><div class="line">	            <span class="keyword">int</span> sum = C[i] + D[j];</div><div class="line">	            map.put(sum, map.getOrDefault(sum, <span class="number">0</span>) + <span class="number">1</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">int</span> res=<span class="number">0</span>;</div><div class="line">	    <span class="keyword">for</span>(<span class="keyword">int</span> i=<span class="number">0</span>; i&lt;A.length; i++) &#123;</div><div class="line">	        <span class="keyword">for</span>(<span class="keyword">int</span> j=<span class="number">0</span>; j&lt;B.length; j++) &#123;</div><div class="line">	            res += map.getOrDefault(-<span class="number">1</span> * (A[i]+B[j]), <span class="number">0</span>);</div><div class="line">	        &#125;</div><div class="line">	    &#125;</div><div class="line">	    </div><div class="line">	    <span class="keyword">return</span> res;</div><div class="line">	&#125;</div></pre></td></tr></table></figure></li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;有关算法数字求和总结&quot;&gt;&lt;a href=&quot;#有关算法数字求和总结&quot; class=&quot;headerlink&quot; title=&quot;有关算法数字求和总结&quot;&gt;&lt;/a&gt;有关算法数字求和总结&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;题目设置数字个数设置不大时，可以添加判断来减少算法的时间复杂
-    
-    </summary>
-    
-      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
-    
-    
-      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Java-ValueOf</title>
     <link href="https://super3h.me/2017/04/15/Java-ValueOf/"/>
     <id>https://super3h.me/2017/04/15/Java-ValueOf/</id>
@@ -804,41 +714,6 @@
       <category term="SpringMVC" scheme="https://super3h.me/tags/SpringMVC/"/>
     
       <category term="Annotation" scheme="https://super3h.me/tags/Annotation/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>div覆盖</title>
-    <link href="https://super3h.me/2017/03/28/div%E8%A6%86%E7%9B%96/"/>
-    <id>https://super3h.me/2017/03/28/div覆盖/</id>
-    <published>2017-03-28T01:05:47.053Z</published>
-    <updated>2017-05-28T09:50:25.863Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>后端工程师也有一个前台梦  哈哈!!!!</p>
-<h1 id="div覆盖"><a href="#div覆盖" class="headerlink" title="div覆盖"></a>div覆盖</h1><p><code>目的</code>：通过点击按钮，弹出小方框背景为灰色，效果如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/28/div覆盖/./div覆盖/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>再次点击灰色，样式恢复<br>源码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">html</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">style</span>&gt;</span><span class="css"></span></div><div class="line">			<span class="selector-class">.main</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">960px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">800px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#FF9966</span>;</div><div class="line">				<span class="attribute">margin</span>: <span class="number">0px</span> auto;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.mask</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">900</span>;</div><div class="line">				<span class="comment">/*以下设置覆盖整个窗口*/</span></div><div class="line">				<span class="attribute">position</span>: fixed;</div><div class="line">				<span class="attribute">left</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">100%</span>;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#000</span>;<span class="comment">/*灰色背景*/</span></div><div class="line">				<span class="attribute">opacity</span>: <span class="number">0.45</span>;<span class="comment">/*透明度*/</span></div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.opendiv</span> &#123;</div><div class="line">				<span class="attribute">z-index</span>: <span class="number">920</span>;</div><div class="line">				<span class="comment">/*设置div位置*/</span></div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">50%</span>;</div><div class="line">				<span class="attribute">margin-left</span>: -<span class="number">175px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: -<span class="number">125px</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">334px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">180px</span>;</div><div class="line">				<span class="attribute">background-color</span>: <span class="number">#6699FF</span>;</div><div class="line">				<span class="attribute">text-align</span>: center;</div><div class="line">				<span class="attribute">padding-top</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">		<span class="tag">&lt;/<span class="name">style</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span> <span class="attr">topmargin</span>=<span class="string">"0"</span>&gt;</span></div><div class="line"></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"main"</span>&gt;</span></div><div class="line">			网页主体内容，包含网页其他栏目</div><div class="line">			<span class="tag">&lt;<span class="name">button</span> <span class="attr">onclick</span>=<span class="string">"on()"</span>&gt;</span>按钮<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="comment">&lt;!--蒙板--&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"mask"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">onclick</span>=<span class="string">"off()"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"opendiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span>&gt;</span></div><div class="line">			最上层DIV覆盖下面的全部DIV</div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line">	</div><div class="line">	<span class="tag">&lt;<span class="name">script</span>&gt;</span><span class="javascript"></span></div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">on</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为inline-block</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">if</span>(mask.style.display==<span class="string">"none"</span>)&#123;</div><div class="line">				mask.style.display=<span class="string">"inline-block"</span>;</div><div class="line">				opendiv.style.display=<span class="string">"inline-block"</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="function"><span class="keyword">function</span> <span class="title">off</span>(<span class="params"></span>)</span>&#123;</div><div class="line">    		<span class="comment">//点击后，将div样式display设置为none</span></div><div class="line">			<span class="keyword">var</span> mask = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"mask"</span>)[<span class="number">0</span>];</div><div class="line">			<span class="keyword">var</span> opendiv = <span class="built_in">document</span>.getElementsByClassName(<span class="string">"opendiv"</span>)[<span class="number">0</span>];</div><div class="line">			mask.style.display=<span class="string">"none"</span>;</div><div class="line">			opendiv.style.display=<span class="string">"none"</span>;</div><div class="line">		&#125;</div><div class="line">		</div><div class="line">	<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>解释见代码！！</p>
-<blockquote>
-<p>详情请参考<a href="http://www.91ctc.com/article/article-129.html" target="_blank" rel="external">DIV块的覆盖，DIV层遮盖其他DIV</a></p>
-</blockquote>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;p&gt;后端工程师也有一个前台梦  哈哈!!!!&lt;/p&gt;
-&lt;h1 id=&quot;div覆盖&quot;&gt;&lt;a href=&quot;#div覆盖&quot; class=&quot;header
-    
-    </summary>
-    
-      <category term="js" scheme="https://super3h.me/categories/js/"/>
-    
-    
-      <category term="js" scheme="https://super3h.me/tags/js/"/>
     
   </entry>
   
@@ -1467,46 +1342,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
   </entry>
   
   <entry>
-    <title>页面点赞</title>
-    <link href="https://super3h.me/2017/03/17/%E9%A1%B5%E9%9D%A2%E7%82%B9%E8%B5%9E/"/>
-    <id>https://super3h.me/2017/03/17/页面点赞/</id>
-    <published>2017-03-17T12:54:38.828Z</published>
-    <updated>2017-05-28T10:17:35.827Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="页面点赞"><a href="#页面点赞" class="headerlink" title="页面点赞"></a>页面点赞</h1><h2 id="css样式"><a href="#css样式" class="headerlink" title="css样式"></a>css样式</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.zan</span>,<span class="selector-class">.zan1</span> &#123;</div><div class="line">				<span class="attribute">width</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">60px</span>;</div><div class="line">				<span class="attribute">position</span>: relative;</div><div class="line">				<span class="attribute">float</span>: right;</div><div class="line">				<span class="attribute">padding-left</span>: <span class="number">40px</span>;</div><div class="line">				<span class="attribute">margin-top</span>: <span class="number">10px</span>;</div><div class="line">				<span class="comment">/* relative(相对定位) 对象不可层叠、不脱离文档流，参考自身静态位置通过 top,bottom,left,right 定位，并且可以通过z-index进行层次分级 */</span></div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之前添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="comment">/* 正方形的内切圆的半径等于正方形边长的一半 */</span></div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="comment">/* 长方形 */</span></div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="comment">/* 逆时针旋转45°*/</span></div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(-48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="comment">/* absolute(绝对定位) 脱离文档流，通过 top,bottom,left,right 定位 */</span></div><div class="line">				<span class="attribute">left</span>: <span class="number">20px</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">/* after 伪元素在元素之后添加内容*/</span></div><div class="line">			</div><div class="line">			<span class="selector-class">.zan</span><span class="selector-pseudo">:after</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">content</span>: <span class="string">" "</span>;</div><div class="line">				<span class="attribute">width</span>: <span class="number">20px</span>;</div><div class="line">				<span class="attribute">height</span>: <span class="number">30px</span>;</div><div class="line">				<span class="attribute">background</span>: gray;</div><div class="line">				<span class="attribute">border-radius</span>: <span class="number">30px</span> <span class="number">30px</span> <span class="number">0</span> <span class="number">0</span>;</div><div class="line">				<span class="attribute">-moz-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-ms-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-o-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">-webkit-transform</span>: <span class="built_in">rotate</span>(48deg);</div><div class="line">				<span class="attribute">position</span>: absolute;</div><div class="line">				<span class="attribute">left</span>: <span class="number">28px</span>;</div><div class="line">				<span class="attribute">top</span>: <span class="number">0px</span>;</div><div class="line">			&#125;</div><div class="line">			</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:before</span>,</div><div class="line">			<span class="selector-class">.zan1</span><span class="selector-pseudo">:after</span> &#123;</div><div class="line">				<span class="attribute">background</span>: <span class="number">#4C9ED9</span>;</div><div class="line">			&#125;</div></pre></td></tr></table></figure>
-<h2 id="html代码"><a href="#html代码" class="headerlink" title="html代码"></a>html代码</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"zan"</span> <span class="attr">style</span>=<span class="string">"cursor: pointer;"</span>&gt;</span><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="js代码"><a href="#js代码" class="headerlink" title="js代码"></a>js代码</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">".zan"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123; </div><div class="line">			$(<span class="keyword">this</span>).toggleClass(<span class="string">"zan1"</span>);</div><div class="line">			alert($(<span class="string">"&gt;input"</span>,<span class="keyword">this</span>).val());</div><div class="line">			<span class="keyword">var</span> classname=$(<span class="keyword">this</span>).attr(<span class="string">"class"</span>);</div><div class="line">			<span class="keyword">var</span> zan_num=<span class="built_in">parseInt</span>($(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text());</div><div class="line">			<span class="keyword">if</span>(classname == <span class="string">"zan zan1"</span>)&#123;</div><div class="line">				zan_num +=<span class="number">1</span>;</div><div class="line">				$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">			&#125;<span class="keyword">else</span> <span class="keyword">if</span>(classname== <span class="string">"zan"</span>)&#123;</div><div class="line">				zan_num -=<span class="number">1</span>;</div><div class="line">				$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">			&#125;</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>将其简单改一下即可与后台同步</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">			$(<span class="string">".zan"</span>).click(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				$(<span class="keyword">this</span>).toggleClass(<span class="string">"zan1"</span>);</div><div class="line">				<span class="keyword">var</span> classname=$(<span class="keyword">this</span>).attr(<span class="string">"class"</span>);</div><div class="line">				<span class="keyword">var</span> zan_num=<span class="built_in">parseInt</span>($(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text());</div><div class="line">				<span class="keyword">var</span> anid = $(<span class="string">"&gt;input"</span>,<span class="keyword">this</span>).val();</div><div class="line">				<span class="keyword">if</span>(classname == <span class="string">"zan zan1"</span>)&#123;</div><div class="line">					zan_num +=<span class="number">1</span>;</div><div class="line">					$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">					$.post(<span class="string">"queryAction_agree"</span>,&#123;</div><div class="line">    					<span class="comment">//传入所需的数据</span></div><div class="line">						anid: anid,</div><div class="line">						<span class="attr">agreeNumber</span>: zan_num<span class="comment">//点赞数</span></div><div class="line">					&#125;);</div><div class="line">				&#125;<span class="keyword">else</span> <span class="keyword">if</span>(classname== <span class="string">"zan"</span>)&#123;</div><div class="line">					zan_num -=<span class="number">1</span>;</div><div class="line">					$(<span class="string">'&gt;span'</span>,<span class="keyword">this</span>).text(zan_num);</div><div class="line">					$.post(<span class="string">"queryAction_disagree"</span>,&#123;</div><div class="line">    					<span class="comment">//传入所需的数据</span></div><div class="line">						anid: anid,</div><div class="line">						<span class="attr">agreeNumber</span>: zan_num<span class="comment">//点赞数</span></div><div class="line">					&#125;)</div><div class="line">				&#125;</div><div class="line">			&#125;)</div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>这里贴一张效果图</p>
-</blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/17/页面点赞/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="原文参考"><a href="#原文参考" class="headerlink" title="原文参考"></a>原文参考</h1><p><a href="http://www.qdfuns.com/notes/14388/6c55f67462c70fc1e5042cf1d5417bf9.html" target="_blank" rel="external">点赞效果实现——点击♥后边的数量+1，再次点击♥后边的数量-1</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;页面点赞&quot;&gt;&lt;a href=&quot;#页面点赞&quot; class=&quot;headerlink&quot; title=&quot;页面点赞&quot;&gt;&lt;/a&gt;页面点赞&lt;/h1&gt;&lt;h2 id=&quot;css样式&quot;&gt;&lt;a href=&quot;#css样式&quot; class=&quot;headerlink&quot; title=&quot;css样式&quot;&gt;
-    
-    </summary>
-    
-      <category term="html" scheme="https://super3h.me/categories/html/"/>
-    
-    
-      <category term="html" scheme="https://super3h.me/tags/html/"/>
-    
-  </entry>
-  
-  <entry>
     <title>前台学习</title>
     <link href="https://super3h.me/2017/03/14/%E5%89%8D%E5%8F%B0%E5%AD%A6%E4%B9%A0/"/>
     <id>https://super3h.me/2017/03/14/前台学习/</id>
@@ -1584,6 +1419,240 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     
     
       <category term="js" scheme="https://super3h.me/tags/js/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>idea学习</title>
+    <link href="https://super3h.me/2017/03/14/idea%E5%AD%A6%E4%B9%A0/"/>
+    <id>https://super3h.me/2017/03/14/idea学习/</id>
+    <published>2017-03-14T01:17:11.621Z</published>
+    <updated>2017-05-28T09:55:13.269Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><blockquote>
+<p>直接进入官网下载即可<a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a></p>
+</blockquote>
+<h2 id="破解方案"><a href="#破解方案" class="headerlink" title="破解方案"></a>破解方案</h2><ol>
+<li><a href="http://idea.lanyus.com/" target="_blank" rel="external">IntelliJ IDEA 注册码</a></li>
+<li><a href="http://blog.csdn.net/high2011/article/details/55005286" target="_blank" rel="external">IntelliJ IDEA 永久破解的方法</a><blockquote>
+<p>方案二中由于github下载超慢，这里把云盘地址贴出来<a href="http://pan.baidu.com/s/1qYGuM1e" target="_blank" rel="external">注册机</a>:<code>密码:5jz1</code></p>
+</blockquote>
+</li>
+</ol>
+<h1 id="软件快捷键设置"><a href="#软件快捷键设置" class="headerlink" title="软件快捷键设置"></a>软件快捷键设置</h1><p><a href="https://www.cnblogs.com/tonycody/p/3257601.html" target="_blank" rel="external">Intellij IDEA 快捷键整理（TonyCody）</a><br><a href="http://myoss.github.io/2016/IntelliJ-Idea-%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%98%A0%E5%B0%84/" target="_blank" rel="external">IntelliJ Idea 快捷键映射</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;软件安装&quot;&gt;&lt;a href=&quot;#软件安装&quot; class=&quot;headerlink&quot; title=&quot;软件安装&quot;&gt;&lt;/a&gt;软件安装&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;直接进入官网下载即可&lt;a href=&quot;https://www.jetbrains.com/idea
+    
+    </summary>
+    
+      <category term="idea" scheme="https://super3h.me/categories/idea/"/>
+    
+    
+      <category term="idea" scheme="https://super3h.me/tags/idea/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>在网页中使用markdown</title>
+    <link href="https://super3h.me/2017/03/12/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8markdown/"/>
+    <id>https://super3h.me/2017/03/12/在网页中使用markdown/</id>
+    <published>2017-03-12T13:38:28.061Z</published>
+    <updated>2017-07-07T09:17:17.210Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
+<p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
+</blockquote>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
+<p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
+</blockquote>
+<ul>
+<li>可得原代码为:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Simple example - Editor.md examples<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/editormd.css"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test-editormd"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span>### 这里插入内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/editormd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="keyword">var</span> testEditor;</div><div class="line"></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				testEditor = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">    				<span class="comment">//调整宽度</span></div><div class="line">					width: <span class="string">"60%"</span>,</div><div class="line">					<span class="comment">//调整高度</span></div><div class="line">					height: <span class="number">400</span>,</div><div class="line">					<span class="attr">syncScrolling</span>: <span class="string">"single"</span>,</div><div class="line">					<span class="attr">path</span>: <span class="string">"./lib/"</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>这里把目录改了下：</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li><code>lib</code>：为根目录下的文件，直接复制即可</li>
+<li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
+<li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
+<li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
+</ul>
+<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
+<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
+
+</blockquote>
+<h1 id="如何在页面中显示"><a href="#如何在页面中显示" class="headerlink" title="如何在页面中显示"></a>如何在页面中显示</h1><h2 id="提交html代码"><a href="#提交html代码" class="headerlink" title="提交html代码"></a>提交html代码</h2><blockquote>
+<p>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 静态加载 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pDescription"</span> <span class="attr">class</span>=<span class="string">"editormd-html-textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 动态加载，特别实在引入js框架时采用此方法，否则界面会出错 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    $.getScript(<span class="string">"js/editormd.min.js"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="string">"#app-markdown"</span>).html(<span class="string">"&lt;div id=\"test-editormd\"&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;textarea name=\"description\"&gt;&lt;/textarea&gt;&lt;/div&gt;"</span>);</div><div class="line">        testEditormd = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">            <span class="attr">width</span>   : <span class="string">"100%"</span>,</div><div class="line">            <span class="attr">height</span>  : <span class="number">300</span>,</div><div class="line">            <span class="attr">path</span>    : <span class="string">"lib/"</span>,</div><div class="line">            <span class="attr">toolbarIcons</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> [<span class="string">"undo"</span>, <span class="string">"redo"</span>, <span class="string">"|"</span>, <span class="string">"bold"</span>, <span class="string">"hr"</span>, <span class="string">"|"</span>, <span class="string">"preview"</span>, <span class="string">"watch"</span>]</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">saveHTMLToTextarea</span> : <span class="literal">true</span>,</div><div class="line">            <span class="attr">watch</span>: <span class="literal">false</span>,</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
+<p>js代码如下:</p>
+</blockquote>
+<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ohtml=$(<span class="string">'.editormd-html-textarea'</span>), opreview=$(<span class="string">'.editormd-preview'</span>).clone(); </div><div class="line"> ohtml.val(opreview.html());</div></pre></td></tr></table></figure>
+<blockquote>
+<p>最后form表单提交，后台拿到pDescription的值即可</p>
+</blockquote>
+<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
+<p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
+</blockquote>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到&lt;a hre
+    
+    </summary>
+    
+      <category term="js" scheme="https://super3h.me/categories/js/"/>
+    
+    
+      <category term="js" scheme="https://super3h.me/tags/js/"/>
+    
+      <category term="markdown" scheme="https://super3h.me/tags/markdown/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>s2sh-大学资源共享网项目</title>
+    <link href="https://super3h.me/2017/03/10/s2sh-%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E7%BD%91%E9%A1%B9%E7%9B%AE/"/>
+    <id>https://super3h.me/2017/03/10/s2sh-大学资源共享网项目/</id>
+    <published>2017-03-10T08:00:29.266Z</published>
+    <updated>2017-05-28T10:47:42.264Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库错误"><a href="#数据库错误" class="headerlink" title="数据库错误"></a>数据库错误</h2><blockquote>
+<p>报如下错:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot add or update a child row: <span class="function">a foreign key constraint <span class="title">fails</span> <span class="params">(`s2shtest01`.`problem`, CONSTRAINT `FK5lcmhm21chjl0wog8par6isxn` FOREIGN KEY (`pid`)</span> REFERENCES `course` <span class="params">(`cid`)</span>)</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>后来发现。。<code>hibernate</code>配置文件竟然写错了，如此低级的错误</p>
+</blockquote>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"School"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"academys"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="comment">&lt;!--&lt;column name="aid"&gt;&lt;/column&gt;--&gt;</span></div><div class="line">        		<span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"Academy"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div></pre></td></tr></table></figure>
+<blockquote>
+<p>错误如上,<code>&lt;key&gt;</code>里为academys的外键。。结果把它的外键和自己的主键绑定到一起了。</p>
+</blockquote>
+<h2 id="json解决hibernate中级联对象延迟加载问题"><a href="#json解决hibernate中级联对象延迟加载问题" class="headerlink" title="json解决hibernate中级联对象延迟加载问题"></a>json解决hibernate中级联对象延迟加载问题</h2><ul>
+<li>简介<blockquote>
+<p>相信大部分用过Ext的GridPanel显示数据的朋友都遇到过外键数据的问题，首先是转换格式，将数据库里查出来的List集合要转换为JSON格式，如果只是用</p>
+</blockquote>
+</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">JSONObject json = <span class="keyword">new</span> JSONObject();    </div><div class="line">JSONArray dataArray = JSONArray.fromObject(list);</div></pre></td></tr></table></figure>
+<ul>
+<li><p>原因:</p>
+<blockquote>
+<p>如果list中的数据都是普通数据类型的那能正常转换，但很少这种情况，<font color="#FE3E49">大部分的数据都存在外键的数据，比如有个News类，他可能会有个发布人User的外键，那么用以上的方法转换是不行，将会出现死循环（我去了解到JSON它是这么一种机制，将数据拆分，一致拆分到全都是基本数据类型位置，比如，一个list存放着多个News数据，它是首先将list拆分成多个News，然后将News的多个属性都拆分出来，里面有个User对象，又得再拆分！问题就出现在这了，User里面又有一个News的集合，News里面又有User，因此导致死循环了）；</font></p>
+</blockquote>
+</li>
+<li><p>解决方案</p>
+<blockquote>
+<p>json解决hibernate中级联对象延迟加载问题<code>net.sf.json.JSONException: org....</code><br>在hibernate中将pojo转化为json数据格式时，抛出：<font color="#48B456"><strong>net.sf.json.JSONException: org.hibernate.LazyInitializationException，</strong></font>通过网上的资料，解决办法如下(未列出所需库文件)：</p>
+</blockquote>
+</li>
+<li><p>第一种:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">JsonConfig jsonConfig = <span class="keyword">new</span> JsonConfig(); </div><div class="line">jsonConfig .setJsonPropertyFilter(<span class="keyword">new</span> PropertyFilter()&#123;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Object source, String name, Object value)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (name.equals(<span class="string">"property1"</span>) || name.equals(<span class="string">"property2"</span>))&#123;<span class="comment">// 这里填写需要过滤的属性名</span></div><div class="line">         <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">JSONObject jsonModel= JSONArray.fromObject(yourObject, jsonConfig );</div></pre></td></tr></table></figure>
+</li>
+<li><p>第二种:</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">JsonConfig jsonConfig = <span class="keyword">new</span> JsonConfig();</div><div class="line"></div><div class="line">jsonConfig .setExcludes( <span class="keyword">new</span> String[]&#123; <span class="string">"property1"</span> , <span class="string">"property2"</span> &#125; ) ;</div><div class="line"></div><div class="line">JSONObject jsonModel= JSONArray.fromObject(yourObject, jsonConfig );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<blockquote>
+<p>详情请参考<a href="http://blog.csdn.net/evelyn2010816/article/details/6321758" target="_blank" rel="external">json解决hibernate中级联对象延迟加载问题net.sf.json.JSONException: </a></p>
+</blockquote>
+<h2 id="c-forEach问题"><a href="#c-forEach问题" class="headerlink" title="c:forEach问题"></a>c:forEach问题</h2><blockquote>
+<p>报错如下:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">According to TLD or attribute directive in tag file, attribute value does not accept any exception</div></pre></td></tr></table></figure>
+<ul>
+<li>方法如下<ul>
+<li>一种是将<code>http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd</code>改成<code>http://java.sun.com/xml/ns/javaee/web-app_2_3.xsd</code>；</li>
+<li>另一种是将JSP页面中的<font color="red"><strong>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core&quot;%&gt;改成" target="_blank" rel="external">http://java.sun.com/jstl/core&quot;%&gt;改成</a>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core_rt&quot;%&gt;。" target="_blank" rel="external">http://java.sun.com/jstl/core_rt&quot;%&gt;。</a></strong></font>在jstl-1.0.2.jar下的META-INF中有一个c.tld还有一个c-rt.tld,后一个好像是jstl核心库备用板的标签描述文件。<blockquote>
+<p>参考如下:<a href="http://blog.sina.com.cn/s/blog_6b39e1d10100mwp4.html" target="_blank" rel="external">According to TLD or attribute directive in tag file</a></p>
+</blockquote>
+</li>
+</ul>
+</li>
+</ul>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;所遇问题&quot;&gt;&lt;a href=&quot;#所遇问题&quot; class=&quot;headerlink&quot; title=&quot;所遇问题&quot;&gt;&lt;/a&gt;所遇问题&lt;/h1&gt;&lt;h2 id=&quot;数据库错误&quot;&gt;&lt;a href=&quot;#数据库错误&quot; class=&quot;headerlink&quot; title=&quot;数据库错误&quot;&gt;
+    
+    </summary>
+    
+      <category term="J2EE" scheme="https://super3h.me/categories/J2EE/"/>
+    
+    
+      <category term="J2EE" scheme="https://super3h.me/tags/J2EE/"/>
+    
+      <category term="Project" scheme="https://super3h.me/tags/Project/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>java初始化顺序</title>
+    <link href="https://super3h.me/2017/03/09/java%E5%88%9D%E5%A7%8B%E5%8C%96%E9%A1%BA%E5%BA%8F/"/>
+    <id>https://super3h.me/2017/03/09/java初始化顺序/</id>
+    <published>2017-03-09T06:53:22.326Z</published>
+    <updated>2017-05-28T10:00:55.248Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="子类继承父类实例化对象过程"><a href="#子类继承父类实例化对象过程" class="headerlink" title="子类继承父类实例化对象过程"></a>子类继承父类实例化对象过程</h1><blockquote>
+<p>代码示例:</p>
+</blockquote>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div></pre></td><td class="code"><pre><div class="line"><span class="class"><span class="keyword">class</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String p_StaticField = <span class="string">"父类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量(其实这用对象更好能体同这一点，如专门写一个类的实例)</span></div><div class="line">　　</div><div class="line">    <span class="comment">//如果这个变量放在初始化块的后面，是会报错的，因为你根本没有被初始化</span></div><div class="line">    <span class="keyword">public</span> String p_Field = <span class="string">"父类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(p_StaticField);</div><div class="line">        System.out.println(<span class="string">"父类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(p_Field);</div><div class="line">        System.out.println(<span class="string">"父类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Parent</span><span class="params">()</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"父类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SubClass</span> <span class="keyword">extends</span> <span class="title">Parent</span> </span>&#123;</div><div class="line">    <span class="comment">// 静态变量</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> String s_StaticField = <span class="string">"子类--静态变量"</span>;</div><div class="line">    <span class="comment">// 变量</span></div><div class="line">    <span class="keyword">public</span> String s_Field = <span class="string">"子类--变量"</span>;</div><div class="line">    <span class="comment">// 静态初始化块</span></div><div class="line">    <span class="keyword">static</span> &#123;</div><div class="line">        System.out.println(s_StaticField);</div><div class="line">        System.out.println(<span class="string">"子类--静态初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 初始化块</span></div><div class="line">    &#123;</div><div class="line">        System.out.println(s_Field);</div><div class="line">        System.out.println(<span class="string">"子类--初始化块"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 构造器</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">SubClass</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//super();</span></div><div class="line">        System.out.println(<span class="string">"子类--构造器"</span>);</div><div class="line">    &#125;</div><div class="line">    <span class="comment">// 程序入口</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</div><div class="line">        System.out.println(<span class="string">"*************in main***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">        System.out.println(<span class="string">"*************second subClass***************"</span>);</div><div class="line">        <span class="keyword">new</span> SubClass();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>输出结果:</p>
+</blockquote>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line">输出结果</div><div class="line">父类--静态变量</div><div class="line">父类--静态初始化块</div><div class="line">子类--静态变量</div><div class="line">子类--静态初始化块</div><div class="line">*************in main***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div><div class="line">*************second subClass***************</div><div class="line">父类--变量</div><div class="line">父类--初始化块</div><div class="line">父类--构造器</div><div class="line">子类--变量</div><div class="line">子类--初始化块</div><div class="line">子类--构造器</div></pre></td></tr></table></figure>
+<h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><blockquote>
+<font color="#E35671">累的加载过程不管多么复杂，<strong>总是按照-静态代码块-&gt;普通代码块-&gt;构造方法，这个顺序执行的</strong>，按照顺序一步步分析，将程序结构捋清楚就能避免不必要的错误。</font>
+
+</blockquote>
+<h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p><a href="http://blog.csdn.net/ganjing222/article/details/50993282" target="_blank" rel="external"> JAVA基础-子类继承父类实例化对象过程</a></p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;a href=&quot;#子类继承父类实例化对象过程&quot; class=&quot;headerlink&quot; title=&quot;子类继承父类实例化对象过程&quot;&gt;&lt;/a&gt;子类继承父类实例化对象过程&lt;/h1&gt;&lt;blockquote&gt;
+&lt;p&gt;代码示例:&lt;/p&gt;
+&lt;/b
+    
+    </summary>
+    
+      <category term="JavaSE" scheme="https://super3h.me/categories/JavaSE/"/>
+    
+    
+      <category term="JavaSE" scheme="https://super3h.me/tags/JavaSE/"/>
     
   </entry>
   
