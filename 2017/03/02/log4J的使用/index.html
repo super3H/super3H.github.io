@@ -266,11 +266,23 @@ log4J的配置及解释示例1234567891011121314151617181920# Define the root lo
 <h1 id="log4J配置文件位置"><a href="#log4J配置文件位置" class="headerlink" title="log4J配置文件位置"></a>log4J配置文件位置</h1><h2 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h2><blockquote>
 <p>log4j启动时，<font color="#CF59E0">默认会寻找source folder下的log4j.xml配置文件，<strong>若没有，会寻找log4j.properties文件。</strong></font>然后加载配置。配置文件放置位置正确，不用在程序中手动加载log4j配置文件。</p>
 </blockquote>
-<p><img src="/2017/03/02/log4J的使用/1.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/02/log4J的使用/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="手动加载配置文件"><a href="#手动加载配置文件" class="headerlink" title="手动加载配置文件"></a>手动加载配置文件</h2><blockquote>
 <p>可以通过<code>PropertyConfigurator.configure(&quot;url&quot;)</code>来手动加载配置文件，示例如下:</p>
 </blockquote>
-<p><img src="/2017/03/02/log4J的使用/2.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/02/log4J的使用/2.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>相应代码如下:<code>PropertyConfigurator.configure(&quot;config/log4j.properties&quot;);</code></p>
 </blockquote>

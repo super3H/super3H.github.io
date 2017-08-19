@@ -25,6 +25,12 @@
     <meta name="description" content="前言由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！
 
 Map介绍
+                
+                    
+                    
+                
+                
+            
 
 
 
@@ -35,11 +41,7 @@ Map的实现
 
 
 HashMap
-Map基于散列表的实现(取代了HashTable，下文将介绍),插入和查询”键值对”的开销是固定的，可以通过构造器设置容量和负载因子，以调整容器的性能
-
-
-LinkedHashMap
-类似于HashMap,但是迭代遍历它时，取得”键值对”的顺序是插入次序、或">
+Map基于散列表的实现(取代了HashTabl">
 <meta property="og:type" content="article">
 <meta property="og:title" content="容器深入研究-Map">
 <meta property="og:url" content="https://super3h.me/2017/04/23/容器深入研究-Map/index.html">
@@ -47,6 +49,12 @@ LinkedHashMap
 <meta property="og:description" content="前言由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！
 
 Map介绍
+                
+                    
+                    
+                
+                
+            
 
 
 
@@ -57,11 +65,7 @@ Map的实现
 
 
 HashMap
-Map基于散列表的实现(取代了HashTable，下文将介绍),插入和查询”键值对”的开销是固定的，可以通过构造器设置容量和负载因子，以调整容器的性能
-
-
-LinkedHashMap
-类似于HashMap,但是迭代遍历它时，取得”键值对”的顺序是插入次序、或">
+Map基于散列表的实现(取代了HashTabl">
 <meta property="og:image" content="https://super3h.me/2017/04/23/容器深入研究-Map/1.png">
 <meta property="og:image" content="https://super3h.me/2017/04/23/容器深入研究-Map/2.png">
 <meta property="og:updated_time" content="2017-05-28T10:29:52.904Z">
@@ -70,6 +74,12 @@ LinkedHashMap
 <meta name="twitter:description" content="前言由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！
 
 Map介绍
+                
+                    
+                    
+                
+                
+            
 
 
 
@@ -80,11 +90,7 @@ Map的实现
 
 
 HashMap
-Map基于散列表的实现(取代了HashTable，下文将介绍),插入和查询”键值对”的开销是固定的，可以通过构造器设置容量和负载因子，以调整容器的性能
-
-
-LinkedHashMap
-类似于HashMap,但是迭代遍历它时，取得”键值对”的顺序是插入次序、或">
+Map基于散列表的实现(取代了HashTabl">
 <meta name="twitter:image" content="https://super3h.me/2017/04/23/容器深入研究-Map/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -245,7 +251,13 @@ LinkedHashMap
         <div class="post-content" id="post-content" itemprop="postContent">
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><font color="#CD5555"><strong>由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！</strong></font>
 
-<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><p><img src="/2017/04/23/容器深入研究-Map/1.png" alt=""></p>
+<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <table>
 <thead>
 <tr>
@@ -281,7 +293,13 @@ LinkedHashMap
 </tbody>
 </table>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
-<li><strong>HashMap的存储结构</strong><br><img src="/2017/04/23/容器深入研究-Map/2.png" alt=""></li>
+<li><strong>HashMap的存储结构</strong><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li><p><strong>HashMap有四个构造方法，方法中有两个很重要的参数：初始容量和加载因子</strong></p>
 <ul>
 <li>这两个参数是影响HashMap性能的重要参数，其中容量表示哈希表中槽的数量（即哈希数组的长度），<strong><font color="#0077BB">初始容量</font>是创建哈希表时的容量（默认为16），<font color="#0077BB">加载因子</font>是哈希表当前key的数量和容量的比值，<font color="#CD5555">当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表提前进行 resize 操作（即扩容）。</font></strong>如果加载因子越大，对空间的利用更充分，但是查找效率会降低（链表长度会越来越长）；如果加载因子太小，那么表中的数据将过于稀疏（很多空间还没用，就开始扩容了），严重浪费。</li>

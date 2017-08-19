@@ -278,9 +278,34 @@ Hibernate官网下载地址Hibernate官网。现在最新的是： hibernate-rel
 </li>
 </ul>
 <h1 id="测试类操作"><a href="#测试类操作" class="headerlink" title="测试类操作"></a>测试类操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">   	<span class="comment">// 读取Hibernate的配置文件  hibernamte.cfg.xml文件</span></div><div class="line">	Configuration configuration = <span class="keyword">new</span> Configuration().configure();</div><div class="line">	<span class="comment">// 创建会话工厂</span></div><div class="line">	SessionFactory sessionFactory = configuration.buildSessionFactory();</div><div class="line">	<span class="comment">// 创建数据操作会话</span></div><div class="line">	Session session = sessionFactory.openSession();</div><div class="line">	<span class="comment">// 开启事务并创建事物</span></div><div class="line">	Transaction transaction = session.beginTransaction();</div><div class="line">       <span class="comment">// 创建对象</span></div><div class="line">	Person person = <span class="keyword">new</span> Person();</div><div class="line">	person.setName(<span class="string">"hhh"</span>);</div><div class="line">	session.save(person);</div><div class="line">       <span class="comment">// 事务提交</span></div><div class="line">	transaction.commit();</div><div class="line">       <span class="comment">// 关闭会话</span></div><div class="line">	session.close();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="configure解析"><a href="#configure解析" class="headerlink" title="configure解析"></a>configure解析</h1><p><img src="/2017/01/24/J2EE-Hibernate/configure.png" alt=""></p>
-<h1 id="hibernate运行过程"><a href="#hibernate运行过程" class="headerlink" title="hibernate运行过程"></a>hibernate运行过程</h1><p><img src="/2017/01/24/J2EE-Hibernate/process.png" alt=""></p>
-<h1 id="数据库框架的比较"><a href="#数据库框架的比较" class="headerlink" title="数据库框架的比较"></a>数据库框架的比较</h1><p><img src="/2017/01/24/J2EE-Hibernate/hibernate.png" alt=""><br><img src="/2017/01/24/J2EE-Hibernate/jdbc.png" alt=""></p>
+<h1 id="configure解析"><a href="#configure解析" class="headerlink" title="configure解析"></a>configure解析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/24/J2EE-Hibernate/configure.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="hibernate运行过程"><a href="#hibernate运行过程" class="headerlink" title="hibernate运行过程"></a>hibernate运行过程</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/24/J2EE-Hibernate/process.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="数据库框架的比较"><a href="#数据库框架的比较" class="headerlink" title="数据库框架的比较"></a>数据库框架的比较</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/24/J2EE-Hibernate/hibernate.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/01/24/J2EE-Hibernate/jdbc.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p>请点此处<a href="http://blog.sina.com.cn/s/blog_7ffb8dd5010142hu.html" target="_blank" rel="external">Hibernate初学  基础配置详解</a></p>
 
         </div>

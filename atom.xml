@@ -25,7 +25,13 @@
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常看到网站有这种符号▽的出现，刚好作业碰到这个问题，于是认真的学了下</p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>看似容易的，其实真的很容易。。</p>
 <ul>
-<li>效果如下:<br><img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt=""></li>
+<li>效果如下:<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li>分析代码如下：<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">    <span class="attribute">border-color</span>:<span class="number">#bbb</span> transparent transparent;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">b</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">	<span class="attribute">border-color</span>:transparent transparent <span class="number">#bbb</span> transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -183,7 +189,13 @@
 </tr>
 </tbody>
 </table>
-<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置-不等长/1.png" alt=""></p>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/05/05/路由器配置-不等长/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
 ]]></content>
     
@@ -211,7 +223,13 @@
     
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><font color="#CD5555"><strong>由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！</strong></font>
 
-<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><p><img src="/2017/04/23/容器深入研究-Map/1.png" alt=""></p>
+<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <table>
 <thead>
 <tr>
@@ -247,7 +265,13 @@
 </tbody>
 </table>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
-<li><strong>HashMap的存储结构</strong><br><img src="/2017/04/23/容器深入研究-Map/2.png" alt=""></li>
+<li><strong>HashMap的存储结构</strong><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/23/容器深入研究-Map/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></li>
 <li><p><strong>HashMap有四个构造方法，方法中有两个很重要的参数：初始容量和加载因子</strong></p>
 <ul>
 <li>这两个参数是影响HashMap性能的重要参数，其中容量表示哈希表中槽的数量（即哈希数组的长度），<strong><font color="#0077BB">初始容量</font>是创建哈希表时的容量（默认为16），<font color="#0077BB">加载因子</font>是哈希表当前key的数量和容量的比值，<font color="#CD5555">当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表提前进行 resize 操作（即扩容）。</font></strong>如果加载因子越大，对空间的利用更充分，但是查找效率会降低（链表长度会越来越长）；如果加载因子太小，那么表中的数据将过于稀疏（很多空间还没用，就开始扩容了），严重浪费。</li>
@@ -321,7 +345,14 @@
     <published>2017-04-21T14:30:22.550Z</published>
     <updated>2017-05-28T10:17:24.985Z</updated>
     
-    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置-等长/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
+    <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
 <li>给出子网划分方案，并给出每个子网主机的地址空间；</li>
 <li>完成网络地址分配，以表格的形式提供；</li>
@@ -355,35 +386,99 @@
 </tr>
 </tbody>
 </table>
-<p>这里我们在图上配置好我们的图:<br><img src="/2017/04/21/路由器配置-等长/2.png" alt=""><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
-<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/3.png" alt=""><br>接下来我们给pc机和服务器配置相应的ip:</p>
+<p>这里我们在图上配置好我们的图:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
+<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>接下来我们给pc机和服务器配置相应的ip:</p>
 <ul>
-<li><p>pc机配置如下：<br><img src="/2017/04/21/路由器配置-等长/4.png" alt=""></p>
+<li><p>pc机配置如下：</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>另一个pc机操作也同上</p>
 </blockquote>
 </li>
-<li><p>服务器配置如下:<br><img src="/2017/04/21/路由器配置-等长/5.png" alt=""></p>
+<li><p>服务器配置如下:</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>另一个服务器操作也同上</p>
 </blockquote>
 </li>
 </ul>
-<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><img src="/2017/04/21/路由器配置-等长/6.png" alt=""><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><img src="/2017/04/21/路由器配置-等长/7.png" alt=""><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
+<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
 <ul>
-<li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置-等长/11.png" alt=""></p>
+<li><p>配置链接左边那块的路由器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/11.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是绿色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
 </blockquote>
 </li>
-<li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置-等长/12.png" alt=""></p>
+<li><p>配置各个pc、服务器的默认网关、和dns服务器</p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/12.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.250，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/2017/04/21/路由器配置-等长/13.png" alt=""></p>
-<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><img src="/2017/04/21/路由器配置-等长/14.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/13.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/14.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <h2 id="配置4个路由的端口"><a href="#配置4个路由的端口" class="headerlink" title="配置4个路由的端口"></a>配置4个路由的端口</h2><table>
 <thead>
 <tr>
@@ -410,31 +505,105 @@
 </tr>
 </tbody>
 </table>
-<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><img src="/2017/04/21/路由器配置-等长/15.png" alt=""></p>
+<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/15.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p>操作如下:</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/16.png" alt=""><br>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><img src="/2017/04/21/路由器配置-等长/17.png" alt=""><br>操作完成后，我们来用pc机ping一下来确认:<br><img src="/2017/04/21/路由器配置-等长/18.png" alt=""><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/19.png" alt=""><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><img src="/2017/04/21/路由器配置-等长/20.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/16.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/17.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>操作完成后，我们来用pc机ping一下来确认:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/18.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/19.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/20.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p><strong>倘若我们要通过最左边的电脑来访问左右边的电脑咋办？？</strong><br><code>分析：</code>最左边访问最右边，<strong>当然要通过管理最左边的路由器来路由数据</strong>，所以这里我们配置其静态路由：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/21.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/21.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>这里有两条路可以走，博主选的上面这条路，配置完后就可以访问了么？？我们来试一下：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/22.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/22.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>发现都没办法到达目的地，**因为这里我们通过最上方的路由器来路由数据，但它不知道到目的网络在哪，我们再来配置他的静态路由</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/23.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/23.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>这个时候我们来ping一下:</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/24.png" alt=""><br><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><img src="/2017/04/21/路由器配置-等长/25.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/24.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/25.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <blockquote>
 <p>在ping一下确认：</p>
 </blockquote>
-<p><img src="/2017/04/21/路由器配置-等长/26.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/04/21/路由器配置-等长/26.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
 </blockquote>
@@ -445,7 +614,9 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;p&gt;&lt;img src=&quot;/2017/04/21/路由器配置-等长/1.png&quot; alt=&quot;&quot;&gt;&lt;br&gt;有一个企业网络拓扑结构如上图，回答如下问题
+      &lt;h1 id=&quot;题目&quot;&gt;&lt;a href=&quot;#题目&quot; class=&quot;headerlink&quot; title=&quot;题目&quot;&gt;&lt;/a&gt;题目&lt;/h1&gt;&lt;figure class=&quot;image-bubble&quot;&gt;
+                &lt;div class=&quot;img-lightbox&quot;&gt;
+
     
     </summary>
     
@@ -606,7 +777,13 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NullPointerException</div></pre></td></tr></table></figure>
 <p>定位到这一段:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div></pre></td></tr></table></figure></p>
-<p>debug调试可知，前端文件传不进来:<br><img src="/2017/03/26/SpringMVC文件上传/1.png" alt=""></p>
+<p>debug调试可知，前端文件传不进来:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/26/SpringMVC文件上传/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
 <ul>
 <li>FileUploadController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.ModelMap;</div><div class="line"><span class="keyword">import</span> org.springframework.util.FileCopyUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.annotation.Validated;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.domain.FIleUpload;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	ServletContext context;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/fileupload"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">fileUpload</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">"fileupload"</span>,<span class="string">"command"</span>,<span class="keyword">new</span> FIleUpload());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/success"</span>,method=RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">fileUploadPage</span><span class="params">(FIleUpload upload,BindingResult result,ModelMap model)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		String realPath = context.getRealPath(<span class="string">""</span>);</div><div class="line">		String basePath = realPath.substring(<span class="number">0</span>,realPath.indexOf(<span class="string">"\\."</span>));</div><div class="line">		String storePath = basePath+File.separator+context.getContextPath().substring(context.getContextPath().indexOf(<span class="string">"/"</span>)+<span class="number">1</span>)+<span class="string">"\\upload"</span>;</div><div class="line">		<span class="keyword">if</span>(result.hasErrors())&#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">"fileupload"</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			MultipartFile file = upload.getFile();</div><div class="line">            <span class="comment">//文件写入</span></div><div class="line">    	   FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div><div class="line">			String filename = file.getOriginalFilename();</div><div class="line">			model.addAttribute(<span class="string">"filename"</span>, filename);</div><div class="line">			<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -639,7 +816,13 @@
     <updated>2017-05-29T00:49:41.682Z</updated>
     
     <content type="html"><![CDATA[<h1 id="Spring-MVC错误处理"><a href="#Spring-MVC错误处理" class="headerlink" title="Spring MVC错误处理"></a>Spring MVC错误处理</h1><p>以下示例将如何在使用Spring Web MVC框架的表单中使用错误处理和验证器</p>
-<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><p><img src="/2017/03/25/Spring-MVC错误处理/1.png" alt=""></p>
+<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><ul>
 <li><p>Person.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.domain;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Integer age;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> Integer id;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -710,9 +893,59 @@
 <blockquote>
 <p>这里想看hibernate验证器可点击<a href="http://www.yiibai.com/spring_mvc/springmvc_hibernate_validator.html" target="_blank" rel="external">Spring MVC Hibernate验证器</a></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><p>springmvc中控制器，即我们的<code>PersonController</code>为单例</p>
-<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><img src="/2017/03/25/Spring-MVC错误处理/Spring MVC错误处理/2.png" alt=""><br>先跳转到<br><img src="/2017/03/25/Spring-MVC错误处理/3.png" alt=""><br>在之后<br><img src="/2017/03/25/Spring-MVC错误处理/4.png" alt=""><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
+<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/Spring" alt="MVC错误处理/2.png" title="">
+                </div>
+                <div class="image-caption">MVC错误处理/2.png</div>
+            </figure><br>先跳转到<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>在之后<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
 </blockquote>
-<p><img src="/2017/03/25/Spring-MVC错误处理/5.png" alt=""><br><img src="/2017/03/25/Spring-MVC错误处理/6.png" alt=""><br>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><img src="/2017/03/25/Spring-MVC错误处理/7.png" alt=""><br>可以看出我们的错误:<br><img src="/2017/03/25/Spring-MVC错误处理/8.png" alt=""><br>之后报错:<br><img src="/2017/03/25/Spring-MVC错误处理/9.png" alt=""><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/5.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/6.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<p>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/7.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>可以看出我们的错误:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/8.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br>之后报错:<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/25/Spring-MVC错误处理/9.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
 <p>返回的<code>person</code>，跳到<code>person.jsp</code>，并显示错误!!</p>
 ]]></content>
     
@@ -825,7 +1058,13 @@
     <content type="html"><![CDATA[<h1 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h1><blockquote>
 <p>Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。</p>
 </blockquote>
-<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><p><img src="/2017/03/24/SpringMVC初学/1.jpg" alt=""></p>
+<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/24/SpringMVC初学/1.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li><code>1.Http请求：</code> 客户端请求提交到DispatcherServlet。 </li>
 <li><code>2.寻找处理器：</code>由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
@@ -1008,7 +1247,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！</p>
 </blockquote>
-<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><p><img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt=""></p>
+<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>正常的登录界面，可以写出以下代码:</p>
 </blockquote>
@@ -1020,7 +1265,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>拿到图片，并下载到本地</p>
 </blockquote>
-<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt=""></p>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>由图可知所需发送的数据:</p>
 </blockquote>
@@ -1028,11 +1279,24 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><blockquote>
 <p>登录并拿到登陆者的姓名</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt=""><br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure>
 <blockquote>
 <p>登录，并拿到登录者姓名</p>
 </blockquote>
-<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt=""></p>
+<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>可知queryString为tjkbcx.aspx?xh=2014115010127&amp;xm=黄辉辉&amp;gnmkdm=N121601，代码如下:</p>
 </blockquote>
@@ -1048,7 +1312,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>由于请求头还缺少<code>referer</code>，导致跳转到登录页面，最后截图成了登录页面。。。。我也是醉了，找了我一下午，还没找到，有网友找到后，请告知，谢啦！！</p>
 </blockquote>
-<p><img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><blockquote>
 <p>解决中文编码<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sel.xpath(<span class="string">u"//h2[text()= 'xx']"</span>)</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -1166,7 +1436,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
 </blockquote>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><p><img src="/2017/03/12/在网页中使用markdown/1.png" alt=""></p>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
 </blockquote>
@@ -1177,14 +1453,26 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>这里把目录改了下：</p>
 </blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/2.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <ul>
 <li><code>lib</code>：为根目录下的文件，直接复制即可</li>
 <li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
 <li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
 <li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
 </ul>
-<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
+<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
 <font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
 
@@ -1200,8 +1488,13 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
 <p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
 </blockquote>
-<p><img src="/2017/03/12/在网页中使用markdown/4.png" alt=""></p>
-]]></content>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/12/在网页中使用markdown/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>]]></content>
     
     <summary type="html">
     
@@ -1345,20 +1638,45 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Integer i01 = <span class="number">59</span>;</div><div class="line"><span class="keyword">int</span> i02 = <span class="number">59</span>;</div><div class="line">Integer i03 =Integer.valueOf(<span class="number">59</span>);</div><div class="line">Integer i04 = <span class="keyword">new</span> Integer(<span class="number">59</span>)</div></pre></td></tr></table></figure>
 <ul>
-<li>以下输出结果为false的是：<br><img src="/2017/03/07/java错题总结/1.png" alt=""><blockquote>
+<li>以下输出结果为false的是：<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/07/java错题总结/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<blockquote>
 <p>解析如下:</p>
 </blockquote>
 </li>
 </ul>
-<p><img src="/2017/03/07/java错题总结/2.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/07/java错题总结/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="java类加载"><a href="#java类加载" class="headerlink" title="java类加载"></a>java类加载</h2><blockquote>
 <p>以下哪项不属于java类加载过程？</p>
 </blockquote>
-<p><img src="/2017/03/07/java错题总结/3.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/07/java错题总结/3.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <blockquote>
 <p>分析如下:</p>
 </blockquote>
-<p><img src="/2017/03/07/java错题总结/4.png" alt=""></p>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/03/07/java错题总结/4.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
 <h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><blockquote>
 <p>列出<code>equals</code>的源码</p>
 </blockquote>
