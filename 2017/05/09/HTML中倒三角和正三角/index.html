@@ -26,13 +26,7 @@
 分析看似容易的，其实真的很容易。。
 
 效果如下:
-                
-                    
-                    
-                
-                
-            
-分析代码如下：12345678b&amp;#123;    borde">
+分析代码如下：12345678b&amp;#123;    border-style:dashed ;    border-color:#bbb transparent transparent;&amp;#125;b:hover&amp;#123;    border-style:dashed ;">
 <meta property="og:type" content="article">
 <meta property="og:title" content="HTML中倒三角和正三角">
 <meta property="og:url" content="https://super3h.me/2017/05/09/HTML中倒三角和正三角/index.html">
@@ -41,13 +35,7 @@
 分析看似容易的，其实真的很容易。。
 
 效果如下:
-                
-                    
-                    
-                
-                
-            
-分析代码如下：12345678b&amp;#123;    borde">
+分析代码如下：12345678b&amp;#123;    border-style:dashed ;    border-color:#bbb transparent transparent;&amp;#125;b:hover&amp;#123;    border-style:dashed ;">
 <meta property="og:image" content="https://super3h.me/2017/05/09/HTML中倒三角和正三角/1.gif">
 <meta property="og:updated_time" content="2017-05-28T09:55:00.682Z">
 <meta name="twitter:card" content="summary">
@@ -56,13 +44,7 @@
 分析看似容易的，其实真的很容易。。
 
 效果如下:
-                
-                    
-                    
-                
-                
-            
-分析代码如下：12345678b&amp;#123;    borde">
+分析代码如下：12345678b&amp;#123;    border-style:dashed ;    border-color:#bbb transparent transparent;&amp;#125;b:hover&amp;#123;    border-style:dashed ;">
 <meta name="twitter:image" content="https://super3h.me/2017/05/09/HTML中倒三角和正三角/1.gif">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -224,13 +206,7 @@
             <h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常看到网站有这种符号▽的出现，刚好作业碰到这个问题，于是认真的学了下</p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>看似容易的，其实真的很容易。。</p>
 <ul>
-<li>效果如下:<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
+<li>效果如下:<br><img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt=""></li>
 <li>分析代码如下：<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">    <span class="attribute">border-color</span>:<span class="number">#bbb</span> transparent transparent;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">b</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">	<span class="attribute">border-color</span>:transparent transparent <span class="number">#bbb</span> transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -366,27 +342,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/05/09/HTML中倒三角和正三角/index.html',
-        sourceId: 'HTML中倒三角和正三角',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -546,10 +520,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

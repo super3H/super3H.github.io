@@ -314,27 +314,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/01/18/Python-SQLAlchemy/index.html',
-        sourceId: 'Python-SQLAlchemy',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -494,10 +492,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

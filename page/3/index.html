@@ -154,63 +154,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-java错题总结"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-03-07 12:27:51" datetime="2017-03-07T04:27:51.949Z"  itemprop="datePublished">2017-03-07</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaSE/">JavaSE</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/03/07/java错题总结/">java错题总结</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        错题分析Integer的考察
-在jdk1.5的环境下，有如下4条语句：
-
-1234Integer i01 = 59;int i02 = 59;Integer i03 =Integer.valueOf(59);Integer i04 = new Integer(59)
-
-以下输出结果为false的是：
-                
-                    
-        ...
-    
-
-        <a href="/2017/03/07/java错题总结/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaSE/">JavaSE</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-log4J的使用"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -347,14 +290,8 @@ log4J的配置及解释示例1234567891011121314151617181920# Define the root lo
 
     
         所需jar包
-                
-                    
-                    
-                
-                
-            
 
-导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-...
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-c...
     
 
         <a href="/2017/02/26/Spring-hibernate整合/" class="post-more waves-effect waves-button">
@@ -417,7 +354,8 @@ log4J的配置及解释示例1234567891011121314151617181920# Define the root lo
 
 
 目录结构
-                ...
+Spring Beans
+普通 ...
     
 
         <a href="/2017/02/25/Spring-AOP+AspectJ/" class="post-more waves-effect waves-button">
@@ -701,12 +639,67 @@ Beans
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-Spring 依赖注入(DI)"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-02-24 13:09:01" datetime="2017-02-24T05:09:01.266Z"  itemprop="datePublished">2017-02-24</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/spring/">spring</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/02/24/Spring 依赖注入(DI)/">Spring 依赖注入(DI)</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        
+在Spring框架中，依赖注入(DI)的设计模式是用来定义对象彼此间的依赖。它主要有两种类型：
+- Setter方法注入
+- 构造器注入
+这里两种方法共用的基本类如下:1234567package com.hhh.core;public interface Music &#123;		void minYao();&#125;
+
+1234567891011package com.hhh.co...
+    
+
+        <a href="/2017/02/24/Spring 依赖注入(DI)/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Spring/">Spring</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/2/">上一页</a><a class="page-number" href="/">1</a><a class="page-number" href="/page/2/">2</a><span class="page-number current">3</span><a class="page-number" href="/page/4/">4</a><a class="page-number" href="/page/5/">5</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/4/">下一页</a>
     </div>
 </nav>
 
@@ -838,10 +831,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

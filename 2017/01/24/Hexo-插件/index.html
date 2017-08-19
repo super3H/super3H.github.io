@@ -27,7 +27,13 @@
 
 问题
 github-cards生成问题微博秀生成问题
-解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：">
+解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：
+
+
+
+
+完成后结果如下:
+HTTP和HTTPS交叉使用而产生跨域，使其没办法加载出">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Hexo-github cards和微博秀的生成">
 <meta property="og:url" content="https://super3h.me/2017/01/24/Hexo-插件/index.html">
@@ -37,7 +43,13 @@ github-cards生成问题微博秀生成问题
 
 问题
 github-cards生成问题微博秀生成问题
-解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：">
+解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：
+
+
+
+
+完成后结果如下:
+HTTP和HTTPS交叉使用而产生跨域，使其没办法加载出">
 <meta property="og:image" content="https://super3h.me/2017/01/24/Hexo-插件/github-setting.png">
 <meta property="og:image" content="https://super3h.me/2017/01/24/Hexo-插件/github-profile.png">
 <meta property="og:image" content="https://super3h.me/2017/01/24/Hexo-插件/github-cards.png">
@@ -50,7 +62,13 @@ github-cards生成问题微博秀生成问题
 
 问题
 github-cards生成问题微博秀生成问题
-解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：">
+解决问题由于github完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：
+
+
+
+
+完成后结果如下:
+HTTP和HTTPS交叉使用而产生跨域，使其没办法加载出">
 <meta name="twitter:image" content="https://super3h.me/2017/01/24/Hexo-插件/github-setting.png">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -216,36 +234,12 @@ github-cards生成问题微博秀生成问题
 <p><code>github-cards</code>生成问题<br>微博秀生成问题</p>
 <h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>由于<code>github</code>完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-setting.png" alt="github-setting" title="">
-                </div>
-                <div class="image-caption">github-setting</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-profile.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/01/24/Hexo-插件/github-setting.png" alt="github-setting"></p>
+<p><img src="/2017/01/24/Hexo-插件/github-profile.png" alt=""></p>
 <blockquote>
-<p>完成后结果如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-cards.png" alt="github-cards" title="">
-                </div>
-                <div class="image-caption">github-cards</div>
-            </figure></p>
+<p>完成后结果如下:<br><img src="/2017/01/24/Hexo-插件/github-cards.png" alt="github-cards"></p>
 <p>HTTP和HTTPS交叉使用而产生跨域，使其没办法加载出来，解决方案如下：<br>在<code>jacman\layout\_partial</code>路径下的<code>head.ejs</code>的文件中添加如下语句:<br><code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot; /&gt;</code><br>位置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /&gt;</div><div class="line">  &lt;meta charset="UTF-8"&gt;</div><div class="line">  &lt;%</div><div class="line">  var title = page.title;</div><div class="line"></div><div class="line">  if (is_archive())&#123;</div><div class="line">    title = __('archive_a');</div><div class="line"></div><div class="line">    if (is_month())&#123;</div><div class="line">      title += ': ' + page.year + '/' + page.month;</div><div class="line">    &#125; else if (is_year())&#123;</div><div class="line">      title += ': ' + page.year;</div><div class="line">    &#125;</div><div class="line">  &#125; else if (is_category())&#123;</div><div class="line">    title =  __('categories')+' : ' + page.category;</div><div class="line">  &#125; else if (is_tag())&#123;</div><div class="line">    title = __('tags')+' : ' + page.tag;</div><div class="line">  &#125;</div><div class="line">  %&gt;</div></pre></td></tr></table></figure></p>
-<p>最后表现为:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/weiboShow.png" alt="weiboShow" title="">
-                </div>
-                <div class="image-caption">weiboShow</div>
-            </figure></p>
+<p>最后表现为:<br><img src="/2017/01/24/Hexo-插件/weiboShow.png" alt="weiboShow"></p>
 </blockquote>
 <h1 id="本地图片无法再网上显示？？"><a href="#本地图片无法再网上显示？？" class="headerlink" title="本地图片无法再网上显示？？"></a>本地图片无法再网上显示？？</h1><p>请参考链接—-&gt;<a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">hexo 中无痛使用本地图片</a></p>
 <p><font color="red">切记 文章名要和图片目录名一致！！！！</font></p>
@@ -370,27 +364,25 @@ github-cards生成问题微博秀生成问题
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/01/24/Hexo-插件/index.html',
-        sourceId: 'Hexo-插件',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -550,10 +542,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

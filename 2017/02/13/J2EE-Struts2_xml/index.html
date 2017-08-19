@@ -215,13 +215,7 @@
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">There is no Action mapped <span class="keyword">for</span> namespace [/] and action name [test] associated with context path [/test]. - [unknown location]</div></pre></td></tr></table></figure>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ol>
 <li>确保<code>struts.xml</code>文件名大小写正确：struts.xml</li>
-<li>确保struts.xml文件在<code>src</code>目录下,<strong>编译成功后，要确认是否编译到classes目录中</strong>项目右键 -&gt;properties -&gt;Java Build Path -&gt;source -&gt;Default output folder，选择你的路径。(<code>也可以在新建项目时选择,如图：</code>)<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/13/J2EE-Struts2_xml/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
+<li>确保struts.xml文件在<code>src</code>目录下,<strong>编译成功后，要确认是否编译到classes目录中</strong>项目右键 -&gt;properties -&gt;Java Build Path -&gt;source -&gt;Default output folder，选择你的路径。(<code>也可以在新建项目时选择,如图：</code>)<img src="/2017/02/13/J2EE-Struts2_xml/1.png" alt=""></li>
 <li>先排查访问的链接有没有问题（细节问题）</li>
 <li>查看struts.xml的配置（仔细排查，出现问题几率很大）</li>
 <li>查看结果响应页面是否存在问题（出现问题的几率比较小）</li>
@@ -357,27 +351,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/02/13/J2EE-Struts2_xml/index.html',
-        sourceId: 'J2EE-Struts2_xml',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -537,10 +529,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

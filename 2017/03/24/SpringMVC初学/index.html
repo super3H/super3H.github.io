@@ -26,14 +26,10 @@
 Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。
 
 SpringMVC原理图
-                
-                    
-                    
-                
-                
-            
 
-1.Htt">
+1.Http请求： 客户端请求提交到DispatcherServlet。 
+2.寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。
+3.调">
 <meta property="og:type" content="article">
 <meta property="og:title" content="SpringMVC初学">
 <meta property="og:url" content="https://super3h.me/2017/03/24/SpringMVC初学/index.html">
@@ -42,14 +38,10 @@ SpringMVC原理图
 Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。
 
 SpringMVC原理图
-                
-                    
-                    
-                
-                
-            
 
-1.Htt">
+1.Http请求： 客户端请求提交到DispatcherServlet。 
+2.寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。
+3.调">
 <meta property="og:image" content="https://super3h.me/2017/03/24/SpringMVC初学/1.jpg">
 <meta property="og:updated_time" content="2017-05-28T10:10:55.078Z">
 <meta name="twitter:card" content="summary">
@@ -58,14 +50,10 @@ SpringMVC原理图
 Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。
 
 SpringMVC原理图
-                
-                    
-                    
-                
-                
-            
 
-1.Htt">
+1.Http请求： 客户端请求提交到DispatcherServlet。 
+2.寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。
+3.调">
 <meta name="twitter:image" content="https://super3h.me/2017/03/24/SpringMVC初学/1.jpg">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -227,13 +215,7 @@ SpringMVC原理图
             <h1 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h1><blockquote>
 <p>Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。</p>
 </blockquote>
-<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/24/SpringMVC初学/1.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><p><img src="/2017/03/24/SpringMVC初学/1.jpg" alt=""></p>
 <ul>
 <li><code>1.Http请求：</code> 客户端请求提交到DispatcherServlet。 </li>
 <li><code>2.寻找处理器：</code>由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
@@ -426,27 +408,25 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/03/24/SpringMVC初学/index.html',
-        sourceId: 'SpringMVC初学',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -606,10 +586,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

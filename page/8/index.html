@@ -154,109 +154,6 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
-            <article id="post-Python-sqlite3"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-20 09:42:37" datetime="2017-01-20T01:42:37.256Z"  itemprop="datePublished">2017-01-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/20/Python-sqlite3/">Python-sqlite3 学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        安装与使用##导入Python SQLITE数据库模块1import sqlite3
-创建/打开数据库
-在调用connect函数的时候，指定库名称，如果指定的数据库存在就直接打开这个数据库，如果不存在就新创建一个再打开。1cx = sqlite3.connect("E:/test.db")
-也可以创建数据库在内存中。1con = sqlite3.connect(":memory:")
-
-数据...
-    
-
-        <a href="/2017/01/20/Python-sqlite3/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Web/">Python-Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqlite3/">sqlite3</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Python-SQLAlchemy"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-18 22:11:34" datetime="2017-01-18T14:11:34.807Z"  itemprop="datePublished">2017-01-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/18/Python-SQLAlchemy/">SQLAlchemy-学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        定义model12345678class User(Base):    #表名    __tablename__='user'    #表结构    id = Column(Integer,primary_key=True)    name = Column(String(20))    username = Column(String(20))    password = Column(S...
-    
-
-        <a href="/2017/01/18/Python-SQLAlchemy/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Web/">Python-Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLAlchemy/">SQLAlchemy</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
             <article id="post-Python-flask"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -689,12 +586,69 @@ g :全局匹配
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-Python-pip"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2016-12-25 10:46:39" datetime="2016-12-25T02:46:39.845Z"  itemprop="datePublished">2016-12-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2016/12/25/Python-pip/">python2.7 升级pip失败的原因</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        错误UnicodeDecodeError: ‘ascii’ codec can’t decode byte 0xbb in position 7: ordinal not in range(128)
+
+错误原因
+原因是pip安装python包会加载我的用户目录，我的用户目录恰好是中文的，ascii不能编码
+
+
+
+
+解决方案python目录 Python27\Lib\site-packages...
+    
+
+        <a href="/2016/12/25/Python-pip/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python2/">Python2</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/pip/">pip</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/7/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/9/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/7/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
     </div>
 </nav>
 
@@ -826,10 +780,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

@@ -9,13 +9,7 @@
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><p>经常看到网站有这种符号▽的出现，刚好作业碰到这个问题，于是认真的学了下</p>
 <h1 id="分析"><a href="#分析" class="headerlink" title="分析"></a>分析</h1><p>看似容易的，其实真的很容易。。</p>
 <ul>
-<li>效果如下:<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
+<li>效果如下:<br><img src="/2017/05/09/HTML中倒三角和正三角/1.gif" alt=""></li>
 <li>分析代码如下：<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="selector-tag">b</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">    <span class="attribute">border-color</span>:<span class="number">#bbb</span> transparent transparent;</div><div class="line">&#125;</div><div class="line"><span class="selector-tag">b</span><span class="selector-pseudo">:hover</span>&#123;</div><div class="line">    <span class="attribute">border-style</span>:dashed ;</div><div class="line">	<span class="attribute">border-color</span>:transparent transparent <span class="number">#bbb</span> transparent;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
 </ul>
@@ -156,13 +150,7 @@
 </tr>
 </tbody>
 </table>
-<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/05/05/路由器配置-不等长/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="网络拓扑图"><a href="#网络拓扑图" class="headerlink" title="网络拓扑图"></a>网络拓扑图</h1><p><img src="/2017/05/05/路由器配置-不等长/1.png" alt=""></p>
 <p><font color="#CD5555">路由器配置详细操作方法请参照上文:</font><a href="https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE/">路由器配置-等长</a></p>
 ]]></content>
     </entry>
@@ -172,13 +160,7 @@
       <url>https://super3h.me/2017/04/23/%E5%AE%B9%E5%99%A8%E6%B7%B1%E5%85%A5%E7%A0%94%E7%A9%B6-Map/</url>
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><font color="#CD5555"><strong>由于这几天看了些有关map的知识点，面试可能会被问到，所以来总结总结！！</strong></font>
 
-<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/23/容器深入研究-Map/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="Map介绍"><a href="#Map介绍" class="headerlink" title="Map介绍"></a>Map介绍</h1><p><img src="/2017/04/23/容器深入研究-Map/1.png" alt=""></p>
 <table>
 <thead>
 <tr>
@@ -214,13 +196,7 @@
 </tbody>
 </table>
 <h2 id="HashMap"><a href="#HashMap" class="headerlink" title="HashMap"></a>HashMap</h2><ul>
-<li><strong>HashMap的存储结构</strong><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/23/容器深入研究-Map/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
+<li><strong>HashMap的存储结构</strong><br><img src="/2017/04/23/容器深入研究-Map/2.png" alt=""></li>
 <li><p><strong>HashMap有四个构造方法，方法中有两个很重要的参数：初始容量和加载因子</strong></p>
 <ul>
 <li>这两个参数是影响HashMap性能的重要参数，其中容量表示哈希表中槽的数量（即哈希数组的长度），<strong><font color="#0077BB">初始容量</font>是创建哈希表时的容量（默认为16），<font color="#0077BB">加载因子</font>是哈希表当前key的数量和容量的比值，<font color="#CD5555">当哈希表中的条目数超出了加载因子与当前容量的乘积时，则要对该哈希表提前进行 resize 操作（即扩容）。</font></strong>如果加载因子越大，对空间的利用更充分，但是查找效率会降低（链表长度会越来越长）；如果加载因子太小，那么表中的数据将过于稀疏（很多空间还没用，就开始扩容了），严重浪费。</li>
@@ -276,14 +252,7 @@
     <entry>
       <title><![CDATA[路由器配置-等长]]></title>
       <url>https://super3h.me/2017/04/21/%E8%B7%AF%E7%94%B1%E5%99%A8%E9%85%8D%E7%BD%AE-%E7%AD%89%E9%95%BF/</url>
-      <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>有一个企业网络拓扑结构如上图，回答如下问题：</p>
+      <content type="html"><![CDATA[<h1 id="题目"><a href="#题目" class="headerlink" title="题目"></a>题目</h1><p><img src="/2017/04/21/路由器配置-等长/1.png" alt=""><br>有一个企业网络拓扑结构如上图，回答如下问题：</p>
 <ol>
 <li>给出子网划分方案，并给出每个子网主机的地址空间；</li>
 <li>完成网络地址分配，以表格的形式提供；</li>
@@ -317,99 +286,35 @@
 </tr>
 </tbody>
 </table>
-<p>这里我们在图上配置好我们的图:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
-<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>接下来我们给pc机和服务器配置相应的ip:</p>
+<p>这里我们在图上配置好我们的图:<br><img src="/2017/04/21/路由器配置-等长/2.png" alt=""><br>这里net1、net2、net3、net4都需以其实地址开始，即0,64,128,192</p>
+<h2 id="划分主机地址"><a href="#划分主机地址" class="headerlink" title="划分主机地址"></a>划分主机地址</h2><p>我们想看左边那一块,由题目可知，<strong>给主机分配218.197.17.1~218.197.17.254即可(除去网络号和主机号)</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/3.png" alt=""><br>接下来我们给pc机和服务器配置相应的ip:</p>
 <ul>
-<li><p>pc机配置如下：</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>pc机配置如下：<br><img src="/2017/04/21/路由器配置-等长/4.png" alt=""></p>
 <blockquote>
 <p>另一个pc机操作也同上</p>
 </blockquote>
 </li>
-<li><p>服务器配置如下:</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>服务器配置如下:<br><img src="/2017/04/21/路由器配置-等长/5.png" alt=""></p>
 <blockquote>
 <p>另一个服务器操作也同上</p>
 </blockquote>
 </li>
 </ul>
-<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/6.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/7.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
+<p><strong>配置完后，主机、服务器之间就可以相互ping通了！！</strong>,操作如下:<br><img src="/2017/04/21/路由器配置-等长/6.png" alt=""><br><strong>接下来我们用pc0来ping主机和服务器</strong><br><img src="/2017/04/21/路由器配置-等长/7.png" alt=""><br><strong>接下来我们配置其网关，网关范围也在218.197.17.1~218.197.17.254(除去网络号和主机号)之间</strong>:</p>
 <ul>
-<li><p>配置链接左边那块的路由器</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/11.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>配置链接左边那块的路由器<br><img src="/2017/04/21/路由器配置-等长/11.png" alt=""></p>
 <blockquote>
 <p> <strong>配置默认网关只用在圆柱体的路由器上的<code>fa0/0</code>端口配置以上信息即可，切记一定要点击启用，否则图上的绿点就是红点 (博主已经全部启用，所以你们看到的是绿色) ps:鼠标悬停在绿色(红色)的小圆点上就可以知道其端口号</strong></p>
 </blockquote>
 </li>
-<li><p>配置各个pc、服务器的默认网关、和dns服务器</p>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/12.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<li><p>配置各个pc、服务器的默认网关、和dns服务器<br><img src="/2017/04/21/路由器配置-等长/12.png" alt=""></p>
 <blockquote>
 <p><strong>DNS服务器IP我们一开始配置的为218.197.17.100，网关配置的为218.197.17.250，这里博主只演示了CopyPC0的配置，其他几个同理！！</strong>,接下来我们ping一下网关即可验证：</p>
 </blockquote>
 </li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/13.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/14.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/2017/04/21/路由器配置-等长/13.png" alt=""></p>
+<p><strong>最右边操作也同理:ip地址范围218.197.16.1~218.197.16.254即可(网络号和广播号除外)</strong>,我的Ip地址，网关配置(最后成果是右边pc能访问左边的服务器，所以这里pc的DNS服务器我们也配置成左边的DNS服务器的IP)如下:<br><img src="/2017/04/21/路由器配置-等长/14.png" alt=""></p>
 <h2 id="配置4个路由的端口"><a href="#配置4个路由的端口" class="headerlink" title="配置4个路由的端口"></a>配置4个路由的端口</h2><table>
 <thead>
 <tr>
@@ -436,105 +341,31 @@
 </tr>
 </tbody>
 </table>
-<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/15.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><strong>net1之间的地址空间范围为:218.197.15.1~218.197.15.62(除去广播号和网络号)</strong>,我们在net1之间的两个端口配置上以上的范围即可:<br><img src="/2017/04/21/路由器配置-等长/15.png" alt=""></p>
 <blockquote>
 <p>操作如下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/16.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/17.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>操作完成后，我们来用pc机ping一下来确认:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/18.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/19.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/20.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/2017/04/21/路由器配置-等长/16.png" alt=""><br>这里解释一下子网掩码写192的原因:<strong>由于前面我们划分子网给了2位作为网络号，所以最后8位为1100 0000</strong><br>其他配置同理:<br><img src="/2017/04/21/路由器配置-等长/17.png" alt=""><br>操作完成后，我们来用pc机ping一下来确认:<br><img src="/2017/04/21/路由器配置-等长/18.png" alt=""><br><strong>可以看到我们ping218.197.15.62，可以通，但是218.197.15.1不行，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong>，配置如下：<br><img src="/2017/04/21/路由器配置-等长/19.png" alt=""><br><strong>这里目的网络为218.197.17.0这个网络，子网掩码也为这个网络的掩码，下一跳是指需要经过的下一个路由器端口，通过该路由器才能将数据路由出去</strong>，这里我们ping一下218.197.15.1来确认一下即可:<br><img src="/2017/04/21/路由器配置-等长/20.png" alt=""></p>
 <blockquote>
 <p><strong>倘若我们要通过最左边的电脑来访问左右边的电脑咋办？？</strong><br><code>分析：</code>最左边访问最右边，<strong>当然要通过管理最左边的路由器来路由数据</strong>，所以这里我们配置其静态路由：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/21.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/04/21/路由器配置-等长/21.png" alt=""></p>
 <blockquote>
 <p>这里有两条路可以走，博主选的上面这条路，配置完后就可以访问了么？？我们来试一下：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/22.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/04/21/路由器配置-等长/22.png" alt=""></p>
 <blockquote>
 <p>发现都没办法到达目的地，**因为这里我们通过最上方的路由器来路由数据，但它不知道到目的网络在哪，我们再来配置他的静态路由</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/23.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/04/21/路由器配置-等长/23.png" alt=""></p>
 <blockquote>
 <p>这个时候我们来ping一下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/24.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/25.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p><img src="/2017/04/21/路由器配置-等长/24.png" alt=""><br><strong>发现可以到达目的网络，但是请求超时，因为这个路由器并不知道发送方在哪个网络，从而不知道数据发送给谁，因此这里我们需要给其配置静态路由</strong><br><img src="/2017/04/21/路由器配置-等长/25.png" alt=""></p>
 <blockquote>
 <p>在ping一下确认：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/04/21/路由器配置-等长/26.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/04/21/路由器配置-等长/26.png" alt=""></p>
 <blockquote>
 <p><strong>ping通了，这个时候你会纳闷，数据经过最上方的路由器路由，但是最上方的路由器没有配置目的网络到218.197.17.0啊！！！其实我们刚开始就已经配了，往上翻一下就知道了！！</strong></p>
 </blockquote>
@@ -637,13 +468,7 @@
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NullPointerException</div></pre></td></tr></table></figure>
 <p>定位到这一段:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div></pre></td></tr></table></figure></p>
-<p>debug调试可知，前端文件传不进来:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/26/SpringMVC文件上传/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>debug调试可知，前端文件传不进来:<br><img src="/2017/03/26/SpringMVC文件上传/1.png" alt=""></p>
 <ul>
 <li>FileUploadController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.ModelMap;</div><div class="line"><span class="keyword">import</span> org.springframework.util.FileCopyUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.annotation.Validated;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.domain.FIleUpload;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	ServletContext context;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/fileupload"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">fileUpload</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">"fileupload"</span>,<span class="string">"command"</span>,<span class="keyword">new</span> FIleUpload());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/success"</span>,method=RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">fileUploadPage</span><span class="params">(FIleUpload upload,BindingResult result,ModelMap model)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		String realPath = context.getRealPath(<span class="string">""</span>);</div><div class="line">		String basePath = realPath.substring(<span class="number">0</span>,realPath.indexOf(<span class="string">"\\."</span>));</div><div class="line">		String storePath = basePath+File.separator+context.getContextPath().substring(context.getContextPath().indexOf(<span class="string">"/"</span>)+<span class="number">1</span>)+<span class="string">"\\upload"</span>;</div><div class="line">		<span class="keyword">if</span>(result.hasErrors())&#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">"fileupload"</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			MultipartFile file = upload.getFile();</div><div class="line">            <span class="comment">//文件写入</span></div><div class="line">    	   FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div><div class="line">			String filename = file.getOriginalFilename();</div><div class="line">			model.addAttribute(<span class="string">"filename"</span>, filename);</div><div class="line">			<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -658,13 +483,7 @@
       <title><![CDATA[Spring MVC错误处理]]></title>
       <url>https://super3h.me/2017/03/25/Spring-MVC%E9%94%99%E8%AF%AF%E5%A4%84%E7%90%86/</url>
       <content type="html"><![CDATA[<h1 id="Spring-MVC错误处理"><a href="#Spring-MVC错误处理" class="headerlink" title="Spring MVC错误处理"></a>Spring MVC错误处理</h1><p>以下示例将如何在使用Spring Web MVC框架的表单中使用错误处理和验证器</p>
-<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="目录如下"><a href="#目录如下" class="headerlink" title="目录如下"></a>目录如下</h2><p><img src="/2017/03/25/Spring-MVC错误处理/1.png" alt=""></p>
 <h2 id="相关代码"><a href="#相关代码" class="headerlink" title="相关代码"></a>相关代码</h2><ul>
 <li><p>Person.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.domain;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Person</span> </span>&#123;</div><div class="line">	<span class="keyword">private</span> Integer age;</div><div class="line">	<span class="keyword">private</span> String name;</div><div class="line">	<span class="keyword">private</span> Integer id;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getAge</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">(Integer age)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.age = age;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.name = name;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> Integer <span class="title">getId</span><span class="params">()</span> </span>&#123;</div><div class="line">		<span class="keyword">return</span> id;</div><div class="line">	&#125;</div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Integer id)</span> </span>&#123;</div><div class="line">		<span class="keyword">this</span>.id = id;</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -735,59 +554,9 @@
 <blockquote>
 <p>这里想看hibernate验证器可点击<a href="http://www.yiibai.com/spring_mvc/springmvc_hibernate_validator.html" target="_blank" rel="external">Spring MVC Hibernate验证器</a></p>
 <h1 id="总结"><a href="#总结" class="headerlink" title="总结"></a>总结</h1><h2 id="单例"><a href="#单例" class="headerlink" title="单例"></a>单例</h2><p>springmvc中控制器，即我们的<code>PersonController</code>为单例</p>
-<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/Spring" alt="MVC错误处理/2.png" title="">
-                </div>
-                <div class="image-caption">MVC错误处理/2.png</div>
-            </figure><br>先跳转到<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在之后<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
+<h2 id="运行过程"><a href="#运行过程" class="headerlink" title="运行过程"></a>运行过程</h2><p>通过debug调试得知 当输入<br><img src="/2017/03/25/Spring-MVC错误处理/Spring MVC错误处理/2.png" alt=""><br>先跳转到<br><img src="/2017/03/25/Spring-MVC错误处理/3.png" alt=""><br>在之后<br><img src="/2017/03/25/Spring-MVC错误处理/4.png" alt=""><br>设置我们的验证器，并获取<code>ServletRequestDataBinder</code>对象</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/6.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<p>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/7.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>可以看出我们的错误:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/8.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>之后报错:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/25/Spring-MVC错误处理/9.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
+<p><img src="/2017/03/25/Spring-MVC错误处理/5.png" alt=""><br><img src="/2017/03/25/Spring-MVC错误处理/6.png" alt=""><br>当我们提交后：然后继续进入<code>createStudentModel</code>和<code>initBinder</code>，在之后进入:<br><img src="/2017/03/25/Spring-MVC错误处理/7.png" alt=""><br>可以看出我们的错误:<br><img src="/2017/03/25/Spring-MVC错误处理/8.png" alt=""><br>之后报错:<br><img src="/2017/03/25/Spring-MVC错误处理/9.png" alt=""><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">if</span> (bindingResult.hasErrors()) &#123;</div><div class="line">	         <span class="keyword">return</span> <span class="string">"person"</span>;</div><div class="line">		&#125;</div></pre></td></tr></table></figure></p>
 <p>返回的<code>person</code>，跳到<code>person.jsp</code>，并显示错误!!</p>
 ]]></content>
     </entry>
@@ -852,13 +621,7 @@
       <content type="html"><![CDATA[<h1 id="SpringMVC框架介绍"><a href="#SpringMVC框架介绍" class="headerlink" title="SpringMVC框架介绍"></a>SpringMVC框架介绍</h1><blockquote>
 <p>Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。</p>
 </blockquote>
-<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/24/SpringMVC初学/1.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="SpringMVC原理图"><a href="#SpringMVC原理图" class="headerlink" title="SpringMVC原理图"></a>SpringMVC原理图</h1><p><img src="/2017/03/24/SpringMVC初学/1.jpg" alt=""></p>
 <ul>
 <li><code>1.Http请求：</code> 客户端请求提交到DispatcherServlet。 </li>
 <li><code>2.寻找处理器：</code>由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。</li>
@@ -1007,13 +770,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！</p>
 </blockquote>
-<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="结构分析"><a href="#结构分析" class="headerlink" title="结构分析"></a>结构分析</h1><p><img src="/2017/03/19/爬虫-爬取学校官网/1.png" alt=""></p>
 <blockquote>
 <p>正常的登录界面，可以写出以下代码:</p>
 </blockquote>
@@ -1025,13 +782,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>拿到图片，并下载到本地</p>
 </blockquote>
-<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="数据准备"><a href="#数据准备" class="headerlink" title="数据准备"></a>数据准备</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/2.png" alt=""></p>
 <blockquote>
 <p>由图可知所需发送的数据:</p>
 </blockquote>
@@ -1039,24 +790,11 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="登录"><a href="#登录" class="headerlink" title="登录"></a>登录</h2><blockquote>
 <p>登录并拿到登陆者的姓名</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure>
+<p><img src="/2017/03/19/爬虫-爬取学校官网/3.png" alt=""><br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">login</span><span class="params">(self,checkCode)</span>:</span>    </div><div class="line">        headers = &#123;</div><div class="line">            <span class="string">"User-Agent"</span>:<span class="string">"Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/49.0.2623.110 Safari/537.36"</span>,</div><div class="line">        &#125;</div><div class="line">        data = self.getData(checkCode)</div><div class="line">        <span class="comment">#登陆教务系统</span></div><div class="line">        response = requests.post(self.schoolURL,data=data,headers=headers)</div><div class="line">        successSl = etree.HTML((response.content).decode(<span class="string">'gb2312'</span>))</div><div class="line"><span class="comment">#         print response.encoding</span></div><div class="line"><span class="comment">#       去除登陆者姓名同学两字(xxx同学)</span></div><div class="line">        self.name = successSl.xpath(<span class="string">'//span[@id="xhxm"]/text()'</span>)[<span class="number">0</span>][:<span class="number">-2</span>]</div></pre></td></tr></table></figure></p>
 <blockquote>
 <p>登录，并拿到登录者姓名</p>
 </blockquote>
-<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="进入课表页面"><a href="#进入课表页面" class="headerlink" title="进入课表页面"></a>进入课表页面</h2><p><img src="/2017/03/19/爬虫-爬取学校官网/4.png" alt=""></p>
 <blockquote>
 <p>可知queryString为tjkbcx.aspx?xh=2014115010127&amp;xm=黄辉辉&amp;gnmkdm=N121601，代码如下:</p>
 </blockquote>
@@ -1072,31 +810,11 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>由于请求头还缺少<code>referer</code>，导致跳转到登录页面，最后截图成了登录页面。。。。我也是醉了，找了我一下午，还没找到，有网友找到后，请告知，谢啦！！</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/19/爬虫-爬取学校官网/course.jpg" alt=""></p>
 <h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><blockquote>
 <p>解决中文编码<br><figure class="highlight py"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sel.xpath(<span class="string">u"//h2[text()= 'xx']"</span>)</div></pre></td></tr></table></figure></p>
 </blockquote>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p><a href="http://blog.csdn.net/nghuyong/article/details/51622888" target="_blank" rel="external">python爬虫正方教务系统</a><br><a href="http://www.jianshu.com/p/2631bf34328e" target="_blank" rel="external">爬虫：3. selenium</a></p>
-]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[前台学习]]></title>
-      <url>https://super3h.me/2017/03/14/%E5%89%8D%E5%8F%B0%E5%AD%A6%E4%B9%A0/</url>
-      <content type="html"><![CDATA[<h1 id="基础"><a href="#基础" class="headerlink" title="基础"></a>基础</h1><h2 id="position-relative定位"><a href="#position-relative定位" class="headerlink" title="position:relative定位"></a>position:relative定位</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"position:absolute"</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>第二个div绝对定位是相对于它的父级元素</p>
-</blockquote>
-<h2 id="图片截取"><a href="#图片截取" class="headerlink" title="图片截取"></a>图片截取</h2><figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/*-30px用来调整左右间距，-20px用来调整上下间距*/</span></div><div class="line"><span class="selector-tag">background</span><span class="selector-pseudo">:url(imgUrl)</span> <span class="selector-tag">no-repeat</span> <span class="selector-tag">-30px</span> <span class="selector-tag">-20px</span>;</div></pre></td></tr></table></figure>
-<h2 id="div浮动"><a href="#div浮动" class="headerlink" title="div浮动"></a>div浮动</h2><blockquote>
-<p>这里直接贴链接，这位博主讲的特别清楚<a href="http://www.jianshu.com/p/07eb19957991" target="_blank" rel="external">CSS浮动float详解</a></p>
-</blockquote>
 ]]></content>
     </entry>
     
@@ -1158,13 +876,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
 <p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
 </blockquote>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><p><img src="/2017/03/12/在网页中使用markdown/1.png" alt=""></p>
 <blockquote>
 <p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
 </blockquote>
@@ -1175,26 +887,14 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>这里把目录改了下：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/12/在网页中使用markdown/2.png" alt=""></p>
 <ul>
 <li><code>lib</code>：为根目录下的文件，直接复制即可</li>
 <li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
 <li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
 <li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
 </ul>
-<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><p><img src="/2017/03/12/在网页中使用markdown/3.png" alt=""></p>
 <h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
 <font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
 
@@ -1210,13 +910,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
 <p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>]]></content>
+<p><img src="/2017/03/12/在网页中使用markdown/4.png" alt=""></p>
+]]></content>
     </entry>
     
     <entry>
@@ -1305,45 +1000,20 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">Integer i01 = <span class="number">59</span>;</div><div class="line"><span class="keyword">int</span> i02 = <span class="number">59</span>;</div><div class="line">Integer i03 =Integer.valueOf(<span class="number">59</span>);</div><div class="line">Integer i04 = <span class="keyword">new</span> Integer(<span class="number">59</span>)</div></pre></td></tr></table></figure>
 <ul>
-<li>以下输出结果为false的是：<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/07/java错题总结/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
+<li>以下输出结果为false的是：<br><img src="/2017/03/07/java错题总结/1.png" alt=""><blockquote>
 <p>解析如下:</p>
 </blockquote>
 </li>
 </ul>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/07/java错题总结/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/07/java错题总结/2.png" alt=""></p>
 <h2 id="java类加载"><a href="#java类加载" class="headerlink" title="java类加载"></a>java类加载</h2><blockquote>
 <p>以下哪项不属于java类加载过程？</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/07/java错题总结/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/07/java错题总结/3.png" alt=""></p>
 <blockquote>
 <p>分析如下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/07/java错题总结/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/07/java错题总结/4.png" alt=""></p>
 <h2 id="equals"><a href="#equals" class="headerlink" title="equals"></a>equals</h2><blockquote>
 <p>列出<code>equals</code>的源码</p>
 </blockquote>
@@ -1441,23 +1111,11 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h1 id="log4J配置文件位置"><a href="#log4J配置文件位置" class="headerlink" title="log4J配置文件位置"></a>log4J配置文件位置</h1><h2 id="默认加载"><a href="#默认加载" class="headerlink" title="默认加载"></a>默认加载</h2><blockquote>
 <p>log4j启动时，<font color="#CF59E0">默认会寻找source folder下的log4j.xml配置文件，<strong>若没有，会寻找log4j.properties文件。</strong></font>然后加载配置。配置文件放置位置正确，不用在程序中手动加载log4j配置文件。</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/02/log4J的使用/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/02/log4J的使用/1.png" alt=""></p>
 <h2 id="手动加载配置文件"><a href="#手动加载配置文件" class="headerlink" title="手动加载配置文件"></a>手动加载配置文件</h2><blockquote>
 <p>可以通过<code>PropertyConfigurator.configure(&quot;url&quot;)</code>来手动加载配置文件，示例如下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/02/log4J的使用/2.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/03/02/log4J的使用/2.jpg" alt=""></p>
 <blockquote>
 <p>相应代码如下:<code>PropertyConfigurator.configure(&quot;config/log4j.properties&quot;);</code></p>
 </blockquote>
@@ -1525,14 +1183,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p>注意：<font color="#ED8F76"><strong>加上classpath是让spring从src中读取</strong></font></p>
 </blockquote>
 <h1 id="Log4J日志配置"><a href="#Log4J日志配置" class="headerlink" title="Log4J日志配置"></a>Log4J日志配置</h1><h2 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h2><ul>
-<li>如下图<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/01/s2sh三大框架的整合/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-</li>
+<li>如下图<br><img src="/2017/03/01/s2sh三大框架的整合/1.png" alt=""></li>
 </ul>
 <h2 id="web-xml配置如下"><a href="#web-xml配置如下" class="headerlink" title="web.xml配置如下"></a>web.xml配置如下</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- log4j配置，文件路径，因为是跟随项目启动 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>log4jConfigLocation<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>classpath:log4j.properties<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">context-param</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-name</span>&gt;</span>loggingLevel<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">param-value</span>&gt;</span>info<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">context-param</span>&gt;</span></div><div class="line">	<span class="comment">&lt;!-- 加载log4j配置文件 --&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">listener</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">listener-class</span>&gt;</span>org.springframework.web.util.Log4jConfigListener<span class="tag">&lt;/<span class="name">listener-class</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">listener</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="log4J-properties配置"><a href="#log4J-properties配置" class="headerlink" title="log4J.properties配置"></a>log4J.properties配置</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"># Define the root logger with appender file</div><div class="line">log4j.rootLogger = DEBUG, FILE</div><div class="line"></div><div class="line"># Define the file appender</div><div class="line">log4j.appender.FILE=org.apache.log4j.FileAppender</div><div class="line"># Set the name of the file</div><div class="line">log4j.appender.FILE.File=G:\\log4J\u65E5\u5FD7\\s2sh_test01\\htmlLayout.html</div><div class="line"></div><div class="line"># Set the immediate flush to true (default)</div><div class="line">log4j.appender.FILE.ImmediateFlush=true</div><div class="line"></div><div class="line"># Set the threshold to debug mode</div><div class="line">log4j.appender.FILE.Threshold=debug</div><div class="line"></div><div class="line"># Define the layout for file appender</div><div class="line">log4j.appender.FILE.layout=org.apache.log4j.HTMLLayout</div><div class="line">log4j.appender.FILE.layout.Title=HTML Layout Example</div><div class="line">log4j.appender.FILE.layout.LocationInfo=true</div></pre></td></tr></table></figure>
@@ -1543,13 +1194,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <entry>
       <title><![CDATA[Spring-hibernate整合]]></title>
       <url>https://super3h.me/2017/02/26/Spring-hibernate%E6%95%B4%E5%90%88/</url>
-      <content type="html"><![CDATA[<h1 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/26/Spring-hibernate整合/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+      <content type="html"><![CDATA[<h1 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h1><p><img src="/2017/02/26/Spring-hibernate整合/1.png" alt=""></p>
 <blockquote>
 <p>导入<code>hibernate-release-5.2.5.Final\lib\required</code>下面的包以及spring中事务<code>spring-tx</code>包和对象关系映射<code>spring-orm</code>，jdbc<code>spring-jdbc</code>，注解所需的<code>spring-aop</code>，和<code>beans，core，context，expression</code>以及<code>commons-logging</code>依赖包，还有<code>mysql的驱动包：mysql-connector</code></p>
 </blockquote>
@@ -1602,13 +1247,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </ul>
 </li>
 </ul>
-<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/25/Spring-AOP+AspectJ/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p><img src="/2017/02/25/Spring-AOP+AspectJ/1.png" alt=""></p>
 <h1 id="Spring-Beans"><a href="#Spring-Beans" class="headerlink" title="Spring Beans"></a>Spring Beans</h1><blockquote>
 <p>普通 bean 中有几个方法，后来通过 AspectJ 注解拦截</p>
 </blockquote>
@@ -2012,13 +1651,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <title><![CDATA[spring所遇问题]]></title>
       <url>https://super3h.me/2017/02/23/spring%E6%89%80%E9%81%87%E9%97%AE%E9%A2%98/</url>
       <content type="html"><![CDATA[<h1 id="jar包没导出的问题"><a href="#jar包没导出的问题" class="headerlink" title="jar包没导出的问题"></a>jar包没导出的问题</h1><blockquote>
-<p>没导入<code>spring-core-4.2.6.RELEASE.jar</code>，报:<code>The type org.springframework.core.NestedRuntimeException cannot be resolved. It is indirectly referenced from required .class files</code><br>以及其他jar包没导报:<code>ClassNoFoundException....</code>，以下列出所需基本包<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/23/spring所遇问题/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>没导入<code>spring-core-4.2.6.RELEASE.jar</code>，报:<code>The type org.springframework.core.NestedRuntimeException cannot be resolved. It is indirectly referenced from required .class files</code><br>以及其他jar包没导报:<code>ClassNoFoundException....</code>，以下列出所需基本包<br><img src="/2017/02/23/spring所遇问题/1.png" alt=""></p>
 </blockquote>
 ]]></content>
     </entry>
@@ -2030,13 +1663,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p>从Spring 3起，JavaConfig功能已经包含在Spring核心模块，它允许开发者将bean定义和在Spring配置XML文件到Java类中。<br>但是，<em>仍然允许使用经典的XML方式来定义bean和配置，JavaConfig是另一种替代解决方案。</em><br>看来看经典的XML定义和JavaConfig的不同，如下定义在Spring容器中的bean<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">beans</span> <span class="attr">xmlns</span>=<span class="string">"http://www.springframework.org/schema/beans"</span></span></div><div class="line">	<span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">	<span class="attr">xsi:schemaLocation</span>=<span class="string">"http://www.springframework.org/schema/beans</span></div><div class="line">	http://www.springframework.org/schema/beans/spring-beans-3.0.xsd"&gt;</div><div class="line"> </div><div class="line">	<span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"helloBean"</span> <span class="attr">class</span>=<span class="string">"com.yiibai.hello.impl.HelloWorldImpl"</span>&gt;</span></div><div class="line">		</div><div class="line"><span class="tag">&lt;/<span class="name">beans</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>等效于以下JavaConfig的配置：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Bean;</div><div class="line"><span class="keyword">import</span> org.springframework.context.annotation.Configuration;</div><div class="line"><span class="keyword">import</span> com.yiibai.hello.HelloWorld;</div><div class="line"><span class="keyword">import</span> com.yiibai.hello.impl.HelloWorldImpl;</div><div class="line"></div><div class="line"><span class="meta">@Configuration</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">AppConfig</span> </span>&#123;</div><div class="line">	</div><div class="line">    <span class="meta">@Bean</span>(name=<span class="string">"helloBean"</span>)</div><div class="line">    <span class="function"><span class="keyword">public</span> HelloWorld <span class="title">helloWorld</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> HelloWorldImpl();</div><div class="line">    &#125;</div><div class="line">	</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
-<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="目录及所需jar包"><a href="#目录及所需jar包" class="headerlink" title="目录及所需jar包"></a>目录及所需jar包</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/23/Spring-JavaConfig/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h1><h2 id="目录及所需jar包"><a href="#目录及所需jar包" class="headerlink" title="目录及所需jar包"></a>目录及所需jar包</h2><p><img src="/2017/02/23/Spring-JavaConfig/1.png" alt=""></p>
 <h2 id="单个加载"><a href="#单个加载" class="headerlink" title="单个加载"></a>单个加载</h2><h3 id="Spring-Beans"><a href="#Spring-Beans" class="headerlink" title="Spring Beans"></a>Spring Beans</h3><blockquote>
 <p>一个简单的Bean<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.helloWorld;</div><div class="line"></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">interface</span> <span class="title">HelloWorld</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="function"><span class="keyword">void</span> <span class="title">sayHello</span><span class="params">()</span></span>;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
 </blockquote>
@@ -2105,13 +1732,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p>正如大家所了解的那样，Maven确实使用 Maven 库的概念作依赖管理。但是，如果依赖是在远程存储库和中央存储库不提供那会怎么样？ Maven 提供为使用外部依赖的概念，就是应用在这样的场景中的。<br>举一个例子，让我们在<a href="http://www.yiibai.com/maven/maven_creating_project.html" target="_blank" rel="external">Maven创建项目</a>这一章节中创建的项目做以下的修改</p>
 <pre><code>- 添加 lib 文件夹到 src 文件夹
 - 复制任何的 jar 到 lib 文件夹。这里使用的是 ldapjdk.jar，这是 LDAP 操作的辅助库
-</code></pre><p>目录结构如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/22/maven外部依赖/1.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>在这里，在项目中指定自己所用的库，它可以包含 jar 文件，但是可能无法在任何 Maven 存储库找到，那么需要从外部下载。如果代码使用这个 Maven 库但没有办法找到，那么 Maven 构建将会失败，因为它在编译阶段使用指这个库无法下载或无法找到。<br>要处理这种情况，<em>需要添加外部依赖项</em>，如使用下列方式在 Maven 的 pom.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> </span></div><div class="line">   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 </span></div><div class="line">   http://maven.apache.org/maven-v4_0_0.xsd"&gt;</div><div class="line">   </div><div class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.companyname.bank<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;basedir&#125;\src\lib\ldapjdk.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
+</code></pre><p>目录结构如下:<br><img src="/2017/02/22/maven外部依赖/1.jpg" alt=""><br>在这里，在项目中指定自己所用的库，它可以包含 jar 文件，但是可能无法在任何 Maven 存储库找到，那么需要从外部下载。如果代码使用这个 Maven 库但没有办法找到，那么 Maven 构建将会失败，因为它在编译阶段使用指这个库无法下载或无法找到。<br>要处理这种情况，<em>需要添加外部依赖项</em>，如使用下列方式在 Maven 的 pom.xml<br><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">project</span> <span class="attr">xmlns</span>=<span class="string">"http://maven.apache.org/POM/4.0.0"</span> </span></div><div class="line">   <span class="attr">xmlns:xsi</span>=<span class="string">"http://www.w3.org/2001/XMLSchema-instance"</span></div><div class="line">   <span class="attr">xsi:schemaLocation</span>=<span class="string">"http://maven.apache.org/POM/4.0.0 </span></div><div class="line">   http://maven.apache.org/maven-v4_0_0.xsd"&gt;</div><div class="line">   </div><div class="line">   <span class="tag">&lt;<span class="name">modelVersion</span>&gt;</span>4.0.0<span class="tag">&lt;/<span class="name">modelVersion</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>com.companyname.bank<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">packaging</span>&gt;</span>jar<span class="tag">&lt;/<span class="name">packaging</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0-SNAPSHOT<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">name</span>&gt;</span>consumerBanking<span class="tag">&lt;/<span class="name">name</span>&gt;</span></div><div class="line">   <span class="tag">&lt;<span class="name">url</span>&gt;</span>http://maven.apache.org<span class="tag">&lt;/<span class="name">url</span>&gt;</span></div><div class="line"></div><div class="line">   <span class="tag">&lt;<span class="name">dependencies</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>junit<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>3.8.1<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>test<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line"></div><div class="line">      <span class="tag">&lt;<span class="name">dependency</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">groupId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">groupId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">artifactId</span>&gt;</span>ldapjdk<span class="tag">&lt;/<span class="name">artifactId</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">scope</span>&gt;</span>system<span class="tag">&lt;/<span class="name">scope</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">version</span>&gt;</span>1.0<span class="tag">&lt;/<span class="name">version</span>&gt;</span></div><div class="line">         <span class="tag">&lt;<span class="name">systemPath</span>&gt;</span>$&#123;basedir&#125;\src\lib\ldapjdk.jar<span class="tag">&lt;/<span class="name">systemPath</span>&gt;</span></div><div class="line">      <span class="tag">&lt;/<span class="name">dependency</span>&gt;</span></div><div class="line">   <span class="tag">&lt;/<span class="name">dependencies</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">project</span>&gt;</span></div></pre></td></tr></table></figure></p>
 <p>再看上面例子中的第二个依赖元素（dependency），它清除以下有关外部依赖的重要概念。</p>
 <pre><code>- 外部依赖（JAR库的位置）可以在 pom.xml 中配置为与其他依赖的方式相同；
 - 指定 groupId 同样作为库的名称；
@@ -2273,23 +1894,11 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h2 id="导入包的问题"><a href="#导入包的问题" class="headerlink" title="导入包的问题"></a>导入包的问题</h2><blockquote>
 <p>除了struts基本包，hibernate必须包之外，还需加以下包</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/20/J2EE-sh_Ajax/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/20/J2EE-sh_Ajax/1.png" alt=""></p>
 <blockquote>
 <p>这里列出我所用的所有包</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/20/J2EE-sh_Ajax/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/20/J2EE-sh_Ajax/2.png" alt=""></p>
 <h2 id="相对绝对路径问题解决"><a href="#相对绝对路径问题解决" class="headerlink" title="相对绝对路径问题解决"></a>相对绝对路径问题解决</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--采用struts标签来替代--&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">s:url</span> <span class="attr">action</span>=<span class="string">'weibo_showImg'</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">s:param</span> <span class="attr">name</span>=<span class="string">'id'</span> <span class="attr">value</span>=<span class="string">'#weibo.id'</span>&gt;</span><span class="tag">&lt;/<span class="name">s:param</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">s:url</span>&gt;</span></div></pre></td></tr></table></figure>
 <h2 id="struts配置问题"><a href="#struts配置问题" class="headerlink" title="struts配置问题"></a>struts配置问题</h2><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">package</span> <span class="attr">name</span>=<span class="string">"weibo"</span> <span class="attr">extends</span>=<span class="string">"json-default"</span> <span class="attr">namespace</span>=<span class="string">"/"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">action</span> <span class="attr">name</span>=<span class="string">"weibo_*"</span> <span class="attr">class</span>=<span class="string">"hhh.controller.WeiboAction"</span> <span class="attr">method</span>=<span class="string">"&#123;1&#125;"</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toIndex"</span>&gt;</span>/index.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"publish"</span>&gt;</span>/WEB-INF/jsp/publish.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"toList"</span>&gt;</span>/WEB-INF/jsp/list.jsp<span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">result</span> <span class="attr">name</span>=<span class="string">"success"</span> <span class="attr">type</span>=<span class="string">"json"</span>&gt;</span></div><div class="line">                <span class="comment">&lt;!--必须加这一句--&gt;</span></div><div class="line">            	<span class="tag">&lt;<span class="name">param</span> <span class="attr">name</span>=<span class="string">"root"</span>&gt;</span>postData<span class="tag">&lt;/<span class="name">param</span>&gt;</span> </div><div class="line">            <span class="tag">&lt;/<span class="name">result</span>&gt;</span></div><div class="line">            <span class="tag">&lt;<span class="name">allowed-methods</span>&gt;</span>success,publishUI,listAirticle,publish,showImg<span class="tag">&lt;/<span class="name">allowed-methods</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">action</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">package</span>&gt;</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -2451,13 +2060,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">There is no Action mapped <span class="keyword">for</span> namespace [/] and action name [test] associated with context path [/test]. - [unknown location]</div></pre></td></tr></table></figure>
 <h1 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h1><ol>
 <li>确保<code>struts.xml</code>文件名大小写正确：struts.xml</li>
-<li>确保struts.xml文件在<code>src</code>目录下,<strong>编译成功后，要确认是否编译到classes目录中</strong>项目右键 -&gt;properties -&gt;Java Build Path -&gt;source -&gt;Default output folder，选择你的路径。(<code>也可以在新建项目时选择,如图：</code>)<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/13/J2EE-Struts2_xml/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></li>
+<li>确保struts.xml文件在<code>src</code>目录下,<strong>编译成功后，要确认是否编译到classes目录中</strong>项目右键 -&gt;properties -&gt;Java Build Path -&gt;source -&gt;Default output folder，选择你的路径。(<code>也可以在新建项目时选择,如图：</code>)<img src="/2017/02/13/J2EE-Struts2_xml/1.png" alt=""></li>
 <li>先排查访问的链接有没有问题（细节问题）</li>
 <li>查看struts.xml的配置（仔细排查，出现问题几率很大）</li>
 <li>查看结果响应页面是否存在问题（出现问题的几率比较小）</li>
@@ -2550,13 +2153,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>调用之前有必要明白<code>themes\jacman\layout\_partial\header.ejs</code>中最后一个<code>form</code>表单即为页面中的<code>search</code>框</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/11/Hexo-search/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/11/Hexo-search/1.png" alt=""></p>
 <blockquote>
 <p>对应代码如下:</p>
 </blockquote>
@@ -2568,13 +2165,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <h1 id="输入框的整改"><a href="#输入框的整改" class="headerlink" title="输入框的整改"></a>输入框的整改</h1><blockquote>
 <p><code>思考:</code>由于主题原因，我们有两条路走：<br>1.写一个html页面用于显示搜索后的结果<br>2.用div叠加在原页面上，在进行搜索和结果展示<br>博主走的第二条路，样式如下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/11/Hexo-search/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/11/Hexo-search/2.png" alt=""></p>
 <blockquote>
 <p>由于博主前台很渣，能做成这样就不错了。虽然后台也好不到哪去，哈哈<br>要添加此样式就得找到添加的位置，<code>themes\jacman\layout\layout.ejs</code>，此文件用于页面的排布,分别对应了文章，分类，归档等的排布，我们分别在每个<code>&lt;header&gt;</code>后加入以下代码</p>
 </blockquote>
@@ -2597,13 +2188,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p>到此也就结束了，花了博主一个多小时，下回发个治颈椎的博文，哈哈！<br>大家可以按照自己的样式修改，最后贴出我的成果</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/11/Hexo-search/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/11/Hexo-search/3.png" alt=""></p>
 <h1 id="参考链接"><a href="#参考链接" class="headerlink" title="参考链接"></a>参考链接</h1><p>在此谢谢这两位博主的文章<br><a href="http://moxfive.xyz/2016/05/31/hexo-local-search/?utm_source=tuicool&amp;utm_medium=referral" target="_blank" rel="external">让 Hexo 博客支持本地站内搜索</a><br><a href="http://hahack.com/codes/local-search-engine-for-hexo/#实现本地搜索函数" target="_blank" rel="external">jQuery-based Local Search Engine for Hexo</a></p>
 ]]></content>
     </entry>
@@ -2623,13 +2208,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <title><![CDATA[hexo样式无法加载]]></title>
       <url>https://super3h.me/2017/02/10/Hexo-%E6%A0%B7%E5%BC%8F%E6%97%A0%E6%B3%95%E5%8A%A0%E8%BD%BD/</url>
       <content type="html"><![CDATA[<h1 id="更改域名后样式无法加载"><a href="#更改域名后样式无法加载" class="headerlink" title="更改域名后样式无法加载"></a>更改域名后样式无法加载</h1><blockquote>
-<p>博主发现更改域名后，<code>其他浏览器都能加载样式，唯独火狐和谷歌不行</code>，我这强迫症就不能忍了(其实也不是，主要是花了我25的绿毛爷爷，舍不得啊TwT)，花了博主好几天，终于找到了，主要就是域名解析问题<br><code>这里贴出图片：</code><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/10/Hexo-样式无法加载/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>这里博主并没有设置github，直接让github跳转至<code>super3h.me</code>之后链接到<code>super3h.coding.m</code>e的内容，之前设置github后导致页面都加载不出来了，所以直接删除了。</p>
+<p>博主发现更改域名后，<code>其他浏览器都能加载样式，唯独火狐和谷歌不行</code>，我这强迫症就不能忍了(其实也不是，主要是花了我25的绿毛爷爷，舍不得啊TwT)，花了博主好几天，终于找到了，主要就是域名解析问题<br><code>这里贴出图片：</code><br><img src="/2017/02/10/Hexo-样式无法加载/1.png" alt=""><br>这里博主并没有设置github，直接让github跳转至<code>super3h.me</code>之后链接到<code>super3h.coding.m</code>e的内容，之前设置github后导致页面都加载不出来了，所以直接删除了。</p>
 <p>域名设置课参考博主上一篇博文<a href="https://super3h.me/2017/02/08/Hexo-%E5%9F%9F%E5%90%8D/#">Hexo-github 域名设置</a></p>
 </blockquote>
 ]]></content>
@@ -2669,31 +2248,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p>由于压缩<code>html</code>和<code>img</code>报错 ，所以只压缩了<code>js</code>和<code>css</code></p>
 <h2 id="其他优化"><a href="#其他优化" class="headerlink" title="其他优化"></a>其他优化</h2><p>请参考：<a href="https://yq.aliyun.com/articles/8608" target="_blank" rel="external">Hexo折腾记——性能优化篇</a><br><a href="http://www.jianshu.com/p/3884e5cb63e5" target="_blank" rel="external">hexo定制&amp;优化</a></p>
 </blockquote>
-<h2 id="网易云添加"><a href="#网易云添加" class="headerlink" title="网易云添加"></a>网易云添加</h2><p>第一步：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>第二步：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>第三步：<br> <figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>第四步：<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<h2 id="网易云添加"><a href="#网易云添加" class="headerlink" title="网易云添加"></a>网易云添加</h2><p>第一步：<br><img src="/2017/02/09/hexo-优化/1.png" alt=""><br>第二步：<br><img src="/2017/02/09/hexo-优化/2.png" alt=""><br>第三步：<br> <img src="/2017/02/09/hexo-优化/3.png" alt=""><br>第四步：<br><img src="/2017/02/09/hexo-优化/4.png" alt=""></p>
 <blockquote>
 <p>笔者放在<code>themes\jacman\layout\_partial\sidebar.ejs</code>具体代码如下:</p>
 </blockquote>
@@ -2707,28 +2262,9 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p><code>注意:</code>谷歌和火狐无法播放音乐。<font color="green">原因如下：</font></p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/5.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/09/hexo-优化/6.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/09/hexo-优化/5.png" alt=""><br><img src="/2017/02/09/hexo-优化/6.png" alt=""></p>
 <h1 id="多说评论修改"><a href="#多说评论修改" class="headerlink" title="多说评论修改"></a>多说评论修改</h1><p>原博主是大神，写的很清楚，完全不用动脑子，全程复制粘贴即可，感谢原博主，请点击此处<a href="http://moxfive.xyz/2015/09/29/duoshuo-style/" target="_blank" rel="external">多说样式折腾记录 — 添加 UA 浏览器标识、旋转头像等</a></p>
 ]]></content>
-    </entry>
-    
-    <entry>
-      <title><![CDATA[Nginx学习]]></title>
-      <url>https://super3h.me/2017/02/08/Nginx/</url>
-      <content type="html"></content>
     </entry>
     
     <entry>
@@ -2737,13 +2273,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <content type="html"><![CDATA[<h1 id="购买域名"><a href="#购买域名" class="headerlink" title="购买域名"></a>购买域名</h1><blockquote>
 <p>笔者是在<a href="https://dnspod.qcloud.com/?from=qcloud" target="_blank" rel="external">腾讯云</a>买的，网上教程都是<a href="https://wanwang.aliyun.com/domain/searchresult/" target="_blank" rel="external">万网</a>买的,两者都差不多，只要输入以下内容即可</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/08/Hexo-域名/yuming.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/08/Hexo-域名/yuming.png" alt=""></p>
 <blockquote>
 <p><code>注意:</code>博主把蓝灯打开后，ip变为国外的了，此时访问<a href="http://super3h.me/">super3h.me</a>，显示<code>不安全</code>，因此会访问不了了</p>
 </blockquote>
@@ -2756,13 +2286,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <entry>
       <title><![CDATA[python is和==的区别]]></title>
       <url>https://super3h.me/2017/02/07/Python-is_==/</url>
-      <content type="html"><![CDATA[<h1 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h1><p><code>Python</code>中的对象包含三要素：<code>id</code>、<code>type</code>、<code>value</code>。<br>其中<code>id</code>用来唯一标识一个对象，<code>type</code>标识对象的类型，<code>value</code>是对象的值。<br><code>is</code>判断的是a对象是否就是b对象，是通过<code>id</code>来判断的。<br><code>==</code>判断的是a对象的值是否和b对象的值相等，是通过<code>value</code>来判断的<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+      <content type="html"><![CDATA[<h1 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h1><p><code>Python</code>中的对象包含三要素：<code>id</code>、<code>type</code>、<code>value</code>。<br>其中<code>id</code>用来唯一标识一个对象，<code>type</code>标识对象的类型，<code>value</code>是对象的值。<br><code>is</code>判断的是a对象是否就是b对象，是通过<code>id</code>来判断的。<br><code>==</code>判断的是a对象的值是否和b对象的值相等，是通过<code>value</code>来判断的<br><img src="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg" alt=""></p>
 ]]></content>
     </entry>
     
@@ -2778,36 +2302,18 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <blockquote>
 <p><code>解决方案:</code><br>从官方网站下载与系统，Python版本匹配的lxml文件：<a href="http://pypi.python.org/pypi/lxml/2.3/" target="_blank" rel="external">lxml 2.3</a><br>执行 <code>easy_install lxml-2.3-py2.7-win-amd64.egg</code>即可<br>详细解决方案请参考<a href="http://www.jb51.net/article/67125.htm" target="_blank" rel="external">Python lxml模块安装教程</a></p>
 </blockquote>
-<h2 id="‘not-found’页面"><a href="#‘not-found’页面" class="headerlink" title="‘not found’页面"></a>‘not found’页面</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/05/WeiXin-Python/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="‘not-found’页面"><a href="#‘not-found’页面" class="headerlink" title="‘not found’页面"></a>‘not found’页面</h2><p><img src="/2017/02/05/WeiXin-Python/1.png" alt=""></p>
 <blockquote>
 <p>这个属于正常页面，因为index.wsgi只会接受<code>http://6.super3h.applinzi.com/weixin</code>的入口才会响应，对应微信配置如下：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/05/WeiXin-Python/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/05/WeiXin-Python/2.png" alt=""></p>
 <blockquote>
 <p>具体详情请参考<a href="http://www.cnblogs.com/yym2013/p/5962208.html" target="_blank" rel="external">新浪云SAE搭建python环境</a>和<a href="http://blog.csdn.net/u011659379/article/details/48314317" target="_blank" rel="external">SAE部署Python-让云端自动运行Python代码</a></p>
 </blockquote>
 <h2 id="自动回复无反应问题"><a href="#自动回复无反应问题" class="headerlink" title="自动回复无反应问题"></a>自动回复无反应问题</h2><blockquote>
 <p>原文参考代码有错<code>index.wsgi</code>中将<code>import lxml</code>改为<code>import lxml.etree as etree</code>，可进入sae日志中心查看代码错误原因，具体过程如下:</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/05/WeiXin-Python/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/02/05/WeiXin-Python/3.png" alt=""></p>
 <h2 id="添加第三方依赖包"><a href="#添加第三方依赖包" class="headerlink" title="添加第三方依赖包"></a>添加第三方依赖包</h2><p>除了使用新浪云上已经预装的模块之外，您还可以通过以下方式给自己的应用添加第三方依赖包。</p>
 <p>首先，在应用的根目录下创建一个第三方依赖包目录 <code>vendor</code> 。<br>调用<code>pip</code>命令安装依赖包，使用其<code>-t</code>选项指定第三方包的安装目录。3<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ pip install -t vendor PACKAGE ...</div></pre></td></tr></table></figure></p>
 <p>将 <code>vendor</code> 目录和应用的代码一起提交，即可在应用代码里使用安装的第三方依赖包了。</p>
@@ -2920,14 +2426,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <li><strong>瞬时状态(Transient)：</strong>也叫临时状态，处于这个状态的对象还被没有纳入Hibernate的缓存管理体系，跟任何session都不关联，在数据库中也没有对应的记录。超过作用域会被JVM垃圾回收器回收，一般是new出来且与session没有关联的对象。</li>
 <li><strong>持久化状态(Persistent)：</strong>处于这个状态的对象位于Session的缓存中，并且和数据库中的一条数据记录相对应。并且相关联的session没有关闭，事务没有提交，持久对象状态发生改变，在事务提交时会影响到数据库(hibernate能检测到)。</li>
 <li><strong>脱管状态(Detached)：</strong>也叫游离状态，处于这个状态的对象不再位于Session的缓存中，当前没有session与之关联；托管对象状态发生改变，hibernate不能检测到。<font color="red">它与临时对象的最大区别在于，游离对象在数据库中还可能存在一条与它对应的记录。</font><br>上述3个状态之间是可以相互转化的，<font color="blue">而且我们所说的状态都是针对某一个session实例而言的</font>，比方说，对象A对于session1而言是处于持久化状态的，因为它处于session1的缓存中，但是对于session2而言对象A并不在它的缓存中，因此它是处于游离状态的。<pre><code>对于这几个状态的理解花费了我一定的时间，因为总是有一些稀奇古怪的念头在我脑海中产生。比如说，对于临时状态的定义，如果我新建一个对象，然后人为的让 它属性的值和数据库中的一条记录对应，包括id的取值都一样。此时它能否说是处于游离状态呢？因为它和一条记录想对应呀。实际上这些情况都是由于一些不和 规范的操作而产生的。在Hibernate应用中，&lt;font color=&apos;green&apos;&gt;无论Java对象处于临时状态、持久化状态还是游离状态，应用程序都不应该修改它的OID。&lt;/font&gt;&lt;font color=&apos;red&apos;&gt;OID（也就是实体类中的主键属性）&lt;/font&gt;的值应该由Hibernate来维护和负责，实际上Hibernate在同步缓存中的对象与数据库中的记录时，都是通过OID来进行关联和映射的，如果应用程序人为的修改了对象的OID，就会导致一些莫名其妙的错误，而且这样也不利于数据的同步。
-</code></pre><p align="center">至于对象之间的状态转化，如下图：</p><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://s6.sinaimg.cn/mw690/7ffb8dd5gcccd9a8e8325&690" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="详情请看"><a href="#详情请看" class="headerlink" title="详情请看"></a>详情请看</h1><a href="http://blog.renren.com/share/222980861/1421652349" target="_blank" rel="external">Hibernate持久化对象的生命周期</a></li>
+</code></pre><p align="center">至于对象之间的状态转化，如下图：</p><br><img src="http://s6.sinaimg.cn/mw690/7ffb8dd5gcccd9a8e8325&amp;690" alt=""><h1 id="详情请看"><a href="#详情请看" class="headerlink" title="详情请看"></a>详情请看</h1><a href="http://blog.renren.com/share/222980861/1421652349" target="_blank" rel="external">Hibernate持久化对象的生命周期</a></li>
 </ul>
 ]]></content>
     </entry>
@@ -3001,36 +2500,12 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p><code>github-cards</code>生成问题<br>微博秀生成问题</p>
 <h2 id="解决问题"><a href="#解决问题" class="headerlink" title="解决问题"></a>解决问题</h2><p>由于<code>github</code>完整信息没填完整导致插件无法获取信息，所以名片显示不出来。方法如下：</p>
 </blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-setting.png" alt="github-setting" title="">
-                </div>
-                <div class="image-caption">github-setting</div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-profile.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="/2017/01/24/Hexo-插件/github-setting.png" alt="github-setting"></p>
+<p><img src="/2017/01/24/Hexo-插件/github-profile.png" alt=""></p>
 <blockquote>
-<p>完成后结果如下:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/github-cards.png" alt="github-cards" title="">
-                </div>
-                <div class="image-caption">github-cards</div>
-            </figure></p>
+<p>完成后结果如下:<br><img src="/2017/01/24/Hexo-插件/github-cards.png" alt="github-cards"></p>
 <p>HTTP和HTTPS交叉使用而产生跨域，使其没办法加载出来，解决方案如下：<br>在<code>jacman\layout\_partial</code>路径下的<code>head.ejs</code>的文件中添加如下语句:<br><code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;upgrade-insecure-requests&quot; /&gt;</code><br>位置如下：<br><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line">&lt;head&gt;</div><div class="line">  &lt;meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" /&gt;</div><div class="line">  &lt;meta charset="UTF-8"&gt;</div><div class="line">  &lt;%</div><div class="line">  var title = page.title;</div><div class="line"></div><div class="line">  if (is_archive())&#123;</div><div class="line">    title = __('archive_a');</div><div class="line"></div><div class="line">    if (is_month())&#123;</div><div class="line">      title += ': ' + page.year + '/' + page.month;</div><div class="line">    &#125; else if (is_year())&#123;</div><div class="line">      title += ': ' + page.year;</div><div class="line">    &#125;</div><div class="line">  &#125; else if (is_category())&#123;</div><div class="line">    title =  __('categories')+' : ' + page.category;</div><div class="line">  &#125; else if (is_tag())&#123;</div><div class="line">    title = __('tags')+' : ' + page.tag;</div><div class="line">  &#125;</div><div class="line">  %&gt;</div></pre></td></tr></table></figure></p>
-<p>最后表现为:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/Hexo-插件/weiboShow.png" alt="weiboShow" title="">
-                </div>
-                <div class="image-caption">weiboShow</div>
-            </figure></p>
+<p>最后表现为:<br><img src="/2017/01/24/Hexo-插件/weiboShow.png" alt="weiboShow"></p>
 </blockquote>
 <h1 id="本地图片无法再网上显示？？"><a href="#本地图片无法再网上显示？？" class="headerlink" title="本地图片无法再网上显示？？"></a>本地图片无法再网上显示？？</h1><p>请参考链接—-&gt;<a href="http://www.tuicool.com/articles/umEBVfI" target="_blank" rel="external">hexo 中无痛使用本地图片</a></p>
 <p><font color="red">切记 文章名要和图片目录名一致！！！！</font></p>
@@ -3158,34 +2633,9 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 </li>
 </ul>
 <h1 id="测试类操作"><a href="#测试类操作" class="headerlink" title="测试类操作"></a>测试类操作</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Test</span></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">()</span> </span>&#123;</div><div class="line">   	<span class="comment">// 读取Hibernate的配置文件  hibernamte.cfg.xml文件</span></div><div class="line">	Configuration configuration = <span class="keyword">new</span> Configuration().configure();</div><div class="line">	<span class="comment">// 创建会话工厂</span></div><div class="line">	SessionFactory sessionFactory = configuration.buildSessionFactory();</div><div class="line">	<span class="comment">// 创建数据操作会话</span></div><div class="line">	Session session = sessionFactory.openSession();</div><div class="line">	<span class="comment">// 开启事务并创建事物</span></div><div class="line">	Transaction transaction = session.beginTransaction();</div><div class="line">       <span class="comment">// 创建对象</span></div><div class="line">	Person person = <span class="keyword">new</span> Person();</div><div class="line">	person.setName(<span class="string">"hhh"</span>);</div><div class="line">	session.save(person);</div><div class="line">       <span class="comment">// 事务提交</span></div><div class="line">	transaction.commit();</div><div class="line">       <span class="comment">// 关闭会话</span></div><div class="line">	session.close();</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h1 id="configure解析"><a href="#configure解析" class="headerlink" title="configure解析"></a>configure解析</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/J2EE-Hibernate/configure.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="hibernate运行过程"><a href="#hibernate运行过程" class="headerlink" title="hibernate运行过程"></a>hibernate运行过程</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/J2EE-Hibernate/process.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="数据库框架的比较"><a href="#数据库框架的比较" class="headerlink" title="数据库框架的比较"></a>数据库框架的比较</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/J2EE-Hibernate/hibernate.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/01/24/J2EE-Hibernate/jdbc.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="configure解析"><a href="#configure解析" class="headerlink" title="configure解析"></a>configure解析</h1><p><img src="/2017/01/24/J2EE-Hibernate/configure.png" alt=""></p>
+<h1 id="hibernate运行过程"><a href="#hibernate运行过程" class="headerlink" title="hibernate运行过程"></a>hibernate运行过程</h1><p><img src="/2017/01/24/J2EE-Hibernate/process.png" alt=""></p>
+<h1 id="数据库框架的比较"><a href="#数据库框架的比较" class="headerlink" title="数据库框架的比较"></a>数据库框架的比较</h1><p><img src="/2017/01/24/J2EE-Hibernate/hibernate.png" alt=""><br><img src="/2017/01/24/J2EE-Hibernate/jdbc.png" alt=""></p>
 <h1 id="原文链接"><a href="#原文链接" class="headerlink" title="原文链接"></a>原文链接</h1><p>请点此处<a href="http://blog.sina.com.cn/s/blog_7ffb8dd5010142hu.html" target="_blank" rel="external">Hibernate初学  基础配置详解</a></p>
 ]]></content>
     </entry>
@@ -3193,26 +2643,8 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
     <entry>
       <title><![CDATA[Eclipse-PyDev安装]]></title>
       <url>https://super3h.me/2017/01/23/Eclipse-PyDev/</url>
-      <content type="html"><![CDATA[<h1 id="在Eclipse中安装pydev插件"><a href="#在Eclipse中安装pydev插件" class="headerlink" title="在Eclipse中安装pydev插件"></a>在Eclipse中安装pydev插件</h1><p>启动<code>Eclipse</code>, 点击<code>Help</code>-&gt;<code>Install New Software</code>…   在弹出的对话框中，点<code>Add</code> 按钮。 <code>Name</code>中填:<code>Pydev</code>,  <code>Location</code>中填<code>http://pydev.org/updates</code><br>然后一步一步装下去。  如果装的过程中，报错了。 就重新装。<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
-<h1 id="配置pydev解释器"><a href="#配置pydev解释器" class="headerlink" title="配置pydev解释器"></a>配置pydev解释器</h1><p>安装好<code>pydev</code>后， 需要配置<code>Python</code>解释器。<br>在<code>Eclipse</code>菜单栏中，点击<code>Windows</code> -&gt;<code>Preferences</code>.<br>在对话框中，点击<code>pyDev</code>-&gt;<code>Interpreter</code> - <code>Python</code>.  点击<code>New</code>按钮， 选择<code>python.exe</code>的路径, 打开后显示出一个包含很多复选框的窗口. 点<code>OK</code><br>如果是Mac系统， 点击<code>“Auto Config”</code> 按钮<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+      <content type="html"><![CDATA[<h1 id="在Eclipse中安装pydev插件"><a href="#在Eclipse中安装pydev插件" class="headerlink" title="在Eclipse中安装pydev插件"></a>在Eclipse中安装pydev插件</h1><p>启动<code>Eclipse</code>, 点击<code>Help</code>-&gt;<code>Install New Software</code>…   在弹出的对话框中，点<code>Add</code> 按钮。 <code>Name</code>中填:<code>Pydev</code>,  <code>Location</code>中填<code>http://pydev.org/updates</code><br>然后一步一步装下去。  如果装的过程中，报错了。 就重新装。<br><img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_1.png" alt=""><br><img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_2.png" alt=""></p>
+<h1 id="配置pydev解释器"><a href="#配置pydev解释器" class="headerlink" title="配置pydev解释器"></a>配置pydev解释器</h1><p>安装好<code>pydev</code>后， 需要配置<code>Python</code>解释器。<br>在<code>Eclipse</code>菜单栏中，点击<code>Windows</code> -&gt;<code>Preferences</code>.<br>在对话框中，点击<code>pyDev</code>-&gt;<code>Interpreter</code> - <code>Python</code>.  点击<code>New</code>按钮， 选择<code>python.exe</code>的路径, 打开后显示出一个包含很多复选框的窗口. 点<code>OK</code><br>如果是Mac系统， 点击<code>“Auto Config”</code> 按钮<br><img src="http://images.cnblogs.com/cnblogs_com/Bonker/708765/o_3.png" alt=""></p>
 ]]></content>
     </entry>
     
@@ -3319,13 +2751,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p><code>regist</code>映射到<code>html</code>时，导致相对路径发生变化，致使<code>html</code>里的<code>css</code>等文件路径出错</p>
 </blockquote>
 <h2 id="解决方案"><a href="#解决方案" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
-<p>在如下图的对应位置新建一个<code>static</code>文件夹，将对应的文件移入<code>static</code>文件夹的里<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="data:image/png;base64,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" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure><br>并在<code>html</code>里加入以下配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"&#123;&#123;url_for('static',filename='css/style.css')&#125;&#125;"</span> rel=<span class="string">'stylesheet'</span> type=<span class="string">'text/css'</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>在如下图的对应位置新建一个<code>static</code>文件夹，将对应的文件移入<code>static</code>文件夹的里<br><img src="data:image/png;base64,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" alt=""><br>并在<code>html</code>里加入以下配置<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;link href=<span class="string">"&#123;&#123;url_for('static',filename='css/style.css')&#125;&#125;"</span> rel=<span class="string">'stylesheet'</span> type=<span class="string">'text/css'</span> /&gt;</div></pre></td></tr></table></figure></p>
 </blockquote>
 <h1 id="唯一URL-重定向行为"><a href="#唯一URL-重定向行为" class="headerlink" title="唯一URL / 重定向行为"></a>唯一<code>URL /</code> 重定向行为</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@app.route('/projects/')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">projects</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'The project page'</span></div><div class="line"></div><div class="line"><span class="meta">@app.route('/about')</span></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">about</span><span class="params">()</span>:</span></div><div class="line">    <span class="keyword">return</span> <span class="string">'The about page'</span></div></pre></td></tr></table></figure>
 <blockquote>
@@ -3334,13 +2760,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 <p>这个行为使得在遗忘尾斜线时，允许关联的 URL 接任工作，与 Apache 和其它的服务器的行为并无二异。此外，也保证了 URL 的唯一，有助于避免搜索引擎索引同一个页面两次。</p>
 </blockquote>
 <h1 id="目录错误"><a href="#目录错误" class="headerlink" title="目录错误"></a>目录错误</h1><p><code>app.py</code>没和<code>templates</code>同一目录<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">raise</span> TemplateNotFound(template)</div><div class="line">TemplateNotFound: home.html</div></pre></td></tr></table></figure></p>
-<h2 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://www.liaoxuefeng.com/files/attachments/001400341074577704e1ff7d52246dab80eb4992d12fcd1000" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h2 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h2><p><img src="http://www.liaoxuefeng.com/files/attachments/001400341074577704e1ff7d52246dab80eb4992d12fcd1000" alt=""></p>
 <h1 id="编码问题"><a href="#编码问题" class="headerlink" title="编码问题"></a>编码问题</h1><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="string">'gbk'</span> codec can<span class="string">'t decode bytes in position 52-53: illegal multibyte sequence</span></div></pre></td></tr></table></figure>
 <h2 id="解决方案-2"><a href="#解决方案-2" class="headerlink" title="解决方案"></a>解决方案</h2><blockquote>
 <p>编码的问题,最好都转化为<code>unicode</code>编码</p>
@@ -3470,13 +2890,7 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
 
 <h2 id="解决方案-1"><a href="#解决方案-1" class="headerlink" title="解决方案"></a>解决方案</h2><font color="green"><br>- 下面网址下载安装：<a href="http://pan.baidu.com/disk/home#list/vmode=list&amp;path=%2Fpython%2FMysql-Connection" target="_blank" rel="external">MySQL-python-1.2.3.win-amd64-py2.7.exe</a><br>- 系统会自动找到python安装的路径，如下图<br></font>
 
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="https://i0.wp.com/www.crifan.com/files/pic/uploads/2013/04/found-python-2.7-install-path_thumb_thumb.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<p><img src="https://i0.wp.com/www.crifan.com/files/pic/uploads/2013/04/found-python-2.7-install-path_thumb_thumb.png" alt=""></p>
 <h1 id="错误-2"><a href="#错误-2" class="headerlink" title="错误"></a>错误</h1><font color="red"><br>- Could not find a version that satisfies the requirement mysql-connector-python (from versions: )No matching distribution found for mysql-connector-python<br></font>
 
 

@@ -243,14 +243,10 @@
 Spring的MVC框架主要由DispatcherServlet、处理器映射、处理器(控制器)、视图解析器、视图组成。
 
 SpringMVC原理图
-                
-                    
-                    
-                
-                
-            
 
-1....
+1.Http请求： 客户端请求提交到DispatcherServlet。 
+2.寻找处理器：由DispatcherServlet控制器查询一个或多个HandlerMapping，找到处理请求的Controller。
+...
     
 
         <a href="/2017/03/24/SpringMVC初学/" class="post-more waves-effect waves-button">
@@ -355,14 +351,10 @@ Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一�
 之前断断续续的学习爬虫，结果忘得差不多了，现在重新开始认真学，公众号也要认真弄了，之前做了就一直没管  哈哈  就图个装逼！！
 
 结构分析
-                
-                    
-                    
-                
-                
-            
 
-正常的登录界面，可以写出以下代码:...
+正常的登录界面，可以写出以下代码:
+
+初始化1234567# 传入对应用户名(studentnumber),密码(password),学校官网(schoolURL)def __init__(self,studentnumber,password,...
     
 
         <a href="/2017/03/19/爬虫-爬取学校官网/" class="post-more waves-effect waves-button">
@@ -373,59 +365,6 @@ Python2 把字符串分为 unicode 和 str 两种类型。本质上 str 是一�
     <div class="post-footer">
         
 	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python/">Python</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/爬虫/">爬虫</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-前台学习"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-03-14 16:50:57" datetime="2017-03-14T08:50:57.405Z"  itemprop="datePublished">2017-03-14</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/html/">html</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/03/14/前台学习/">前台学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        基础position:relative定位1234&lt;div&gt;	&lt;div style="position:absolute"&gt;	&lt;/div&gt;  &lt;/div&gt;
-
-第二个div绝对定位是相对于它的父级元素
-
-图片截取12/*-30px用来调整左右间距，-20px用来调整上下间距*/background:url(imgUrl) no-repeat -3...
-    
-
-        <a href="/2017/03/14/前台学习/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/html/">html</a></li></ul>
 
     </div>
     
@@ -580,14 +519,11 @@ IntelliJ IDEA 永久破解的方法
 博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到editor.md，国人开发哦！！
 
 使用方法下载后的目录如图
-                
-                    
-                    
-                
-                
-            
 
-在exa...
+在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;
+
+
+可得原代码为:12345678910111213141516171819202122232425262728293...
     
 
         <a href="/2017/03/12/在网页中使用markdown/" class="post-more waves-effect waves-button">
@@ -709,12 +645,79 @@ IntelliJ IDEA 永久破解的方法
 
         </li>
     
+        <li class="post-list-item fade">
+            <article id="post-java错题总结"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-03-07 12:27:51" datetime="2017-03-07T04:27:51.949Z"  itemprop="datePublished">2017-03-07</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/JavaSE/">JavaSE</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/03/07/java错题总结/">java错题总结</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        错题分析Integer的考察
+在jdk1.5的环境下，有如下4条语句：
+
+1234Integer i01 = 59;int i02 = 59;Integer i03 =Integer.valueOf(59);Integer i04 = new Integer(59)
+
+以下输出结果为false的是：
+解析如下:
+
+
+
+
+java类加载
+以下哪项不属于java类加载过程？
+
+
+
+分析如下:
+
+...
+    
+
+        <a href="/2017/03/07/java错题总结/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/JavaSE/">JavaSE</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
+    <a class="extend prev" rel="prev" href="/">上一页</a><a class="page-number" href="/">1</a><span class="page-number current">2</span><a class="page-number" href="/page/3/">3</a><a class="page-number" href="/page/4/">4</a><span class="space">&hellip;</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/3/">下一页</a>
     </div>
 </nav>
 
@@ -846,10 +849,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

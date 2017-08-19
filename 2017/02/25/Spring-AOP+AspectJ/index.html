@@ -35,7 +35,9 @@
 
 
 
-目录结构">
+目录结构
+Spring Beans
+普通 bea">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring AOP+AspectJ">
 <meta property="og:url" content="https://super3h.me/2017/02/25/Spring-AOP+AspectJ/index.html">
@@ -53,7 +55,9 @@
 
 
 
-目录结构">
+目录结构
+Spring Beans
+普通 bea">
 <meta property="og:image" content="https://super3h.me/2017/02/25/Spring-AOP+AspectJ/1.png">
 <meta property="og:updated_time" content="2017-05-29T00:38:34.884Z">
 <meta name="twitter:card" content="summary">
@@ -71,7 +75,9 @@
 
 
 
-目录结构">
+目录结构
+Spring Beans
+普通 bea">
 <meta name="twitter:image" content="https://super3h.me/2017/02/25/Spring-AOP+AspectJ/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -243,13 +249,7 @@
 </ul>
 </li>
 </ul>
-<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/25/Spring-AOP+AspectJ/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+<h1 id="目录结构"><a href="#目录结构" class="headerlink" title="目录结构"></a>目录结构</h1><p><img src="/2017/02/25/Spring-AOP+AspectJ/1.png" alt=""></p>
 <h1 id="Spring-Beans"><a href="#Spring-Beans" class="headerlink" title="Spring Beans"></a>Spring Beans</h1><blockquote>
 <p>普通 bean 中有几个方法，后来通过 AspectJ 注解拦截</p>
 </blockquote>
@@ -435,27 +435,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/02/25/Spring-AOP+AspectJ/index.html',
-        sourceId: 'Spring-AOP+AspectJ',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -615,10 +613,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

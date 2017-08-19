@@ -602,9 +602,9 @@
         <title>struts和ajax结合</title>
         <pubTime>2017-02-20T04:41:03.991Z</pubTime>
         
-        <tag>Ajax</tag>
-         
         <tag>Struts2</tag>
+         
+        <tag>Ajax</tag>
          
          
            
@@ -821,26 +821,6 @@
          
          
            
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://super3h.me/2017/03/14/%E5%89%8D%E5%8F%B0%E5%AD%A6%E4%B9%A0/</loc>
-    <lastmod>2017-05-28T10:15:57.288Z</lastmod>
-    <data>
-        <display>
-        <title>前台学习</title>
-        <pubTime>2017-03-14T08:50:57.405Z</pubTime>
-        
-        <tag>html</tag>
-         
-         
-           
-             
-              <breadCrumb title="html" url="https://super3h.me/categories/html/"/>
-          
         </display>
     </data>
     </url>
@@ -1220,26 +1200,6 @@
            
              
               <breadCrumb title="js" url="https://super3h.me/categories/js/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>https://super3h.me/2017/02/08/Nginx/</loc>
-    <lastmod>2017-05-28T10:02:33.348Z</lastmod>
-    <data>
-        <display>
-        <title>Nginx学习</title>
-        <pubTime>2017-02-08T13:05:42.555Z</pubTime>
-        
-        <tag>Nginx</tag>
-         
-         
-           
-             
-              <breadCrumb title="Nginx" url="https://super3h.me/categories/Nginx/"/>
           
         </display>
     </data>

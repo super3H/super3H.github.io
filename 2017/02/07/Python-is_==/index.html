@@ -191,13 +191,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h1><p><code>Python</code>中的对象包含三要素：<code>id</code>、<code>type</code>、<code>value</code>。<br>其中<code>id</code>用来唯一标识一个对象，<code>type</code>标识对象的类型，<code>value</code>是对象的值。<br><code>is</code>判断的是a对象是否就是b对象，是通过<code>id</code>来判断的。<br><code>==</code>判断的是a对象的值是否和b对象的值相等，是通过<code>value</code>来判断的<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+            <h1 id="is和-的区别"><a href="#is和-的区别" class="headerlink" title="is和==的区别"></a>is和==的区别</h1><p><code>Python</code>中的对象包含三要素：<code>id</code>、<code>type</code>、<code>value</code>。<br>其中<code>id</code>用来唯一标识一个对象，<code>type</code>标识对象的类型，<code>value</code>是对象的值。<br><code>is</code>判断的是a对象是否就是b对象，是通过<code>id</code>来判断的。<br><code>==</code>判断的是a对象的值是否和b对象的值相等，是通过<code>value</code>来判断的<br><img src="http://img.my.csdn.net/uploads/201303/05/1362459851_8030.jpg" alt=""></p>
 
         </div>
 
@@ -318,27 +312,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/02/07/Python-is_==/index.html',
-        sourceId: 'Python-is_==',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -498,10 +490,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

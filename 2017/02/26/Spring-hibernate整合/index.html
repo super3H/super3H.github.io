@@ -23,40 +23,22 @@
     
     <meta name="keywords" content="Hibernate,Spring">
     <meta name="description" content="所需jar包
-                
-                    
-                    
-                
-                
-            
 
-导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm">
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Spring-hibernate整合">
 <meta property="og:url" content="https://super3h.me/2017/02/26/Spring-hibernate整合/index.html">
 <meta property="og:site_name" content="HHH'Blog">
 <meta property="og:description" content="所需jar包
-                
-                    
-                    
-                
-                
-            
 
-导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm">
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
 <meta property="og:image" content="https://super3h.me/2017/02/26/Spring-hibernate整合/1.png">
 <meta property="og:updated_time" content="2017-05-28T10:50:40.053Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Spring-hibernate整合">
 <meta name="twitter:description" content="所需jar包
-                
-                    
-                    
-                
-                
-            
 
-导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm">
+导入hibernate-release-5.2.5.Final\lib\required下面的包以及spring中事务spring-tx包和对象关系映射spring-orm，jdbcspring-jdbc，注解所需的spring-aop，和beans，core，context，expression以及commons-logging依赖包，还有mysql的驱动包：mysql-conn">
 <meta name="twitter:image" content="https://super3h.me/2017/02/26/Spring-hibernate整合/1.png">
     
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
@@ -215,13 +197,7 @@
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
-            <h1 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h1><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/02/26/Spring-hibernate整合/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
+            <h1 id="所需jar包"><a href="#所需jar包" class="headerlink" title="所需jar包"></a>所需jar包</h1><p><img src="/2017/02/26/Spring-hibernate整合/1.png" alt=""></p>
 <blockquote>
 <p>导入<code>hibernate-release-5.2.5.Final\lib\required</code>下面的包以及spring中事务<code>spring-tx</code>包和对象关系映射<code>spring-orm</code>，jdbc<code>spring-jdbc</code>，注解所需的<code>spring-aop</code>，和<code>beans，core，context，expression</code>以及<code>commons-logging</code>依赖包，还有<code>mysql的驱动包：mysql-connector</code></p>
 </blockquote>
@@ -375,27 +351,25 @@
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/02/26/Spring-hibernate整合/index.html',
-        sourceId: 'Spring-hibernate整合',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -555,10 +529,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

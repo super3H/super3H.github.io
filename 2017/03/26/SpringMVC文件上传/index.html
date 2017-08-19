@@ -207,13 +207,7 @@ upload-servlet.xml1234567891011121314151617181920212223&amp;lt;?xml version=&quo
 </blockquote>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">java.lang.NullPointerException</div></pre></td></tr></table></figure>
 <p>定位到这一段:<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div></pre></td></tr></table></figure></p>
-<p>debug调试可知，前端文件传不进来:<br><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/26/SpringMVC文件上传/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure></p>
+<p>debug调试可知，前端文件传不进来:<br><img src="/2017/03/26/SpringMVC文件上传/1.png" alt=""></p>
 <ul>
 <li>FileUploadController.java<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">package</span> com.hhh.controller;</div><div class="line"></div><div class="line"><span class="keyword">import</span> java.io.File;</div><div class="line"><span class="keyword">import</span> java.io.IOException;</div><div class="line"></div><div class="line"><span class="keyword">import</span> javax.servlet.ServletContext;</div><div class="line"></div><div class="line"><span class="keyword">import</span> org.springframework.beans.factory.annotation.Autowired;</div><div class="line"><span class="keyword">import</span> org.springframework.stereotype.Controller;</div><div class="line"><span class="keyword">import</span> org.springframework.ui.ModelMap;</div><div class="line"><span class="keyword">import</span> org.springframework.util.FileCopyUtils;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.BindingResult;</div><div class="line"><span class="keyword">import</span> org.springframework.validation.annotation.Validated;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMapping;</div><div class="line"><span class="keyword">import</span> org.springframework.web.bind.annotation.RequestMethod;</div><div class="line"><span class="keyword">import</span> org.springframework.web.multipart.MultipartFile;</div><div class="line"><span class="keyword">import</span> org.springframework.web.servlet.ModelAndView;</div><div class="line"></div><div class="line"><span class="keyword">import</span> com.hhh.domain.FIleUpload;</div><div class="line"></div><div class="line"><span class="meta">@Controller</span></div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FileUploadController</span> </span>&#123;</div><div class="line">	</div><div class="line">	<span class="meta">@Autowired</span></div><div class="line">	ServletContext context;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/fileupload"</span>,method=RequestMethod.GET)</div><div class="line">	<span class="function"><span class="keyword">public</span> ModelAndView <span class="title">fileUpload</span><span class="params">()</span></span>&#123;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">new</span> ModelAndView(<span class="string">"fileupload"</span>,<span class="string">"command"</span>,<span class="keyword">new</span> FIleUpload());</div><div class="line">	&#125;</div><div class="line">	</div><div class="line">	<span class="meta">@RequestMapping</span>(value=<span class="string">"/success"</span>,method=RequestMethod.POST)</div><div class="line">	<span class="function"><span class="keyword">public</span> String <span class="title">fileUploadPage</span><span class="params">(FIleUpload upload,BindingResult result,ModelMap model)</span> <span class="keyword">throws</span> IOException</span>&#123;</div><div class="line">		String realPath = context.getRealPath(<span class="string">""</span>);</div><div class="line">		String basePath = realPath.substring(<span class="number">0</span>,realPath.indexOf(<span class="string">"\\."</span>));</div><div class="line">		String storePath = basePath+File.separator+context.getContextPath().substring(context.getContextPath().indexOf(<span class="string">"/"</span>)+<span class="number">1</span>)+<span class="string">"\\upload"</span>;</div><div class="line">		<span class="keyword">if</span>(result.hasErrors())&#123;</div><div class="line">			<span class="keyword">return</span> <span class="string">"fileupload"</span>;</div><div class="line">		&#125;<span class="keyword">else</span>&#123;</div><div class="line">			MultipartFile file = upload.getFile();</div><div class="line">            <span class="comment">//文件写入</span></div><div class="line">    	   FileCopyUtils.copy(upload.getFile().getBytes(), <span class="keyword">new</span> File(storePath+<span class="string">"\\"</span>+file.getOriginalFilename()));</div><div class="line">			String filename = file.getOriginalFilename();</div><div class="line">			model.addAttribute(<span class="string">"filename"</span>, filename);</div><div class="line">			<span class="keyword">return</span> <span class="string">"success"</span>;</div><div class="line">		&#125;</div><div class="line">	&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 </li>
@@ -341,27 +335,25 @@ upload-servlet.xml1234567891011121314151617181920212223&amp;lt;?xml version=&quo
 
 
 
-    <div id="cloud-tie-wrapper" class="comments cloud-tie-wrapper"></div>
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
     <script>
-    var cloudTieConfig = {
-        url: 'https://super3h.me/2017/03/26/SpringMVC文件上传/index.html',
-        sourceId: 'SpringMVC文件上传',
-        productKey: '815bf09474284adb80a3014f2d228f0c',
-        target: 'cloud-tie-wrapper',
-        pcFiles: [
-            '/css/cloudTie/pc.css?v=1.6.7',
-            '/js/cloudTie/pc.min.js?v=1.6.7',
-        ],
-        mobileFiles: [
-            '/css/cloudTie/mobile.css?v=1.6.7',
-            '/js/cloudTie/mobile.min.js?v=1.6.7'
-        ]
-    };
+        var gitment = new Gitment({
+            owner: '',
+            repo: '',
+            oauth: {
+                client_id: '',
+                client_secret: '',
+            },
+        })
+        gitment.render('comments')
     </script>
-    <script src="/js/cloudTie/loader.min.js?v=1.6.7"></script>
-
-
-
+</section>
 
 
 
@@ -521,10 +513,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '人呢！！';
+            document.title = '';
             clearTimeout(titleTime);
         } else {
-            document.title = '专心点行么！！';
+            document.title = '';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
