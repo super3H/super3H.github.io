@@ -154,6 +154,112 @@
     <ul class="post-list">
     
         <li class="post-list-item fade">
+            <article id="post-J2EE-Hibernate-Session"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-25 17:25:26" datetime="2017-01-25T09:25:26.034Z"  itemprop="datePublished">2017-01-25</time>
+
+        
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/J2EE/">J2EE</a></li></ul>
+
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/01/25/J2EE-Hibernate-Session/">J2EE-Hibernate-Session的缓存及对象的状态</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        Session的缓存Java是纯面向对象的语言，因此不可能像C语言那样直接操纵内存，例如声明一段可用的内存空间。在Java里面，缓存通常是指Java对象的属性占用的 内存空间，通常是一些集合类型的属性。在session接口的实现类SessionImpl中定义了一系列的Java集合，这些Java集合就构成了 Session的缓存。       使用缓存的一个很明显的好处就是可以减少数据库访问的...
+    
+
+        <a href="/2017/01/25/J2EE-Hibernate-Session/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/J2EE/">J2EE</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
+            <article id="post-J2EE-Hibernate的核心接口"
+  class="article-card article-type-post" itemprop="blogPost">
+
+    <div class="post-meta">
+        <time class="post-time" title="2017-01-25 17:02:35" datetime="2017-01-25T09:02:35.871Z"  itemprop="datePublished">2017-01-25</time>
+
+        
+
+
+        
+
+    </div>
+
+    
+
+
+  
+    <h3 class="post-title" itemprop="name">
+      <a class="post-title-link" href="/2017/01/25/J2EE-Hibernate的核心接口/">J2EE-Hibernate的核心接口</a>
+    </h3>
+  
+
+
+
+
+    <div class="post-content" id="post-content" itemprop="postContent">
+
+    
+        简介
+Hibernate作为持久成中间件，它的具体实现对与上层调用是透明的，即上层通过接口来调用Hibernate的具体实现，所以对于入门级别的讨论来说，自然应该先从接口开始了。
+
+所有的Hibernate应用都会访问它的5个核心接口，分别如下：
+
+Configuration接口：
+SessionFactory接口：
+Session接口：
+Transaction接口：
+
+Configurat...
+    
+
+        <a href="/2017/01/25/J2EE-Hibernate的核心接口/" class="post-more waves-effect waves-button">
+            阅读全文…
+        </a>
+    </div>
+    
+    <div class="post-footer">
+        
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Hibernate/">Hibernate</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/J2EE/">J2EE</a></li></ul>
+
+    </div>
+    
+</article>
+
+        </li>
+    
+        <li class="post-list-item fade">
             <article id="post-J2EE-Hibernate数据源配置"
   class="article-card article-type-post" itemprop="blogPost">
 
@@ -566,115 +672,12 @@ Hibernate官网下载地址Hibernate官网。现在最新的是： hibernate-rel
 
         </li>
     
-        <li class="post-list-item fade">
-            <article id="post-Python-sqlite3"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-20 09:42:37" datetime="2017-01-20T01:42:37.256Z"  itemprop="datePublished">2017-01-20</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/20/Python-sqlite3/">Python-sqlite3 学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        安装与使用##导入Python SQLITE数据库模块1import sqlite3
-创建/打开数据库
-在调用connect函数的时候，指定库名称，如果指定的数据库存在就直接打开这个数据库，如果不存在就新创建一个再打开。1cx = sqlite3.connect("E:/test.db")
-也可以创建数据库在内存中。1con = sqlite3.connect(":memory:")
-
-数据...
-    
-
-        <a href="/2017/01/20/Python-sqlite3/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Web/">Python-Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/sqlite3/">sqlite3</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
-        <li class="post-list-item fade">
-            <article id="post-Python-SQLAlchemy"
-  class="article-card article-type-post" itemprop="blogPost">
-
-    <div class="post-meta">
-        <time class="post-time" title="2017-01-18 22:11:34" datetime="2017-01-18T14:11:34.807Z"  itemprop="datePublished">2017-01-18</time>
-
-        
-	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/Python/">Python</a></li></ul>
-
-
-
-        
-
-    </div>
-
-    
-
-
-  
-    <h3 class="post-title" itemprop="name">
-      <a class="post-title-link" href="/2017/01/18/Python-SQLAlchemy/">SQLAlchemy-学习</a>
-    </h3>
-  
-
-
-
-
-    <div class="post-content" id="post-content" itemprop="postContent">
-
-    
-        定义model12345678class User(Base):    #表名    __tablename__='user'    #表结构    id = Column(Integer,primary_key=True)    name = Column(String(20))    username = Column(String(20))    password = Column(S...
-    
-
-        <a href="/2017/01/18/Python-SQLAlchemy/" class="post-more waves-effect waves-button">
-            阅读全文…
-        </a>
-    </div>
-    
-    <div class="post-footer">
-        
-	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/Python-Web/">Python-Web</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/SQLAlchemy/">SQLAlchemy</a></li></ul>
-
-    </div>
-    
-</article>
-
-        </li>
-    
     </ul>
 
     
 <nav id="page-nav">
     <div class="inner">
-    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
+    <a class="extend prev" rel="prev" href="/page/6/">上一页</a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/5/">5</a><a class="page-number" href="/page/6/">6</a><span class="page-number current">7</span><a class="page-number" href="/page/8/">8</a><a class="page-number" href="/page/9/">9</a><a class="extend next" rel="next" href="/page/8/">下一页</a>
     </div>
 </nav>
 
