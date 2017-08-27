@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+
+    
+
+    
+
+
+
+    <meta charset="utf-8">
+    
+    
+    <link rel="canonical" href="http://super3h.me/2017/08/26/二叉树的遍历/">
+    
+    
+    <title>二叉树的遍历 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    
+    <meta name="theme-color" content="#20A0FF">
+    
+    
+    <meta name="keywords" content="数据结构">
+    <meta name="description" content="递归版遍历递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。
+前、中、后序遍历123456789private static void process(Tree tree) &amp;#123;		if(tree == null)			return;//		System.out.println(tree.value); 前序遍历		process(tree.left);//		System.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="二叉树的遍历">
+<meta property="og:url" content="https://super3h.me/2017/08/26/二叉树的遍历/index.html">
+<meta property="og:site_name" content="HHH'Blog">
+<meta property="og:description" content="递归版遍历递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。
+前、中、后序遍历123456789private static void process(Tree tree) &amp;#123;		if(tree == null)			return;//		System.out.println(tree.value); 前序遍历		process(tree.left);//		System.">
+<meta property="og:image" content="https://super3h.me/2017/08/26/二叉树的遍历/1.png">
+<meta property="og:image" content="https://super3h.me/2017/08/26/二叉树的遍历/2.png">
+<meta property="og:image" content="https://super3h.me/2017/08/26/二叉树的遍历/3.jpg">
+<meta property="og:updated_time" content="2017-08-26T09:16:56.227Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="二叉树的遍历">
+<meta name="twitter:description" content="递归版遍历递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。
+前、中、后序遍历123456789private static void process(Tree tree) &amp;#123;		if(tree == null)			return;//		System.out.println(tree.value); 前序遍历		process(tree.left);//		System.">
+<meta name="twitter:image" content="https://super3h.me/2017/08/26/二叉树的遍历/1.png">
+    
+        <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
+    
+    <link rel="shortcut icon" href="/img/hhh_favicon.ico">
+    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <script>window.lazyScripts=[]</script>
+</head>
+
+<body>
+    <div id="loading" class="active"></div>
+
+    <aside id="menu" class="hide" >
+  <div class="inner flex-row-vertical">
+    <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menu-off">
+        <i class="icon icon-lg icon-close"></i>
+    </a>
+    <div class="brand-wrap" style="background-image:url(/img/hhh_brand.jpg)">
+      <div class="brand">
+        <a href="/" class="avatar waves-effect waves-circle waves-light">
+          <img src="/img/hhh.jpg">
+        </a>
+        <hgroup class="introduce">
+          <h5 class="nickname">super3H</h5>
+          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+        </hgroup>
+      </div>
+    </div>
+    <div class="scroll-wrap flex-col">
+      <ul class="nav">
+        
+            <li class="waves-block waves-effect">
+              <a href="/"  >
+                <i class="icon icon-lg icon-home"></i>
+                主页
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/archives"  >
+                <i class="icon icon-lg icon-archives"></i>
+                Archives
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/tags"  >
+                <i class="icon icon-lg icon-tags"></i>
+                Tags
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/categories"  >
+                <i class="icon icon-lg icon-th-list"></i>
+                Categories
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="https://github.com/super3h" target="_blank" >
+                <i class="icon icon-lg icon-github"></i>
+                Github
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="http://www.weibo.com/5390009583" target="_blank" >
+                <i class="icon icon-lg icon-weibo"></i>
+                Weibo
+              </a>
+            </li>
+        
+      </ul>
+    </div>
+  </div>
+</aside>
+
+    <main id="main">
+        <header class="top-header" id="header">
+    <div class="flex-row">
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light on" id="menu-toggle">
+          <i class="icon icon-lg icon-navicon"></i>
+        </a>
+        <div class="flex-col header-title ellipsis">二叉树的遍历</div>
+        
+        <div class="search-wrap" id="search-wrap">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="back">
+                <i class="icon icon-lg icon-chevron-left"></i>
+            </a>
+            <input type="text" id="key" class="search-input" autocomplete="off" placeholder="输入感兴趣的关键字">
+            <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="search">
+                <i class="icon icon-lg icon-search"></i>
+            </a>
+        </div>
+        
+        
+        <a href="javascript:;" class="header-icon waves-effect waves-circle waves-light" id="menuShare">
+            <i class="icon icon-lg icon-share-alt"></i>
+        </a>
+        
+    </div>
+</header>
+<header class="content-header post-header">
+
+    <div class="container fade-scale">
+        <h1 class="title">二叉树的遍历</h1>
+        <h5 class="subtitle">
+            
+                <time datetime="2017-08-26T07:41:56.473Z" itemprop="datePublished" class="page-time">
+  2017-08-26
+</time>
+
+
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+            
+        </h5>
+    </div>
+
+    
+
+
+</header>
+
+
+<div class="container body-wrap">
+    
+    <aside class="post-widget">
+        <nav class="post-toc-wrap" id="post-toc">
+            <h4>TOC</h4>
+            <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#递归版遍历"><span class="post-toc-number">1.</span> <span class="post-toc-text">递归版遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#前、中、后序遍历"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">前、中、后序遍历</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Morris遍历"><span class="post-toc-number">2.</span> <span class="post-toc-text">Morris遍历</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#算法思路"><span class="post-toc-number">2.1.</span> <span class="post-toc-text">算法思路</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#代码分析"><span class="post-toc-number">2.2.</span> <span class="post-toc-text">代码分析</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#前序遍历"><span class="post-toc-number">2.2.1.</span> <span class="post-toc-text">前序遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#中序遍历"><span class="post-toc-number">2.2.2.</span> <span class="post-toc-text">中序遍历</span></a></li><li class="post-toc-item post-toc-level-3"><a class="post-toc-link" href="#后序遍历"><span class="post-toc-number">2.2.3.</span> <span class="post-toc-text">后序遍历</span></a></li></ol></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#时间复杂度"><span class="post-toc-number">2.3.</span> <span class="post-toc-text">时间复杂度</span></a></li></ol></li></ol>
+        </nav>
+    </aside>
+    
+<article id="post-二叉树的遍历"
+  class="post-article article-type-post fade" itemprop="blogPost">
+
+    <div class="post-card">
+        <h1 class="post-card-title">二叉树的遍历</h1>
+        <div class="post-meta">
+            <time class="post-time" title="2017-08-26 15:41:56" datetime="2017-08-26T07:41:56.473Z"  itemprop="datePublished">2017-08-26</time>
+
+            
+	<ul class="article-category-list"><li class="article-category-list-item"><a class="article-category-list-link" href="/categories/算法/">算法</a></li></ul>
+
+
+
+            
+<span id="busuanzi_container_page_pv" title="文章总阅读量" style='display:none'>
+    <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
+</span>
+
+
+            
+
+        </div>
+        <div class="post-content" id="post-content" itemprop="postContent">
+            <h1 id="递归版遍历"><a href="#递归版遍历" class="headerlink" title="递归版遍历"></a>递归版遍历</h1><p>递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。</p>
+<h2 id="前、中、后序遍历"><a href="#前、中、后序遍历" class="headerlink" title="前、中、后序遍历"></a>前、中、后序遍历</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Tree tree)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span>(tree == <span class="keyword">null</span>)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line"><span class="comment">//		System.out.println(tree.value); 前序遍历</span></div><div class="line">		process(tree.left);</div><div class="line"><span class="comment">//		System.out.println(tree.value); 中序遍历</span></div><div class="line">		process(tree.right);</div><div class="line"><span class="comment">//		System.out.println(tree.value); 后序遍历</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="Morris遍历"><a href="#Morris遍历" class="headerlink" title="Morris遍历"></a>Morris遍历</h1><p>听左神(有兴趣的可以去搜左晨云，很厉害的大神)讲了个装逼版遍历，感觉逼格还不错，遂记下</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">从根节点root开始遍历</div><div class="line">1. 当root无左子树，直接开始遍历右子树(root.right)</div><div class="line">2. 有左子树，找到左子树上的最右的节点(rightNode)，判断是否为第一次到达此节点:</div><div class="line">    1)第一次到达此节点:rightNode.right = root</div><div class="line">    2)第二次到达此节点:rightNode.right = null</div><div class="line">循环1、2的过程即可</div></pre></td></tr></table></figure>
+<p>画了个图，方便理解<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisPre</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="comment">//有无左子树</span></div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">    			<span class="comment">//有则找到左子树的最右节点并且为第一次到达(也就是rightNode没有被赋值的时候)</span></div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">    				<span class="comment">//rightNode.right = root</span></div><div class="line">					cur2.right = cur1;</div><div class="line">					<span class="comment">//打印根节点</span></div><div class="line">					System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			<span class="comment">//无左子树，直接打印当前节点</span></div><div class="line">				System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisIn</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">					cur2.right = cur1;</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//中序遍历左根右，所以只需在右节点前输出即可</span></div><div class="line">			System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><ul>
+<li>算法分析</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/3.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>代码分析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisPos</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">					cur2.right = cur1;</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">					<span class="comment">//逆序打印节点</span></div><div class="line">					printEdge(cur1.left);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		printEdge(head);</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printEdge</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		Node tail = reverseEdge(head);</div><div class="line">		Node cur = tail;</div><div class="line">		<span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</div><div class="line">			System.out.print(cur.value + <span class="string">" "</span>);</div><div class="line">			cur = cur.right;</div><div class="line">		&#125;</div><div class="line">		reverseEdge(tail);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">reverseEdge</span><span class="params">(Node from)</span> </span>&#123;</div><div class="line">		Node pre = <span class="keyword">null</span>;</div><div class="line">		Node next = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (from != <span class="keyword">null</span>) &#123;</div><div class="line">			next = from.right;</div><div class="line">			from.right = pre;</div><div class="line">			pre = from;</div><div class="line">			from = next;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> pre;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>从代码来看右子树被遍历的两次，时间复杂度为O(N)</p>
+
+        </div>
+
+        <blockquote class="post-copyright">
+    <div class="content">
+        
+<span class="post-time">
+    最后更新时间：<time datetime="2017-08-26T09:16:56.227Z" itemprop="dateUpdated">2017-08-26 17:16:56</time>
+</span><br>
+
+
+        
+        <font color='#D15585'>自我描述</font>：一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<br/><font color='#D15585'>转载请注明</font>：<a href="/2017/08/26/二叉树的遍历/" target="_blank" rel="external">https://super3h.me/2017/08/26/二叉树的遍历/</a>
+        
+    </div>
+    <footer>
+        <a href="https://super3h.me">
+            <img src="/img/hhh.jpg" alt="super3H">
+            super3H
+        </a>
+    </footer>
+</blockquote>
+
+        
+<div class="page-reward">
+    <a id="rewardBtn" href="javascript:;" class="page-reward-btn waves-effect waves-circle waves-light">赏</a>
+</div>
+
+
+
+        <div class="post-footer">
+            
+	<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/数据结构/">数据结构</a></li></ul>
+
+
+            
+<div class="page-share-wrap">
+    
+
+<div class="page-share" id="pageShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/08/26/二叉树的遍历/&title=《二叉树的遍历》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/08/26/二叉树的遍历/&title=《二叉树的遍历》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/08/26/二叉树的遍历/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《二叉树的遍历》 — HHH'Blog&url=https://super3h.me/2017/08/26/二叉树的遍历/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/08/26/二叉树的遍历/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+
+    <a href="javascript:;" id="shareFab" class="page-share-fab waves-effect waves-circle">
+        <i class="icon icon-share-alt icon-lg"></i>
+    </a>
+</div>
+
+
+
+        </div>
+    </div>
+
+    
+<nav class="post-nav flex-row flex-justify-between">
+  
+    <div class="waves-block waves-effect prev">
+      <a href="/2017/08/26/平衡二叉树/" id="post-prev" class="post-nav-link">
+        <div class="tips"><i class="icon icon-angle-left icon-lg icon-pr"></i> Prev</div>
+        <h4 class="title">平衡二叉树</h4>
+      </a>
+    </div>
+  
+
+  
+    <div class="waves-block waves-effect next">
+      <a href="/2017/08/25/递归转动态规划/" id="post-next" class="post-nav-link">
+        <div class="tips">Next <i class="icon icon-angle-right icon-lg icon-pl"></i></div>
+        <h4 class="title">递归转动态规划</h4>
+      </a>
+    </div>
+  
+</nav>
+
+
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+<section class="comments" id="comments">
+    <div id="gitment_thread"></div>
+    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
+    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <script>
+        var gitment = new Gitment({
+            owner: 'super3H',
+            repo: 'blogComment',
+            oauth: {
+                client_id: '6ff91acaceab40e4a280',
+                client_secret: '78c9cb070dfc36f027e19f11dda6829c990ff892',
+            },
+        })
+        gitment.render('comments')
+    </script>
+</section>
+
+
+
+
+</article>
+
+<div id="reward" class="page-modal reward-lay">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <h3 class="reward-title">
+        <i class="icon icon-quote-left"></i>
+        官人,给包辣条呗~
+        <i class="icon icon-quote-right"></i>
+    </h3>
+    <ul class="reward-items">
+        
+        <li>
+            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
+            <p>微信</p>
+        </li>
+        
+
+        
+        <li>
+            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
+            <p>支付宝</p>
+        </li>
+        
+    </ul>
+</div>
+
+
+
+</div>
+
+        <footer class="footer">
+    <div class="top">
+        
+<p>
+    <span id="busuanzi_container_site_uv" style='display:none'>
+        站点总访客数：<span id="busuanzi_value_site_uv"></span>
+    </span>
+    <span id="busuanzi_container_site_pv" style='display:none'>
+        站点总访问量：<span id="busuanzi_value_site_pv"></span>
+    </span>
+</p>
+
+
+        <p>
+            
+                <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
+            
+            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+        </p>
+    </div>
+    <div class="bottom">
+        <p>
+            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
+            <span>super3H &copy; 2015 - 2017</span>
+        </p>
+    </div>
+</footer>
+
+    </main>
+    <div class="mask" id="mask"></div>
+<a href="javascript:;" id="gotop" class="waves-effect waves-circle waves-light"><span class="icon icon-lg icon-chevron-up"></span></a>
+
+
+
+<div class="global-share" id="globalShare">
+    <ul class="reset share-icons">
+      <li>
+        <a class="weibo share-sns" target="_blank" href="http://service.weibo.com/share/share.php?url=https://super3h.me/2017/08/26/二叉树的遍历/&title=《二叉树的遍历》 — HHH'Blog&pic=https://super3h.me/img/hhh.jpg" data-title="微博">
+          <i class="icon icon-weibo"></i>
+        </a>
+      </li>
+      <li>
+        <a class="weixin share-sns wxFab" href="javascript:;" data-title="微信">
+          <i class="icon icon-weixin"></i>
+        </a>
+      </li>
+      <li>
+        <a class="qq share-sns" target="_blank" href="http://connect.qq.com/widget/shareqq/index.html?url=https://super3h.me/2017/08/26/二叉树的遍历/&title=《二叉树的遍历》 — HHH'Blog&source=it's time to fight for myself" data-title=" QQ">
+          <i class="icon icon-qq"></i>
+        </a>
+      </li>
+      <li>
+        <a class="facebook share-sns" target="_blank" href="https://www.facebook.com/sharer/sharer.php?u=https://super3h.me/2017/08/26/二叉树的遍历/" data-title=" Facebook">
+          <i class="icon icon-facebook"></i>
+        </a>
+      </li>
+      <li>
+        <a class="twitter share-sns" target="_blank" href="https://twitter.com/intent/tweet?text=《二叉树的遍历》 — HHH'Blog&url=https://super3h.me/2017/08/26/二叉树的遍历/&via=https://super3h.me" data-title=" Twitter">
+          <i class="icon icon-twitter"></i>
+        </a>
+      </li>
+      <li>
+        <a class="google share-sns" target="_blank" href="https://plus.google.com/share?url=https://super3h.me/2017/08/26/二叉树的遍历/" data-title=" Google+">
+          <i class="icon icon-google-plus"></i>
+        </a>
+      </li>
+    </ul>
+ </div>
+
+
+<div class="page-modal wx-share" id="wxShare">
+    <a class="close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAMYAAADGCAAAAACs8KCBAAACN0lEQVR42u3aQW7DMAwF0dz/0i7QVYHAwnxSKWJqtArS1tLzgqVIvl54Xb/r7vv3n9598/f7622t99qwZMiQ8VjGtVzvjyZb3j3njrr+vD6bDBkyzmHwbdahdr09QfLXJEOGDBl3G9eCZpoyypAhQ8bnAm6aLH7p/w0ZMmR8JaOTzPWLd3zfDXdxGTJkPJCRbvyfnz/Y35AhQ8ZDGFdjpe3MtPEQnESGDBmjGaTEn6Z3aXmOJIUoEMuQIeMYRroxT+bS0bE4uMuQIWMooxNk+yGVvGPy+zJkyJjN6ByUtzB3jWiQs8mQIWMeg49k8Ytuv/SftjNlyJAxm0HSsk5ZrZYOkhcnQ4aM0xgkkKXtydoIRRrWZciQcQKDH30d+PhlmCNJahjcqmXIkPFYRnqsWtGfj3ylLQpUNZQhQ8YgxoVXpxjHw2ux/CdDhozRjFraV2sA9Jug/GIsQ4aMpzNISO2HXb5LrakgQ4aM0xg8KneGvTp7oaxWhgwZgxhpUYw/uhZGNzxHhgwZQxlBElYq99dKacWehgwZMo5hdBqN6ThFWgW8faYMGTJGM9KQxxuf29qQ6RSGDBkyBjGucNVGKEhYJ0XA27+VIUPGaMaucNxB9i+3MmTIOIGRpndpC5M3TTstBBkyZJzA6F9rSRugk96hxoAMGTJkhKU3fpQNCaIMGTJkfGBsolaGC27JMmTIGMcgl1g+OkaeUyvhobEwGTJkjGOkjQF+sUyHM8hrShurMmTIeDjjB8r7nTtWe0beAAAAAElFTkSuQmCC" alt="微信分享二维码">
+</div>
+
+
+
+
+    <script src="//cdn.bootcss.com/node-waves/0.7.4/waves.min.js"></script>
+<script>
+var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
+
+
+
+lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
+
+</script>
+
+<script src="/js/main.min.js?v=1.6.7"></script>
+
+
+<div class="search-panel" id="search-panel">
+    <ul class="search-result" id="search-result"></ul>
+</div>
+<template id="search-tpl">
+<li class="item">
+    <a href="{path}" class="waves-block waves-effect">
+        <div class="title ellipsis" title="{title}">{title}</div>
+        <div class="flex-row flex-middle">
+            <div class="tags ellipsis">
+                {tags}
+            </div>
+            <time class="flex-col time">{date}</time>
+        </div>
+    </a>
+</li>
+</template>
+
+<script src="/js/search.min.js?v=1.6.7" async></script>
+
+
+
+
+
+
+<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+
+
+
+<script>
+(function() {
+    var OriginTitile = document.title, titleTime;
+    document.addEventListener('visibilitychange', function() {
+        if (document.hidden) {
+            document.title = '';
+            clearTimeout(titleTime);
+        } else {
+            document.title = '';
+            titleTime = setTimeout(function() {
+                document.title = OriginTitile;
+            },2000);
+        }
+    });
+})();
+</script>
+
+
+
+</body>
+</html>

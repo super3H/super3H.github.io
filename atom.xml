@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="https://super3h.me/"/>
-  <updated>2017-08-25T07:38:33.080Z</updated>
+  <updated>2017-08-26T14:28:05.646Z</updated>
   <id>https://super3h.me/</id>
   
   <author>
@@ -14,6 +14,150 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>二叉排序树</title>
+    <link href="https://super3h.me/2017/08/26/%E4%BA%8C%E5%8F%89%E6%8E%92%E5%BA%8F%E6%A0%91/"/>
+    <id>https://super3h.me/2017/08/26/二叉排序树/</id>
+    <published>2017-08-26T14:22:00.486Z</published>
+    <updated>2017-08-26T14:28:05.646Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><ol>
+<li>若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；</li>
+<li>若右子树不空，则右子树上所有结点的值均大于或等于它的根结点的值；</li>
+<li>左、右子树也分别为二叉排序树；</li>
+</ol>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><p>将前面morris遍历加上一个递增判断即可，详细请看下面代码</p>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isBST</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">boolean</span> res = <span class="keyword">true</span>;</div><div class="line">		<span class="comment">//记录左节点</span></div><div class="line">		Node pre = <span class="keyword">null</span>;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">					cur2.right = cur1;</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//如果左节点大于根节点，直接返回false</span></div><div class="line">			<span class="keyword">if</span> (pre != <span class="keyword">null</span> &amp;&amp; pre.value &gt; cur1.value) &#123;</div><div class="line">				res = <span class="keyword">false</span>;</div><div class="line">			&#125;</div><div class="line">			pre = cur1;</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> res;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;若左子树不空，则左子树上所有结点的值均小于或等于它的根结点的值；&lt;/li&gt;
+&lt;li&gt;若右子树不空，则右子树上所有结点的值均大于或
+    
+    </summary>
+    
+      <category term="算法" scheme="https://super3h.me/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://super3h.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>完全二叉树</title>
+    <link href="https://super3h.me/2017/08/26/%E5%AE%8C%E5%85%A8%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://super3h.me/2017/08/26/完全二叉树/</id>
+    <published>2017-08-26T13:52:23.673Z</published>
+    <updated>2017-08-26T14:16:46.226Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>若设二叉树的高度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层从右向左连续缺若干结点，这就是完全二叉树</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">1) 有右节点 无左节点  返回false</div><div class="line">2) 任意一个节点的左右孩子不全的话，子节点必须既没有左节点也没有右节点(也就是叶子节点)</div></pre></td></tr></table></figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isCBT</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">		&#125;</div><div class="line">		Queue&lt;Node&gt; queue = <span class="keyword">new</span> LinkedList&lt;Node&gt;();</div><div class="line">		<span class="comment">//叶子节点，默认为false</span></div><div class="line">		<span class="keyword">boolean</span> leaf = <span class="keyword">false</span>;</div><div class="line">		Node l = <span class="keyword">null</span>;</div><div class="line">		Node r = <span class="keyword">null</span>;</div><div class="line">		<span class="comment">//添加根节点</span></div><div class="line">		queue.offer(head);</div><div class="line">		<span class="comment">//为空出队列</span></div><div class="line">		<span class="keyword">while</span> (!queue.isEmpty()) &#123;</div><div class="line">			head = queue.poll();</div><div class="line">			l = head.left;</div><div class="line">			r = head.right;</div><div class="line">			<span class="comment">//对应条件(2)和(1)</span></div><div class="line">			<span class="keyword">if</span> ((leaf &amp;&amp; (l != <span class="keyword">null</span> || r != <span class="keyword">null</span>)) || (l == <span class="keyword">null</span> &amp;&amp; r != <span class="keyword">null</span>)) &#123;</div><div class="line">				<span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (l != <span class="keyword">null</span>) &#123;</div><div class="line">    			<span class="comment">//添加左节点</span></div><div class="line">				queue.offer(l);</div><div class="line">			&#125;</div><div class="line">			<span class="keyword">if</span> (r != <span class="keyword">null</span>) &#123;</div><div class="line">    			<span class="comment">//添加右节点</span></div><div class="line">				queue.offer(r);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			<span class="comment">//无右节点则意味着已到叶子节点了</span></div><div class="line">				leaf = <span class="keyword">true</span>;</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;若设二叉树的高度为h，除第 h 层外，其它各层 (1～h-1) 的结点数都达到最大个数，第 h 层从右向左连续缺若干结点，这就是完全二叉树&lt;
+    
+    </summary>
+    
+      <category term="算法" scheme="https://super3h.me/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://super3h.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>平衡二叉树</title>
+    <link href="https://super3h.me/2017/08/26/%E5%B9%B3%E8%A1%A1%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    <id>https://super3h.me/2017/08/26/平衡二叉树/</id>
+    <published>2017-08-26T09:20:06.392Z</published>
+    <updated>2017-08-26T12:59:51.327Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="简介"><a href="#简介" class="headerlink" title="简介"></a>简介</h1><p>平衡二叉树: 指左子树和右子树的高度只之差&lt;=1</p>
+<h1 id="算法分析"><a href="#算法分析" class="headerlink" title="算法分析"></a>算法分析</h1><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/平衡二叉树/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<h1 id="代码"><a href="#代码" class="headerlink" title="代码"></a>代码</h1><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">boolean</span> <span class="title">isBalance</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">       <span class="comment">//用数组的原因是在其他方法里可以更改值</span></div><div class="line">		<span class="keyword">boolean</span>[] res = <span class="keyword">new</span> <span class="keyword">boolean</span>[<span class="number">1</span>];</div><div class="line">		<span class="comment">//默认为平衡二叉树</span></div><div class="line">		res[<span class="number">0</span>] = <span class="keyword">true</span>;</div><div class="line">		getHeight(head, <span class="number">1</span>, res);</div><div class="line">		<span class="keyword">return</span> res[<span class="number">0</span>];</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">int</span> <span class="title">getHeight</span><span class="params">(Node head, <span class="keyword">int</span> level, <span class="keyword">boolean</span>[] res)</span> </span>&#123;</div><div class="line">    	<span class="comment">//为空退出递归</span></div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span> level;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//遍历左子树</span></div><div class="line">		<span class="keyword">int</span> lH = getHeight(head.left, level + <span class="number">1</span>, res);</div><div class="line">		<span class="keyword">if</span> (!res[<span class="number">0</span>]) &#123;</div><div class="line">    		<span class="comment">//左子树不为平衡二叉树，直接返回false</span></div><div class="line">			<span class="keyword">return</span> level;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//遍历右子树</span></div><div class="line">		<span class="keyword">int</span> rH = getHeight(head.right, level + <span class="number">1</span>, res);</div><div class="line">		<span class="keyword">if</span> (!res[<span class="number">0</span>]) &#123;</div><div class="line">    		<span class="comment">//右子树不为平衡二叉树，直接返回false</span></div><div class="line">			<span class="keyword">return</span> level;</div><div class="line">		&#125;</div><div class="line">		<span class="comment">//左右子树高度差&gt;1返回false</span></div><div class="line">		<span class="keyword">if</span> (Math.abs(lH - rH) &gt; <span class="number">1</span>) &#123;</div><div class="line">			res[<span class="number">0</span>] = <span class="keyword">false</span>;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> Math.max(lH, rH);</div><div class="line">	&#125;</div></pre></td></tr></table></figure>]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;简介&quot;&gt;&lt;a href=&quot;#简介&quot; class=&quot;headerlink&quot; title=&quot;简介&quot;&gt;&lt;/a&gt;简介&lt;/h1&gt;&lt;p&gt;平衡二叉树: 指左子树和右子树的高度只之差&amp;lt;=1&lt;/p&gt;
+&lt;h1 id=&quot;算法分析&quot;&gt;&lt;a href=&quot;#算法分析&quot; class=&quot;h
+    
+    </summary>
+    
+      <category term="算法" scheme="https://super3h.me/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://super3h.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>二叉树的遍历</title>
+    <link href="https://super3h.me/2017/08/26/%E4%BA%8C%E5%8F%89%E6%A0%91%E7%9A%84%E9%81%8D%E5%8E%86/"/>
+    <id>https://super3h.me/2017/08/26/二叉树的遍历/</id>
+    <published>2017-08-26T07:41:56.473Z</published>
+    <updated>2017-08-26T09:16:56.227Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="递归版遍历"><a href="#递归版遍历" class="headerlink" title="递归版遍历"></a>递归版遍历</h1><p>递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。</p>
+<h2 id="前、中、后序遍历"><a href="#前、中、后序遍历" class="headerlink" title="前、中、后序遍历"></a>前、中、后序遍历</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">process</span><span class="params">(Tree tree)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span>(tree == <span class="keyword">null</span>)</div><div class="line">			<span class="keyword">return</span>;</div><div class="line"><span class="comment">//		System.out.println(tree.value); 前序遍历</span></div><div class="line">		process(tree.left);</div><div class="line"><span class="comment">//		System.out.println(tree.value); 中序遍历</span></div><div class="line">		process(tree.right);</div><div class="line"><span class="comment">//		System.out.println(tree.value); 后序遍历</span></div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h1 id="Morris遍历"><a href="#Morris遍历" class="headerlink" title="Morris遍历"></a>Morris遍历</h1><p>听左神(有兴趣的可以去搜左晨云，很厉害的大神)讲了个装逼版遍历，感觉逼格还不错，遂记下</p>
+<h2 id="算法思路"><a href="#算法思路" class="headerlink" title="算法思路"></a>算法思路</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">从根节点root开始遍历</div><div class="line">1. 当root无左子树，直接开始遍历右子树(root.right)</div><div class="line">2. 有左子树，找到左子树上的最右的节点(rightNode)，判断是否为第一次到达此节点:</div><div class="line">    1)第一次到达此节点:rightNode.right = root</div><div class="line">    2)第二次到达此节点:rightNode.right = null</div><div class="line">循环1、2的过程即可</div></pre></td></tr></table></figure>
+<p>画了个图，方便理解<br><figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/1.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure></p>
+<h2 id="代码分析"><a href="#代码分析" class="headerlink" title="代码分析"></a>代码分析</h2><h3 id="前序遍历"><a href="#前序遍历" class="headerlink" title="前序遍历"></a>前序遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisPre</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="comment">//有无左子树</span></div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">    			<span class="comment">//有则找到左子树的最右节点并且为第一次到达(也就是rightNode没有被赋值的时候)</span></div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">    				<span class="comment">//rightNode.right = root</span></div><div class="line">					cur2.right = cur1;</div><div class="line">					<span class="comment">//打印根节点</span></div><div class="line">					System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">				&#125;</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">    			<span class="comment">//无左子树，直接打印当前节点</span></div><div class="line">				System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">			&#125;</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="中序遍历"><a href="#中序遍历" class="headerlink" title="中序遍历"></a>中序遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisIn</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">					cur2.right = cur1;</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			<span class="comment">//中序遍历左根右，所以只需在右节点前输出即可</span></div><div class="line">			System.out.print(cur1.value + <span class="string">" "</span>);</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h3 id="后序遍历"><a href="#后序遍历" class="headerlink" title="后序遍历"></a>后序遍历</h3><ul>
+<li>算法分析</li>
+</ul>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/2.png" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<figure class="image-bubble">
+                <div class="img-lightbox">
+                    <div class="overlay"></div>
+                    <img src="/2017/08/26/二叉树的遍历/3.jpg" alt="" title="">
+                </div>
+                <div class="image-caption"></div>
+            </figure>
+<ul>
+<li>代码分析</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">morrisPos</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		<span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</div><div class="line">			<span class="keyword">return</span>;</div><div class="line">		&#125;</div><div class="line">		Node cur1 = head;</div><div class="line">		Node cur2 = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (cur1 != <span class="keyword">null</span>) &#123;</div><div class="line">			cur2 = cur1.left;</div><div class="line">			<span class="keyword">if</span> (cur2 != <span class="keyword">null</span>) &#123;</div><div class="line">				<span class="keyword">while</span> (cur2.right != <span class="keyword">null</span> &amp;&amp; cur2.right != cur1) &#123;</div><div class="line">					cur2 = cur2.right;</div><div class="line">				&#125;</div><div class="line">				<span class="keyword">if</span> (cur2.right == <span class="keyword">null</span>) &#123;</div><div class="line">					cur2.right = cur1;</div><div class="line">					cur1 = cur1.left;</div><div class="line">					<span class="keyword">continue</span>;</div><div class="line">				&#125; <span class="keyword">else</span> &#123;</div><div class="line">					cur2.right = <span class="keyword">null</span>;</div><div class="line">					<span class="comment">//逆序打印节点</span></div><div class="line">					printEdge(cur1.left);</div><div class="line">				&#125;</div><div class="line">			&#125;</div><div class="line">			cur1 = cur1.right;</div><div class="line">		&#125;</div><div class="line">		printEdge(head);</div><div class="line">		System.out.println();</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">printEdge</span><span class="params">(Node head)</span> </span>&#123;</div><div class="line">		Node tail = reverseEdge(head);</div><div class="line">		Node cur = tail;</div><div class="line">		<span class="keyword">while</span> (cur != <span class="keyword">null</span>) &#123;</div><div class="line">			System.out.print(cur.value + <span class="string">" "</span>);</div><div class="line">			cur = cur.right;</div><div class="line">		&#125;</div><div class="line">		reverseEdge(tail);</div><div class="line">	&#125;</div><div class="line"></div><div class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> Node <span class="title">reverseEdge</span><span class="params">(Node from)</span> </span>&#123;</div><div class="line">		Node pre = <span class="keyword">null</span>;</div><div class="line">		Node next = <span class="keyword">null</span>;</div><div class="line">		<span class="keyword">while</span> (from != <span class="keyword">null</span>) &#123;</div><div class="line">			next = from.right;</div><div class="line">			from.right = pre;</div><div class="line">			pre = from;</div><div class="line">			from = next;</div><div class="line">		&#125;</div><div class="line">		<span class="keyword">return</span> pre;</div><div class="line">	&#125;</div></pre></td></tr></table></figure>
+<h2 id="时间复杂度"><a href="#时间复杂度" class="headerlink" title="时间复杂度"></a>时间复杂度</h2><p>从代码来看右子树被遍历的两次，时间复杂度为O(N)</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;递归版遍历&quot;&gt;&lt;a href=&quot;#递归版遍历&quot; class=&quot;headerlink&quot; title=&quot;递归版遍历&quot;&gt;&lt;/a&gt;递归版遍历&lt;/h1&gt;&lt;p&gt;递归版遍历理解起来比较简单，根据打印顺序来调整前、中、后序遍历。&lt;/p&gt;
+&lt;h2 id=&quot;前、中、后序遍历&quot;&gt;&lt;a 
+    
+    </summary>
+    
+      <category term="算法" scheme="https://super3h.me/categories/%E7%AE%97%E6%B3%95/"/>
+    
+    
+      <category term="数据结构" scheme="https://super3h.me/tags/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84/"/>
+    
+  </entry>
   
   <entry>
     <title>递归转动态规划</title>
@@ -1422,254 +1566,6 @@ Controller将处理用户请求，这和Struts Action扮演的角色是一致的
       <category term="Python" scheme="https://super3h.me/tags/Python/"/>
     
       <category term="爬虫" scheme="https://super3h.me/tags/%E7%88%AC%E8%99%AB/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Js技巧</title>
-    <link href="https://super3h.me/2017/03/14/Js%E6%8A%80%E5%B7%A7/"/>
-    <id>https://super3h.me/2017/03/14/Js技巧/</id>
-    <published>2017-03-14T06:07:29.548Z</published>
-    <updated>2017-05-28T10:01:22.345Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="导航菜单div的切换"><a href="#导航菜单div的切换" class="headerlink" title="导航菜单div的切换"></a>导航菜单div的切换</h1><h2 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h2><blockquote>
-<p>通过点击事件将div属性由<code>display:none;</code>变为<code>display:block</code></p>
-</blockquote>
-<h2 id="样式布局如下"><a href="#样式布局如下" class="headerlink" title="样式布局如下:"></a>样式布局如下:</h2><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">el-row</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"4"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">el-menu</span> <span class="attr">default-active</span>=<span class="string">"1"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#question"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"1"</span> <span class="attr">style</span>=<span class="string">"padding-left:100px ;"</span>&gt;</span></div><div class="line">					提问</div><div class="line">				<span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#add"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"2"</span> <span class="attr">style</span>=<span class="string">"padding-left:100px ;"</span>&gt;</span></div><div class="line">					添加</div><div class="line">				<span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#answer"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"3"</span> <span class="attr">style</span>=<span class="string">"padding-left:100px ;"</span>&gt;</span></div><div class="line">					答案</div><div class="line">				<span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">a</span> <span class="attr">href</span>=<span class="string">"#query"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">el-menu-item</span> <span class="attr">index</span>=<span class="string">"4"</span> <span class="attr">style</span>=<span class="string">"padding-left:100px ;"</span>&gt;</span></div><div class="line">					查询</div><div class="line">				<span class="tag">&lt;/<span class="name">el-menu-item</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">a</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">el-menu</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line">	<span class="tag">&lt;<span class="name">el-col</span> <span class="attr">:span</span>=<span class="string">"20"</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: block;"</span> <span class="attr">id</span>=<span class="string">"answer"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>index-1<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">id</span>=<span class="string">"answer"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>index-2<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">id</span>=<span class="string">"answer"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>index-3<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"checkOutDiv"</span> <span class="attr">style</span>=<span class="string">"display: none;"</span> <span class="attr">id</span>=<span class="string">"query"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>index-4<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">el-col</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">el-row</span>&gt;</span></div></pre></td></tr></table></figure>
-<h2 id="js代码逻辑"><a href="#js代码逻辑" class="headerlink" title="js代码逻辑"></a>js代码逻辑</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line">$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    <span class="comment">//给每个a标签添加click事件</span></div><div class="line">	$(<span class="string">"a"</span>).bind(<span class="string">"click"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    	<span class="comment">//拿到a标签中 href属性的值</span></div><div class="line">		<span class="keyword">var</span> $clickElement = $(<span class="keyword">this</span>).attr(<span class="string">"href"</span>);</div><div class="line">		<span class="comment">//遍历所有div</span></div><div class="line">		$.each($(<span class="string">".checkOutDiv"</span>), <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">    		<span class="comment">//获得div中id属性的值</span></div><div class="line">			<span class="keyword">var</span> $checkOut = $(<span class="keyword">this</span>).attr(<span class="string">"id"</span>);</div><div class="line">			<span class="keyword">if</span>($clickElement.indexOf($checkOut) != <span class="number">-1</span>) &#123;     <span class="comment">//如果a标签的href属性包含div标签的id的值(不包含返回-1)，则显示</span></div><div class="line">				$(<span class="keyword">this</span>).attr(<span class="string">"style"</span>, <span class="string">"display: block;"</span>);</div><div class="line">			&#125; <span class="keyword">else</span> &#123;</div><div class="line">				$(<span class="keyword">this</span>).attr(<span class="string">"style"</span>, <span class="string">"display: none;"</span>);</div><div class="line">			&#125;</div><div class="line">		&#125;)</div><div class="line">	&#125;)</div><div class="line">&#125;)</div></pre></td></tr></table></figure>
-<blockquote>
-<p>详细过程如上，举个例子:<font color="#7DD43C">点击<code>&lt;a href=&quot;#question&quot;&gt;</code>时,拿到href的值，即#question，此时查询所有div的id，若id=question时，发现#question包含question，则改变div属性dispalay:block</font></p>
-</blockquote>
-<h1 id="js实现表单提交和重置"><a href="#js实现表单提交和重置" class="headerlink" title="js实现表单提交和重置"></a>js实现表单提交和重置</h1><blockquote>
-<p>代码如下:</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">//重置</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).reset();</div><div class="line"><span class="comment">//提交</span></div><div class="line"><span class="built_in">document</span>.getElementById(formName).submit();</div></pre></td></tr></table></figure>
-<h1 id="js正则表达式替换"><a href="#js正则表达式替换" class="headerlink" title="js正则表达式替换"></a>js正则表达式替换</h1><blockquote>
-<p>博主这里要把图片对应的url换一下</p>
-</blockquote>
-<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/1_1.jpg"</span>/&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">img</span> <span class="attr">src</span>=<span class="string">"img/2_1.jpg"</span>/&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>js的replace可以使用正则替换,将_1替换成_2，默认会全文搜索</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">$.each($(<span class="string">"img"</span>), <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">			$(<span class="keyword">this</span>).bind(<span class="string">"mousemove"</span>,<span class="function"><span class="keyword">function</span>(<span class="params"></span>)</span>&#123;</div><div class="line">				<span class="keyword">var</span> $src = $(<span class="keyword">this</span>).attr(<span class="string">"src"</span>);</div><div class="line">				<span class="keyword">var</span> changeSrc = $src.replace(<span class="regexp">/_\d/</span>,<span class="string">"_2"</span>);</div><div class="line">				$(<span class="string">"#showArea"</span>).html(<span class="string">"&lt;img src="</span>+changeSrc+<span class="string">" style='width:200px;height:300px' id='imgEnlarge' /&gt;"</span>)</div><div class="line">			&#125;)</div><div class="line">		&#125;);</div></pre></td></tr></table></figure>
-<h1 id="判断元素内是否有内容或者有某个标签"><a href="#判断元素内是否有内容或者有某个标签" class="headerlink" title="判断元素内是否有内容或者有某个标签"></a>判断元素内是否有内容或者有某个标签</h1><h2 id="判断文本是否为空"><a href="#判断文本是否为空" class="headerlink" title="判断文本是否为空"></a>判断文本是否为空</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqObj = $(<span class="keyword">this</span>);</div><div class="line"><span class="keyword">if</span>(jqObj.text().trim())&#123; <span class="comment">//trim()方法是去空格，$.trim()函数删除提供字符串的所有换行符,空格（包括非中断空格），开始和结束tab。如果这些空白字符在字符串中间发生时，它们将被保留。</span></div><div class="line">    jqObj.hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<h2 id="判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"><a href="#判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素" class="headerlink" title="判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素"></a>判断这个标签下是否有某个已知的元素，比如判断ul标签下是否有li元素</h2><figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> jqObj = $(<span class="keyword">this</span>);</div><div class="line"><span class="keyword">if</span>(!jqObj.has(<span class="string">'li'</span>).length)&#123;</div><div class="line">    jqObj.hide();</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<blockquote>
-<p><a href="http://www.cnblogs.com/acafaxy/archive/2012/02/02/JQuery.html" target="_blank" rel="external">JQuery判断一个元素下面是否有内容或者有某个标签</a>感谢这位作者解决了我的困惑，真诚的感谢，哈哈!</p>
-</blockquote>
-<h1 id="mousemove事件获取鼠标位置"><a href="#mousemove事件获取鼠标位置" class="headerlink" title="mousemove事件获取鼠标位置"></a>mousemove事件获取鼠标位置</h1><blockquote>
-<p>直接上代码</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">$(<span class="string">"#showArea"</span>).mousemove(<span class="function"><span class="keyword">function</span>(<span class="params">e</span>)</span>&#123;</div><div class="line">			e.pageX;<span class="comment">//鼠标x轴</span></div><div class="line">			e.pageX;<span class="comment">//鼠标y轴</span></div><div class="line">		&#125;)</div></pre></td></tr></table></figure>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;导航菜单div的切换&quot;&gt;&lt;a href=&quot;#导航菜单div的切换&quot; class=&quot;headerlink&quot; title=&quot;导航菜单div的切换&quot;&gt;&lt;/a&gt;导航菜单div的切换&lt;/h1&gt;&lt;h2 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerli
-    
-    </summary>
-    
-      <category term="js" scheme="https://super3h.me/categories/js/"/>
-    
-    
-      <category term="js" scheme="https://super3h.me/tags/js/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>idea学习</title>
-    <link href="https://super3h.me/2017/03/14/idea%E5%AD%A6%E4%B9%A0/"/>
-    <id>https://super3h.me/2017/03/14/idea学习/</id>
-    <published>2017-03-14T01:17:11.621Z</published>
-    <updated>2017-05-28T09:55:13.269Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="软件安装"><a href="#软件安装" class="headerlink" title="软件安装"></a>软件安装</h1><blockquote>
-<p>直接进入官网下载即可<a href="https://www.jetbrains.com/idea/" target="_blank" rel="external">IntelliJ IDEA</a></p>
-</blockquote>
-<h2 id="破解方案"><a href="#破解方案" class="headerlink" title="破解方案"></a>破解方案</h2><ol>
-<li><a href="http://idea.lanyus.com/" target="_blank" rel="external">IntelliJ IDEA 注册码</a></li>
-<li><a href="http://blog.csdn.net/high2011/article/details/55005286" target="_blank" rel="external">IntelliJ IDEA 永久破解的方法</a><blockquote>
-<p>方案二中由于github下载超慢，这里把云盘地址贴出来<a href="http://pan.baidu.com/s/1qYGuM1e" target="_blank" rel="external">注册机</a>:<code>密码:5jz1</code></p>
-</blockquote>
-</li>
-</ol>
-<h1 id="软件快捷键设置"><a href="#软件快捷键设置" class="headerlink" title="软件快捷键设置"></a>软件快捷键设置</h1><p><a href="https://www.cnblogs.com/tonycody/p/3257601.html" target="_blank" rel="external">Intellij IDEA 快捷键整理（TonyCody）</a><br><a href="http://myoss.github.io/2016/IntelliJ-Idea-%E5%BF%AB%E6%8D%B7%E9%94%AE%E6%98%A0%E5%B0%84/" target="_blank" rel="external">IntelliJ Idea 快捷键映射</a></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;软件安装&quot;&gt;&lt;a href=&quot;#软件安装&quot; class=&quot;headerlink&quot; title=&quot;软件安装&quot;&gt;&lt;/a&gt;软件安装&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;直接进入官网下载即可&lt;a href=&quot;https://www.jetbrains.com/idea
-    
-    </summary>
-    
-      <category term="idea" scheme="https://super3h.me/categories/idea/"/>
-    
-    
-      <category term="idea" scheme="https://super3h.me/tags/idea/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>在网页中使用markdown</title>
-    <link href="https://super3h.me/2017/03/12/%E5%9C%A8%E7%BD%91%E9%A1%B5%E4%B8%AD%E4%BD%BF%E7%94%A8markdown/"/>
-    <id>https://super3h.me/2017/03/12/在网页中使用markdown/</id>
-    <published>2017-03-12T13:38:28.061Z</published>
-    <updated>2017-07-07T09:17:17.210Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h1><blockquote>
-<p>博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到<a href="https://github.com/pandao/editor.md" target="_blank" rel="external">editor.md</a>，国人开发哦！！</p>
-</blockquote>
-<h1 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h1><h2 id="下载后的目录如图"><a href="#下载后的目录如图" class="headerlink" title="下载后的目录如图"></a>下载后的目录如图</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/1.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<blockquote>
-<p>在examples文件夹中有一个简单的示例simple.html，可以在浏览器里打开，并查看源代码;</p>
-</blockquote>
-<ul>
-<li>可得原代码为:<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line"><span class="meta">&lt;!DOCTYPE html&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">html</span> <span class="attr">lang</span>=<span class="string">"zh"</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">head</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">meta</span> <span class="attr">charset</span>=<span class="string">"utf-8"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">title</span>&gt;</span>Simple example - Editor.md examples<span class="tag">&lt;/<span class="name">title</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/style.css"</span> /&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">link</span> <span class="attr">rel</span>=<span class="string">"stylesheet"</span> <span class="attr">href</span>=<span class="string">"css/editormd.css"</span> /&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">head</span>&gt;</span></div><div class="line"></div><div class="line">	<span class="tag">&lt;<span class="name">body</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"layout"</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">header</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">h1</span>&gt;</span>Simple example<span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">header</span>&gt;</span></div><div class="line">			<span class="tag">&lt;<span class="name">div</span> <span class="attr">id</span>=<span class="string">"test-editormd"</span>&gt;</span></div><div class="line">				<span class="tag">&lt;<span class="name">textarea</span> <span class="attr">style</span>=<span class="string">"display:none;"</span>&gt;</span>### 这里插入内容<span class="tag">&lt;/<span class="name">textarea</span>&gt;</span></div><div class="line">			<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/jquery.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">src</span>=<span class="string">"js/editormd.min.js"</span>&gt;</span><span class="undefined"></span><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">		<span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">			<span class="keyword">var</span> testEditor;</div><div class="line"></div><div class="line">			$(<span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">				testEditor = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">    				<span class="comment">//调整宽度</span></div><div class="line">					width: <span class="string">"60%"</span>,</div><div class="line">					<span class="comment">//调整高度</span></div><div class="line">					height: <span class="number">400</span>,</div><div class="line">					<span class="attr">syncScrolling</span>: <span class="string">"single"</span>,</div><div class="line">					<span class="attr">path</span>: <span class="string">"./lib/"</span></div><div class="line">				&#125;);</div><div class="line">			&#125;);</div><div class="line">		<span class="tag">&lt;/<span class="name">script</span>&gt;</span></div><div class="line">	<span class="tag">&lt;/<span class="name">body</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;/<span class="name">html</span>&gt;</span></div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>这里把目录改了下：</p>
-</blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/2.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<ul>
-<li><code>lib</code>：为根目录下的文件，直接复制即可</li>
-<li><code>css</code>：<code>editormd.js</code>在根目录<code>css</code>文件中，<code>style.css</code>在<code>examples/css</code>中</li>
-<li><code>js</code>：<code>editormd.min.js</code>在根目录下，<code>jquery.min.js</code>在<code>examples\js</code>中</li>
-<li><code>fonts</code>：为根目录下的文件，直接复制即可</li>
-</ul>
-<h2 id="最后效果图"><a href="#最后效果图" class="headerlink" title="最后效果图"></a>最后效果图</h2><figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/3.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>
-<h1 id="注意"><a href="#注意" class="headerlink" title="注意"></a>注意</h1><blockquote>
-<font color="#FF3A8F">当文件放在<strong>display:none的div下会导致格式(样式)出错</strong></font>
-
-</blockquote>
-<h1 id="如何在页面中显示"><a href="#如何在页面中显示" class="headerlink" title="如何在页面中显示"></a>如何在页面中显示</h1><h2 id="提交html代码"><a href="#提交html代码" class="headerlink" title="提交html代码"></a>提交html代码</h2><blockquote>
-<p>html代码如下:<br><figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!-- 静态加载 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> <span class="attr">name</span>=<span class="string">"pDescription"</span> <span class="attr">class</span>=<span class="string">"editormd-html-textarea"</span>&gt;</span><span class="tag">&lt;/<span class="name">input</span>&gt;</span></div><div class="line"><span class="comment">&lt;!-- 动态加载，特别实在引入js框架时采用此方法，否则界面会出错 --&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">script</span> <span class="attr">type</span>=<span class="string">"text/javascript"</span>&gt;</span><span class="javascript"></span></div><div class="line">    $.getScript(<span class="string">"js/editormd.min.js"</span>, <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">        $(<span class="string">"#app-markdown"</span>).html(<span class="string">"&lt;div id=\"test-editormd\"&gt;&lt;textarea&gt;&lt;/textarea&gt;&lt;textarea name=\"description\"&gt;&lt;/textarea&gt;&lt;/div&gt;"</span>);</div><div class="line">        testEditormd = editormd(<span class="string">"test-editormd"</span>, &#123;</div><div class="line">            <span class="attr">width</span>   : <span class="string">"100%"</span>,</div><div class="line">            <span class="attr">height</span>  : <span class="number">300</span>,</div><div class="line">            <span class="attr">path</span>    : <span class="string">"lib/"</span>,</div><div class="line">            <span class="attr">toolbarIcons</span> : <span class="function"><span class="keyword">function</span>(<span class="params"></span>) </span>&#123;</div><div class="line">                <span class="keyword">return</span> [<span class="string">"undo"</span>, <span class="string">"redo"</span>, <span class="string">"|"</span>, <span class="string">"bold"</span>, <span class="string">"hr"</span>, <span class="string">"|"</span>, <span class="string">"preview"</span>, <span class="string">"watch"</span>]</div><div class="line">            &#125;,</div><div class="line">            <span class="attr">saveHTMLToTextarea</span> : <span class="literal">true</span>,</div><div class="line">            <span class="attr">watch</span>: <span class="literal">false</span>,</div><div class="line">        &#125;);</div><div class="line">    &#125;);</div><div class="line"><span class="tag">&lt;/<span class="name">script</span>&gt;</span></div></pre></td></tr></table></figure></p>
-<p>js代码如下:</p>
-</blockquote>
-<figure class="highlight js"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">var</span> ohtml=$(<span class="string">'.editormd-html-textarea'</span>), opreview=$(<span class="string">'.editormd-preview'</span>).clone(); </div><div class="line"> ohtml.val(opreview.html());</div></pre></td></tr></table></figure>
-<blockquote>
-<p>最后form表单提交，后台拿到pDescription的值即可</p>
-</blockquote>
-<h2 id="页面显示"><a href="#页面显示" class="headerlink" title="页面显示"></a>页面显示</h2><blockquote>
-<p>引入前文(上面使用方法中有讲到)css样式即可显示！！<br>效果如图</p>
-</blockquote>
-<figure class="image-bubble">
-                <div class="img-lightbox">
-                    <div class="overlay"></div>
-                    <img src="/2017/03/12/在网页中使用markdown/4.png" alt="" title="">
-                </div>
-                <div class="image-caption"></div>
-            </figure>]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;前言&quot;&gt;&lt;a href=&quot;#前言&quot; class=&quot;headerlink&quot; title=&quot;前言&quot;&gt;&lt;/a&gt;前言&lt;/h1&gt;&lt;blockquote&gt;
-&lt;p&gt;博客既然能用markdown编写，能否直接在网上编写呢，答案当然是可以，去github搜索一下即可找到&lt;a hre
-    
-    </summary>
-    
-      <category term="js" scheme="https://super3h.me/categories/js/"/>
-    
-    
-      <category term="js" scheme="https://super3h.me/tags/js/"/>
-    
-      <category term="markdown" scheme="https://super3h.me/tags/markdown/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>s2sh-大学资源共享网项目</title>
-    <link href="https://super3h.me/2017/03/10/s2sh-%E5%A4%A7%E5%AD%A6%E8%B5%84%E6%BA%90%E5%85%B1%E4%BA%AB%E7%BD%91%E9%A1%B9%E7%9B%AE/"/>
-    <id>https://super3h.me/2017/03/10/s2sh-大学资源共享网项目/</id>
-    <published>2017-03-10T08:00:29.266Z</published>
-    <updated>2017-05-28T10:47:42.264Z</updated>
-    
-    <content type="html"><![CDATA[<h1 id="所遇问题"><a href="#所遇问题" class="headerlink" title="所遇问题"></a>所遇问题</h1><h2 id="数据库错误"><a href="#数据库错误" class="headerlink" title="数据库错误"></a>数据库错误</h2><blockquote>
-<p>报如下错:</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">Cannot add or update a child row: <span class="function">a foreign key constraint <span class="title">fails</span> <span class="params">(`s2shtest01`.`problem`, CONSTRAINT `FK5lcmhm21chjl0wog8par6isxn` FOREIGN KEY (`pid`)</span> REFERENCES `course` <span class="params">(`cid`)</span>)</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>后来发现。。<code>hibernate</code>配置文件竟然写错了，如此低级的错误</p>
-</blockquote>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">class</span> <span class="attr">name</span>=<span class="string">"School"</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">id</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">generator</span> <span class="attr">class</span>=<span class="string">"native"</span>&gt;</span><span class="tag">&lt;/<span class="name">generator</span>&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">id</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"sName"</span>&gt;</span><span class="tag">&lt;/<span class="name">property</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">set</span> <span class="attr">name</span>=<span class="string">"academys"</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="comment">&lt;!--&lt;column name="aid"&gt;&lt;/column&gt;--&gt;</span></div><div class="line">        		<span class="tag">&lt;<span class="name">column</span> <span class="attr">name</span>=<span class="string">"sid"</span>&gt;</span><span class="tag">&lt;/<span class="name">column</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;/<span class="name">key</span>&gt;</span></div><div class="line">        	<span class="tag">&lt;<span class="name">one-to-many</span> <span class="attr">class</span>=<span class="string">"Academy"</span>/&gt;</span></div><div class="line">        <span class="tag">&lt;/<span class="name">set</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">class</span>&gt;</span></div></pre></td></tr></table></figure>
-<blockquote>
-<p>错误如上,<code>&lt;key&gt;</code>里为academys的外键。。结果把它的外键和自己的主键绑定到一起了。</p>
-</blockquote>
-<h2 id="json解决hibernate中级联对象延迟加载问题"><a href="#json解决hibernate中级联对象延迟加载问题" class="headerlink" title="json解决hibernate中级联对象延迟加载问题"></a>json解决hibernate中级联对象延迟加载问题</h2><ul>
-<li>简介<blockquote>
-<p>相信大部分用过Ext的GridPanel显示数据的朋友都遇到过外键数据的问题，首先是转换格式，将数据库里查出来的List集合要转换为JSON格式，如果只是用</p>
-</blockquote>
-</li>
-</ul>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">JSONObject json = <span class="keyword">new</span> JSONObject();    </div><div class="line">JSONArray dataArray = JSONArray.fromObject(list);</div></pre></td></tr></table></figure>
-<ul>
-<li><p>原因:</p>
-<blockquote>
-<p>如果list中的数据都是普通数据类型的那能正常转换，但很少这种情况，<font color="#FE3E49">大部分的数据都存在外键的数据，比如有个News类，他可能会有个发布人User的外键，那么用以上的方法转换是不行，将会出现死循环（我去了解到JSON它是这么一种机制，将数据拆分，一致拆分到全都是基本数据类型位置，比如，一个list存放着多个News数据，它是首先将list拆分成多个News，然后将News的多个属性都拆分出来，里面有个User对象，又得再拆分！问题就出现在这了，User里面又有一个News的集合，News里面又有User，因此导致死循环了）；</font></p>
-</blockquote>
-</li>
-<li><p>解决方案</p>
-<blockquote>
-<p>json解决hibernate中级联对象延迟加载问题<code>net.sf.json.JSONException: org....</code><br>在hibernate中将pojo转化为json数据格式时，抛出：<font color="#48B456"><strong>net.sf.json.JSONException: org.hibernate.LazyInitializationException，</strong></font>通过网上的资料，解决办法如下(未列出所需库文件)：</p>
-</blockquote>
-</li>
-<li><p>第一种:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">JsonConfig jsonConfig = <span class="keyword">new</span> JsonConfig(); </div><div class="line">jsonConfig .setJsonPropertyFilter(<span class="keyword">new</span> PropertyFilter()&#123;</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">apply</span><span class="params">(Object source, String name, Object value)</span></span>&#123;</div><div class="line">    <span class="keyword">if</span> (name.equals(<span class="string">"property1"</span>) || name.equals(<span class="string">"property2"</span>))&#123;<span class="comment">// 这里填写需要过滤的属性名</span></div><div class="line">         <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">    &#125;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">false</span>;</div><div class="line">    &#125;</div><div class="line">&#125;);</div><div class="line"></div><div class="line">JSONObject jsonModel= JSONArray.fromObject(yourObject, jsonConfig );</div></pre></td></tr></table></figure>
-</li>
-<li><p>第二种:</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">JsonConfig jsonConfig = <span class="keyword">new</span> JsonConfig();</div><div class="line"></div><div class="line">jsonConfig .setExcludes( <span class="keyword">new</span> String[]&#123; <span class="string">"property1"</span> , <span class="string">"property2"</span> &#125; ) ;</div><div class="line"></div><div class="line">JSONObject jsonModel= JSONArray.fromObject(yourObject, jsonConfig );</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-</li>
-</ul>
-<blockquote>
-<p>详情请参考<a href="http://blog.csdn.net/evelyn2010816/article/details/6321758" target="_blank" rel="external">json解决hibernate中级联对象延迟加载问题net.sf.json.JSONException: </a></p>
-</blockquote>
-<h2 id="c-forEach问题"><a href="#c-forEach问题" class="headerlink" title="c:forEach问题"></a>c:forEach问题</h2><blockquote>
-<p>报错如下:</p>
-</blockquote>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">According to TLD or attribute directive in tag file, attribute value does not accept any exception</div></pre></td></tr></table></figure>
-<ul>
-<li>方法如下<ul>
-<li>一种是将<code>http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd</code>改成<code>http://java.sun.com/xml/ns/javaee/web-app_2_3.xsd</code>；</li>
-<li>另一种是将JSP页面中的<font color="red"><strong>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core&quot;%&gt;改成" target="_blank" rel="external">http://java.sun.com/jstl/core&quot;%&gt;改成</a>&lt;%@ taglib prefix=”c” uri=”<a href="http://java.sun.com/jstl/core_rt&quot;%&gt;。" target="_blank" rel="external">http://java.sun.com/jstl/core_rt&quot;%&gt;。</a></strong></font>在jstl-1.0.2.jar下的META-INF中有一个c.tld还有一个c-rt.tld,后一个好像是jstl核心库备用板的标签描述文件。<blockquote>
-<p>参考如下:<a href="http://blog.sina.com.cn/s/blog_6b39e1d10100mwp4.html" target="_blank" rel="external">According to TLD or attribute directive in tag file</a></p>
-</blockquote>
-</li>
-</ul>
-</li>
-</ul>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h1 id=&quot;所遇问题&quot;&gt;&lt;a href=&quot;#所遇问题&quot; class=&quot;headerlink&quot; title=&quot;所遇问题&quot;&gt;&lt;/a&gt;所遇问题&lt;/h1&gt;&lt;h2 id=&quot;数据库错误&quot;&gt;&lt;a href=&quot;#数据库错误&quot; class=&quot;headerlink&quot; title=&quot;数据库错误&quot;&gt;
-    
-    </summary>
-    
-      <category term="J2EE" scheme="https://super3h.me/categories/J2EE/"/>
-    
-    
-      <category term="J2EE" scheme="https://super3h.me/tags/J2EE/"/>
-    
-      <category term="Project" scheme="https://super3h.me/tags/Project/"/>
     
   </entry>
   
