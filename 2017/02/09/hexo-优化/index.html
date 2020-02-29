@@ -12,7 +12,6 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://super3h.github.io/2017/02/09/hexo-优化/">
     
     
     <title>hexo-优化 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
@@ -46,8 +45,12 @@
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/img/hhh_favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
 </head>
 
 <body>
@@ -65,7 +68,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">super3H</h5>
-          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+          <a href="mailto:super3h@foxmail.com" title="super3h@foxmail.com" class="mail">super3h@foxmail.com</a>
         </hgroup>
       </div>
     </div>
@@ -111,6 +114,13 @@
               <a href="http://www.weibo.com/5390009583" target="_blank" >
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
               </a>
             </li>
         
@@ -170,12 +180,13 @@
 <div class="container body-wrap">
     
     <aside class="post-widget">
-        <nav class="post-toc-wrap" id="post-toc">
+        <nav class="post-toc-wrap post-toc-shrink" id="post-toc">
             <h4>TOC</h4>
             <ol class="post-toc"><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#Hexo优化"><span class="post-toc-number">1.</span> <span class="post-toc-text">Hexo优化</span></a><ol class="post-toc-child"><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#静态文件压缩"><span class="post-toc-number">1.1.</span> <span class="post-toc-text">静态文件压缩</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#其他优化"><span class="post-toc-number">1.2.</span> <span class="post-toc-text">其他优化</span></a></li><li class="post-toc-item post-toc-level-2"><a class="post-toc-link" href="#网易云添加"><span class="post-toc-number">1.3.</span> <span class="post-toc-text">网易云添加</span></a></li></ol></li><li class="post-toc-item post-toc-level-1"><a class="post-toc-link" href="#多说评论修改"><span class="post-toc-number">2.</span> <span class="post-toc-text">多说评论修改</span></a></li></ol>
         </nav>
     </aside>
-    
+
+
 <article id="post-hexo-优化"
   class="post-article article-type-post fade" itemprop="blogPost">
 
@@ -194,8 +205,6 @@
     <i class="icon icon-eye icon-pr"></i><span id="busuanzi_value_page_pv"></span>
 </span>
 
-
-            
 
         </div>
         <div class="post-content" id="post-content" itemprop="postContent">
@@ -262,6 +271,7 @@
         </div>
 
         <blockquote class="post-copyright">
+    
     <div class="content">
         
 <span class="post-time">
@@ -273,6 +283,7 @@
         <font color='#D15585'>自我描述</font>：一个尴尬的年纪，没有儿时的勇气，年少的冲动，成熟的物质。消融了那些不切实际的臆想，也接受了很多难以为继的事实。一直在路上，未待完续。<br/><font color='#D15585'>转载请注明</font>：<a href="/2017/02/09/hexo-优化/" target="_blank" rel="external">https://super3h.github.io/2017/02/09/hexo-优化/</a>
         
     </div>
+    
     <footer>
         <a href="https://super3h.github.io">
             <img src="/img/hhh.jpg" alt="super3H">
@@ -379,24 +390,35 @@
 
 
 
-
-
-<section class="comments" id="comments">
-    <div id="gitment_thread"></div>
-    <link rel="stylesheet" href="//unpkg.com/gitment/style/default.css">
-    <script src="//unpkg.com/gitment/dist/gitment.browser.js"></script>
+    <!-- Valine Comments -->
+    <div class="comments vcomment" id="comments"></div>
+    <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+    <script src="//unpkg.com/valine@latest/dist/Valine.min.js"></script>
+    <!-- Valine Comments script -->
     <script>
-        var gitment = new Gitment({
-            owner: 'super3H',
-            repo: 'blogComment',
-            oauth: {
-                client_id: 'd9355ae5412db1666f0a',
-                client_secret: '4ffa502f5c2478a668cb46fa5c79c9e5b14b191b',
-            },
+        var GUEST_INFO = ['nick','mail','link'];
+        var guest_info = 'nick,mail,link'.split(',').filter(function(item){
+          return GUEST_INFO.indexOf(item) > -1
+        });
+        new Valine({
+            el: '#comments',
+            notify: 'false' == 'true',
+            verify: 'false' == 'true',
+            appId: "kNfP1WcKELqHErIIMdN7SDRs-gzGzoHsz",
+            appKey: "2Q4WDY35Kn8pQIcOqF0Xgs3i",
+            avatar: "mm",
+            placeholder: "Just go go",
+            guest_info: guest_info.length == 0 ? GUEST_INFO : guest_info,
+            pageSize: "10"
         })
-        gitment.render('comments')
     </script>
-</section>
+    <!-- Valine Comments end -->
+
+
+
+
+
+
 
 
 
@@ -410,21 +432,23 @@
         官人,给包辣条呗~
         <i class="icon icon-quote-right"></i>
     </h3>
-    <ul class="reward-items">
+    <div class="reward-content">
         
-        <li>
-            <img src="/img/hhh_wechat.png" title="微信打赏二维码" alt="微信打赏二维码">
-            <p>微信</p>
-        </li>
+        <div class="reward-code">
+            <img id="rewardCode" src="/img/hhh_wechat.png" alt="打赏二维码">
+        </div>
         
-
+        <label class="reward-toggle">
+            <input id="rewardToggle" type="checkbox" class="reward-toggle-check"
+                data-wechat="/img/hhh_wechat.png" data-alipay="/img/hhh_alipay.jpg">
+            <div class="reward-toggle-ctrol">
+                <span class="reward-toggle-item wechat">微信</span>
+                <span class="reward-toggle-label"></span>
+                <span class="reward-toggle-item alipay">支付宝</span>
+            </div>
+        </label>
         
-        <li>
-            <img src="/img/hhh_alipay.jpg" title="支付宝打赏二维码" alt="支付宝打赏二维码">
-            <p>支付宝</p>
-        </li>
-        
-    </ul>
+    </div>
 </div>
 
 
@@ -448,13 +472,15 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p>
-            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>super3H &copy; 2015 - 2020</span>
+        <p><span>super3H &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
         </p>
     </div>
 </footer>
@@ -515,12 +541,11 @@
 var BLOG = { ROOT: '/', SHARE: true, REWARD: true };
 
 
-
 lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.7"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -540,14 +565,14 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.6.7" async></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -556,10 +581,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '';
+            document.title = '死鬼去哪里了！';
             clearTimeout(titleTime);
         } else {
-            document.title = '';
+            document.title = '(つェ⊂)咦!又好了!';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);

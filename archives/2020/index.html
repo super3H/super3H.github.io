@@ -12,7 +12,6 @@
     <meta charset="utf-8">
     
     
-    <link rel="canonical" href="https://super3h.github.io/archives/2020/">
     
     
     <title>Archives: 2020 | HHH&#39;Blog | it&#39;s time to fight for myself</title>
@@ -35,8 +34,12 @@
         <link rel="alternate" type="application/atom+xml" title="HHH&#39;Blog" href="/atom.xml">
     
     <link rel="shortcut icon" href="/img/hhh_favicon.ico">
-    <link rel="stylesheet" href="/css/style.css?v=1.6.7">
+    <link rel="stylesheet" href="//unpkg.com/hexo-theme-material-indigo@latest/css/style.css">
     <script>window.lazyScripts=[]</script>
+
+    <!-- custom head -->
+    
+
 </head>
 
 <body>
@@ -54,7 +57,7 @@
         </a>
         <hgroup class="introduce">
           <h5 class="nickname">super3H</h5>
-          <a href="mailto:781176645@qq.com" title="781176645@qq.com" class="mail">781176645@qq.com</a>
+          <a href="mailto:super3h@foxmail.com" title="super3h@foxmail.com" class="mail">super3h@foxmail.com</a>
         </hgroup>
       </div>
     </div>
@@ -100,6 +103,13 @@
               <a href="http://www.weibo.com/5390009583" target="_blank" >
                 <i class="icon icon-lg icon-weibo"></i>
                 Weibo
+              </a>
+            </li>
+        
+            <li class="waves-block waves-effect">
+              <a href="/custom"  >
+                <i class="icon icon-lg icon-link"></i>
+                测试
               </a>
             </li>
         
@@ -211,13 +221,15 @@
             
                 <span><a href="/atom.xml" target="_blank" class="rss" title="rss"><i class="icon icon-lg icon-rss"></i></a></span>
             
-            <span>博客内容遵循<a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
+            <span>博客内容遵循 <a rel="license" href="https://creativecommons.org/licenses/by-nc-sa/4.0/deed.zh">知识共享 署名 - 非商业性 - 相同方式共享 4.0 国际协议</a></span>
         </p>
     </div>
     <div class="bottom">
-        <p>
-            <span>Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a></span>
-            <span>super3H &copy; 2015 - 2020</span>
+        <p><span>super3H &copy; 2015 - 2020</span>
+            <span>
+                
+                Power by <a href="http://hexo.io/" target="_blank">Hexo</a> Theme <a href="https://github.com/yscoder/hexo-theme-indigo" target="_blank">indigo</a>
+            </span>
         </p>
     </div>
 </footer>
@@ -278,12 +290,11 @@
 var BLOG = { ROOT: '/', SHARE: true, REWARD: false };
 
 
-
 lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
 
 </script>
 
-<script src="/js/main.min.js?v=1.6.7"></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/main.min.js"></script>
 
 
 <div class="search-panel" id="search-panel">
@@ -303,14 +314,14 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
 </li>
 </template>
 
-<script src="/js/search.min.js?v=1.6.7" async></script>
+<script src="//unpkg.com/hexo-theme-material-indigo@latest/js/search.min.js" async></script>
 
 
 
 
 
 
-<script async src="//dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script>
 
 
 
@@ -319,10 +330,10 @@ lazyScripts.push('//s95.cnzz.com/z_stat.php?id=1261839145&web_id=1261839145')
     var OriginTitile = document.title, titleTime;
     document.addEventListener('visibilitychange', function() {
         if (document.hidden) {
-            document.title = '';
+            document.title = '死鬼去哪里了！';
             clearTimeout(titleTime);
         } else {
-            document.title = '';
+            document.title = '(つェ⊂)咦!又好了!';
             titleTime = setTimeout(function() {
                 document.title = OriginTitile;
             },2000);
